@@ -1,0 +1,80 @@
+---
+title: "Figures"
+format: html
+---
+
+This script draws every figure in the analysis and saves it to `figures/` as a PNG file. The saved figures are shown on the [Results](results.qmd) page.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/figures.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/figures.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/setup.R)
+-   [`R/import_clean.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/import_clean.R)
+-   [`R/modeling.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/modeling.R)
+-   [`R/pca.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/pca.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/figures.R")
+```
+
+## Output folder
+
+```{r}
+#| label: setup-figures-dir
+#| eval: false
+```
+
+## Antibody levels by case status
+
+The data are reshaped to one row per participant per antibody, so that all seven antibodies can be drawn in one faceted plot. Each panel shows the distribution (grey violin), the median (horizontal bar), and each participant as a point, colored by transplanted organ and shaped by sex. A Wilcoxon p-value comparing cases with controls is printed in each panel. The y-axis is log-scaled. Participants without antibody measurements are excluded.
+
+```{r}
+#| label: faceted-titer-plot
+#| eval: false
+```
+
+## ROC curves
+
+The ROC curves fitted in [Regression, ROC and cutpoints](modeling.qmd) are redrawn into files, with the AUC printed on each.
+
+```{r}
+#| label: roc-curves
+#| eval: false
+```
+
+## Correlation between antibodies
+
+Pearson correlation matrices of the log antibody levels: for all participants with antibody data, then for cases and controls separately. These correlations motivated the sensitivity analysis and the PCA.
+
+```{r}
+#| label: correlation-plots
+#| eval: false
+```
+
+## PCA plots
+
+Each participant is plotted on the first two principal components, colored by case status, with 95% confidence ellipses for each group. The biplot adds an arrow for each antibody, showing how it loads on the two components.
+
+```{r}
+#| label: pca-plots
+#| eval: false
+```
+
+## Principal components are uncorrelated
+
+A check that the component scores are uncorrelated, as PCA guarantees.
+
+```{r}
+#| label: pca-component-correlation
+#| eval: false
+```

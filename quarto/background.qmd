@@ -1,0 +1,28 @@
+---
+title: "Clinical background"
+format: html
+---
+
+Cryptococcosis is the third most common invasive fungal disease in organ transplant recipients, and carries substantial mortality [@yoon2022antibody].
+
+Two kinds of antibody are relevant to *Cryptococcus neoformans*:
+
+-   **Glucuronoxylomannan (GXM)-binding antibodies** recognize the main component of the fungal polysaccharide capsule.
+-   **Laminarin (Lam)-binding antibodies** recognize a branched β-(1-3)-glucan found on the fungal cell wall.
+
+Both have been associated with cryptococcosis status or risk in people with and without HIV infection, but had not been studied in organ transplant recipients. This study measured them, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis [@yoon2022antibody].
+
+## Study design in brief
+
+-   **Setting:** University of Alabama at Birmingham; recruitment 1 January 2013 to 31 December 2018.
+-   **Cases:** organ transplant recipients with a history of posttransplant cryptococcosis, diagnosed by a positive cryptococcal antigen (CrAg) test or body fluid culture.
+-   **Controls:** organ transplant recipients with no such history.
+-   **Measurements:** serum total IgM, IgG1 and IgG2 (µg/mL, Luminex); GXM- and Lam-binding IgM and IgG (titers); serum CrAg by lateral flow assay.
+-   **Approvals:** the UAB Institutional Review Board approved the study, all patients gave written informed consent, and the samples were studied under an Albert Einstein College of Medicine IRB-approved protocol.
+
+See [`analysis-plan.md`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/analysis-plan.md) for the full specification.
+
+## References
+
+::: {#refs}
+:::

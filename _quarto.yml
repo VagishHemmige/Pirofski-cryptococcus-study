@@ -1,0 +1,89 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - quarto/**
+  # Cleared outputs shown on the Results page
+  resources:
+    - tables/*.html
+    - figures/*.png
+
+author:
+  - name: Vagish Hemmige
+    affiliations:
+      - Montefiore Medical Center/ Albert Einstein College of Medicine
+
+bibliography: references.bib
+
+website:
+  title: "Antibody profiles in transplant cryptococcosis"
+  site-url: https://vagishhemmige.github.io/Pirofski-cryptococcus-study
+  repo-url: https://github.com/VagishHemmige/Pirofski-cryptococcus-study
+  repo-branch: master
+  repo-actions: [edit, issue]
+  page-navigation: true
+
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - href: index.qmd
+        text: Home
+
+      - section: Background
+        contents:
+          - href: quarto/background.qmd
+            text: Clinical background
+
+      - section: Setup and helper functions
+        contents:
+          - href: quarto/setup.qmd
+            text: Setup
+          - href: quarto/functions.qmd
+            text: Functions
+
+      - section: Data processing and analysis
+        contents:
+          - href: quarto/import_clean.qmd
+            text: 1. Import and clean data
+          - href: quarto/modeling.qmd
+            text: 2. Regression, ROC and cutpoints
+          - href: quarto/pca.qmd
+            text: 3. Principal component analysis
+
+      - section: Tables and figures
+        contents:
+          - href: quarto/tables.qmd
+            text: Tables
+          - href: quarto/figures.qmd
+            text: Figures
+
+      - href: quarto/results.qmd
+        text: Results
+
+      - href: quarto/about.qmd
+        text: About
+
+custom-callout:
+  Rcode:
+    icon: true
+    icon-symbol: "💻"
+    color: pink
+
+filters:
+  - custom-callout
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-fold: true
+    code-tools: true
+    page-layout: full
+    code-summary: "Click to show/hide R Code"
+
+# The site shows code; it never runs the analysis. Chunks that must run
+# (read_chunk imports, and the results page reading cleared outputs) set eval: true.
+execute:
+  eval: false

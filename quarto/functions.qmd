@@ -1,0 +1,61 @@
+---
+title: "Functions"
+format: html
+---
+
+This script defines the helper functions that export and summarize tables. None of them changes an estimate. They are new in the repository version: the original R Markdown file printed its results inline, and scripts run with `source()` need to save them instead.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/functions.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/functions.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/setup.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/functions.R")
+```
+
+## Save a gtsummary table
+
+Converts any `gtsummary` table (Table 1, regression and merged tables) to a `gt` table and saves it as a self-contained HTML file. Used by [Tables](tables.qmd).
+
+```{r}
+#| label: save-gtsummary-html
+#| eval: false
+```
+
+## Save a data frame as a table
+
+Formats a data frame with `flextable` and saves it as HTML. Used for the cryptococcal antigen counts, AUC confidence intervals and optimal cutpoints.
+
+```{r}
+#| label: save-flextable-html
+#| eval: false
+```
+
+## Summarize an optimal cutpoint
+
+Takes one `cutpointr` result from [Regression, ROC and cutpoints](modeling.qmd) and returns one row: the optimal cutpoint and its sensitivity, specificity, positive and negative predictive value, and AUC. Nothing is recomputed; the values are read from the `cutpointr` object.
+
+```{r}
+#| label: summarise-cutpoint
+#| eval: false
+```
+
+## Summarize AUC confidence intervals
+
+Takes the DeLong and bootstrap results of `pROC::ci.auc()` for one ROC curve and returns one row with the AUC and both 95% confidence intervals. `ci.auc()` returns the lower limit, the AUC and the upper limit, in that order.
+
+```{r}
+#| label: summarise-auc-ci
+#| eval: false
+```

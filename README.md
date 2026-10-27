@@ -1,0 +1,54 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- badges: start -->
+
+[![Status](https://img.shields.io/badge/status-published-brightgreen)](https://doi.org/10.1093/ofid/ofac211)
+[![Paper](https://img.shields.io/badge/Open_Forum_Infect_Dis-2022-blue)](https://doi.org/10.1093/ofid/ofac211)
+<!-- badges: end -->
+
+# Antibody profiles in organ transplant recipients with and without cryptococcosis
+
+This repository contains the analysis code for a case–control study of
+23 organ transplant recipients with posttransplant cryptococcosis and 21
+without, recruited at the University of Alabama at Birmingham between
+2013 and 2018. It compares cryptococcus-specific antibodies
+(glucuronoxylomannan- and laminarin-binding IgM and IgG) and total IgM,
+IgG1 and IgG2 between cases and controls, using logistic regression, ROC
+analysis, optimal cutpoints and principal component analysis.
+
+The study is published:
+
+> Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and
+> non-specific antibody profiles in organ transplant recipients with and
+> without cryptococcosis. *Open Forum Infectious Diseases*.
+> 2022;9(7):ofac211.
+> [doi:10.1093/ofid/ofac211](https://doi.org/10.1093/ofid/ofac211)
+
+The analysis website, which explains the code step by step and shows the
+results, is at:
+<https://vagishhemmige.github.io/Pirofski-cryptococcus-study/>
+
+## Documentation
+
+- [`analysis-plan.md`](analysis-plan.md): what the analysis does
+- [`ARCHITECTURE.md`](ARCHITECTURE.md): how the code is organized
+- [`AGENTS.md`](AGENTS.md): how to work in this repository
+- [Issues](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/issues):
+  open questions and known gaps
+
+## Running the analysis
+
+The study data are restricted and are not included. With authorized
+access:
+
+1.  Put the study workbook in `data-raw/` (ignored by Git), or change
+    `raw_data_path` in `R/setup.R`.
+2.  Install the packages attached in `R/setup.R`. `bstfun` is installed
+    from GitHub: `remotes::install_github("MSKCC-Epi-Bio/bstfun")`.
+3.  Run `R/main.R` from the project root in a fresh R session. Tables
+    are written to `tables/` and figures to `figures/`.
+4.  Render the website with `quarto render`.
+
+The analysis code is the published 2022 analysis, reorganized into
+scripts without changing its logic.
