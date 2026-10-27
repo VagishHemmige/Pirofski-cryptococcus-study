@@ -1,0 +1,52 @@
+# R, RStudio and Positron
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.httr-oauth
+.DS_Store
+
+# Quarto (docs/ is NOT ignored: it is the published site, rendered from synthetic data only)
+/.quarto/
+**/*.quarto_ipynb
+
+# Credentials
+.Renviron
+.env
+*.pem
+*.key
+
+# Restricted study data (UAB transplant cohort). Kept local only.
+# This is a safety net, not access control: ignored files are still readable on disk.
+/data-raw/
+
+# Original materials (2022 .Rmd, knitted HTML on real data, EndNote library). Kept local only.
+/Archive/
+
+# Data files: safety net in case a data file is saved anywhere else
+*.csv
+*.xlsx
+*.xls
+*.rds
+*.rda
+*.sas7bdat
+*.sas7bcat
+*.xpt
+*.dta
+*.sav
+*.parquet
+*.feather
+*.arrow
+*.fst
+
+# Outputs: figures/ and tables/ are tracked. The investigator confirmed (2026-10-26)
+# that results from this analysis are cleared for public release (published in
+# Open Forum Infect Dis 2022, doi:10.1093/ofid/ofac211).
+# Note: tables saved as .csv or .rds are still hidden by the data patterns above;
+# add a narrow exception for each cleared table file if one is ever needed.
+
+# Approved public files: narrow exceptions only, never a whole format.
+# (None: no data of any kind is committed to this repository.)
+.Rproj.user
+.Rdata
+.quarto
