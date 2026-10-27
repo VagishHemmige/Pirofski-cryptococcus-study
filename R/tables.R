@@ -2,7 +2,8 @@
 # Needs: CleanData, CleanData_NoMissingTiters, CategoricalVariables,
 #   ContinuousVariables (import_clean.R); regression tables, ROC CIs and
 #   cutpoints (modeling.R); PCA, pc_regression_table (pca.R); helper functions
-#   (functions.R); tables_dir (setup.R).
+#   (functions.R); tables_dir, display_variable_labels, display_level_labels
+#   (setup.R).
 # Produces: HTML tables in tables/.
 # Source: the Table 1 and cryptococcal antigen code is the "exploratoryanalysis"
 #   chunk of the original 2022 R Markdown file, unchanged apart from assigning
@@ -58,15 +59,17 @@ cutpoint_summary <- bind_rows(
 )
 
 ## ---- export-tables
+# gtsummary tables are relabeled for display (relabel_table() in functions.R)
+# just before they are saved; the table objects themselves are unchanged.
 dir.create(tables_dir, showWarnings = FALSE)
 
-save_gtsummary_html(table1_all, file.path(tables_dir, "table1_all.html"))
-save_gtsummary_html(table1_no_missing_titers, file.path(tables_dir, "table1_no_missing_titers.html"))
-save_gtsummary_html(regression_table_titer, file.path(tables_dir, "regression_titer.html"))
-save_gtsummary_html(regression_table_logtiter_2, file.path(tables_dir, "regression_log_titer_models1_2.html"))
-save_gtsummary_html(sensitivity_table_log_lam_igm, file.path(tables_dir, "sensitivity_log_lam_igm.html"))
-save_gtsummary_html(sensitivity_table_log_gxm_igm, file.path(tables_dir, "sensitivity_log_gxm_igm.html"))
-save_gtsummary_html(pc_regression_table, file.path(tables_dir, "regression_principal_components.html"))
+save_gtsummary_html(relabel_table(table1_all, display_variable_labels, display_level_labels), file.path(tables_dir, "table1_all.html"))
+save_gtsummary_html(relabel_table(table1_no_missing_titers, display_variable_labels, display_level_labels), file.path(tables_dir, "table1_no_missing_titers.html"))
+save_gtsummary_html(relabel_table(regression_table_titer, display_variable_labels, display_level_labels), file.path(tables_dir, "regression_titer.html"))
+save_gtsummary_html(relabel_table(regression_table_logtiter_2, display_variable_labels, display_level_labels), file.path(tables_dir, "regression_log_titer_models1_2.html"))
+save_gtsummary_html(relabel_table(sensitivity_table_log_lam_igm, display_variable_labels, display_level_labels), file.path(tables_dir, "sensitivity_log_lam_igm.html"))
+save_gtsummary_html(relabel_table(sensitivity_table_log_gxm_igm, display_variable_labels, display_level_labels), file.path(tables_dir, "sensitivity_log_gxm_igm.html"))
+save_gtsummary_html(relabel_table(pc_regression_table, display_variable_labels, display_level_labels), file.path(tables_dir, "regression_principal_components.html"))
 
 # CrAg counts are computed for internal review only; not exported (not cleared for release)
 save_flextable_html(auc_ci_summary, file.path(tables_dir, "auc_confidence_intervals.html"))
