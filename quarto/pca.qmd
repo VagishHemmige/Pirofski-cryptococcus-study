@@ -27,7 +27,7 @@ knitr::read_chunk("../R/pca.R")
 
 ## Why PCA
 
-The antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM, which makes their individual coefficients in a joint regression model unstable. PCA replaces the seven correlated measurements with seven uncorrelated components that keep all of their variance [@yoon2022antibody].
+The antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM (see the correlation plots in [Figures](figures.qmd)), which makes their individual coefficients in a joint regression model unstable. PCA was used to account for this correlation [@yoon2022antibody]: it re-expresses the seven measurements as seven uncorrelated components. The first component, PC1, acts as a summary score of overall antibody level. It runs opposite to the antibodies, so a higher PC1 means lower antibody levels.
 
 ## Fit the PCA
 
@@ -49,7 +49,7 @@ Each participant's scores on the seven components are added to the data. [Figure
 
 ## Do the components predict cryptococcosis?
 
-A logistic regression of cryptococcosis status on all seven components.
+A logistic regression of cryptococcosis status on all seven components. Because all seven are included, the model as a whole fits exactly as well as one using the seven log antibodies directly; the difference is that each component's coefficient can be read separately. The question of interest is whether the summary score, PC1, is associated with case status.
 
 ```{r}
 #| label: pca-regression

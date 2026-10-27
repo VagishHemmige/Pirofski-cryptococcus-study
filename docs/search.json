@@ -645,7 +645,7 @@
     "href": "quarto/pca.html#why-pca",
     "title": "3. Principal component analysis",
     "section": "Why PCA",
-    "text": "Why PCA\nThe antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM, which makes their individual coefficients in a joint regression model unstable. PCA replaces the seven correlated measurements with seven uncorrelated components that keep all of their variance (Yoon et al. 2022).",
+    "text": "Why PCA\nThe antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM (see the correlation plots in Figures), which makes their individual coefficients in a joint regression model unstable. PCA was used to account for this correlation (Yoon et al. 2022): it re-expresses the seven measurements as seven uncorrelated components. The first component, PC1, acts as a summary score of overall antibody level. It runs opposite to the antibodies, so a higher PC1 means lower antibody levels.",
     "crumbs": [
       "Data processing and analysis",
       "3. Principal component analysis"
@@ -678,7 +678,7 @@
     "href": "quarto/pca.html#do-the-components-predict-cryptococcosis",
     "title": "3. Principal component analysis",
     "section": "Do the components predict cryptococcosis?",
-    "text": "Do the components predict cryptococcosis?\nA logistic regression of cryptococcosis status on all seven components.\n\n\nClick to show/hide R Code\n#Are the principal components predictors of cryptococcus status?\npc_regression_table &lt;- glm(HasCryptococcus ~ PC1+PC2+PC3+PC4+PC5+PC6+PC7, family = binomial, data=PCAData) %&gt;%\n  tbl_regression(., exponentiate = TRUE)%&gt;%\n  bold_p()",
+    "text": "Do the components predict cryptococcosis?\nA logistic regression of cryptococcosis status on all seven components. Because all seven are included, the model as a whole fits exactly as well as one using the seven log antibodies directly; the difference is that each component’s coefficient can be read separately. The question of interest is whether the summary score, PC1, is associated with case status.\n\n\nClick to show/hide R Code\n#Are the principal components predictors of cryptococcus status?\npc_regression_table &lt;- glm(HasCryptococcus ~ PC1+PC2+PC3+PC4+PC5+PC6+PC7, family = binomial, data=PCAData) %&gt;%\n  tbl_regression(., exponentiate = TRUE)%&gt;%\n  bold_p()",
     "crumbs": [
       "Data processing and analysis",
       "3. Principal component analysis"
