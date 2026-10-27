@@ -72,7 +72,7 @@ The site documents the code. It does not run the analysis.
 
 ## Outputs
 
-- Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` (HTML) and `figures/` (PNG). They are tracked: the deciders confirmed on 2026-10-26 that the results of this published analysis are cleared for public release.
+- Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` (HTML) and `figures/` (PNG), and are tracked. A new export needs a decider's clearance first, and tables of raw or free-text values, or cells that describe a single participant, are not exported unless a decider explicitly clears them.
 - Only an authorized person runs `R/main.R` on the real workbook and commits the resulting `tables/`, `figures/` and `docs/`.
 - Published figures need alt text.
 - `README.Rmd` is the source of `README.md`; edit the `.Rmd` and re-knit.
