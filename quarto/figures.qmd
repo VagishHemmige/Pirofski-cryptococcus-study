@@ -63,7 +63,7 @@ Pearson correlation matrices of the log antibody levels: for all participants wi
 
 ## PCA plots
 
-Each participant is plotted on the first two principal components, colored by case status, with 95% confidence ellipses for each group. The biplot adds an arrow for each antibody, showing how it loads on the two components.
+Each participant is plotted on the first two principal components, colored by case status, with a 95% confidence ellipse around each group's mean. The biplot adds an arrow for each antibody, showing how it loads on the two components.
 
 ```{r}
 #| label: pca-plots
