@@ -2,11 +2,9 @@
 
 Status: retrospective record of the analysis as published [@yoon2022antibody]. This plan was written in 2026 from the published methods and the original 2022 analysis code. It was not prospectively locked, and the analysis was not registered.
 
-## Scope and reporting framework
+## Scope
 
 This document is the authoritative specification of the study's scientific objectives, population, definitions and statistical methods. `ARCHITECTURE.md` documents the implementation, `AGENTS.md` the working conventions, and GitHub Issues any open questions. Neither file supersedes this plan.
-
-The study is a case–control study. Reporting follows STROBE [@vonelm2007strobe]; the reporting map below links each checklist item to a section of this plan.
 
 ## 1. Objective
 
@@ -67,27 +65,9 @@ Single-center case–control study. Antibodies were measured once, after transpl
 
 The study data are participant-level and restricted; they are never committed to the repository. Results from this analysis were published [@yoon2022antibody], and the investigators confirmed on 2026-10-26 that the tables and figures produced by this code are cleared for public release.
 
-## 9. Limitations to address in reporting
+## 9. Limitations
 
 As stated in the publication [@yoon2022antibody]: retrospective, single-center design; variable time between transplantation, cryptococcosis and enrollment; cases and controls not recruited concurrently; a single, non-standardized blood sample with no pre-cryptococcosis sample; no causal inference; B-cell subsets and cellular immunity not assessed; no cohort without immunosuppression; possible unmeasured confounding (cirrhosis, hematologic malignancy, chemotherapy); small sample size.
-
-## 10. Reporting map
-
-| Checklist item | Topic | Plan section |
-|---|---|---|
-| STROBE 1–3 | Title, abstract, background and rationale | 1 |
-| STROBE 4 | Study design | 2 |
-| STROBE 5 | Setting, locations, dates | 3 |
-| STROBE 6 | Participants: case and control definitions and selection | 4 |
-| STROBE 7 | Variables: outcome, exposures, confounders | 5 |
-| STROBE 8 | Data sources and measurement | 3, 5 |
-| STROBE 9 | Bias | 9 |
-| STROBE 10 | Study size | 4 |
-| STROBE 11 | Quantitative variables | 5, 6 |
-| STROBE 12 | Statistical methods, missing data, sensitivity analyses | 6, 7 |
-| STROBE 13–17 | Participants, descriptive data, outcome data, main results, other analyses | 4, 6, 7 |
-| STROBE 18–21 | Key results, limitations, interpretation, generalizability | 9 |
-| STROBE 22 | Funding | Publication |
 
 ## References
 
