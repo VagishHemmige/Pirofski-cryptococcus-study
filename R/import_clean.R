@@ -16,7 +16,7 @@ CleanData<-RawData %>%
   mutate(Drugs=toupper(Drugs)) %>%
   #DrugCNI variable is positive if drug regimen includes PRO (Prograf), T (tacrolimus), or CYC (cyclosporine)
   mutate(DrugCNI=grepl('PRO',Drugs)|grepl('T',Drugs)|grepl('CYC',Drugs)) %>%
-  #DrugCNI variable is positive if drug regimen includes M (mycophenolate) or CELL (Cellcept)
+  #DrugMycophenolate variable is positive if drug regimen includes M (mycophenolate) or CELL (Cellcept)
   mutate(DrugMycophenolate=grepl('M',Drugs)|grepl('CELL',Drugs)) %>%
   #DrugMTOR variable is positive if drug regimen includes SIR (sirolimus) or EVER (everolimus)
   mutate(DrugMTOR=grepl('SIR',Drugs)|grepl('EVER',Drugs)) %>%

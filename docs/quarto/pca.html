@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -99,10 +99,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-261e60fdf64a0e003ec2340fd2db30d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-243619feadb355500505c6593e83032b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -369,7 +369,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </div>
 <section id="why-pca" class="level2">
 <h2 class="anchored" data-anchor-id="why-pca">Why PCA</h2>
-<p>The antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM, which makes their individual coefficients in a joint regression model unstable. PCA replaces the seven correlated measurements with seven uncorrelated components that keep all of their variance <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</p>
+<p>The antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM (see the correlation plots in <a href="../quarto/figures.html">Figures</a>), which makes their individual coefficients in a joint regression model unstable. PCA was used to account for this correlation <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>: it re-expresses the seven measurements as seven uncorrelated components. The first component, PC1, acts as a summary score of overall antibody level. It runs opposite to the antibodies, so a higher PC1 means lower antibody levels.</p>
 </section>
 <section id="fit-the-pca" class="level2">
 <h2 class="anchored" data-anchor-id="fit-the-pca">Fit the PCA</h2>
@@ -400,7 +400,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 <section id="do-the-components-predict-cryptococcosis" class="level2">
 <h2 class="anchored" data-anchor-id="do-the-components-predict-cryptococcosis">Do the components predict cryptococcosis?</h2>
-<p>A logistic regression of cryptococcosis status on all seven components.</p>
+<p>A logistic regression of cryptococcosis status on all seven components. Because all seven are included, the model as a whole fits exactly as well as one using the seven log antibodies directly; the difference is that each component’s coefficient can be read separately. The question of interest is whether the summary score, PC1, is associated with case status.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -917,7 +917,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Why PCA</span></span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>The antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM, which makes their individual coefficients in a joint regression model unstable. PCA replaces the seven correlated measurements with seven uncorrelated components that keep all of their variance <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>The antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM (see the correlation plots in <span class="co">[</span><span class="ot">Figures</span><span class="co">](figures.qmd)</span>), which makes their individual coefficients in a joint regression model unstable. PCA was used to account for this correlation <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>: it re-expresses the seven measurements as seven uncorrelated components. The first component, PC1, acts as a summary score of overall antibody level. It runs opposite to the antibodies, so a higher PC1 means lower antibody levels.</span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fit the PCA</span></span>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
@@ -939,7 +939,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Do the components predict cryptococcosis?</span></span>
 <span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>A logistic regression of cryptococcosis status on all seven components.</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>A logistic regression of cryptococcosis status on all seven components. Because all seven are included, the model as a whole fits exactly as well as one using the seven log antibodies directly; the difference is that each component's coefficient can be read separately. The question of interest is whether the summary score, PC1, is associated with case status.</span>
 <span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: pca-regression</span></span>

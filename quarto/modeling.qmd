@@ -83,7 +83,7 @@ Model 1 is the paper's main multivariable model. Model 2 checks that the higher 
 
 ## ROC curves and AUC confidence intervals
 
-ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals: DeLong's analytic method and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.
+ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals, computed with pROC [@robin2011proc]: DeLong's analytic method [@delong1988] and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.
 
 ```{r}
 #| label: roc-log-titer-models
@@ -101,7 +101,7 @@ GXM-IgM and Lam-IgM are strongly correlated, so with both in one model neither i
 
 ## Optimal titer cutpoints
 
-`cutpointr()` finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity, with case status as the positive class. `add_metric()` adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them.
+`cutpointr()` finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity (the Youden index [@youden1950]) [@thiele2021cutpointr], with case status as the positive class. `add_metric()` adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them, which tends to overstate their performance [@ewald2006cutpoints].
 
 ```{r}
 #| label: optimal-cutpoints

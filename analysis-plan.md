@@ -22,13 +22,13 @@ Single-center case–control study. Antibodies were measured once, after transpl
 - **Clinical data:** abstracted from the medical record: type and year of transplant, age, sex, race and the immunosuppression regimen at enrollment; for cases, site of infection and time from diagnosis to sample collection.
 - **Laboratory data:** serum total IgM, IgG1 and IgG2 by Luminex (µg/mL); GXM- and Lam-binding IgM and IgG reported as titers; serum cryptococcal antigen (CrAg) by lateral flow assay.
 - **Analysis file:** one Excel workbook, sheet `Data`, one row per participant. The workbook is restricted and is not part of the repository.
-- **Approvals:** UAB Institutional Review Board approval with written informed consent; samples studied under an Albert Einstein College of Medicine IRB-approved protocol.
+- **Approvals:** The UAB Institutional Review Board approved the study and all participants gave written informed consent; the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its IRB.
 
 ## 4. Study population
 
 - **Cases:** organ transplant recipients with a history of posttransplant cryptococcosis diagnosed by a positive CrAg test or body fluid culture.
 - **Controls:** organ transplant recipients without a history of posttransplant cryptococcosis.
-- **Exclusion:** one participant recruited as a control was excluded because the serum CrAg was positive (study ID 116).
+- **Exclusion:** one participant recruited as a control was excluded because the serum CrAg was positive. This exclusion is applied in the original 2022 analysis code; the publication reports the final sample only.
 - **Analytic sample:** 23 cases and 21 controls. Antibody data are missing for 2 cases; analyses requiring antibody data use the participants with measurements.
 
 ## 5. Variables
@@ -49,11 +49,11 @@ Single-center case–control study. Antibodies were measured once, after transpl
    - Original scale: sex + Lam-IgM.
    - Log scale, model 1: sex + log Lam-IgM + log GXM-IgM.
    - Log scale, model 2: log Lam-IgM + log GXM-IgM, to check that sex is not driving the discrimination.
-5. **Discrimination.** ROC curves from each multivariable model's predicted probabilities, with the AUC and 95% confidence intervals by DeLong's method and by bootstrap. Predicted probabilities are computed on the data used to fit the model.
-6. **Optimal cutpoints** for GXM-IgM and Lam-IgM (original and log scale), chosen to maximize the sum of sensitivity and specificity, with sensitivity, specificity and positive and negative predictive values at the cutpoint. Cutpoints are chosen and evaluated on the same data.
+5. **Discrimination.** ROC curves and AUCs from the predicted probabilities of three multivariable models: sex + Lam-IgM on the original scale, and log-scale models 1 and 2. For log-scale models 1 and 2, 95% confidence intervals are computed by DeLong's method [@delong1988] and by bootstrap, using pROC [@robin2011proc]. Predicted probabilities are computed on the data used to fit the model.
+6. **Optimal cutpoints** for GXM-IgM and Lam-IgM (original and log scale), chosen to maximize the sum of sensitivity and specificity (the Youden index [@youden1950]; cutpointr [@thiele2021cutpointr]), with sensitivity, specificity and positive and negative predictive values at the cutpoint. Cutpoints are chosen and evaluated on the same data, which tends to overstate performance [@ewald2006cutpoints].
 7. **Correlation and principal component analysis.** Pearson correlations between the log antibodies (all participants, cases, controls). PCA of the seven standardized log antibodies, and logistic regression of case status on the seven components.
 8. **Missing data:** complete-case analysis; no imputation.
-9. **Software:** R and RStudio.
+9. **Software:** R 4.3.2 [@rcore2023] and RStudio; tables with gtsummary [@sjoberg2021gtsummary].
 
 ## 7. Sensitivity analyses
 

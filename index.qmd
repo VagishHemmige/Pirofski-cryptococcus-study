@@ -5,7 +5,7 @@ format: html
 
 ## Clinical background
 
-Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the *Cryptococcus neoformans* capsular polysaccharide glucuronoxylomannan (GXM) and the cell-wall β-glucan laminarin (Lam) have been associated with cryptococcosis in other populations, but had not been studied in organ transplant recipients [@yoon2022antibody]. More detail is on the [clinical background](quarto/background.qmd) page.
+Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the *Cryptococcus neoformans* capsular polysaccharide glucuronoxylomannan (GXM), and antibodies that bind laminarin (Lam), an algal β-glucan used as a stand-in for fungal cell-wall β-glucan [@torosantucci2005lam], have been associated with cryptococcosis in people with HIV [@subramaniam2005uganda; @hlupeni2018crag; @yoon2019ciris] and without HIV [@rohatgi2017hivneg]. In organ transplant recipients, one earlier study measured GXM-binding antibodies before and after transplantation [@jalali2006gxm]; laminarin-binding antibodies had not been studied. More detail is on the [clinical background](quarto/background.qmd) page.
 
 ## What this analysis does
 

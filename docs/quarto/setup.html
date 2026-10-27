@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -99,10 +99,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-261e60fdf64a0e003ec2340fd2db30d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-243619feadb355500505c6593e83032b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -364,9 +364,9 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <p>The package list is the one used for the published analysis:</p>
 <ul>
 <li><strong>Data import and management:</strong> <code>readxl</code> reads the Excel workbook; <code>tidyverse</code> (including <code>stringr</code>) handles cleaning and reshaping <span class="citation" data-cites="wickham2019tidyverse">(<a href="#ref-wickham2019tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>; <code>haven</code> supplies <code>as_factor()</code>, used to turn categorical variables into factors.</li>
-<li><strong>Tables:</strong> <code>gtsummary</code> builds Table 1 and the regression tables; <code>bstfun</code> adds the inline forest plots to those tables; <code>flextable</code> formats the PCA eigenvalue table.</li>
+<li><strong>Tables:</strong> <code>gtsummary</code> builds Table 1 and the regression tables <span class="citation" data-cites="sjoberg2021gtsummary">(<a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">Sjoberg et al. 2021</a>)</span>; <code>bstfun</code> adds the inline forest plots to those tables; <code>flextable</code> formats the PCA eigenvalue table.</li>
 <li><strong>Figures:</strong> <code>ggplot2</code>, <code>ggbeeswarm</code> (quasirandom points) and <code>ggpubr</code> (Wilcoxon p-values on the plot); <code>corrplot</code> for correlation matrices.</li>
-<li><strong>Modeling:</strong> <code>broom</code> for tidy model output; <code>pROC</code> for ROC curves and AUC confidence intervals; <code>cutpointr</code> for optimal titer cutpoints; <code>factoextra</code> for PCA eigenvalues and plots.</li>
+<li><strong>Modeling:</strong> <code>broom</code> (attached, but not called directly by the scripts); <code>pROC</code> for ROC curves and AUC confidence intervals <span class="citation" data-cites="robin2011proc">(<a href="#ref-robin2011proc" role="doc-biblioref">Robin et al. 2011</a>)</span>; <code>cutpointr</code> for optimal titer cutpoints <span class="citation" data-cites="thiele2021cutpointr">(<a href="#ref-thiele2021cutpointr" role="doc-biblioref">Thiele and Hirschfeld 2021</a>)</span>; <code>factoextra</code> for PCA eigenvalues and plots.</li>
 </ul>
 <p><code>bstfun</code> is not on CRAN; install it from GitHub with <code>remotes::install_github("MSKCC-Epi-Bio/bstfun")</code>.</p>
 <div class="cell">
@@ -417,6 +417,15 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-robin2011proc" class="csl-entry" role="listitem">
+Robin, Xavier, Natacha Turck, Alexandre Hainard, et al. 2011. <span>“<span class="nocase">pROC</span>: An Open-Source Package for <span>R</span> and <span>S+</span> to Analyze and Compare <span>ROC</span> Curves.”</span> <em>BMC Bioinformatics</em> 12: 77. <a href="https://doi.org/10.1186/1471-2105-12-77">https://doi.org/10.1186/1471-2105-12-77</a>.
+</div>
+<div id="ref-sjoberg2021gtsummary" class="csl-entry" role="listitem">
+Sjoberg, Daniel D, Karissa Whiting, Michael Curry, Jessica A Lavery, and Joseph Larmarange. 2021. <span>“Reproducible Summary Tables with the Gtsummary Package.”</span> <em>The R Journal</em> 13 (1): 570–80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
+</div>
+<div id="ref-thiele2021cutpointr" class="csl-entry" role="listitem">
+Thiele, Christian, and Gerrit Hirschfeld. 2021. <span>“Cutpointr: Improved Estimation and Validation of Optimal Cutpoints in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 98 (11): 1–27. <a href="https://doi.org/10.18637/jss.v098.i11">https://doi.org/10.18637/jss.v098.i11</a>.
+</div>
 <div id="ref-wickham2019tidyverse" class="csl-entry" role="listitem">
 Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
@@ -911,9 +920,9 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019. <span>“Welcome to 
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>The package list is the one used for the published analysis:</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Data import and management:** <span class="in">`readxl`</span> reads the Excel workbook; <span class="in">`tidyverse`</span> (including <span class="in">`stringr`</span>) handles cleaning and reshaping <span class="co">[</span><span class="ot">@wickham2019tidyverse</span><span class="co">]</span>; <span class="in">`haven`</span> supplies <span class="in">`as_factor()`</span>, used to turn categorical variables into factors.</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Tables:** <span class="in">`gtsummary`</span> builds Table 1 and the regression tables; <span class="in">`bstfun`</span> adds the inline forest plots to those tables; <span class="in">`flextable`</span> formats the PCA eigenvalue table.</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Tables:** <span class="in">`gtsummary`</span> builds Table 1 and the regression tables <span class="co">[</span><span class="ot">@sjoberg2021gtsummary</span><span class="co">]</span>; <span class="in">`bstfun`</span> adds the inline forest plots to those tables; <span class="in">`flextable`</span> formats the PCA eigenvalue table.</span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Figures:** <span class="in">`ggplot2`</span>, <span class="in">`ggbeeswarm`</span> (quasirandom points) and <span class="in">`ggpubr`</span> (Wilcoxon p-values on the plot); <span class="in">`corrplot`</span> for correlation matrices.</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Modeling:** <span class="in">`broom`</span> for tidy model output; <span class="in">`pROC`</span> for ROC curves and AUC confidence intervals; <span class="in">`cutpointr`</span> for optimal titer cutpoints; <span class="in">`factoextra`</span> for PCA eigenvalues and plots.</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Modeling:** <span class="in">`broom`</span> (attached, but not called directly by the scripts); <span class="in">`pROC`</span> for ROC curves and AUC confidence intervals <span class="co">[</span><span class="ot">@robin2011proc</span><span class="co">]</span>; <span class="in">`cutpointr`</span> for optimal titer cutpoints <span class="co">[</span><span class="ot">@thiele2021cutpointr</span><span class="co">]</span>; <span class="in">`factoextra`</span> for PCA eigenvalues and plots.</span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="in">`bstfun`</span> is not on CRAN; install it from GitHub with <span class="in">`remotes::install_github("MSKCC-Epi-Bio/bstfun")`</span>.</span>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -99,10 +99,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-261e60fdf64a0e003ec2340fd2db30d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-243619feadb355500505c6593e83032b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -507,7 +507,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 <section id="roc-curves-and-auc-confidence-intervals" class="level2">
 <h2 class="anchored" data-anchor-id="roc-curves-and-auc-confidence-intervals">ROC curves and AUC confidence intervals</h2>
-<p>ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals: DeLong’s analytic method and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.</p>
+<p>ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals, computed with pROC <span class="citation" data-cites="robin2011proc">(<a href="#ref-robin2011proc" role="doc-biblioref">Robin et al. 2011</a>)</span>: DeLong’s analytic method <span class="citation" data-cites="delong1988">(<a href="#ref-delong1988" role="doc-biblioref">DeLong et al. 1988</a>)</span> and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -552,7 +552,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 <section id="optimal-titer-cutpoints" class="level2">
 <h2 class="anchored" data-anchor-id="optimal-titer-cutpoints">Optimal titer cutpoints</h2>
-<p><code>cutpointr()</code> finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity, with case status as the positive class. <code>add_metric()</code> adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them.</p>
+<p><code>cutpointr()</code> finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity (the Youden index <span class="citation" data-cites="youden1950">(<a href="#ref-youden1950" role="doc-biblioref">Youden 1950</a>)</span>) <span class="citation" data-cites="thiele2021cutpointr">(<a href="#ref-thiele2021cutpointr" role="doc-biblioref">Thiele and Hirschfeld 2021</a>)</span>, with case status as the positive class. <code>add_metric()</code> adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them, which tends to overstate their performance <span class="citation" data-cites="ewald2006cutpoints">(<a href="#ref-ewald2006cutpoints" role="doc-biblioref">Ewald 2006</a>)</span>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -578,8 +578,23 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-delong1988" class="csl-entry" role="listitem">
+DeLong, Elizabeth R, David M DeLong, and Daniel L Clarke-Pearson. 1988. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/3203132">Comparing the Areas Under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach</a>.”</span> <em>Biometrics</em> 44 (3): 837–45.
+</div>
+<div id="ref-ewald2006cutpoints" class="csl-entry" role="listitem">
+Ewald, Ben. 2006. <span>“Post Hoc Choice of Cut Points Introduced Bias to Diagnostic Research.”</span> <em>Journal of Clinical Epidemiology</em> 59 (8): 798–801. <a href="https://doi.org/10.1016/j.jclinepi.2005.11.025">https://doi.org/10.1016/j.jclinepi.2005.11.025</a>.
+</div>
+<div id="ref-robin2011proc" class="csl-entry" role="listitem">
+Robin, Xavier, Natacha Turck, Alexandre Hainard, et al. 2011. <span>“<span class="nocase">pROC</span>: An Open-Source Package for <span>R</span> and <span>S+</span> to Analyze and Compare <span>ROC</span> Curves.”</span> <em>BMC Bioinformatics</em> 12: 77. <a href="https://doi.org/10.1186/1471-2105-12-77">https://doi.org/10.1186/1471-2105-12-77</a>.
+</div>
+<div id="ref-thiele2021cutpointr" class="csl-entry" role="listitem">
+Thiele, Christian, and Gerrit Hirschfeld. 2021. <span>“Cutpointr: Improved Estimation and Validation of Optimal Cutpoints in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 98 (11): 1–27. <a href="https://doi.org/10.18637/jss.v098.i11">https://doi.org/10.18637/jss.v098.i11</a>.
+</div>
 <div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
 Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. <span>“Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.”</span> <em>Open Forum Infectious Diseases</em> 9 (7): ofac211. <a href="https://doi.org/10.1093/ofid/ofac211">https://doi.org/10.1093/ofid/ofac211</a>.
+</div>
+<div id="ref-youden1950" class="csl-entry" role="listitem">
+Youden, W J. 1950. <span>“Index for Rating Diagnostic Tests.”</span> <em>Cancer</em> 3 (1): 32–35. <a href="https://doi.org/10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3">https://doi.org/10.1002/1097-0142(1950)3:1&lt;32::aid-cncr2820030106&gt;3.0.co;2-3</a>.
 </div>
 </div>
 
@@ -1137,7 +1152,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC curves and AUC confidence intervals</span></span>
 <span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals: DeLong's analytic method and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals, computed with pROC <span class="co">[</span><span class="ot">@robin2011proc</span><span class="co">]</span>: DeLong's analytic method <span class="co">[</span><span class="ot">@delong1988</span><span class="co">]</span> and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.</span>
 <span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: roc-log-titer-models</span></span>
@@ -1155,7 +1170,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optimal titer cutpoints</span></span>
 <span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a><span class="in">`cutpointr()`</span> finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity, with case status as the positive class. <span class="in">`add_metric()`</span> adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them.</span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a><span class="in">`cutpointr()`</span> finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity (the Youden index <span class="co">[</span><span class="ot">@youden1950</span><span class="co">]</span>) <span class="co">[</span><span class="ot">@thiele2021cutpointr</span><span class="co">]</span>, with case status as the positive class. <span class="in">`add_metric()`</span> adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them, which tends to overstate their performance <span class="co">[</span><span class="ot">@ewald2006cutpoints</span><span class="co">]</span>.</span>
 <span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: optimal-cutpoints</span></span>

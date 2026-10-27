@@ -6,7 +6,19 @@ format: html
 These are the tables and figures produced by running `R/main.R` on the study data. They were exported to `tables/` and `figures/` and are shown here as saved; this page does not rerun any analysis. The investigators have confirmed that these results are cleared for public release; they were published in *Open Forum Infectious Diseases* [@yoon2022antibody].
 
 ::: callout-note
-All analyses were exploratory, with no correction for multiple comparisons. ROC curves and cutpoints were estimated and evaluated on the same data. The bootstrap AUC confidence intervals involve random resampling and can differ slightly between runs.
+## Key findings
+
+- **Cases had lower cryptococcus-binding IgM than controls:** median inverse titer of GXM-IgM 11 vs 42, and of Lam-IgM 49 vs 132. Lam-IgG was also lower (319 vs 589), as were total IgG1 (1,057 vs 1,516 µg/mL) and IgG2 (724 vs 1,097 µg/mL) [@yoon2022antibody].
+- **Higher GXM-IgM and Lam-IgM were associated with lower odds of being a case.** In models including sex and either antibody, the odds ratio was 0.40 per natural-log unit of GXM-IgM and 0.33 for Lam-IgM. Because the two antibodies are strongly correlated (r = 0.77), neither was significant when both were in the same model.
+- **Discrimination:** the area under the ROC curve was 0.80 for the model with sex and both antibodies, and 0.78 for the two antibodies without sex, comparable to the model including sex [@yoon2022antibody].
+- **Interpretation:** the authors concluded that, together with previous studies, the findings "suggest the hypothesis that GXM/Lam-IgM may be beneficial in resistance to OTR-associated cryptococcosis" [@yoon2022antibody].
+
+**Read with caution.**
+
+- Blood was sampled once, at a non-standardized time *after* cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.
+- Cases and controls were not recruited concurrently and were not matched.
+- AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic [@ewald2006cutpoints].
+- All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.
 :::
 
 ## Table 1
@@ -23,16 +35,9 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 <iframe src="../tables/table1_no_missing_titers.html" width="100%" height="900" style="border:none;" title="Table 1, participants with antibody measurements"></iframe>
 ```
 
-### Serum cryptococcal antigen among cases
-
-```{=html}
-<iframe src="../tables/crag_titer_counts.html" width="100%" height="400" style="border:none;" title="Cryptococcal antigen titers among cases"></iframe>
-<iframe src="../tables/crag_result_counts.html" width="100%" height="400" style="border:none;" title="Cryptococcal antigen results among cases"></iframe>
-```
-
 ## Antibody levels by case status
 
-![](../figures/faceted_titer_plot.png){fig-alt="Seven side-by-side panels, one per antibody (GXM-IgG, GXM-IgM, IgG1, IgG2, IgM, Lam-IgG, Lam-IgM), each comparing cases with controls on a log-scaled y-axis. Each panel shows a grey violin of the distribution, a black bar at the median, individual participants as points colored by transplanted organ and shaped by sex, and a Wilcoxon p-value at the top."}
+![](../figures/faceted_titer_plot.png){fig-alt="Seven panels comparing cases with controls for each antibody on a log scale. Medians were lower in cases for every antibody. Wilcoxon p-values: GXM-IgM 0.0013, Lam-IgM 0.0079, IgG1 0.03, Lam-IgG 0.052, IgG2 0.055, IgM 0.097, GXM-IgG 0.22. Points are individual participants, colored by transplanted organ and shaped by sex."}
 
 ## Logistic regression
 
@@ -48,6 +53,8 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 <iframe src="../tables/regression_log_titer_models1_2.html" width="100%" height="700" style="border:none;" title="Univariable and multivariable logistic regression, log scale, models 1 and 2"></iframe>
 ```
 
+Odds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.
+
 ### Sensitivity analysis: one antibody at a time
 
 ```{=html}
@@ -58,11 +65,11 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 ## ROC curves
 
 ::: {layout-ncol="3"}
-![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png){fig-alt="ROC curve of sensitivity against specificity for the model with sex and Lam-IgM on the original scale, with the area under the curve printed on the plot."}
+![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png){fig-alt="ROC curve for the model with sex and Lam-IgM on the original scale; area under the curve 0.766."}
 
-![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png){fig-alt="ROC curve of sensitivity against specificity for model 1 (sex, log Lam-IgM and log GXM-IgM), with the area under the curve printed on the plot."}
+![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png){fig-alt="ROC curve for model 1 (sex, log Lam-IgM and log GXM-IgM); area under the curve 0.803."}
 
-![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png){fig-alt="ROC curve of sensitivity against specificity for model 2 (log Lam-IgM and log GXM-IgM, without sex), with the area under the curve printed on the plot."}
+![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png){fig-alt="ROC curve for model 2 (log Lam-IgM and log GXM-IgM, without sex); area under the curve 0.776."}
 :::
 
 ```{=html}
@@ -71,6 +78,8 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 
 ## Optimal cutpoints
 
+A test result is "positive" (suggesting cryptococcosis) when the antibody is **at or below** the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values. PPV and NPV assume the study's roughly 50:50 mix of cases and controls; at the much lower frequency of cryptococcosis among transplant recipients, the PPV would be far lower. These cutpoints have not been validated for screening.
+
 ```{=html}
 <iframe src="../tables/optimal_cutpoints.html" width="100%" height="300" style="border:none;" title="Optimal antibody cutpoints"></iframe>
 ```
@@ -78,11 +87,11 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 ## Correlation between antibodies
 
 ::: {layout-ncol="3"}
-![All participants](../figures/corrplot_log_titers_all.png){fig-alt="Correlation matrix of the seven log antibody levels for all participants with antibody data, shown as colored cells with the Pearson correlation coefficient printed in each."}
+![All participants](../figures/corrplot_log_titers_all.png){fig-alt="Correlation matrix of the seven log antibody levels, all participants with antibody data. Strongest correlations: GXM-IgM with Lam-IgM 0.77, Lam-IgM with IgM 0.65, IgM with IgG1 0.62, GXM-IgM with IgM 0.55."}
 
-![Cases](../figures/corrplot_log_titers_cases.png){fig-alt="Correlation matrix of the seven log antibody levels for cases only, shown as colored cells with the Pearson correlation coefficient printed in each."}
+![Cases](../figures/corrplot_log_titers_cases.png){fig-alt="Correlation matrix for cases. Strongest: IgM with IgG1 0.62, Lam-IgG with IgG2 0.60, GXM-IgG with Lam-IgG 0.59, Lam-IgM with IgM 0.59; GXM-IgM with Lam-IgM 0.52."}
 
-![Controls](../figures/corrplot_log_titers_controls.png){fig-alt="Correlation matrix of the seven log antibody levels for controls only, shown as colored cells with the Pearson correlation coefficient printed in each."}
+![Controls](../figures/corrplot_log_titers_controls.png){fig-alt="Correlation matrix for controls. Strongest: GXM-IgM with Lam-IgM 0.88, GXM-IgM with IgM 0.82, Lam-IgM with IgM 0.72."}
 :::
 
 ## Principal component analysis
@@ -92,12 +101,12 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 ```
 
 ::: {layout-ncol="2"}
-![Participants on the first two components](../figures/pca_individuals.png){fig-alt="Scatter plot of participants on the first two principal components, colored by case or control status, with a confidence ellipse around each group."}
+![Participants on the first two components](../figures/pca_individuals.png){fig-alt="Participants plotted on the first two principal components (44.1% and 20.5% of variance). Cases lie mostly to the right and controls to the left, with overlapping confidence ellipses around the group means."}
 
-![Biplot](../figures/pca_biplot.png){fig-alt="Biplot of participants on the first two principal components, colored by case status with confidence ellipses, overlaid with arrows showing how each log antibody level loads on the two components."}
+![Biplot](../figures/pca_biplot.png){fig-alt="Same plot with an arrow for each log antibody. All arrows point left, so the right side (where cases sit) corresponds to lower antibody levels. IgM, Lam-IgM and GXM-IgM point up-left; IgG2, Lam-IgG and GXM-IgG point down-left."}
 :::
 
-![Component scores are uncorrelated](../figures/corrplot_principal_components.png){width="50%" fig-alt="Correlation matrix of the seven principal component scores, with correlation coefficients printed in each cell; off-diagonal values are zero."}
+![Component scores are uncorrelated](../figures/corrplot_principal_components.png){width="50%" fig-alt="Correlation matrix of the seven principal component scores; all correlations between different components are 0."}
 
 ```{=html}
 <iframe src="../tables/regression_principal_components.html" width="100%" height="450" style="border:none;" title="Logistic regression on the principal components"></iframe>

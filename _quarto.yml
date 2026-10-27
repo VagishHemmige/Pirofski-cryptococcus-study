@@ -83,7 +83,7 @@ format:
     page-layout: full
     code-summary: "Click to show/hide R Code"
 
-# The site shows code; it never runs the analysis. Chunks that must run
-# (read_chunk imports, and the results page reading cleared outputs) set eval: true.
+# The site shows code; it never runs the analysis. Only the hidden read_chunk()
+# imports set eval: true; the Results page embeds saved files and runs no code.
 execute:
   eval: false

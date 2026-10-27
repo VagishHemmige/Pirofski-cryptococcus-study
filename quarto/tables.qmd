@@ -30,7 +30,7 @@ knitr::read_chunk("../R/tables.R")
 
 ## Table 1
 
-Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). `tbl_summary()` reports medians with interquartile ranges and counts with percentages. `add_p()` uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper [@yoon2022antibody]. A second version is restricted to participants with antibody measurements.
+Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). `tbl_summary()` from gtsummary [@sjoberg2021gtsummary] reports medians with interquartile ranges and counts with percentages. `add_p()` uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper [@yoon2022antibody]. A second version is restricted to participants with antibody measurements.
 
 ```{r}
 #| label: table-1
@@ -39,7 +39,7 @@ Cases and controls are compared on the categorical variables (sex, transplanted 
 
 ## Cryptococcal antigen among cases
 
-Counts of serum cryptococcal antigen results among cases: once as the numeric titer, once as recorded.
+Counts of serum cryptococcal antigen results among cases, once as the numeric titer and once as recorded. These are computed for internal checking only and are not exported or published, because they contain small cells.
 
 ```{r}
 #| label: cryptococcal-antigen-counts
