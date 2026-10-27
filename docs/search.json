@@ -336,7 +336,7 @@
     "href": "quarto/background.html",
     "title": "Clinical background",
     "section": "",
-    "text": "Cryptococcosis is the third most common invasive fungal disease in organ transplant recipients, and carries substantial mortality (Yoon et al. 2022).\nTwo kinds of antibody are relevant to Cryptococcus neoformans:\nBoth have been associated with cryptococcosis status or risk in people with and without HIV infection, but had not been studied in organ transplant recipients. This study measured them, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis (Yoon et al. 2022).",
+    "text": "Cryptococcosis is the third most common invasive fungal disease in organ transplant recipients, and carries substantial mortality (Yoon et al. 2022).\nTwo kinds of antibody are relevant to Cryptococcus neoformans:\nBoth have been associated with cryptococcosis status or risk in people with and without HIV infection (Yoon et al. 2022). In transplant recipients, Jalali et al. found pretransplant GXM-IgM lower, but posttransplant GXM-IgM and IgG higher, in patients who developed cryptococcosis (Jalali et al. 2006). This study measured both antibodies, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis (Yoon et al. 2022).",
     "crumbs": [
       "Background",
       "Clinical background"
@@ -358,7 +358,7 @@
     "href": "quarto/background.html#references",
     "title": "Clinical background",
     "section": "References",
-    "text": "References\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.",
+    "text": "References\n\n\nJalali, Ziba, Lucky Ng, Nina Singh, and Liise-anne Pirofski. 2006. “Antibody Response to Cryptococcus neoformans Capsular Polysaccharide Glucuronoxylomannan in Patients After Solid-Organ Transplantation.” Clinical and Vaccine Immunology 13 (7): 740–46. https://doi.org/10.1128/CVI.00139-06.\n\n\nTorosantucci, Antonella, Carla Bromuro, Paola Chiani, et al. 2005. “A Novel Glyco-Conjugate Vaccine Against Fungal Pathogens.” Journal of Experimental Medicine 202 (5): 597–606. https://doi.org/10.1084/jem.20050749.\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.",
     "crumbs": [
       "Background",
       "Clinical background"
@@ -369,7 +369,7 @@
     "href": "index.html",
     "title": "Overview",
     "section": "",
-    "text": "Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the Cryptococcus neoformans capsular polysaccharide glucuronoxylomannan (GXM) and the cell-wall β-glucan laminarin (Lam) have been associated with cryptococcosis in other populations, but had not been studied in organ transplant recipients (Yoon et al. 2022). More detail is on the clinical background page.",
+    "text": "Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the Cryptococcus neoformans capsular polysaccharide glucuronoxylomannan (GXM), and antibodies that bind laminarin (Lam), an algal β-glucan used as a stand-in for fungal cell-wall β-glucan (Torosantucci et al. 2005), have been associated with cryptococcosis in other populations (Yoon et al. 2022). In organ transplant recipients, one earlier study measured GXM-binding antibodies before and after transplantation (Jalali et al. 2006); laminarin-binding antibodies had not been studied. More detail is on the clinical background page.",
     "crumbs": [
       "Home"
     ]
@@ -379,7 +379,7 @@
     "href": "index.html#clinical-background",
     "title": "Overview",
     "section": "",
-    "text": "Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the Cryptococcus neoformans capsular polysaccharide glucuronoxylomannan (GXM) and the cell-wall β-glucan laminarin (Lam) have been associated with cryptococcosis in other populations, but had not been studied in organ transplant recipients (Yoon et al. 2022). More detail is on the clinical background page.",
+    "text": "Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the Cryptococcus neoformans capsular polysaccharide glucuronoxylomannan (GXM), and antibodies that bind laminarin (Lam), an algal β-glucan used as a stand-in for fungal cell-wall β-glucan (Torosantucci et al. 2005), have been associated with cryptococcosis in other populations (Yoon et al. 2022). In organ transplant recipients, one earlier study measured GXM-binding antibodies before and after transplantation (Jalali et al. 2006); laminarin-binding antibodies had not been studied. More detail is on the clinical background page.",
     "crumbs": [
       "Home"
     ]
