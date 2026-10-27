@@ -49,7 +49,7 @@ Single-center case–control study. Antibodies were measured once, after transpl
    - Original scale: sex + Lam-IgM.
    - Log scale, model 1: sex + log Lam-IgM + log GXM-IgM.
    - Log scale, model 2: log Lam-IgM + log GXM-IgM, to check that sex is not driving the discrimination.
-5. **Discrimination.** ROC curves from each multivariable model's predicted probabilities, with the AUC and 95% confidence intervals by DeLong's method and by bootstrap. Predicted probabilities are computed on the data used to fit the model.
+5. **Discrimination.** ROC curves and AUCs from the predicted probabilities of three multivariable models: sex + Lam-IgM on the original scale, and log-scale models 1 and 2. For log-scale models 1 and 2, 95% confidence intervals are computed by DeLong's method and by bootstrap. Predicted probabilities are computed on the data used to fit the model.
 6. **Optimal cutpoints** for GXM-IgM and Lam-IgM (original and log scale), chosen to maximize the sum of sensitivity and specificity, with sensitivity, specificity and positive and negative predictive values at the cutpoint. Cutpoints are chosen and evaluated on the same data.
 7. **Correlation and principal component analysis.** Pearson correlations between the log antibodies (all participants, cases, controls). PCA of the seven standardized log antibodies, and logistic regression of case status on the seven components.
 8. **Missing data:** complete-case analysis; no imputation.
