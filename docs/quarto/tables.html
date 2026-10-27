@@ -449,24 +449,26 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 <section id="export" class="level2">
 <h2 class="anchored" data-anchor-id="export">Export</h2>
-<p>Every table is saved as a self-contained HTML file in <code>tables/</code>.</p>
+<p>Every table is saved as a self-contained HTML file in <code>tables/</code>. The gtsummary tables are passed through <code>relabel_table()</code> first, so the saved files show readable variable names and categories (for example “Race: White/Black” instead of <code>RACE</code> <code>W</code>/<code>B</code>); the table objects themselves are not changed.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(tables_dir, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(table1_all, <span class="fu">file.path</span>(tables_dir, <span class="st">"table1_all.html"</span>))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(table1_no_missing_titers, <span class="fu">file.path</span>(tables_dir, <span class="st">"table1_no_missing_titers.html"</span>))</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(regression_table_titer, <span class="fu">file.path</span>(tables_dir, <span class="st">"regression_titer.html"</span>))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(regression_table_logtiter_2, <span class="fu">file.path</span>(tables_dir, <span class="st">"regression_log_titer_models1_2.html"</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(sensitivity_table_log_lam_igm, <span class="fu">file.path</span>(tables_dir, <span class="st">"sensitivity_log_lam_igm.html"</span>))</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(sensitivity_table_log_gxm_igm, <span class="fu">file.path</span>(tables_dir, <span class="st">"sensitivity_log_gxm_igm.html"</span>))</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(pc_regression_table, <span class="fu">file.path</span>(tables_dir, <span class="st">"regression_principal_components.html"</span>))</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># CrAg counts are computed for internal review only; not exported (not cleared for release)</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(auc_ci_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"auc_confidence_intervals.html"</span>))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(cutpoint_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"optimal_cutpoints.html"</span>))</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">save_as_html</span>(pca_eigenvalue_table, <span class="at">path =</span> <span class="fu">file.path</span>(tables_dir, <span class="st">"pca_eigenvalues.html"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gtsummary tables are relabeled for display (relabel_table() in functions.R)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># just before they are saved; the table objects themselves are unchanged.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(tables_dir, <span class="at">showWarnings =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(<span class="fu">relabel_table</span>(table1_all, display_variable_labels, display_level_labels), <span class="fu">file.path</span>(tables_dir, <span class="st">"table1_all.html"</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(<span class="fu">relabel_table</span>(table1_no_missing_titers, display_variable_labels, display_level_labels), <span class="fu">file.path</span>(tables_dir, <span class="st">"table1_no_missing_titers.html"</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(<span class="fu">relabel_table</span>(regression_table_titer, display_variable_labels, display_level_labels), <span class="fu">file.path</span>(tables_dir, <span class="st">"regression_titer.html"</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(<span class="fu">relabel_table</span>(regression_table_logtiter_2, display_variable_labels, display_level_labels), <span class="fu">file.path</span>(tables_dir, <span class="st">"regression_log_titer_models1_2.html"</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(<span class="fu">relabel_table</span>(sensitivity_table_log_lam_igm, display_variable_labels, display_level_labels), <span class="fu">file.path</span>(tables_dir, <span class="st">"sensitivity_log_lam_igm.html"</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(<span class="fu">relabel_table</span>(sensitivity_table_log_gxm_igm, display_variable_labels, display_level_labels), <span class="fu">file.path</span>(tables_dir, <span class="st">"sensitivity_log_gxm_igm.html"</span>))</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(<span class="fu">relabel_table</span>(pc_regression_table, display_variable_labels, display_level_labels), <span class="fu">file.path</span>(tables_dir, <span class="st">"regression_principal_components.html"</span>))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># CrAg counts are computed for internal review only; not exported (not cleared for release)</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(auc_ci_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"auc_confidence_intervals.html"</span>))</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(cutpoint_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"optimal_cutpoints.html"</span>))</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">save_as_html</span>(pca_eigenvalue_table, <span class="at">path =</span> <span class="fu">file.path</span>(tables_dir, <span class="st">"pca_eigenvalues.html"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -1018,7 +1020,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Export</span></span>
 <span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>Every table is saved as a self-contained HTML file in <span class="in">`tables/`</span>.</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>Every table is saved as a self-contained HTML file in <span class="in">`tables/`</span>. The gtsummary tables are passed through <span class="in">`relabel_table()`</span> first, so the saved files show readable variable names and categories (for example "Race: White/Black" instead of <span class="in">`RACE`</span> <span class="in">`W`</span>/<span class="in">`B`</span>); the table objects themselves are not changed.</span>
 <span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: export-tables</span></span>
