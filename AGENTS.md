@@ -73,6 +73,7 @@ The site documents the code. It does not run the analysis.
 ## Outputs
 
 - Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` (HTML) and `figures/` (PNG). They are tracked: the deciders confirmed on 2026-10-26 that the results of this published analysis are cleared for public release.
+- The cryptococcal antigen count tables are not exported: they contain single-patient cells (decided 2026-10-27).
 - Only an authorized person runs `R/main.R` on the real workbook and commits the resulting `tables/`, `figures/` and `docs/`.
 - Published figures need alt text.
 - `README.Rmd` is the source of `README.md`; edit the `.Rmd` and re-knit.

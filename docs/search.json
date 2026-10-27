@@ -26,7 +26,7 @@
     "href": "quarto/tables.html#cryptococcal-antigen-among-cases",
     "title": "Tables",
     "section": "Cryptococcal antigen among cases",
-    "text": "Cryptococcal antigen among cases\nCounts of serum cryptococcal antigen results among cases: once as the numeric titer, once as recorded.\n\n\nClick to show/hide R Code\n#Explore cryptococcal Ag titer\ncrag_titer_counts &lt;- CleanData%&gt;%\n  filter(CaseOrControl==\"Case\")%&gt;%\n  count(CryptococcalAg)\n\ncrag_result_counts &lt;- CleanData%&gt;%\n  filter(CaseOrControl==\"Case\")%&gt;%\n  count(SerumCrAg)",
+    "text": "Cryptococcal antigen among cases\nCounts of serum cryptococcal antigen results among cases, once as the numeric titer and once as recorded. These are computed for internal checking only and are not exported or published, because they contain small cells.\n\n\nClick to show/hide R Code\n#Explore cryptococcal Ag titer\ncrag_titer_counts &lt;- CleanData%&gt;%\n  filter(CaseOrControl==\"Case\")%&gt;%\n  count(CryptococcalAg)\n\ncrag_result_counts &lt;- CleanData%&gt;%\n  filter(CaseOrControl==\"Case\")%&gt;%\n  count(SerumCrAg)",
     "crumbs": [
       "Tables and figures",
       "Tables"
@@ -59,7 +59,7 @@
     "href": "quarto/tables.html#export",
     "title": "Tables",
     "section": "Export",
-    "text": "Export\nEvery table is saved as a self-contained HTML file in tables/.\n\n\nClick to show/hide R Code\ndir.create(tables_dir, showWarnings = FALSE)\n\nsave_gtsummary_html(table1_all, file.path(tables_dir, \"table1_all.html\"))\nsave_gtsummary_html(table1_no_missing_titers, file.path(tables_dir, \"table1_no_missing_titers.html\"))\nsave_gtsummary_html(regression_table_titer, file.path(tables_dir, \"regression_titer.html\"))\nsave_gtsummary_html(regression_table_logtiter_1, file.path(tables_dir, \"regression_log_titer_model1.html\"))\nsave_gtsummary_html(regression_table_logtiter_2, file.path(tables_dir, \"regression_log_titer_models1_2.html\"))\nsave_gtsummary_html(sensitivity_table_log_lam_igm, file.path(tables_dir, \"sensitivity_log_lam_igm.html\"))\nsave_gtsummary_html(sensitivity_table_log_gxm_igm, file.path(tables_dir, \"sensitivity_log_gxm_igm.html\"))\nsave_gtsummary_html(pc_regression_table, file.path(tables_dir, \"regression_principal_components.html\"))\n\nsave_flextable_html(crag_titer_counts, file.path(tables_dir, \"crag_titer_counts.html\"))\nsave_flextable_html(crag_result_counts, file.path(tables_dir, \"crag_result_counts.html\"))\nsave_flextable_html(auc_ci_summary, file.path(tables_dir, \"auc_confidence_intervals.html\"))\nsave_flextable_html(cutpoint_summary, file.path(tables_dir, \"optimal_cutpoints.html\"))\nsave_as_html(pca_eigenvalue_table, path = file.path(tables_dir, \"pca_eigenvalues.html\"))",
+    "text": "Export\nEvery table is saved as a self-contained HTML file in tables/.\n\n\nClick to show/hide R Code\ndir.create(tables_dir, showWarnings = FALSE)\n\nsave_gtsummary_html(table1_all, file.path(tables_dir, \"table1_all.html\"))\nsave_gtsummary_html(table1_no_missing_titers, file.path(tables_dir, \"table1_no_missing_titers.html\"))\nsave_gtsummary_html(regression_table_titer, file.path(tables_dir, \"regression_titer.html\"))\nsave_gtsummary_html(regression_table_logtiter_1, file.path(tables_dir, \"regression_log_titer_model1.html\"))\nsave_gtsummary_html(regression_table_logtiter_2, file.path(tables_dir, \"regression_log_titer_models1_2.html\"))\nsave_gtsummary_html(sensitivity_table_log_lam_igm, file.path(tables_dir, \"sensitivity_log_lam_igm.html\"))\nsave_gtsummary_html(sensitivity_table_log_gxm_igm, file.path(tables_dir, \"sensitivity_log_gxm_igm.html\"))\nsave_gtsummary_html(pc_regression_table, file.path(tables_dir, \"regression_principal_components.html\"))\n\n# CrAg counts are computed for internal review only; not exported (not cleared for release)\nsave_flextable_html(auc_ci_summary, file.path(tables_dir, \"auc_confidence_intervals.html\"))\nsave_flextable_html(cutpoint_summary, file.path(tables_dir, \"optimal_cutpoints.html\"))\nsave_as_html(pca_eigenvalue_table, path = file.path(tables_dir, \"pca_eigenvalues.html\"))",
     "crumbs": [
       "Tables and figures",
       "Tables"
@@ -91,7 +91,7 @@
     "href": "quarto/results.html#table-1",
     "title": "Results",
     "section": "Table 1",
-    "text": "Table 1\n\nAll participants\n\n\n\nParticipants with antibody measurements\n\n\n\nSerum cryptococcal antigen among cases",
+    "text": "Table 1\n\nAll participants\n\n\n\nParticipants with antibody measurements",
     "crumbs": [
       "Results"
     ]

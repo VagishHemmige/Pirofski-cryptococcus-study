@@ -69,8 +69,7 @@ save_gtsummary_html(sensitivity_table_log_lam_igm, file.path(tables_dir, "sensit
 save_gtsummary_html(sensitivity_table_log_gxm_igm, file.path(tables_dir, "sensitivity_log_gxm_igm.html"))
 save_gtsummary_html(pc_regression_table, file.path(tables_dir, "regression_principal_components.html"))
 
-save_flextable_html(crag_titer_counts, file.path(tables_dir, "crag_titer_counts.html"))
-save_flextable_html(crag_result_counts, file.path(tables_dir, "crag_result_counts.html"))
+# CrAg counts are computed for internal review only; not exported (not cleared for release)
 save_flextable_html(auc_ci_summary, file.path(tables_dir, "auc_confidence_intervals.html"))
 save_flextable_html(cutpoint_summary, file.path(tables_dir, "optimal_cutpoints.html"))
 save_as_html(pca_eigenvalue_table, path = file.path(tables_dir, "pca_eigenvalues.html"))

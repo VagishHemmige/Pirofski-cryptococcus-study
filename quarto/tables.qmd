@@ -39,7 +39,7 @@ Cases and controls are compared on the categorical variables (sex, transplanted 
 
 ## Cryptococcal antigen among cases
 
-Counts of serum cryptococcal antigen results among cases: once as the numeric titer, once as recorded.
+Counts of serum cryptococcal antigen results among cases, once as the numeric titer and once as recorded. These are computed for internal checking only and are not exported or published, because they contain small cells.
 
 ```{r}
 #| label: cryptococcal-antigen-counts

@@ -23,13 +23,6 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 <iframe src="../tables/table1_no_missing_titers.html" width="100%" height="900" style="border:none;" title="Table 1, participants with antibody measurements"></iframe>
 ```
 
-### Serum cryptococcal antigen among cases
-
-```{=html}
-<iframe src="../tables/crag_titer_counts.html" width="100%" height="400" style="border:none;" title="Cryptococcal antigen titers among cases"></iframe>
-<iframe src="../tables/crag_result_counts.html" width="100%" height="400" style="border:none;" title="Cryptococcal antigen results among cases"></iframe>
-```
-
 ## Antibody levels by case status
 
 ![](../figures/faceted_titer_plot.png){fig-alt="Seven side-by-side panels, one per antibody (GXM-IgG, GXM-IgM, IgG1, IgG2, IgM, Lam-IgG, Lam-IgM), each comparing cases with controls on a log-scaled y-axis. Each panel shows a grey violin of the distribution, a black bar at the median, individual participants as points colored by transplanted organ and shaped by sex, and a Wilcoxon p-value at the top."}

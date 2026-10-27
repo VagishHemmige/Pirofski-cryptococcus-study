@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -99,10 +99,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-261e60fdf64a0e003ec2340fd2db30d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-243619feadb355500505c6593e83032b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -395,7 +395,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 <section id="cryptococcal-antigen-among-cases" class="level2">
 <h2 class="anchored" data-anchor-id="cryptococcal-antigen-among-cases">Cryptococcal antigen among cases</h2>
-<p>Counts of serum cryptococcal antigen results among cases: once as the numeric titer, once as recorded.</p>
+<p>Counts of serum cryptococcal antigen results among cases, once as the numeric titer and once as recorded. These are computed for internal checking only and are not exported or published, because they contain small cells.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -464,11 +464,10 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(sensitivity_table_log_gxm_igm, <span class="fu">file.path</span>(tables_dir, <span class="st">"sensitivity_log_gxm_igm.html"</span>))</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">save_gtsummary_html</span>(pc_regression_table, <span class="fu">file.path</span>(tables_dir, <span class="st">"regression_principal_components.html"</span>))</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(crag_titer_counts, <span class="fu">file.path</span>(tables_dir, <span class="st">"crag_titer_counts.html"</span>))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(crag_result_counts, <span class="fu">file.path</span>(tables_dir, <span class="st">"crag_result_counts.html"</span>))</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(auc_ci_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"auc_confidence_intervals.html"</span>))</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(cutpoint_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"optimal_cutpoints.html"</span>))</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">save_as_html</span>(pca_eigenvalue_table, <span class="at">path =</span> <span class="fu">file.path</span>(tables_dir, <span class="st">"pca_eigenvalues.html"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># CrAg counts are computed for internal review only; not exported (not cleared for release)</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(auc_ci_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"auc_confidence_intervals.html"</span>))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">save_flextable_html</span>(cutpoint_summary, <span class="fu">file.path</span>(tables_dir, <span class="st">"optimal_cutpoints.html"</span>))</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">save_as_html</span>(pca_eigenvalue_table, <span class="at">path =</span> <span class="fu">file.path</span>(tables_dir, <span class="st">"pca_eigenvalues.html"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -990,7 +989,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cryptococcal antigen among cases</span></span>
 <span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>Counts of serum cryptococcal antigen results among cases: once as the numeric titer, once as recorded.</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>Counts of serum cryptococcal antigen results among cases, once as the numeric titer and once as recorded. These are computed for internal checking only and are not exported or published, because they contain small cells.</span>
 <span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cryptococcal-antigen-counts</span></span>
