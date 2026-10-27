@@ -395,7 +395,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 <section id="antibody-levels-by-case-status" class="level2">
 <h2 class="anchored" data-anchor-id="antibody-levels-by-case-status">Antibody levels by case status</h2>
-<p><img src="../figures/faceted_titer_plot.png" class="img-fluid" alt="Seven side-by-side panels, one per antibody (GXM-IgG, GXM-IgM, IgG1, IgG2, IgM, Lam-IgG, Lam-IgM), each comparing cases with controls on a log-scaled y-axis. Each panel shows a grey violin of the distribution, a black bar at the median, individual participants as points colored by transplanted organ and shaped by sex, and a Wilcoxon p-value at the top."></p>
+<p><img src="../figures/faceted_titer_plot.png" class="img-fluid" alt="Seven panels comparing cases with controls for each antibody on a log scale. Medians were lower in cases for every antibody. Wilcoxon p-values: GXM-IgM 0.0013, Lam-IgM 0.0079, IgG1 0.03, Lam-IgG 0.052, IgG2 0.055, IgM 0.097, GXM-IgG 0.22. Points are individual participants, colored by transplanted organ and shaped by sex."></p>
 </section>
 <section id="logistic-regression" class="level2">
 <h2 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h2>
@@ -421,7 +421,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/roc_titer_model.png" class="img-fluid figure-img" alt="ROC curve of sensitivity against specificity for the model with sex and Lam-IgM on the original scale, with the area under the curve printed on the plot."></p>
+<p><img src="../figures/roc_titer_model.png" class="img-fluid figure-img" alt="ROC curve for the model with sex and Lam-IgM on the original scale; area under the curve 0.766."></p>
 <figcaption>Original scale: sex + Lam-IgM</figcaption>
 </figure>
 </div>
@@ -429,7 +429,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/roc_log_titer_model1.png" class="img-fluid figure-img" alt="ROC curve of sensitivity against specificity for model 1 (sex, log Lam-IgM and log GXM-IgM), with the area under the curve printed on the plot."></p>
+<p><img src="../figures/roc_log_titer_model1.png" class="img-fluid figure-img" alt="ROC curve for model 1 (sex, log Lam-IgM and log GXM-IgM); area under the curve 0.803."></p>
 <figcaption>Log scale, model 1: sex + log Lam-IgM + log GXM-IgM</figcaption>
 </figure>
 </div>
@@ -437,7 +437,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/roc_log_titer_model2.png" class="img-fluid figure-img" alt="ROC curve of sensitivity against specificity for model 2 (log Lam-IgM and log GXM-IgM, without sex), with the area under the curve printed on the plot."></p>
+<p><img src="../figures/roc_log_titer_model2.png" class="img-fluid figure-img" alt="ROC curve for model 2 (log Lam-IgM and log GXM-IgM, without sex); area under the curve 0.776."></p>
 <figcaption>Log scale, model 2: log Lam-IgM + log GXM-IgM</figcaption>
 </figure>
 </div>
@@ -458,7 +458,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/corrplot_log_titers_all.png" class="img-fluid figure-img" alt="Correlation matrix of the seven log antibody levels for all participants with antibody data, shown as colored cells with the Pearson correlation coefficient printed in each."></p>
+<p><img src="../figures/corrplot_log_titers_all.png" class="img-fluid figure-img" alt="Correlation matrix of the seven log antibody levels, all participants with antibody data. Strongest correlations: GXM-IgM with Lam-IgM 0.77, Lam-IgM with IgM 0.65, IgM with IgG1 0.62, GXM-IgM with IgM 0.55."></p>
 <figcaption>All participants</figcaption>
 </figure>
 </div>
@@ -466,7 +466,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/corrplot_log_titers_cases.png" class="img-fluid figure-img" alt="Correlation matrix of the seven log antibody levels for cases only, shown as colored cells with the Pearson correlation coefficient printed in each."></p>
+<p><img src="../figures/corrplot_log_titers_cases.png" class="img-fluid figure-img" alt="Correlation matrix for cases. Strongest: IgM with IgG1 0.62, Lam-IgG with IgG2 0.60, GXM-IgG with Lam-IgG 0.59, Lam-IgM with IgM 0.59; GXM-IgM with Lam-IgM 0.52."></p>
 <figcaption>Cases</figcaption>
 </figure>
 </div>
@@ -474,7 +474,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/corrplot_log_titers_controls.png" class="img-fluid figure-img" alt="Correlation matrix of the seven log antibody levels for controls only, shown as colored cells with the Pearson correlation coefficient printed in each."></p>
+<p><img src="../figures/corrplot_log_titers_controls.png" class="img-fluid figure-img" alt="Correlation matrix for controls. Strongest: GXM-IgM with Lam-IgM 0.88, GXM-IgM with IgM 0.82, Lam-IgM with IgM 0.72."></p>
 <figcaption>Controls</figcaption>
 </figure>
 </div>
@@ -490,7 +490,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/pca_individuals.png" class="img-fluid figure-img" alt="Scatter plot of participants on the first two principal components, colored by case or control status, with a confidence ellipse around each group."></p>
+<p><img src="../figures/pca_individuals.png" class="img-fluid figure-img" alt="Participants plotted on the first two principal components (44.1% and 20.5% of variance). Cases lie mostly to the right and controls to the left, with overlapping confidence ellipses around the group means."></p>
 <figcaption>Participants on the first two components</figcaption>
 </figure>
 </div>
@@ -498,7 +498,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/pca_biplot.png" class="img-fluid figure-img" alt="Biplot of participants on the first two principal components, colored by case status with confidence ellipses, overlaid with arrows showing how each log antibody level loads on the two components."></p>
+<p><img src="../figures/pca_biplot.png" class="img-fluid figure-img" alt="Same plot with an arrow for each log antibody. All arrows point left, so the right side (where cases sit) corresponds to lower antibody levels. IgM, Lam-IgM and GXM-IgM point up-left; IgG2, Lam-IgG and GXM-IgG point down-left."></p>
 <figcaption>Biplot</figcaption>
 </figure>
 </div>
@@ -507,7 +507,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figures/corrplot_principal_components.png" class="img-fluid figure-img" style="width:50.0%" alt="Correlation matrix of the seven principal component scores, with correlation coefficients printed in each cell; off-diagonal values are zero."></p>
+<p><img src="../figures/corrplot_principal_components.png" class="img-fluid figure-img" style="width:50.0%" alt="Correlation matrix of the seven principal component scores; all correlations between different components are 0."></p>
 <figcaption>Component scores are uncorrelated</figcaption>
 </figure>
 </div>
@@ -1029,7 +1029,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Antibody levels by case status</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/faceted_titer_plot.png)</span>{fig-alt="Seven side-by-side panels, one per antibody (GXM-IgG, GXM-IgM, IgG1, IgG2, IgM, Lam-IgG, Lam-IgM), each comparing cases with controls on a log-scaled y-axis. Each panel shows a grey violin of the distribution, a black bar at the median, individual participants as points colored by transplanted organ and shaped by sex, and a Wilcoxon p-value at the top."}</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/faceted_titer_plot.png)</span>{fig-alt="Seven panels comparing cases with controls for each antibody on a log scale. Medians were lower in cases for every antibody. Wilcoxon p-values: GXM-IgM 0.0013, Lam-IgM 0.0079, IgG1 0.03, Lam-IgG 0.052, IgG2 0.055, IgM 0.097, GXM-IgG 0.22. Points are individual participants, colored by transplanted organ and shaped by sex."}</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic regression</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
@@ -1057,11 +1057,11 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC curves</span></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="al">![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png)</span>{fig-alt="ROC curve of sensitivity against specificity for the model with sex and Lam-IgM on the original scale, with the area under the curve printed on the plot."}</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="al">![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png)</span>{fig-alt="ROC curve for the model with sex and Lam-IgM on the original scale; area under the curve 0.766."}</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png)</span>{fig-alt="ROC curve of sensitivity against specificity for model 1 (sex, log Lam-IgM and log GXM-IgM), with the area under the curve printed on the plot."}</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png)</span>{fig-alt="ROC curve for model 1 (sex, log Lam-IgM and log GXM-IgM); area under the curve 0.803."}</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png)</span>{fig-alt="ROC curve of sensitivity against specificity for model 2 (log Lam-IgM and log GXM-IgM, without sex), with the area under the curve printed on the plot."}</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png)</span>{fig-alt="ROC curve for model 2 (log Lam-IgM and log GXM-IgM, without sex); area under the curve 0.776."}</span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
@@ -1079,11 +1079,11 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlation between antibodies</span></span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="al">![All participants](../figures/corrplot_log_titers_all.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for all participants with antibody data, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="al">![All participants](../figures/corrplot_log_titers_all.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels, all participants with antibody data. Strongest correlations: GXM-IgM with Lam-IgM 0.77, Lam-IgM with IgM 0.65, IgM with IgG1 0.62, GXM-IgM with IgM 0.55."}</span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="al">![Cases](../figures/corrplot_log_titers_cases.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for cases only, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="al">![Cases](../figures/corrplot_log_titers_cases.png)</span>{fig-alt="Correlation matrix for cases. Strongest: IgM with IgG1 0.62, Lam-IgG with IgG2 0.60, GXM-IgG with Lam-IgG 0.59, Lam-IgM with IgM 0.59; GXM-IgM with Lam-IgM 0.52."}</span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="al">![Controls](../figures/corrplot_log_titers_controls.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for controls only, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="al">![Controls](../figures/corrplot_log_titers_controls.png)</span>{fig-alt="Correlation matrix for controls. Strongest: GXM-IgM with Lam-IgM 0.88, GXM-IgM with IgM 0.82, Lam-IgM with IgM 0.72."}</span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principal component analysis</span></span>
@@ -1093,12 +1093,12 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="2"}</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="al">![Participants on the first two components](../figures/pca_individuals.png)</span>{fig-alt="Scatter plot of participants on the first two principal components, colored by case or control status, with a confidence ellipse around each group."}</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="al">![Participants on the first two components](../figures/pca_individuals.png)</span>{fig-alt="Participants plotted on the first two principal components (44.1% and 20.5% of variance). Cases lie mostly to the right and controls to the left, with overlapping confidence ellipses around the group means."}</span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="al">![Biplot](../figures/pca_biplot.png)</span>{fig-alt="Biplot of participants on the first two principal components, colored by case status with confidence ellipses, overlaid with arrows showing how each log antibody level loads on the two components."}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="al">![Biplot](../figures/pca_biplot.png)</span>{fig-alt="Same plot with an arrow for each log antibody. All arrows point left, so the right side (where cases sit) corresponds to lower antibody levels. IgM, Lam-IgM and GXM-IgM point up-left; IgG2, Lam-IgG and GXM-IgG point down-left."}</span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="al">![Component scores are uncorrelated](../figures/corrplot_principal_components.png)</span>{width="50%" fig-alt="Correlation matrix of the seven principal component scores, with correlation coefficients printed in each cell; off-diagonal values are zero."}</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="al">![Component scores are uncorrelated](../figures/corrplot_principal_components.png)</span>{width="50%" fig-alt="Correlation matrix of the seven principal component scores; all correlations between different components are 0."}</span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/regression_principal_components.html" width="100%" height="450" style="border:none;" title="Logistic regression on the principal components"&gt;&lt;/iframe&gt;</span></span>

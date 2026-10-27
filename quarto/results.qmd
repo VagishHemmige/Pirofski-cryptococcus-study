@@ -37,7 +37,7 @@ These are the tables and figures produced by running `R/main.R` on the study dat
 
 ## Antibody levels by case status
 
-![](../figures/faceted_titer_plot.png){fig-alt="Seven side-by-side panels, one per antibody (GXM-IgG, GXM-IgM, IgG1, IgG2, IgM, Lam-IgG, Lam-IgM), each comparing cases with controls on a log-scaled y-axis. Each panel shows a grey violin of the distribution, a black bar at the median, individual participants as points colored by transplanted organ and shaped by sex, and a Wilcoxon p-value at the top."}
+![](../figures/faceted_titer_plot.png){fig-alt="Seven panels comparing cases with controls for each antibody on a log scale. Medians were lower in cases for every antibody. Wilcoxon p-values: GXM-IgM 0.0013, Lam-IgM 0.0079, IgG1 0.03, Lam-IgG 0.052, IgG2 0.055, IgM 0.097, GXM-IgG 0.22. Points are individual participants, colored by transplanted organ and shaped by sex."}
 
 ## Logistic regression
 
@@ -65,11 +65,11 @@ Odds ratios for log-transformed antibodies are per one natural-log unit, about a
 ## ROC curves
 
 ::: {layout-ncol="3"}
-![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png){fig-alt="ROC curve of sensitivity against specificity for the model with sex and Lam-IgM on the original scale, with the area under the curve printed on the plot."}
+![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png){fig-alt="ROC curve for the model with sex and Lam-IgM on the original scale; area under the curve 0.766."}
 
-![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png){fig-alt="ROC curve of sensitivity against specificity for model 1 (sex, log Lam-IgM and log GXM-IgM), with the area under the curve printed on the plot."}
+![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png){fig-alt="ROC curve for model 1 (sex, log Lam-IgM and log GXM-IgM); area under the curve 0.803."}
 
-![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png){fig-alt="ROC curve of sensitivity against specificity for model 2 (log Lam-IgM and log GXM-IgM, without sex), with the area under the curve printed on the plot."}
+![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png){fig-alt="ROC curve for model 2 (log Lam-IgM and log GXM-IgM, without sex); area under the curve 0.776."}
 :::
 
 ```{=html}
@@ -87,11 +87,11 @@ A test result is "positive" (suggesting cryptococcosis) when the antibody is **a
 ## Correlation between antibodies
 
 ::: {layout-ncol="3"}
-![All participants](../figures/corrplot_log_titers_all.png){fig-alt="Correlation matrix of the seven log antibody levels for all participants with antibody data, shown as colored cells with the Pearson correlation coefficient printed in each."}
+![All participants](../figures/corrplot_log_titers_all.png){fig-alt="Correlation matrix of the seven log antibody levels, all participants with antibody data. Strongest correlations: GXM-IgM with Lam-IgM 0.77, Lam-IgM with IgM 0.65, IgM with IgG1 0.62, GXM-IgM with IgM 0.55."}
 
-![Cases](../figures/corrplot_log_titers_cases.png){fig-alt="Correlation matrix of the seven log antibody levels for cases only, shown as colored cells with the Pearson correlation coefficient printed in each."}
+![Cases](../figures/corrplot_log_titers_cases.png){fig-alt="Correlation matrix for cases. Strongest: IgM with IgG1 0.62, Lam-IgG with IgG2 0.60, GXM-IgG with Lam-IgG 0.59, Lam-IgM with IgM 0.59; GXM-IgM with Lam-IgM 0.52."}
 
-![Controls](../figures/corrplot_log_titers_controls.png){fig-alt="Correlation matrix of the seven log antibody levels for controls only, shown as colored cells with the Pearson correlation coefficient printed in each."}
+![Controls](../figures/corrplot_log_titers_controls.png){fig-alt="Correlation matrix for controls. Strongest: GXM-IgM with Lam-IgM 0.88, GXM-IgM with IgM 0.82, Lam-IgM with IgM 0.72."}
 :::
 
 ## Principal component analysis
@@ -101,12 +101,12 @@ A test result is "positive" (suggesting cryptococcosis) when the antibody is **a
 ```
 
 ::: {layout-ncol="2"}
-![Participants on the first two components](../figures/pca_individuals.png){fig-alt="Scatter plot of participants on the first two principal components, colored by case or control status, with a confidence ellipse around each group."}
+![Participants on the first two components](../figures/pca_individuals.png){fig-alt="Participants plotted on the first two principal components (44.1% and 20.5% of variance). Cases lie mostly to the right and controls to the left, with overlapping confidence ellipses around the group means."}
 
-![Biplot](../figures/pca_biplot.png){fig-alt="Biplot of participants on the first two principal components, colored by case status with confidence ellipses, overlaid with arrows showing how each log antibody level loads on the two components."}
+![Biplot](../figures/pca_biplot.png){fig-alt="Same plot with an arrow for each log antibody. All arrows point left, so the right side (where cases sit) corresponds to lower antibody levels. IgM, Lam-IgM and GXM-IgM point up-left; IgG2, Lam-IgG and GXM-IgG point down-left."}
 :::
 
-![Component scores are uncorrelated](../figures/corrplot_principal_components.png){width="50%" fig-alt="Correlation matrix of the seven principal component scores, with correlation coefficients printed in each cell; off-diagonal values are zero."}
+![Component scores are uncorrelated](../figures/corrplot_principal_components.png){width="50%" fig-alt="Correlation matrix of the seven principal component scores; all correlations between different components are 0."}
 
 ```{=html}
 <iframe src="../tables/regression_principal_components.html" width="100%" height="450" style="border:none;" title="Logistic regression on the principal components"></iframe>
