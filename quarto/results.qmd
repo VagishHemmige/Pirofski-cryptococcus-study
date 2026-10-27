@@ -17,7 +17,7 @@ These are the tables and figures produced by running `R/main.R` on the study dat
 
 - Blood was sampled once, at a non-standardized time *after* cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.
 - Cases and controls were not recruited concurrently and were not matched.
-- AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic.
+- AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic [@ewald2006cutpoints].
 - All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.
 :::
 

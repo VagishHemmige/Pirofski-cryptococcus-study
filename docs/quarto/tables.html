@@ -373,7 +373,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </div>
 <section id="table-1" class="level2">
 <h2 class="anchored" data-anchor-id="table-1">Table 1</h2>
-<p>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <code>tbl_summary()</code> reports medians with interquartile ranges and counts with percentages. <code>add_p()</code> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher’s exact or the χ² test for categorical ones, as described in the paper <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>. A second version is restricted to participants with antibody measurements.</p>
+<p>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <code>tbl_summary()</code> from gtsummary <span class="citation" data-cites="sjoberg2021gtsummary">(<a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">Sjoberg et al. 2021</a>)</span> reports medians with interquartile ranges and counts with percentages. <code>add_p()</code> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher’s exact or the χ² test for categorical ones, as described in the paper <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>. A second version is restricted to participants with antibody measurements.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -473,6 +473,9 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-sjoberg2021gtsummary" class="csl-entry" role="listitem">
+Sjoberg, Daniel D, Karissa Whiting, Michael Curry, Jessica A Lavery, and Joseph Larmarange. 2021. <span>“Reproducible Summary Tables with the Gtsummary Package.”</span> <em>The R Journal</em> 13 (1): 570–80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
+</div>
 <div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
 Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. <span>“Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.”</span> <em>Open Forum Infectious Diseases</em> 9 (7): ofac211. <a href="https://doi.org/10.1093/ofid/ofac211">https://doi.org/10.1093/ofid/ofac211</a>.
 </div>
@@ -979,7 +982,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table 1</span></span>
 <span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <span class="in">`tbl_summary()`</span> reports medians with interquartile ranges and counts with percentages. <span class="in">`add_p()`</span> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. A second version is restricted to participants with antibody measurements.</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <span class="in">`tbl_summary()`</span> from gtsummary <span class="co">[</span><span class="ot">@sjoberg2021gtsummary</span><span class="co">]</span> reports medians with interquartile ranges and counts with percentages. <span class="in">`add_p()`</span> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. A second version is restricted to participants with antibody measurements.</span>
 <span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: table-1</span></span>

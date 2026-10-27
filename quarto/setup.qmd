@@ -25,9 +25,9 @@ knitr::read_chunk("../R/setup.R")
 The package list is the one used for the published analysis:
 
 -   **Data import and management:** `readxl` reads the Excel workbook; `tidyverse` (including `stringr`) handles cleaning and reshaping [@wickham2019tidyverse]; `haven` supplies `as_factor()`, used to turn categorical variables into factors.
--   **Tables:** `gtsummary` builds Table 1 and the regression tables; `bstfun` adds the inline forest plots to those tables; `flextable` formats the PCA eigenvalue table.
+-   **Tables:** `gtsummary` builds Table 1 and the regression tables [@sjoberg2021gtsummary]; `bstfun` adds the inline forest plots to those tables; `flextable` formats the PCA eigenvalue table.
 -   **Figures:** `ggplot2`, `ggbeeswarm` (quasirandom points) and `ggpubr` (Wilcoxon p-values on the plot); `corrplot` for correlation matrices.
--   **Modeling:** `broom` (attached, but not called directly by the scripts); `pROC` for ROC curves and AUC confidence intervals; `cutpointr` for optimal titer cutpoints; `factoextra` for PCA eigenvalues and plots.
+-   **Modeling:** `broom` (attached, but not called directly by the scripts); `pROC` for ROC curves and AUC confidence intervals [@robin2011proc]; `cutpointr` for optimal titer cutpoints [@thiele2021cutpointr]; `factoextra` for PCA eigenvalues and plots.
 
 `bstfun` is not on CRAN; install it from GitHub with `remotes::install_github("MSKCC-Epi-Bio/bstfun")`.
 

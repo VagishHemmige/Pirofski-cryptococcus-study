@@ -3,14 +3,14 @@ title: "Clinical background"
 format: html
 ---
 
-Among invasive fungal infections in organ transplant recipients, cryptococcosis ranks third in frequency, and it carries substantial mortality [@yoon2022antibody].
+Among invasive fungal infections in organ transplant recipients, cryptococcosis ranks third in frequency [@baddley2019ast], and it carries substantial mortality [@yoon2022antibody].
 
 Two kinds of antibody are relevant to *Cryptococcus neoformans*:
 
--   **Glucuronoxylomannan (GXM)-binding antibodies** recognize the main component of the fungal polysaccharide capsule.
+-   **Glucuronoxylomannan (GXM)-binding antibodies** recognize the main component of the fungal polysaccharide capsule [@zaragoza2009capsule].
 -   **Laminarin (Lam)-binding antibodies** recognize laminarin, a β-glucan from the brown alga *Laminaria digitata* that stands in for the β-(1-3)-glucan of the fungal cell wall [@torosantucci2005lam].
 
-Both have been linked to cryptococcosis, or to the risk of developing it, in people with and without HIV infection [@yoon2022antibody]. In transplant recipients, Jalali et al. found pretransplant GXM-IgM lower, but posttransplant GXM-IgM and IgG higher, in patients who developed cryptococcosis [@jalali2006gxm]. This study measured both antibodies, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis [@yoon2022antibody].
+Both have been linked to cryptococcosis, or to the risk of developing it, in people with HIV [@subramaniam2005uganda; @hlupeni2018crag; @yoon2019ciris] and without HIV [@rohatgi2017hivneg]. In transplant recipients, Jalali et al. found pretransplant GXM-IgM lower, but posttransplant GXM-IgM and IgG higher, in patients who developed cryptococcosis [@jalali2006gxm]. This study measured both antibodies, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis [@yoon2022antibody].
 
 ## Study design in brief
 
