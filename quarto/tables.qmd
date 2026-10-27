@@ -66,7 +66,7 @@ The original analysis printed these results one at a time. Here they are collect
 
 ## Export
 
-Every table is saved as a self-contained HTML file in `tables/`.
+Every table is saved as a self-contained HTML file in `tables/`. The gtsummary tables are passed through `relabel_table()` first, so the saved files show readable variable names and categories (for example "Race: White/Black" instead of `RACE` `W`/`B`); the table objects themselves are not changed.
 
 ```{r}
 #| label: export-tables

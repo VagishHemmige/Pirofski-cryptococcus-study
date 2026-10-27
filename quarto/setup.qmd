@@ -44,3 +44,12 @@ The study workbook is restricted and never committed. `raw_data_path` points to 
 #| label: define-constants
 #| eval: false
 ```
+
+## Display labels
+
+Readable names for variables and category codes, used only when tables are saved (for example `RACE` with codes `W`/`B` becomes "Race: White/Black", and `DrugMycophenolate` `TRUE`/`FALSE` becomes "Mycophenolate: Yes/No"). The analysis itself keeps the original variable names; see `relabel_table()` in [Functions](functions.qmd).
+
+```{r}
+#| label: define-display-labels
+#| eval: false
+```

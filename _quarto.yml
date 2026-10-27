@@ -84,6 +84,7 @@ format:
     code-summary: "Click to show/hide R Code"
 
 # The site shows code; it never runs the analysis. Only the hidden read_chunk()
-# imports set eval: true; the Results page embeds saved files and runs no code.
+# imports and the Results page's show_table() helper, which reads the saved
+# files in tables/, set eval: true.
 execute:
   eval: false

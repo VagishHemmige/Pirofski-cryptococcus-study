@@ -14,6 +14,23 @@ save_gtsummary_html <- function(tbl, file) {
   invisible(file)
 }
 
+## ---- relabel-table
+# Replace variable names and category codes in a gtsummary table with readable
+# labels, for display only. Variables or categories not listed are left as they
+# are. Estimates, reference categories and row order are unchanged.
+relabel_table <- function(tbl, variable_labels, level_labels) {
+  gtsummary::modify_table_body(tbl, function(body) {
+    is_label_row <- body$row_type == "label" & body$variable %in% names(variable_labels)
+    body$label[is_label_row] <- unname(variable_labels[body$variable[is_label_row]])
+    for (v in names(level_labels)) {
+      map <- level_labels[[v]]
+      is_level_row <- body$variable == v & body$row_type == "level" & body$label %in% names(map)
+      body$label[is_level_row] <- unname(map[body$label[is_level_row]])
+    }
+    body
+  })
+}
+
 ## ---- save-flextable-html
 # Save a data frame as an HTML table via flextable.
 save_flextable_html <- function(df, file) {

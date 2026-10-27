@@ -33,9 +33,18 @@ Converts any `gtsummary` table (Table 1, regression and merged tables) to a `gt`
 #| eval: false
 ```
 
+## Relabel a table for display
+
+Replaces variable names and category codes in a gtsummary table with the readable labels defined in [Setup](setup.qmd), by editing only the table's label column. Estimates, confidence intervals, p-values, reference categories and row order are unchanged; variables or categories without a display label are left as they are. Used by [Tables](tables.qmd) just before each gtsummary table is saved.
+
+```{r}
+#| label: relabel-table
+#| eval: false
+```
+
 ## Save a data frame as a table
 
-Formats a data frame with `flextable` and saves it as HTML. Used for the cryptococcal antigen counts, AUC confidence intervals and optimal cutpoints.
+Formats a data frame with `flextable` and saves it as HTML. Used for the AUC confidence intervals and optimal cutpoints.
 
 ```{r}
 #| label: save-flextable-html
