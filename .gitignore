@@ -2,11 +2,15 @@
 .Rproj.user/
 .Rhistory
 .RData
+.Rdata
 .Ruserdata
 .httr-oauth
 .DS_Store
 
-# Quarto (docs/ is NOT ignored: it is the published site, rendered from synthetic data only)
+# Office lock/temporary files (e.g. ~$document.docx)
+~$*
+
+# Quarto (docs/ is NOT ignored: it is the published site, rendered locally from the cleared analysis)
 /.quarto/
 **/*.quarto_ipynb
 
@@ -47,6 +51,6 @@
 
 # Approved public files: narrow exceptions only, never a whole format.
 # (None: no data of any kind is committed to this repository.)
-.Rproj.user
-.Rdata
-.quarto
+
+# Default graphics device output when scripts run non-interactively
+Rplots.pdf

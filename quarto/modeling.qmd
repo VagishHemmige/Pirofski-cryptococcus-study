@@ -1,0 +1,114 @@
+---
+title: "2. Regression, ROC and cutpoints"
+format: html
+---
+
+This script fits the logistic regression models relating cryptococcosis status to antibody levels, draws ROC curves for the multivariable models, and finds optimal titer cutpoints for GXM-IgM and Lam-IgM. Its tables and fitted objects are exported by [Tables](tables.qmd) and [Figures](figures.qmd).
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/modeling.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/modeling.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/setup.R)
+-   [`R/import_clean.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/import_clean.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/modeling.R")
+```
+
+The outcome throughout is `HasCryptococcus` (case versus control). Odds ratios are exponentiated logistic regression coefficients. All analyses were exploratory, with no correction for multiple comparisons [@yoon2022antibody].
+
+## Univariable models on the original scale
+
+`tbl_uvregression()` fits one logistic regression per candidate predictor: sex, race, corticosteroid, mycophenolate and mTOR inhibitor use, age, and the seven antibody levels on their original scale. Transplanted organ, calcineurin inhibitor use and CNS disease are left out. For context, CNS disease is recorded only for cases, and 43 of 44 participants received a calcineurin inhibitor [@yoon2022antibody]. An inline forest plot is added to each row.
+
+```{r}
+#| label: univariate-titer-models
+#| eval: false
+```
+
+## Multivariable model on the original scale
+
+A model with sex and Lam-IgM, merged side by side with the univariable table.
+
+```{r}
+#| label: multivariable-titer-model
+#| eval: false
+```
+
+## ROC curve on the original scale
+
+The model's predicted probabilities are used to draw an ROC curve and compute its area under the curve (AUC). Predictions are made on the same data used to fit the model.
+
+```{r}
+#| label: roc-titer-model
+#| eval: false
+```
+
+## Univariable models on the log scale
+
+The same univariable analysis, with the log-transformed antibody levels in place of the original ones.
+
+```{r}
+#| label: univariate-log-titer-models
+#| eval: false
+```
+
+## Multivariable models on the log scale
+
+Four models are fitted:
+
+| Model | Predictors |
+|---|---|
+| 1 | Sex + log Lam-IgM + log GXM-IgM |
+| 2 | log Lam-IgM + log GXM-IgM (without sex) |
+| 3 | Sex + log Lam-IgM |
+| 4 | Sex + log GXM-IgM |
+
+Model 1 is the paper's main multivariable model. Model 2 checks that the higher proportion of women among cases is not driving the discrimination [@yoon2022antibody]. The univariable table is merged with models 1 and 2.
+
+```{r}
+#| label: multivariable-log-titer-models
+#| eval: false
+```
+
+## ROC curves and AUC confidence intervals
+
+ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals: DeLong's analytic method and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.
+
+```{r}
+#| label: roc-log-titer-models
+#| eval: false
+```
+
+## Sensitivity analysis: one antibody at a time
+
+GXM-IgM and Lam-IgM are strongly correlated, so with both in one model neither is individually significant. As a sensitivity analysis, each is modeled with sex alone [@yoon2022antibody]. These are the same specifications as models 3 and 4 above.
+
+```{r}
+#| label: sensitivity-single-antibody-models
+#| eval: false
+```
+
+## Optimal titer cutpoints
+
+`cutpointr()` finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity, with case status as the positive class. `add_metric()` adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them.
+
+```{r}
+#| label: optimal-cutpoints
+#| eval: false
+```
+
+## References
+
+::: {#refs}
+:::

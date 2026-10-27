@@ -1,0 +1,20 @@
+---
+title: "Overview"
+format: html
+---
+
+## Clinical background
+
+Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the *Cryptococcus neoformans* capsular polysaccharide glucuronoxylomannan (GXM) and the cell-wall β-glucan laminarin (Lam) have been associated with cryptococcosis in other populations, but had not been studied in organ transplant recipients [@yoon2022antibody]. More detail is on the [clinical background](quarto/background.qmd) page.
+
+## What this analysis does
+
+This repository contains the analysis code for a case–control study of organ transplant recipients recruited at the University of Alabama at Birmingham (UAB) between 2013 and 2018: 23 recipients with a history of posttransplant cryptococcosis and 21 without. Serum levels of cryptococcus-specific antibodies (GXM- and Lam-binding IgM and IgG) and of total IgM, IgG1 and IgG2 were compared between cases and controls. The results were published in *Open Forum Infectious Diseases* [@yoon2022antibody].
+
+## Methods
+
+Cases and controls were compared on demographics, immunosuppression and antibody levels. Univariable and multivariable logistic regression models related cryptococcosis status to antibody levels; ROC curves and optimal titer cutpoints described how well the antibodies discriminated cases from controls; and principal component analysis addressed the strong correlation between antibodies. All analyses were exploratory, with no correction for multiple comparisons. The full specification is in [`analysis-plan.md`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/analysis-plan.md).
+
+## Status
+
+**Published.** This repository reorganizes the original 2022 R Markdown analysis into scripts and documents each step. The analysis code is unchanged from the published version. The study data are restricted and are not included.

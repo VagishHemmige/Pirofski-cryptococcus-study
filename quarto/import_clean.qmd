@@ -1,0 +1,89 @@
+---
+title: "1. Import and clean data"
+format: html
+---
+
+This script reads the study workbook and derives every variable the analysis uses. It produces `CleanData` (all participants) and `CleanData_NoMissingTiters` (participants with antibody measurements), plus the variable lists used by every later script.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/import_clean.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/import_clean.R)
+
+This R script file is itself reliant on the following helper files:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/setup.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/import_clean.R")
+```
+
+## Import the workbook
+
+The study data are a single Excel workbook with one row per participant, on the sheet named `Data`. The file location comes from [Setup](setup.qmd), so the same code runs wherever the authorized copy is kept.
+
+```{r}
+#| label: import-data
+#| eval: false
+```
+
+## Derive analysis variables and apply the exclusion
+
+This step derives the variables used in Table 1 and the models:
+
+-   **Immunosuppression.** The free-text regimen in `Drugs` is upper-cased, then three indicators are set by searching it for character strings: calcineurin inhibitor (`DrugCNI`: `PRO`, `T` or `CYC`), mycophenolate (`DrugMycophenolate`: `M` or `CELL`) and mTOR inhibitor (`DrugMTOR`: `SIR` or `EVER`). Corticosteroid use comes directly from `STEROID`.
+-   **Serum cryptococcal antigen.** `SerumCrAg` holds either a titer or the word "Negative"; `CryptococcalAg` stores the numeric titer, with negative results set to 0.
+-   **Site of infection.** `CNSDisease` is true when the recorded infection site (`InfSite`) mentions CNS.
+-   **Exclusion.** Participant 116 is removed: recruited as a control, but with a positive cryptococcal antigen. This leaves the 23 cases and 21 controls reported in the paper [@yoon2022antibody].
+-   **Outcome.** `HasCryptococcus` is the case/control status as a logical value, the outcome for the logistic regression models.
+-   **Transplanted organ** is converted to title case so that differently capitalized entries are counted together.
+
+```{r}
+#| label: clean-data
+#| eval: false
+```
+
+## Define variable groups
+
+The categorical variables and the seven antibody measurements are named once here, so the tables and models below select them consistently. Four are cryptococcus-specific (GXM- and Lam-binding IgG and IgM, reported as titers) and three are total immunoglobulins (IgM, IgG1, IgG2, in µg/mL).
+
+```{r}
+#| label: define-variable-lists
+#| eval: false
+```
+
+## Log-transform the antibody levels
+
+Antibody levels are strongly right-skewed, so a natural-log version of each is created (`log_GXMIgM` and so on). The regression models use both scales; the paper's multivariable models and ROC curves use the log scale. The list of continuous variables (age, the seven antibodies and their logs) is defined here.
+
+```{r}
+#| label: log-transform-titers
+#| eval: false
+```
+
+## Convert categorical variables to factors
+
+```{r}
+#| label: convert-factors
+#| eval: false
+```
+
+## Participants with antibody measurements
+
+Antibody data were missing for 2 cases [@yoon2022antibody]. Plots and analyses that need complete antibody data, such as the faceted titer plot and the principal component analysis, use this subset; missingness is identified by a missing GXM-IgG value.
+
+```{r}
+#| label: exclude-missing-titers
+#| eval: false
+```
+
+## References
+
+::: {#refs}
+:::

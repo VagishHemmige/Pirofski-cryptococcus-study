@@ -1,0 +1,46 @@
+---
+title: "Setup"
+format: html
+---
+
+This script attaches every package the analysis uses and says where to find the study workbook.
+
+::: {.Rcode title="Source code"}
+The full R script is available at:
+
+-   [`R/setup.R`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/R/setup.R)
+
+The code sections below are imported directly from that script when this page is rendered.
+:::
+
+```{r}
+#| include: false
+#| eval: true
+#| cache: false
+knitr::read_chunk("../R/setup.R")
+```
+
+## Packages
+
+The package list is the one used for the published analysis:
+
+-   **Data import and management:** `readxl` reads the Excel workbook; `tidyverse` (including `stringr`) handles cleaning and reshaping [@wickham2019tidyverse]; `haven` supplies `as_factor()`, used to turn categorical variables into factors.
+-   **Tables:** `gtsummary` builds Table 1 and the regression tables; `bstfun` adds the inline forest plots to those tables; `flextable` formats the PCA eigenvalue table.
+-   **Figures:** `ggplot2`, `ggbeeswarm` (quasirandom points) and `ggpubr` (Wilcoxon p-values on the plot); `corrplot` for correlation matrices.
+-   **Modeling:** `broom` for tidy model output; `pROC` for ROC curves and AUC confidence intervals; `cutpointr` for optimal titer cutpoints; `factoextra` for PCA eigenvalues and plots.
+
+`bstfun` is not on CRAN; install it from GitHub with `remotes::install_github("MSKCC-Epi-Bio/bstfun")`.
+
+```{r}
+#| label: load-packages
+#| eval: false
+```
+
+## Constants
+
+The study workbook is restricted and never committed. `raw_data_path` points to the authorized local copy, which by default sits in `data-raw/`, a folder excluded by `.gitignore`. Only the sheet named `Data` is used. The scripts write their outputs to `tables/` and `figures/`.
+
+```{r}
+#| label: define-constants
+#| eval: false
+```

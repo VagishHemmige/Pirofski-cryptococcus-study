@@ -1,0 +1,35 @@
+---
+title: "About"
+format: html
+---
+
+## The study
+
+Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and non-specific antibody profiles in organ transplant recipients with and without cryptococcosis. *Open Forum Infectious Diseases*. 2022;9(7):ofac211 [@yoon2022antibody].
+
+-   **Liise-anne Pirofski** (principal investigator)
+-   **Hyunah Yoon** (first author)
+-   **Vagish Hemmige** (statistical analysis and this repository)
+
+## This repository
+
+The analysis was originally written as a single R Markdown file in 2022. This repository splits that file into scripts run in order by `R/main.R` and documents each step on this website. The analysis code is unchanged; the additions are the data path in `R/setup.R`, the names that results are assigned to, and the code that exports tables and figures. The study data are restricted and are not in the repository.
+
+Contributions follow the rules in [`AGENTS.md`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/AGENTS.md); open questions and known issues are tracked in [Issues](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/issues).
+
+## Pages
+
+-   [**Clinical background**](background.qmd): the clinical question and study design.
+-   [**Setup**](setup.qmd): packages and the location of the study data.
+-   [**Functions**](functions.qmd): helpers that summarize and export tables.
+-   [**1. Import and clean data**](import_clean.qmd): reads the workbook, derives variables, applies the exclusion.
+-   [**2. Regression, ROC and cutpoints**](modeling.qmd): logistic regression models, ROC curves, AUC confidence intervals and optimal titer cutpoints.
+-   [**3. Principal component analysis**](pca.qmd): PCA of the log antibody levels and regression on the components.
+-   [**Tables**](tables.qmd): Table 1 and the export of every table.
+-   [**Figures**](figures.qmd): every figure and its export.
+-   [**Results**](results.qmd): the exported tables and figures.
+
+## References
+
+::: {#refs}
+:::
