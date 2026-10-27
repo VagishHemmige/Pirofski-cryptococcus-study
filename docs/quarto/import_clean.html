@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -99,10 +99,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-261e60fdf64a0e003ec2340fd2db30d7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-243619feadb355500505c6593e83032b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -386,7 +386,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <li><strong>Immunosuppression.</strong> The free-text regimen in <code>Drugs</code> is upper-cased, then three indicators are set by searching it for character strings: calcineurin inhibitor (<code>DrugCNI</code>: <code>PRO</code>, <code>T</code> or <code>CYC</code>), mycophenolate (<code>DrugMycophenolate</code>: <code>M</code> or <code>CELL</code>) and mTOR inhibitor (<code>DrugMTOR</code>: <code>SIR</code> or <code>EVER</code>). Corticosteroid use comes directly from <code>STEROID</code>.</li>
 <li><strong>Serum cryptococcal antigen.</strong> <code>SerumCrAg</code> holds either a titer or the word “Negative”; <code>CryptococcalAg</code> stores the numeric titer, with negative results set to 0.</li>
 <li><strong>Site of infection.</strong> <code>CNSDisease</code> is true when the recorded infection site (<code>InfSite</code>) mentions CNS.</li>
-<li><strong>Exclusion.</strong> Participant 116 is removed: recruited as a control, but with a positive cryptococcal antigen. This leaves the 23 cases and 21 controls reported in the paper <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</li>
+<li><strong>Exclusion.</strong> One participant recruited as a control is removed because their serum cryptococcal antigen was positive. This rule comes from the original analysis code, not the published methods. It leaves the final sample of 23 cases and 21 controls reported in the paper <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</li>
 <li><strong>Outcome.</strong> <code>HasCryptococcus</code> is the case/control status as a logical value, the outcome for the logistic regression models.</li>
 <li><strong>Transplanted organ</strong> is converted to title case so that differently capitalized entries are counted together.</li>
 </ul>
@@ -991,7 +991,7 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Immunosuppression.** The free-text regimen in <span class="in">`Drugs`</span> is upper-cased, then three indicators are set by searching it for character strings: calcineurin inhibitor (<span class="in">`DrugCNI`</span>: <span class="in">`PRO`</span>, <span class="in">`T`</span> or <span class="in">`CYC`</span>), mycophenolate (<span class="in">`DrugMycophenolate`</span>: <span class="in">`M`</span> or <span class="in">`CELL`</span>) and mTOR inhibitor (<span class="in">`DrugMTOR`</span>: <span class="in">`SIR`</span> or <span class="in">`EVER`</span>). Corticosteroid use comes directly from <span class="in">`STEROID`</span>.</span>
 <span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Serum cryptococcal antigen.** <span class="in">`SerumCrAg`</span> holds either a titer or the word "Negative"; <span class="in">`CryptococcalAg`</span> stores the numeric titer, with negative results set to 0.</span>
 <span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Site of infection.** <span class="in">`CNSDisease`</span> is true when the recorded infection site (<span class="in">`InfSite`</span>) mentions CNS.</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exclusion.** Participant 116 is removed: recruited as a control, but with a positive cryptococcal antigen. This leaves the 23 cases and 21 controls reported in the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exclusion.** One participant recruited as a control is removed because their serum cryptococcal antigen was positive. This rule comes from the original analysis code, not the published methods. It leaves the final sample of 23 cases and 21 controls reported in the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
 <span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Outcome.** <span class="in">`HasCryptococcus`</span> is the case/control status as a logical value, the outcome for the logistic regression models.</span>
 <span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Transplanted organ** is converted to title case so that differently capitalized entries are counted together.</span>
 <span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>

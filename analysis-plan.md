@@ -28,7 +28,7 @@ Single-center case–control study. Antibodies were measured once, after transpl
 
 - **Cases:** organ transplant recipients with a history of posttransplant cryptococcosis diagnosed by a positive CrAg test or body fluid culture.
 - **Controls:** organ transplant recipients without a history of posttransplant cryptococcosis.
-- **Exclusion:** one participant recruited as a control was excluded because the serum CrAg was positive (study ID 116).
+- **Exclusion:** one participant recruited as a control was excluded because the serum CrAg was positive. This exclusion is applied in the original 2022 analysis code; the publication reports the final sample only.
 - **Analytic sample:** 23 cases and 21 controls. Antibody data are missing for 2 cases; analyses requiring antibody data use the participants with measurements.
 
 ## 5. Variables
