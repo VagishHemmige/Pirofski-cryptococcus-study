@@ -22,7 +22,7 @@ Single-center case–control study. Antibodies were measured once, after transpl
 - **Clinical data:** abstracted from the medical record: type and year of transplant, age, sex, race and the immunosuppression regimen at enrollment; for cases, site of infection and time from diagnosis to sample collection.
 - **Laboratory data:** serum total IgM, IgG1 and IgG2 by Luminex (µg/mL); GXM- and Lam-binding IgM and IgG reported as titers; serum cryptococcal antigen (CrAg) by lateral flow assay.
 - **Analysis file:** one Excel workbook, sheet `Data`, one row per participant. The workbook is restricted and is not part of the repository.
-- **Approvals:** UAB Institutional Review Board approval with written informed consent; samples studied under an Albert Einstein College of Medicine IRB-approved protocol.
+- **Approvals:** The UAB Institutional Review Board approved the study and all participants gave written informed consent; the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its IRB.
 
 ## 4. Study population
 

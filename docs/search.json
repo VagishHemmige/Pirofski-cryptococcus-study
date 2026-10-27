@@ -111,7 +111,7 @@
     "href": "quarto/results.html#logistic-regression",
     "title": "Results",
     "section": "Logistic regression",
-    "text": "Logistic regression\n\nOriginal antibody scale\n\n\n\nLog antibody scale\n\n\n\nSensitivity analysis: one antibody at a time",
+    "text": "Logistic regression\n\nOriginal antibody scale\n\n\n\nLog antibody scale\n\nOdds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.\n\n\nSensitivity analysis: one antibody at a time",
     "crumbs": [
       "Results"
     ]
@@ -131,7 +131,7 @@
     "href": "quarto/results.html#optimal-cutpoints",
     "title": "Results",
     "section": "Optimal cutpoints",
-    "text": "Optimal cutpoints",
+    "text": "Optimal cutpoints\nA test result is “positive” (suggesting cryptococcosis) when the antibody is at or below the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values. PPV and NPV assume the study’s roughly 50:50 mix of cases and controls; at the much lower frequency of cryptococcosis among transplant recipients, the PPV would be far lower. These cutpoints have not been validated for screening.",
     "crumbs": [
       "Results"
     ]
@@ -336,7 +336,7 @@
     "href": "quarto/background.html",
     "title": "Clinical background",
     "section": "",
-    "text": "Cryptococcosis is the third most common invasive fungal disease in organ transplant recipients, and carries substantial mortality (Yoon et al. 2022).\nTwo kinds of antibody are relevant to Cryptococcus neoformans:\nBoth have been associated with cryptococcosis status or risk in people with and without HIV infection (Yoon et al. 2022). In transplant recipients, Jalali et al. found pretransplant GXM-IgM lower, but posttransplant GXM-IgM and IgG higher, in patients who developed cryptococcosis (Jalali et al. 2006). This study measured both antibodies, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis (Yoon et al. 2022).",
+    "text": "Among invasive fungal infections in organ transplant recipients, cryptococcosis ranks third in frequency, and it carries substantial mortality (Yoon et al. 2022).\nTwo kinds of antibody are relevant to Cryptococcus neoformans:\nBoth have been linked to cryptococcosis, or to the risk of developing it, in people with and without HIV infection (Yoon et al. 2022). In transplant recipients, Jalali et al. found pretransplant GXM-IgM lower, but posttransplant GXM-IgM and IgG higher, in patients who developed cryptococcosis (Jalali et al. 2006). This study measured both antibodies, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis (Yoon et al. 2022).",
     "crumbs": [
       "Background",
       "Clinical background"
@@ -347,7 +347,7 @@
     "href": "quarto/background.html#study-design-in-brief",
     "title": "Clinical background",
     "section": "Study design in brief",
-    "text": "Study design in brief\n\nSetting: University of Alabama at Birmingham; recruitment 1 January 2013 to 31 December 2018.\nCases: organ transplant recipients with a history of posttransplant cryptococcosis, diagnosed by a positive cryptococcal antigen (CrAg) test or body fluid culture.\nControls: organ transplant recipients with no such history.\nMeasurements: serum total IgM, IgG1 and IgG2 (µg/mL, Luminex); GXM- and Lam-binding IgM and IgG (titers); serum CrAg by lateral flow assay.\nApprovals: the UAB Institutional Review Board approved the study, all patients gave written informed consent, and the samples were studied under an Albert Einstein College of Medicine IRB-approved protocol.\n\nSee analysis-plan.md for the full specification.",
+    "text": "Study design in brief\n\nSetting: University of Alabama at Birmingham; recruitment 1 January 2013 to 31 December 2018.\nCases: organ transplant recipients with a history of posttransplant cryptococcosis, diagnosed from a positive cryptococcal antigen (CrAg) result or a positive body-fluid culture.\nControls: organ transplant recipients with no such history.\nMeasurements: serum total IgM, IgG1 and IgG2 (µg/mL, Luminex); GXM- and Lam-binding IgM and IgG (titers); serum CrAg by lateral flow assay.\nApprovals: the UAB Institutional Review Board approved the study and all participants gave written informed consent; the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its IRB.\n\nSee analysis-plan.md for the full specification.",
     "crumbs": [
       "Background",
       "Clinical background"

@@ -363,11 +363,23 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Note</span>Key findings
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>All analyses were exploratory, with no correction for multiple comparisons. ROC curves and cutpoints were estimated and evaluated on the same data. The bootstrap AUC confidence intervals involve random resampling and can differ slightly between runs.</p>
+<ul>
+<li><strong>Cases had lower cryptococcus-binding IgM than controls:</strong> median inverse titer of GXM-IgM 11 vs 42, and of Lam-IgM 49 vs 132. Lam-IgG was also lower (319 vs 589), as were total IgG1 (1,057 vs 1,516 µg/mL) and IgG2 (724 vs 1,097 µg/mL) <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</li>
+<li><strong>Higher GXM-IgM and Lam-IgM were associated with lower odds of being a case.</strong> In models including sex and either antibody, the odds ratio was 0.40 per natural-log unit of GXM-IgM and 0.33 for Lam-IgM. Because the two antibodies are strongly correlated (r = 0.77), neither was significant when both were in the same model.</li>
+<li><strong>Discrimination:</strong> the area under the ROC curve was 0.80 for the model with sex and both antibodies, and 0.78 for the two antibodies without sex, comparable to the model including sex <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</li>
+<li><strong>Interpretation:</strong> the authors concluded that, together with previous studies, the findings “suggest the hypothesis that GXM/Lam-IgM may be beneficial in resistance to OTR-associated cryptococcosis” <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</li>
+</ul>
+<p><strong>Read with caution.</strong></p>
+<ul>
+<li>Blood was sampled once, at a non-standardized time <em>after</em> cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.</li>
+<li>Cases and controls were not recruited concurrently and were not matched.</li>
+<li>AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic.</li>
+<li>All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.</li>
+</ul>
 </div>
 </div>
 <section id="table-1" class="level2">
@@ -394,6 +406,7 @@ Note
 <section id="log-antibody-scale" class="level3">
 <h3 class="anchored" data-anchor-id="log-antibody-scale">Log antibody scale</h3>
 <iframe src="../tables/regression_log_titer_models1_2.html" width="100%" height="700" style="border:none;" title="Univariable and multivariable logistic regression, log scale, models 1 and 2"></iframe>
+<p>Odds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.</p>
 </section>
 <section id="sensitivity-analysis-one-antibody-at-a-time" class="level3">
 <h3 class="anchored" data-anchor-id="sensitivity-analysis-one-antibody-at-a-time">Sensitivity analysis: one antibody at a time</h3>
@@ -435,6 +448,7 @@ Note
 </section>
 <section id="optimal-cutpoints" class="level2">
 <h2 class="anchored" data-anchor-id="optimal-cutpoints">Optimal cutpoints</h2>
+<p>A test result is “positive” (suggesting cryptococcosis) when the antibody is <strong>at or below</strong> the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values. PPV and NPV assume the study’s roughly 50:50 mix of cases and controls; at the much lower frequency of cryptococcosis among transplant recipients, the PPV would be far lower. These cutpoints have not been validated for screening.</p>
 <iframe src="../tables/optimal_cutpoints.html" width="100%" height="300" style="border:none;" title="Optimal antibody cutpoints"></iframe>
 </section>
 <section id="correlation-between-antibodies" class="level2">
@@ -984,100 +998,116 @@ Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne 
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>These are the tables and figures produced by running <span class="in">`R/main.R`</span> on the study data. They were exported to <span class="in">`tables/`</span> and <span class="in">`figures/`</span> and are shown here as saved; this page does not rerun any analysis. The investigators have confirmed that these results are cleared for public release; they were published in *Open Forum Infectious Diseases* <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>All analyses were exploratory, with no correction for multiple comparisons. ROC curves and cutpoints were estimated and evaluated on the same data. The bootstrap AUC confidence intervals involve random resampling and can differ slightly between runs.</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table 1</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### All participants</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key findings</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Cases had lower cryptococcus-binding IgM than controls:** median inverse titer of GXM-IgM 11 vs 42, and of Lam-IgM 49 vs 132. Lam-IgG was also lower (319 vs 589), as were total IgG1 (1,057 vs 1,516 µg/mL) and IgG2 (724 vs 1,097 µg/mL) <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Higher GXM-IgM and Lam-IgM were associated with lower odds of being a case.** In models including sex and either antibody, the odds ratio was 0.40 per natural-log unit of GXM-IgM and 0.33 for Lam-IgM. Because the two antibodies are strongly correlated (r = 0.77), neither was significant when both were in the same model.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Discrimination:** the area under the ROC curve was 0.80 for the model with sex and both antibodies, and 0.78 for the two antibodies without sex, comparable to the model including sex <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interpretation:** the authors concluded that, together with previous studies, the findings "suggest the hypothesis that GXM/Lam-IgM may be beneficial in resistance to OTR-associated cryptococcosis" <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/table1_all.html" width="100%" height="900" style="border:none;" title="Table 1, all participants"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Participants with antibody measurements</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/table1_no_missing_titers.html" width="100%" height="900" style="border:none;" title="Table 1, participants with antibody measurements"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>**Read with caution.**</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Blood was sampled once, at a non-standardized time *after* cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cases and controls were not recruited concurrently and were not matched.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table 1</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Antibody levels by case status</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### All participants</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/faceted_titer_plot.png)</span>{fig-alt="Seven side-by-side panels, one per antibody (GXM-IgG, GXM-IgM, IgG1, IgG2, IgM, Lam-IgG, Lam-IgM), each comparing cases with controls on a log-scaled y-axis. Each panel shows a grey violin of the distribution, a black bar at the median, individual participants as points colored by transplanted organ and shaped by sex, and a Wilcoxon p-value at the top."}</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic regression</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/table1_all.html" width="100%" height="900" style="border:none;" title="Table 1, all participants"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Original antibody scale</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Participants with antibody measurements</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/regression_titer.html" width="100%" height="700" style="border:none;" title="Univariable and multivariable logistic regression, original scale"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/table1_no_missing_titers.html" width="100%" height="900" style="border:none;" title="Table 1, participants with antibody measurements"&gt;&lt;/iframe&gt;</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Log antibody scale</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Antibody levels by case status</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/regression_log_titer_models1_2.html" width="100%" height="700" style="border:none;" title="Univariable and multivariable logistic regression, log scale, models 1 and 2"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/faceted_titer_plot.png)</span>{fig-alt="Seven side-by-side panels, one per antibody (GXM-IgG, GXM-IgM, IgG1, IgG2, IgM, Lam-IgG, Lam-IgM), each comparing cases with controls on a log-scaled y-axis. Each panel shows a grey violin of the distribution, a black bar at the median, individual participants as points colored by transplanted organ and shaped by sex, and a Wilcoxon p-value at the top."}</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic regression</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sensitivity analysis: one antibody at a time</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Original antibody scale</span></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/sensitivity_log_lam_igm.html" width="100%" height="300" style="border:none;" title="Sex and log Lam-IgM model"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/sensitivity_log_gxm_igm.html" width="100%" height="300" style="border:none;" title="Sex and log GXM-IgM model"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC curves</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="al">![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png)</span>{fig-alt="ROC curve of sensitivity against specificity for the model with sex and Lam-IgM on the original scale, with the area under the curve printed on the plot."}</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/regression_titer.html" width="100%" height="700" style="border:none;" title="Univariable and multivariable logistic regression, original scale"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Log antibody scale</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/regression_log_titer_models1_2.html" width="100%" height="700" style="border:none;" title="Univariable and multivariable logistic regression, log scale, models 1 and 2"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png)</span>{fig-alt="ROC curve of sensitivity against specificity for model 1 (sex, log Lam-IgM and log GXM-IgM), with the area under the curve printed on the plot."}</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Odds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png)</span>{fig-alt="ROC curve of sensitivity against specificity for model 2 (log Lam-IgM and log GXM-IgM, without sex), with the area under the curve printed on the plot."}</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/auc_confidence_intervals.html" width="100%" height="250" style="border:none;" title="AUC with DeLong and bootstrap confidence intervals"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sensitivity analysis: one antibody at a time</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/sensitivity_log_lam_igm.html" width="100%" height="300" style="border:none;" title="Sex and log Lam-IgM model"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/sensitivity_log_gxm_igm.html" width="100%" height="300" style="border:none;" title="Sex and log GXM-IgM model"&gt;&lt;/iframe&gt;</span></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optimal cutpoints</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC curves</span></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/optimal_cutpoints.html" width="100%" height="300" style="border:none;" title="Optimal antibody cutpoints"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlation between antibodies</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="al">![All participants](../figures/corrplot_log_titers_all.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for all participants with antibody data, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="al">![Cases](../figures/corrplot_log_titers_cases.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for cases only, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="al">![Controls](../figures/corrplot_log_titers_controls.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for controls only, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="al">![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png)</span>{fig-alt="ROC curve of sensitivity against specificity for the model with sex and Lam-IgM on the original scale, with the area under the curve printed on the plot."}</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png)</span>{fig-alt="ROC curve of sensitivity against specificity for model 1 (sex, log Lam-IgM and log GXM-IgM), with the area under the curve printed on the plot."}</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png)</span>{fig-alt="ROC curve of sensitivity against specificity for model 2 (log Lam-IgM and log GXM-IgM, without sex), with the area under the curve printed on the plot."}</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/auc_confidence_intervals.html" width="100%" height="250" style="border:none;" title="AUC with DeLong and bootstrap confidence intervals"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optimal cutpoints</span></span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principal component analysis</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>A test result is "positive" (suggesting cryptococcosis) when the antibody is **at or below** the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values. PPV and NPV assume the study's roughly 50:50 mix of cases and controls; at the much lower frequency of cryptococcosis among transplant recipients, the PPV would be far lower. These cutpoints have not been validated for screening.</span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/pca_eigenvalues.html" width="100%" height="350" style="border:none;" title="PCA eigenvalues and variance explained"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/optimal_cutpoints.html" width="100%" height="300" style="border:none;" title="Optimal antibody cutpoints"&gt;&lt;/iframe&gt;</span></span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="2"}</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="al">![Participants on the first two components](../figures/pca_individuals.png)</span>{fig-alt="Scatter plot of participants on the first two principal components, colored by case or control status, with a confidence ellipse around each group."}</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="al">![Biplot](../figures/pca_biplot.png)</span>{fig-alt="Biplot of participants on the first two principal components, colored by case status with confidence ellipses, overlaid with arrows showing how each log antibody level loads on the two components."}</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="al">![Component scores are uncorrelated](../figures/corrplot_principal_components.png)</span>{width="50%" fig-alt="Correlation matrix of the seven principal component scores, with correlation coefficients printed in each cell; off-diagonal values are zero."}</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/regression_principal_components.html" width="100%" height="450" style="border:none;" title="Logistic regression on the principal components"&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlation between antibodies</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="al">![All participants](../figures/corrplot_log_titers_all.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for all participants with antibody data, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="al">![Cases](../figures/corrplot_log_titers_cases.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for cases only, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="al">![Controls](../figures/corrplot_log_titers_controls.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels for controls only, shown as colored cells with the Pearson correlation coefficient printed in each."}</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principal component analysis</span></span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/pca_eigenvalues.html" width="100%" height="350" style="border:none;" title="PCA eigenvalues and variance explained"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="2"}</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="al">![Participants on the first two components](../figures/pca_individuals.png)</span>{fig-alt="Scatter plot of participants on the first two principal components, colored by case or control status, with a confidence ellipse around each group."}</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="al">![Biplot](../figures/pca_biplot.png)</span>{fig-alt="Biplot of participants on the first two principal components, colored by case status with confidence ellipses, overlaid with arrows showing how each log antibody level loads on the two components."}</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="al">![Component scores are uncorrelated](../figures/corrplot_principal_components.png)</span>{width="50%" fig-alt="Correlation matrix of the seven principal component scores, with correlation coefficients printed in each cell; off-diagonal values are zero."}</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;iframe src="../tables/regression_principal_components.html" width="100%" height="450" style="border:none;" title="Logistic regression on the principal components"&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

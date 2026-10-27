@@ -6,7 +6,19 @@ format: html
 These are the tables and figures produced by running `R/main.R` on the study data. They were exported to `tables/` and `figures/` and are shown here as saved; this page does not rerun any analysis. The investigators have confirmed that these results are cleared for public release; they were published in *Open Forum Infectious Diseases* [@yoon2022antibody].
 
 ::: callout-note
-All analyses were exploratory, with no correction for multiple comparisons. ROC curves and cutpoints were estimated and evaluated on the same data. The bootstrap AUC confidence intervals involve random resampling and can differ slightly between runs.
+## Key findings
+
+- **Cases had lower cryptococcus-binding IgM than controls:** median inverse titer of GXM-IgM 11 vs 42, and of Lam-IgM 49 vs 132. Lam-IgG was also lower (319 vs 589), as were total IgG1 (1,057 vs 1,516 µg/mL) and IgG2 (724 vs 1,097 µg/mL) [@yoon2022antibody].
+- **Higher GXM-IgM and Lam-IgM were associated with lower odds of being a case.** In models including sex and either antibody, the odds ratio was 0.40 per natural-log unit of GXM-IgM and 0.33 for Lam-IgM. Because the two antibodies are strongly correlated (r = 0.77), neither was significant when both were in the same model.
+- **Discrimination:** the area under the ROC curve was 0.80 for the model with sex and both antibodies, and 0.78 for the two antibodies without sex, comparable to the model including sex [@yoon2022antibody].
+- **Interpretation:** the authors concluded that, together with previous studies, the findings "suggest the hypothesis that GXM/Lam-IgM may be beneficial in resistance to OTR-associated cryptococcosis" [@yoon2022antibody].
+
+**Read with caution.**
+
+- Blood was sampled once, at a non-standardized time *after* cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.
+- Cases and controls were not recruited concurrently and were not matched.
+- AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic.
+- All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.
 :::
 
 ## Table 1
@@ -41,6 +53,8 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 <iframe src="../tables/regression_log_titer_models1_2.html" width="100%" height="700" style="border:none;" title="Univariable and multivariable logistic regression, log scale, models 1 and 2"></iframe>
 ```
 
+Odds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.
+
 ### Sensitivity analysis: one antibody at a time
 
 ```{=html}
@@ -63,6 +77,8 @@ All analyses were exploratory, with no correction for multiple comparisons. ROC 
 ```
 
 ## Optimal cutpoints
+
+A test result is "positive" (suggesting cryptococcosis) when the antibody is **at or below** the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values. PPV and NPV assume the study's roughly 50:50 mix of cases and controls; at the much lower frequency of cryptococcosis among transplant recipients, the PPV would be far lower. These cutpoints have not been validated for screening.
 
 ```{=html}
 <iframe src="../tables/optimal_cutpoints.html" width="100%" height="300" style="border:none;" title="Optimal antibody cutpoints"></iframe>
