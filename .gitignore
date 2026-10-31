@@ -10,7 +10,10 @@
 # Office lock/temporary files (e.g. ~$document.docx)
 ~$*
 
-# Quarto (docs/ is NOT ignored: it is the published site, rendered locally from the cleared analysis)
+# Quarto. docs/ is the local render; GitHub Actions renders the site, with the
+# cleared tables/ and figures/, and publishes it to the gh-pages branch
+# (.github/workflows/publish.yml)
+/docs/
 /.quarto/
 **/*.quarto_ipynb
 

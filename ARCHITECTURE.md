@@ -7,7 +7,7 @@ This repository reproduces a published case–control analysis of antibody profi
 Two boundaries shape the design:
 
 - **The analysis code is frozen.** Scripts reproduce the published analysis unchanged. The only additions are the workbook path, names for results the R Markdown file printed inline, and code that exports and labels tables and figures (see `AGENTS.md`).
-- **The data never enter Git.** The restricted workbook is read from `data-raw/` (ignored) or another local path. Only cleared outputs in `tables/` and `figures/`, and the rendered site in `docs/`, are committed.
+- **The data never enter Git.** The restricted workbook is read from `data-raw/` (ignored) or another local path. Only cleared outputs in `tables/` and `figures/` are committed; the rendered site is published to the `gh-pages` branch, not committed.
 
 The scientific specification is in `analysis-plan.md`; the intended layout is in `REPOSITORY-BLUEPRINT.md`.
 
@@ -32,7 +32,7 @@ flowchart TD
     R[R/*.R source] -. read_chunk .-> Q[quarto/*.qmd pages]
     TO -- show_table --> RES[quarto/results.qmd]
     FO --> RES
-    Q --> D[(docs/ rendered site)]
+    Q --> D[(gh-pages branch, rendered by GitHub Actions)]
     RES --> D
     D --> GH[GitHub Pages]
     MAIN[R/main.R] -. sources in order .-> S
@@ -146,10 +146,10 @@ Scripts are listed in the order `R/main.R` sources them. Each script's header co
 **How it works**:
 - Each script page loads its script with `knitr::read_chunk("../R/<script>.R")` in a hidden chunk and shows each labelled section with `eval: false`.
 - `quarto/results.qmd` defines a hidden `show_table()` helper. For each saved file in `tables/`, it takes the HTML body and places it directly in the page inside a horizontally scrolling container, so tables size to their content. Figures are linked from `figures/`.
-- `_quarto.yml` lists `tables/*.html` and `figures/*.png` as `resources`, so they are copied into `docs/`.
+- `_quarto.yml` lists `tables/*.html` and `figures/*.png` as `resources`, so they are copied into the rendered site.
 - Global `execute: eval: false` keeps analysis code from running during rendering. Only the `read_chunk()` imports and the Results page's `show_table()` calls are evaluated, and those read files only.
 
-**Interactions**: Renders to `docs/`, which GitHub Pages serves from the `master` branch.
+**Interactions**: Renders to `docs/` locally, which is not committed. `.github/workflows/publish.yml` renders the site on every pull request as a check and, on each push to `master`, publishes it to the `gh-pages` branch, which GitHub Pages serves.
 
 ## Data Flow
 
@@ -157,7 +157,7 @@ Scripts are listed in the order `R/main.R` sources them. Each script's header co
 2. Cleaning produces `CleanData` (23 cases, 21 controls) and the complete-antibody subset `CleanData_NoMissingTiters`.
 3. `R/modeling.R` fits models on `CleanData`; complete-case handling is left to `glm`. `R/pca.R` works on the complete-antibody subset.
 4. `R/tables.R` relabels the gtsummary tables for display and saves them, with the other tables, to `tables/`. `R/figures.R` saves the figures to `figures/`.
-5. An authorized person reviews those outputs, renders the site with `quarto render`, and commits `tables/`, `figures/` and `docs/`. The Results page then reads the saved tables into the page.
+5. An authorized person reviews those outputs, previews the site with `quarto render`, and commits `tables/` and `figures/`; GitHub Actions publishes the site when the change reaches `master`. The Results page then reads the saved tables into the page.
 
 No intermediate objects are saved to disk. Every run starts from the workbook in a fresh R session.
 

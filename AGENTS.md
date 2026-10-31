@@ -67,13 +67,13 @@ The site documents the code. It does not run the analysis.
 - `_quarto.yml` and `index.qmd` sit at the root; `quarto/` has one page per definitive script, named after it. The `custom-callout` extension in `_extensions/` provides the `Rcode` callout.
 - Each page loads its script with `knitr::read_chunk("../R/<script>.R")` in a hidden chunk and shows each labelled section with `#| eval: false`, with prose explaining what the section does and why. Pages link to the script on GitHub and to the scripts it depends on.
 - **Never evaluate analysis code in the site.** The Results page displays the exported files in `tables/` and `figures/`; it does not rerun anything.
-- The site renders to `docs/` and is served by GitHub Pages. When you add a script, add its page and sidebar entry in the same pull request, and re-render.
+- The site renders to `docs/`, which is not committed. `.github/workflows/publish.yml` renders it on every pull request as a check and, on each push to `master`, publishes it to the `gh-pages` branch, which GitHub Pages serves. When you add a script, add its page and sidebar entry in the same pull request; render locally to preview, but do not commit the output.
 - **Prose must match the code.** If a change alters what a section does, update its explanation in the same pull request.
 
 ## Outputs
 
 - Tables and figures are exported by `R/tables.R` and `R/figures.R` to `tables/` (HTML) and `figures/` (PNG), and are tracked. A new export needs a decider's clearance first, and tables of raw or free-text values, or cells that describe a single participant, are not exported unless a decider explicitly clears them.
-- Only an authorized person runs `R/main.R` on the real workbook and commits the resulting `tables/`, `figures/` and `docs/`.
+- Only an authorized person runs `R/main.R` on the real workbook and commits the resulting `tables/` and `figures/`; the site is rebuilt from them when the change reaches `master`.
 - Published figures need alt text.
 - `README.Rmd` is the source of `README.md`; edit the `.Rmd` and re-knit.
 

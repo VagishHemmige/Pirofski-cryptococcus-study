@@ -48,7 +48,9 @@ access:
     from GitHub: `remotes::install_github("MSKCC-Epi-Bio/bstfun")`.
 3.  Run `R/main.R` from the project root in a fresh R session. Tables
     are written to `tables/` and figures to `figures/`.
-4.  Render the website with `quarto render`.
+4.  Preview the website with `quarto render`. Do not commit `docs/`:
+    when the change reaches `master`, GitHub Actions renders the site
+    and publishes it.
 
 The analysis code is the published 2022 analysis, reorganized into
 scripts without changing its logic.
