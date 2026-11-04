@@ -144,17 +144,6 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   content: '📊';
   background-image: none;
 }
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
-  background-image: none;
-}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -164,6 +153,17 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 </style>
@@ -462,38 +462,38 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <p>This page explains, in general terms and without code, the methods this kind of study uses. What this study chose, and why, is on <a href="../quarto/study_methods.html">Study design and methods</a>.</p>
 <section id="casecontrol-studies" class="level2">
 <h2 class="anchored" data-anchor-id="casecontrol-studies">Case–control studies</h2>
-<p>A case–control study starts from the outcome. People who have the disease (cases) and people who do not (controls) are recruited, and the two groups are compared on characteristics measured in each person. Because the number of cases and controls is set by the investigators rather than by how common the disease is, the study cannot estimate how often the disease occurs. It can estimate how strongly a characteristic is associated with having the disease, usually as an odds ratio.</p>
-<p>When the characteristic is measured once, after the disease has occurred, the comparison describes how cases and controls differ at that time. It shows association: whether the characteristic and the disease go together. It does not by itself show that the characteristic came first or that it affected the risk of disease.</p>
+<p>A case–control study starts from the outcome. People who have the disease (cases) and people who do not (controls) are recruited, and the two groups are compared on characteristics measured in each person. Because the number of cases and controls is set by the investigators rather than by how common the disease is, the study cannot estimate how often the disease occurs. It can estimate how strongly a characteristic is associated with having the disease, usually as an odds ratio<span class="citation" data-cites="setia2016casecontrol"><sup><a href="#ref-setia2016casecontrol" role="doc-biblioref">1</a></sup></span>.</p>
+<p>When the characteristic is measured once, after the disease has occurred, the comparison describes how cases and controls differ at that time. It shows association: whether the characteristic and the disease go together. It does not by itself show that the characteristic came first or that it affected the risk of disease<span class="citation" data-cites="setia2016casecontrol"><sup><a href="#ref-setia2016casecontrol" role="doc-biblioref">1</a></sup></span>.</p>
 </section>
 <section id="measuring-antibodies" class="level2">
 <h2 class="anchored" data-anchor-id="measuring-antibodies">Measuring antibodies</h2>
 <p>Antibodies can be reported in two ways.</p>
 <ul>
 <li><strong>Concentration</strong>, in micrograms per millilitre (µg/mL), measures how much of a whole class of antibody is in the serum, such as all IgM or all IgG1, whatever it binds.</li>
-<li><strong>Titer</strong> measures antibody that binds one target. The serum is diluted step by step, and the titer is the highest dilution at which binding can still be detected. A titer of 1:100 means binding was still seen at a 100-fold dilution, so a larger second number means more antibody. Titers are often written as the inverse (100 rather than 1:100).</li>
+<li><strong>Titer</strong> measures antibody that binds one target. The serum is diluted step by step, and the titer is the highest dilution at which binding is still detected above a set cutoff<span class="citation" data-cites="frey1998titer"><sup><a href="#ref-frey1998titer" role="doc-biblioref">2</a></sup></span>. A titer of 1:100 means binding was still seen at a 100-fold dilution, so a larger second number means more antibody. Titers are often written as the inverse (100 rather than 1:100).</li>
 </ul>
-<p>Antibody levels vary widely between people and their distributions are skewed: most people have modest levels and a few have very high ones. Taking the natural logarithm of each value makes the distribution more symmetric and turns multiplicative differences (twice as much antibody) into equal steps. Results on the log scale describe the change per one-unit increase in log level, which corresponds to roughly a 2.7-fold increase in the original level.</p>
+<p>Antibody levels vary widely between people and their distributions are skewed. When values are skewed to the right, taking the natural logarithm usually makes the distribution more symmetric, and it turns multiplicative differences (twice as much antibody) into equal steps<span class="citation" data-cites="keene1995log"><sup><a href="#ref-keene1995log" role="doc-biblioref">3</a></sup></span>. Results on the log scale describe the change per one-unit increase in log level, which corresponds to roughly a 2.7-fold increase in the original level.</p>
 </section>
 <section id="logistic-regression-and-odds-ratios" class="level2">
 <h2 class="anchored" data-anchor-id="logistic-regression-and-odds-ratios">Logistic regression and odds ratios</h2>
-<p>Logistic regression relates a yes/no outcome, such as being a case rather than a control, to one or more explanatory variables. Each variable’s result is reported as an odds ratio (OR): how much the odds of being a case change for each one-unit increase in that variable, or for one category compared with another.</p>
+<p>Logistic regression relates a yes/no outcome, such as being a case rather than a control, to one or more explanatory variables<span class="citation" data-cites="sperandei2014logistic"><sup><a href="#ref-sperandei2014logistic" role="doc-biblioref">4</a></sup></span>. Each variable’s result is reported as an odds ratio (OR): how much the odds of being a case change for each one-unit increase in that variable, or for one category compared with another.</p>
 <ul>
 <li>An OR of 1 means no association.</li>
 <li>An OR below 1 means higher values go with lower odds of being a case; above 1, with higher odds.</li>
-<li>The 95% confidence interval (CI) shows the range of values compatible with the data.</li>
+<li>The 95% confidence interval (CI) shows the range of values compatible with the data<span class="citation" data-cites="greenland2016misinterpretations"><sup><a href="#ref-greenland2016misinterpretations" role="doc-biblioref">5</a></sup></span>.</li>
 </ul>
-<p>A <strong>univariable</strong> model has one explanatory variable. A <strong>multivariable</strong> model has several, so each OR is adjusted for the others in the model.</p>
-<p>When two explanatory variables are strongly correlated, they carry much of the same information. Put in the same model, the data cannot tell their contributions apart, so each one’s OR becomes uncertain, with a wide confidence interval, even when together they are clearly associated with the outcome. This is called collinearity. Fitting each variable separately shows its association on its own.</p>
+<p>A <strong>univariable</strong> model has one explanatory variable. A <strong>multivariable</strong> model has several, so each OR is adjusted for the others in the model<span class="citation" data-cites="sperandei2014logistic"><sup><a href="#ref-sperandei2014logistic" role="doc-biblioref">4</a></sup></span>.</p>
+<p>When two explanatory variables are strongly correlated, they carry much of the same information. Put in the same model, the data cannot tell their contributions apart, so each one’s OR becomes uncertain, with a wide confidence interval, even when together they are clearly associated with the outcome. This is called collinearity. Fitting each variable separately shows its association on its own<span class="citation" data-cites="vatcheva2016multicollinearity"><sup><a href="#ref-vatcheva2016multicollinearity" role="doc-biblioref">6</a></sup></span>.</p>
 </section>
 <section id="roc-curves-and-auc" class="level2">
 <h2 class="anchored" data-anchor-id="roc-curves-and-auc">ROC curves and AUC</h2>
 <p>A model’s predicted probabilities can be used to sort people into likely cases and likely controls. A receiver operating characteristic (ROC) curve shows how well this works at every possible threshold. It plots sensitivity (the proportion of cases correctly identified) against 1 − specificity (the proportion of controls wrongly identified as cases).</p>
-<p>The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control. An AUC of 0.5 is no better than chance; 1.0 is perfect separation.</p>
-<p>A confidence interval for an AUC can be computed in two common ways. DeLong’s method uses a formula based on how each case compares with each control<span class="citation" data-cites="delong1988"><sup><a href="#ref-delong1988" role="doc-biblioref">1</a></sup></span>. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">2</a></sup></span>.</p>
+<p>The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control<span class="citation" data-cites="hanley1982auc"><sup><a href="#ref-hanley1982auc" role="doc-biblioref">7</a></sup></span>. An AUC of 0.5 is no better than chance; 1.0 is perfect separation.</p>
+<p>A confidence interval for an AUC can be computed in two common ways. DeLong’s method uses a formula based on how each case compares with each control<span class="citation" data-cites="delong1988"><sup><a href="#ref-delong1988" role="doc-biblioref">8</a></sup></span>. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">9</a></sup></span>.</p>
 </section>
 <section id="optimal-cutpoints" class="level2">
 <h2 class="anchored" data-anchor-id="optimal-cutpoints">Optimal cutpoints</h2>
-<p>For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight<span class="citation" data-cites="youden1950"><sup><a href="#ref-youden1950" role="doc-biblioref">3</a></sup></span>. The cutpointr package for R finds this cutpoint<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">4</a></sup></span>.</p>
+<p>For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight<span class="citation" data-cites="youden1950"><sup><a href="#ref-youden1950" role="doc-biblioref">10</a></sup></span>. The cutpointr package for R finds this cutpoint<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">11</a></sup></span>.</p>
 <p>At the chosen cutpoint, four measures describe performance:</p>
 <ul>
 <li><strong>Sensitivity:</strong> the proportion of cases with a positive result.</li>
@@ -501,31 +501,64 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <li><strong>Positive predictive value (PPV):</strong> the proportion of people with a positive result who are cases.</li>
 <li><strong>Negative predictive value (NPV):</strong> the proportion of people with a negative result who are controls.</li>
 </ul>
-<p>Sensitivity and specificity describe the test itself. PPV and NPV also depend on the proportion of cases in the group tested.</p>
+<p>Sensitivity and specificity describe the test itself. PPV and NPV also depend on the proportion of cases in the group tested<span class="citation" data-cites="trevethan2017predictive"><sup><a href="#ref-trevethan2017predictive" role="doc-biblioref">12</a></sup></span>.</p>
 </section>
 <section id="principal-component-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="principal-component-analysis">Principal component analysis</h2>
-<p>Principal component analysis (PCA) replaces a set of correlated measurements with the same number of new variables, called principal components, that are uncorrelated with each other. Each component is a weighted combination of the original measurements. The first component captures as much of the variation shared across the measurements as possible, the second as much of the remaining variation, and so on. The measurements are usually standardized first, so each counts equally whatever its units.</p>
-<p>The weights (loadings) show what each component represents. When all measurements have weights of the same sign on the first component, that component works as a summary score of overall level. Because the components are uncorrelated, they can be entered together in a regression model without the collinearity described above.</p>
+<p>Principal component analysis (PCA) replaces a set of correlated measurements with the same number of new variables, called principal components, that are uncorrelated with each other. Each component is a weighted combination of the original measurements. The first component captures as much of the total variation in the measurements as possible, the second as much of the remaining variation, and so on<span class="citation" data-cites="jolliffe2016pca"><sup><a href="#ref-jolliffe2016pca" role="doc-biblioref">13</a></sup></span>. The measurements can be standardized first, so each counts equally whatever its units.</p>
+<p>The weights (loadings) show what each component represents; how this study’s first component is read is explained on <a href="../quarto/pca.html">Principal component analysis</a>. Because the components are uncorrelated, they can be entered together in a regression model without the collinearity described above<span class="citation" data-cites="vatcheva2016multicollinearity"><sup><a href="#ref-vatcheva2016multicollinearity" role="doc-biblioref">6</a></sup></span>.</p>
 </section>
 <section id="exploratory-analyses" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-analyses">Exploratory analyses</h2>
-<p>An analysis is exploratory when it describes patterns in the data and generates hypotheses for later studies, rather than testing a hypothesis named in advance. Exploratory studies typically report each comparison’s p-value as it is, without adjusting for the number of comparisons made, and read the results as a guide to what to study next.</p>
+<p>An analysis is exploratory when it describes patterns in the data and generates hypotheses for later studies, rather than testing a hypothesis named in advance. Exploratory studies often report each comparison’s p-value as it is, without adjusting for the number of comparisons made, and read the results as a guide to what to study next<span class="citation" data-cites="rothman1990multiple"><sup><a href="#ref-rothman1990multiple" role="doc-biblioref">14</a></sup></span>. Adjustment is generally expected when several tests are combined into one confirmatory conclusion<span class="citation" data-cites="bender2001multiple"><sup><a href="#ref-bender2001multiple" role="doc-biblioref">15</a></sup></span>.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-setia2016casecontrol" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Setia MS. Methodology series module 2: Case-control studies. <em>Indian Journal of Dermatology</em>. 2016;61(2):146-151. doi:<a href="https://doi.org/10.4103/0019-5154.177773">10.4103/0019-5154.177773</a></div>
+</div>
+<div id="ref-frey1998titer" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Frey A, Di Canzio J, Zurakowski D. A statistically defined endpoint titer determination method for immunoassays. <em>Journal of Immunological Methods</em>. 1998;221(1-2):35-41. doi:<a href="https://doi.org/10.1016/s0022-1759(98)00170-7">10.1016/s0022-1759(98)00170-7</a></div>
+</div>
+<div id="ref-keene1995log" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Keene ON. The log transformation is special. <em>Statistics in Medicine</em>. 1995;14(8):811-819. doi:<a href="https://doi.org/10.1002/sim.4780140810">10.1002/sim.4780140810</a></div>
+</div>
+<div id="ref-sperandei2014logistic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Sperandei S. Understanding logistic regression analysis. <em>Biochemia Medica</em>. 2014;24(1):12-18. doi:<a href="https://doi.org/10.11613/BM.2014.003">10.11613/BM.2014.003</a></div>
+</div>
+<div id="ref-greenland2016misinterpretations" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Greenland S, Senn SJ, Rothman KJ, et al. Statistical tests, <span>P</span> values, confidence intervals, and power: A guide to misinterpretations. <em>European Journal of Epidemiology</em>. 2016;31(4):337-350. doi:<a href="https://doi.org/10.1007/s10654-016-0149-3">10.1007/s10654-016-0149-3</a></div>
+</div>
+<div id="ref-vatcheva2016multicollinearity" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Vatcheva KP, Lee M, McCormick JB, Rahbar MH. Multicollinearity in regression analyses conducted in epidemiologic studies. <em>Epidemiology (Sunnyvale)</em>. 2016;6(2):227. doi:<a href="https://doi.org/10.4172/2161-1165.1000227">10.4172/2161-1165.1000227</a></div>
+</div>
+<div id="ref-hanley1982auc" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Hanley JA, McNeil BJ. The meaning and use of the area under a receiver operating characteristic (<span>ROC</span>) curve. <em>Radiology</em>. 1982;143(1):29-36. doi:<a href="https://doi.org/10.1148/radiology.143.1.7063747">10.1148/radiology.143.1.7063747</a></div>
+</div>
 <div id="ref-delong1988" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">DeLong ER, DeLong DM, Clarke-Pearson DL. <a href="https://www.ncbi.nlm.nih.gov/pubmed/3203132">Comparing the areas under two or more correlated receiver operating characteristic curves: A nonparametric approach</a>. <em>Biometrics</em>. 1988;44(3):837-845.</div>
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">DeLong ER, DeLong DM, Clarke-Pearson DL. <a href="https://www.ncbi.nlm.nih.gov/pubmed/3203132">Comparing the areas under two or more correlated receiver operating characteristic curves: A nonparametric approach</a>. <em>Biometrics</em>. 1988;44(3):837-845.</div>
 </div>
 <div id="ref-robin2011proc" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Robin X, Turck N, Hainard A, et al. <span class="nocase">pROC</span>: An open-source package for <span>R</span> and <span>S+</span> to analyze and compare <span>ROC</span> curves. <em>BMC Bioinformatics</em>. 2011;12:77. doi:<a href="https://doi.org/10.1186/1471-2105-12-77">10.1186/1471-2105-12-77</a></div>
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Robin X, Turck N, Hainard A, et al. <span class="nocase">pROC</span>: An open-source package for <span>R</span> and <span>S+</span> to analyze and compare <span>ROC</span> curves. <em>BMC Bioinformatics</em>. 2011;12:77. doi:<a href="https://doi.org/10.1186/1471-2105-12-77">10.1186/1471-2105-12-77</a></div>
 </div>
 <div id="ref-youden1950" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Youden WJ. Index for rating diagnostic tests. <em>Cancer</em>. 1950;3(1):32-35. doi:<a href="https://doi.org/10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3">10.1002/1097-0142(1950)3:1&lt;32::aid-cncr2820030106&gt;3.0.co;2-3</a></div>
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Youden WJ. Index for rating diagnostic tests. <em>Cancer</em>. 1950;3(1):32-35. doi:<a href="https://doi.org/10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3">10.1002/1097-0142(1950)3:1&lt;32::aid-cncr2820030106&gt;3.0.co;2-3</a></div>
 </div>
 <div id="ref-thiele2021cutpointr" class="csl-entry" role="listitem">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline">Thiele C, Hirschfeld G. Cutpointr: Improved estimation and validation of optimal cutpoints in <span>R</span>. <em>Journal of Statistical Software</em>. 2021;98(11):1-27. doi:<a href="https://doi.org/10.18637/jss.v098.i11">10.18637/jss.v098.i11</a></div>
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Thiele C, Hirschfeld G. Cutpointr: Improved estimation and validation of optimal cutpoints in <span>R</span>. <em>Journal of Statistical Software</em>. 2021;98(11):1-27. doi:<a href="https://doi.org/10.18637/jss.v098.i11">10.18637/jss.v098.i11</a></div>
+</div>
+<div id="ref-trevethan2017predictive" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">Trevethan R. Sensitivity, specificity, and predictive values: Foundations, pliabilities, and pitfalls in research and practice. <em>Frontiers in Public Health</em>. 2017;5:307. doi:<a href="https://doi.org/10.3389/fpubh.2017.00307">10.3389/fpubh.2017.00307</a></div>
+</div>
+<div id="ref-jolliffe2016pca" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">Jolliffe IT, Cadima J. Principal component analysis: A review and recent developments. <em>Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences</em>. 2016;374(2065):20150202. doi:<a href="https://doi.org/10.1098/rsta.2015.0202">10.1098/rsta.2015.0202</a></div>
+</div>
+<div id="ref-rothman1990multiple" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Rothman KJ. <a href="https://www.ncbi.nlm.nih.gov/pubmed/2081237">No adjustments are needed for multiple comparisons</a>. <em>Epidemiology</em>. 1990;1(1):43-46.</div>
+</div>
+<div id="ref-bender2001multiple" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Bender R, Lange S. Adjusting for multiple testing—when and how? <em>Journal of Clinical Epidemiology</em>. 2001;54(4):343-349. doi:<a href="https://doi.org/10.1016/s0895-4356(00)00314-0">10.1016/s0895-4356(00)00314-0</a></div>
 </div>
 </div>
 
@@ -1007,36 +1040,36 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">## Case–control studies</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>A case–control study starts from the outcome. People who have the disease (cases) and people who do not (controls) are recruited, and the two groups are compared on characteristics measured in each person. Because the number of cases and controls is set by the investigators rather than by how common the disease is, the study cannot estimate how often the disease occurs. It can estimate how strongly a characteristic is associated with having the disease, usually as an odds ratio.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>A case–control study starts from the outcome. People who have the disease (cases) and people who do not (controls) are recruited, and the two groups are compared on characteristics measured in each person. Because the number of cases and controls is set by the investigators rather than by how common the disease is, the study cannot estimate how often the disease occurs. It can estimate how strongly a characteristic is associated with having the disease, usually as an odds ratio <span class="co">[</span><span class="ot">@setia2016casecontrol</span><span class="co">]</span>.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>When the characteristic is measured once, after the disease has occurred, the comparison describes how cases and controls differ at that time. It shows association: whether the characteristic and the disease go together. It does not by itself show that the characteristic came first or that it affected the risk of disease.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>When the characteristic is measured once, after the disease has occurred, the comparison describes how cases and controls differ at that time. It shows association: whether the characteristic and the disease go together. It does not by itself show that the characteristic came first or that it affected the risk of disease <span class="co">[</span><span class="ot">@setia2016casecontrol</span><span class="co">]</span>.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## Measuring antibodies</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Antibodies can be reported in two ways.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Concentration**, in micrograms per millilitre (µg/mL), measures how much of a whole class of antibody is in the serum, such as all IgM or all IgG1, whatever it binds.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Titer** measures antibody that binds one target. The serum is diluted step by step, and the titer is the highest dilution at which binding can still be detected. A titer of 1:100 means binding was still seen at a 100-fold dilution, so a larger second number means more antibody. Titers are often written as the inverse (100 rather than 1:100).</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Titer** measures antibody that binds one target. The serum is diluted step by step, and the titer is the highest dilution at which binding is still detected above a set cutoff <span class="co">[</span><span class="ot">@frey1998titer</span><span class="co">]</span>. A titer of 1:100 means binding was still seen at a 100-fold dilution, so a larger second number means more antibody. Titers are often written as the inverse (100 rather than 1:100).</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Antibody levels vary widely between people and their distributions are skewed: most people have modest levels and a few have very high ones. Taking the natural logarithm of each value makes the distribution more symmetric and turns multiplicative differences (twice as much antibody) into equal steps. Results on the log scale describe the change per one-unit increase in log level, which corresponds to roughly a 2.7-fold increase in the original level.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Antibody levels vary widely between people and their distributions are skewed. When values are skewed to the right, taking the natural logarithm usually makes the distribution more symmetric, and it turns multiplicative differences (twice as much antibody) into equal steps <span class="co">[</span><span class="ot">@keene1995log</span><span class="co">]</span>. Results on the log scale describe the change per one-unit increase in log level, which corresponds to roughly a 2.7-fold increase in the original level.</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic regression and odds ratios</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Logistic regression relates a yes/no outcome, such as being a case rather than a control, to one or more explanatory variables. Each variable's result is reported as an odds ratio (OR): how much the odds of being a case change for each one-unit increase in that variable, or for one category compared with another.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Logistic regression relates a yes/no outcome, such as being a case rather than a control, to one or more explanatory variables <span class="co">[</span><span class="ot">@sperandei2014logistic</span><span class="co">]</span>. Each variable's result is reported as an odds ratio (OR): how much the odds of being a case change for each one-unit increase in that variable, or for one category compared with another.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>An OR of 1 means no association.</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>An OR below 1 means higher values go with lower odds of being a case; above 1, with higher odds.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The 95% confidence interval (CI) shows the range of values compatible with the data.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>The 95% confidence interval (CI) shows the range of values compatible with the data <span class="co">[</span><span class="ot">@greenland2016misinterpretations</span><span class="co">]</span>.</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>A **univariable** model has one explanatory variable. A **multivariable** model has several, so each OR is adjusted for the others in the model.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>A **univariable** model has one explanatory variable. A **multivariable** model has several, so each OR is adjusted for the others in the model <span class="co">[</span><span class="ot">@sperandei2014logistic</span><span class="co">]</span>.</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>When two explanatory variables are strongly correlated, they carry much of the same information. Put in the same model, the data cannot tell their contributions apart, so each one's OR becomes uncertain, with a wide confidence interval, even when together they are clearly associated with the outcome. This is called collinearity. Fitting each variable separately shows its association on its own.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>When two explanatory variables are strongly correlated, they carry much of the same information. Put in the same model, the data cannot tell their contributions apart, so each one's OR becomes uncertain, with a wide confidence interval, even when together they are clearly associated with the outcome. This is called collinearity. Fitting each variable separately shows its association on its own <span class="co">[</span><span class="ot">@vatcheva2016multicollinearity</span><span class="co">]</span>.</span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC curves and AUC</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>A model's predicted probabilities can be used to sort people into likely cases and likely controls. A receiver operating characteristic (ROC) curve shows how well this works at every possible threshold. It plots sensitivity (the proportion of cases correctly identified) against 1 − specificity (the proportion of controls wrongly identified as cases).</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control. An AUC of 0.5 is no better than chance; 1.0 is perfect separation.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control <span class="co">[</span><span class="ot">@hanley1982auc</span><span class="co">]</span>. An AUC of 0.5 is no better than chance; 1.0 is perfect separation.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>A confidence interval for an AUC can be computed in two common ways. DeLong's method uses a formula based on how each case compares with each control <span class="co">[</span><span class="ot">@delong1988</span><span class="co">]</span>. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both <span class="co">[</span><span class="ot">@robin2011proc</span><span class="co">]</span>.</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
@@ -1051,17 +1084,17 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Positive predictive value (PPV):** the proportion of people with a positive result who are cases.</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Negative predictive value (NPV):** the proportion of people with a negative result who are controls.</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Sensitivity and specificity describe the test itself. PPV and NPV also depend on the proportion of cases in the group tested.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>Sensitivity and specificity describe the test itself. PPV and NPV also depend on the proportion of cases in the group tested <span class="co">[</span><span class="ot">@trevethan2017predictive</span><span class="co">]</span>.</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principal component analysis</span></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Principal component analysis (PCA) replaces a set of correlated measurements with the same number of new variables, called principal components, that are uncorrelated with each other. Each component is a weighted combination of the original measurements. The first component captures as much of the variation shared across the measurements as possible, the second as much of the remaining variation, and so on. The measurements are usually standardized first, so each counts equally whatever its units.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Principal component analysis (PCA) replaces a set of correlated measurements with the same number of new variables, called principal components, that are uncorrelated with each other. Each component is a weighted combination of the original measurements. The first component captures as much of the total variation in the measurements as possible, the second as much of the remaining variation, and so on <span class="co">[</span><span class="ot">@jolliffe2016pca</span><span class="co">]</span>. The measurements can be standardized first, so each counts equally whatever its units.</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>The weights (loadings) show what each component represents. When all measurements have weights of the same sign on the first component, that component works as a summary score of overall level. Because the components are uncorrelated, they can be entered together in a regression model without the collinearity described above.</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>The weights (loadings) show what each component represents; how this study's first component is read is explained on <span class="co">[</span><span class="ot">Principal component analysis</span><span class="co">](pca.qmd)</span>. Because the components are uncorrelated, they can be entered together in a regression model without the collinearity described above <span class="co">[</span><span class="ot">@vatcheva2016multicollinearity</span><span class="co">]</span>.</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exploratory analyses</span></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>An analysis is exploratory when it describes patterns in the data and generates hypotheses for later studies, rather than testing a hypothesis named in advance. Exploratory studies typically report each comparison's p-value as it is, without adjusting for the number of comparisons made, and read the results as a guide to what to study next.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>An analysis is exploratory when it describes patterns in the data and generates hypotheses for later studies, rather than testing a hypothesis named in advance. Exploratory studies often report each comparison's p-value as it is, without adjusting for the number of comparisons made, and read the results as a guide to what to study next <span class="co">[</span><span class="ot">@rothman1990multiple</span><span class="co">]</span>. Adjustment is generally expected when several tests are combined into one confirmatory conclusion <span class="co">[</span><span class="ot">@bender2001multiple</span><span class="co">]</span>.</span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
