@@ -117,17 +117,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -148,6 +137,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 </style>
@@ -502,9 +502,12 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
     R[R/*.R source] -. read_chunk .-&gt; Q[quarto/*.qmd pages]
     TO -- show_table --&gt; RES[quarto/results.qmd]
     FO --&gt; RES
+    DOCS[Root project documents&lt;br/&gt;analysis-plan.md, ARCHITECTURE.md,&lt;br/&gt;AGENTS.md, REPOSITORY-BLUEPRINT.md] -. include or read as text .-&gt; PD[quarto/ project-document pages]
     Q --&gt; D[(gh-pages branch, rendered by GitHub Actions)]
     RES --&gt; D
+    PD --&gt; D
     D --&gt; GH[GitHub Pages]
+    GH -. reader comments via relay .-&gt; ISS[(GitHub Issues)]
     MAIN[R/main.R] -. sources in order .-&gt; S
 </pre>
 </div>
@@ -567,10 +570,10 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 </section>
 <section id="quarto-website" class="level3">
 <h3 class="anchored" data-anchor-id="quarto-website">Quarto website</h3>
-<p><strong>Purpose</strong>: Explain each script’s code and show the cleared results. The website never runs the analysis.</p>
-<p><strong>Location</strong>: <code>_quarto.yml</code>, <code>index.qmd</code>, <code>quarto/*.qmd</code>, <code>_extensions/coatless-quarto/custom-callout/</code>, <code>references.bib</code></p>
-<p><strong>How it works</strong>: - Each script page loads its script with <code>knitr::read_chunk("../R/&lt;script&gt;.R")</code> in a hidden chunk and shows each labelled section with <code>eval: false</code>. - <code>quarto/results.qmd</code> defines a hidden <code>show_table()</code> helper. For each saved file in <code>tables/</code>, it takes the HTML body and places it directly in the page inside a horizontally scrolling container, so tables size to their content. Figures are linked from <code>figures/</code>. - <code>_quarto.yml</code> lists <code>tables/*.html</code> and <code>figures/*.png</code> as <code>resources</code>, so they are copied into the rendered site. - Global <code>execute: eval: false</code> keeps analysis code from running during rendering. Only the <code>read_chunk()</code> imports and the Results page’s <code>show_table()</code> calls are evaluated, and those read files only.</p>
-<p><strong>Interactions</strong>: Renders to <code>docs/</code> locally, which is not committed. <code>.github/workflows/publish.yml</code> renders the site on every pull request as a check and, on each push to <code>master</code>, publishes it to the <code>gh-pages</code> branch, which GitHub Pages serves.</p>
+<p><strong>Purpose</strong>: Explain the study, its methods and each script’s code, and show the cleared results. The website never runs the analysis.</p>
+<p><strong>Location</strong>: <code>_quarto.yml</code>, <code>index.qmd</code>, <code>404.qmd</code>, <code>styles.css</code>, <code>quarto/*.qmd</code>, <code>quarto/_pending.lua</code>, <code>_extensions/coatless-quarto/custom-callout/</code>, <code>_extensions/VagishHemmige/issue-comments/</code>, <code>references.bib</code>, <code>american-medical-association.csl</code></p>
+<p><strong>How it works</strong>: - The sidebar groups pages by kind, each with one icon coloured in <code>styles.css</code>: Background (Clinical and Methodological background), Study design and methods, Code (setup and helpers, the numbered analysis scripts, tables and figures), Results, Project documents, and About. - Each script page loads its script with <code>knitr::read_chunk("../R/&lt;script&gt;.R")</code> in a hidden chunk and shows each labelled section with <code>eval: false</code>. - The Background and Study design and methods pages are prose only. Study design and methods links each section to the analysis-plan section that governs it. - <code>quarto/results.qmd</code> defines a hidden <code>show_table()</code> helper. For each saved file in <code>tables/</code>, it takes the HTML body and places it directly in the page inside a horizontally scrolling container, so tables size to their content. Figures are linked from <code>figures/</code>. - The Project documents pages show the root files without copying them: <code>analysis-plan.qmd</code>, <code>agents.qmd</code> and <code>repository-blueprint.qmd</code> include the root file, and <code>architecture.qmd</code> reads <code>ARCHITECTURE.md</code> as text and marks each mermaid diagram to be drawn, since the site turns evaluation off. - <code>_quarto.yml</code> lists <code>tables/*.html</code> and <code>figures/*.png</code> as <code>resources</code>, so they are copied into the rendered site, and a <code>render:</code> list limits rendering to <code>index.qmd</code>, <code>404.qmd</code> and <code>quarto/**</code>. - Filters run in order: <code>quarto/_pending.lua</code> (yellow marks and a Pending callout for provisional content; none at present), <code>custom-callout</code> (the pink Rcode, green Results and yellow Pending callouts), and <code>issue-comments</code> (a Comment button that sends highlighted text to a relay, which files it as a GitHub issue in this repository). - Citations use <code>references.bib</code> with the AMA style in <code>american-medical-association.csl</code>. - Global <code>execute: eval: false</code> keeps analysis code from running during rendering. Only the <code>read_chunk()</code> imports, the Architecture page’s reader of <code>ARCHITECTURE.md</code>, and the Results page’s <code>show_table()</code> calls are evaluated, and those read files only.</p>
+<p><strong>Interactions</strong>: Renders to <code>docs/</code> locally, which is ignored by Git. <code>.github/workflows/publish.yml</code> renders the site on every pull request as a check and, on each push to <code>master</code>, publishes it to the <code>gh-pages</code> branch, which GitHub Pages serves.</p>
 </section>
 </section>
 <section id="data-flow" class="level2">
@@ -623,9 +626,24 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <tr class="odd">
 <td>Site settings</td>
 <td><code>_quarto.yml</code></td>
-<td>Theme, sidebar, bibliography, <code>resources</code>, global <code>eval: false</code></td>
+<td>Theme and <code>styles.css</code>, sidebar and icons, <code>render:</code> list, <code>resources</code>, filters, global <code>eval: false</code></td>
 </tr>
 <tr class="even">
+<td>Citation style</td>
+<td><code>_quarto.yml</code> (<code>csl</code>), <code>american-medical-association.csl</code></td>
+<td>AMA; titles are set in sentence case, so proper nouns in <code>references.bib</code> titles are braced</td>
+</tr>
+<tr class="odd">
+<td>Reader comments</td>
+<td><code>_quarto.yml</code> (<code>issue-comments:</code> block)</td>
+<td>Relay endpoint, contact and passcode; requires the relay’s GitHub App on this repository</td>
+</tr>
+<tr class="even">
+<td>Site publishing</td>
+<td><code>.github/workflows/publish.yml</code></td>
+<td>Quarto version pinned; renders on pull requests, publishes to <code>gh-pages</code> on push to <code>master</code></td>
+</tr>
+<tr class="odd">
 <td>Package installation</td>
 <td><code>R/setup.R</code>, README</td>
 <td><code>bstfun</code> is installed from GitHub; package versions are not pinned</td>
@@ -697,7 +715,17 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <tr class="even">
 <td>Site pages</td>
 <td><code>quarto/*.qmd</code></td>
-<td>one page per script, plus <code>background</code>, <code>results</code>, <code>about</code></td>
+<td>one page per script, plus <code>background</code>, <code>methodological_background</code>, <code>study_methods</code>, <code>results</code>, <code>about</code> and the four project-document pages</td>
+</tr>
+<tr class="odd">
+<td>Architecture page</td>
+<td><code>quarto/architecture.qmd</code></td>
+<td>reads <code>ARCHITECTURE.md</code>, converts mermaid fences</td>
+</tr>
+<tr class="even">
+<td>Provisional-content marks</td>
+<td><code>quarto/_pending.lua</code></td>
+<td><strong>Decision pending:</strong> paragraphs, <code>[text]{.pending}</code></td>
 </tr>
 </tbody>
 </table>
@@ -758,7 +786,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 </section>
 <section id="revision-scope" class="level2">
 <h2 class="anchored" data-anchor-id="revision-scope">Revision scope</h2>
-<p>Generated with the describe-design workflow on 2026-10-27, describing branch <code>table-presentation</code> (based on <code>master</code> at <code>a55496b</code>, with the display-label and inline-table changes).</p>
+<p>Generated with the describe-design workflow on 2026-11-04, describing <code>master</code> at <code>e7ba780</code> (after pull requests #9–#13). No uncommitted changes were included. The R scripts are unchanged since the previous revision (2026-10-27, <code>table-presentation</code> based on <code>a55496b</code>); this revision updates the website component, diagram, configuration and code references.</p>
 
 
 <!-- -->
