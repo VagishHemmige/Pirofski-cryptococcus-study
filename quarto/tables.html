@@ -133,17 +133,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -153,6 +142,17 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Pending.callout {
@@ -471,7 +471,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 </div>
 <section id="table-1" class="level2">
 <h2 class="anchored" data-anchor-id="table-1">Table 1</h2>
-<p>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <code>tbl_summary()</code> from gtsummary <span class="citation" data-cites="sjoberg2021gtsummary">(<a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">Sjoberg et al. 2021</a>)</span> reports medians with interquartile ranges and counts with percentages. <code>add_p()</code> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher’s exact or the χ² test for categorical ones, as described in the paper <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>. A second version is restricted to participants with antibody measurements.</p>
+<p>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <code>tbl_summary()</code> from gtsummary<span class="citation" data-cites="sjoberg2021gtsummary"><sup><a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">1</a></sup></span> reports medians with interquartile ranges and counts with percentages. <code>add_p()</code> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher’s exact or the χ² test for categorical ones, as described in the paper<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">2</a></sup></span>. A second version is restricted to participants with antibody measurements.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -572,12 +572,12 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-sjoberg2021gtsummary" class="csl-entry" role="listitem">
-Sjoberg, Daniel D, Karissa Whiting, Michael Curry, Jessica A Lavery, and Joseph Larmarange. 2021. <span>“Reproducible Summary Tables with the Gtsummary Package.”</span> <em>The R Journal</em> 13 (1): 570–80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Sjoberg DD, Whiting K, Curry M, Lavery JA, Larmarange J. Reproducible summary tables with the gtsummary package. <em>The R Journal</em>. 2021;13(1):570-580. doi:<a href="https://doi.org/10.32614/RJ-2021-053">10.32614/RJ-2021-053</a></div>
 </div>
 <div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
-Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. <span>“Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.”</span> <em>Open Forum Infectious Diseases</em> 9 (7): ofac211. <a href="https://doi.org/10.1093/ofid/ofac211">https://doi.org/10.1093/ofid/ofac211</a>.
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and non-specific antibody profiles in organ transplant recipients with and without cryptococcosis. <em>Open Forum Infectious Diseases</em>. 2022;9(7):ofac211. doi:<a href="https://doi.org/10.1093/ofid/ofac211">10.1093/ofid/ofac211</a></div>
 </div>
 </div>
 

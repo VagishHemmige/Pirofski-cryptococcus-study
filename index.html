@@ -132,6 +132,17 @@ div.csl-indent {
   }
 }</script>
 <style>
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -152,17 +163,6 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
-  background-image: none;
-}
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
   background-image: none;
 }
 </style>
@@ -442,11 +442,11 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 
 <section id="clinical-background" class="level2">
 <h2 class="anchored" data-anchor-id="clinical-background">Clinical background</h2>
-<p>Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the <em>Cryptococcus neoformans</em> capsular polysaccharide glucuronoxylomannan (GXM), and antibodies that bind laminarin (Lam), an algal β-glucan used as a stand-in for fungal cell-wall β-glucan <span class="citation" data-cites="torosantucci2005lam">(<a href="#ref-torosantucci2005lam" role="doc-biblioref">Torosantucci et al. 2005</a>)</span>, have been associated with cryptococcosis in people with HIV <span class="citation" data-cites="subramaniam2005uganda hlupeni2018crag yoon2019ciris">(<a href="#ref-subramaniam2005uganda" role="doc-biblioref">Subramaniam et al. 2005</a>; <a href="#ref-hlupeni2018crag" role="doc-biblioref">Hlupeni et al. 2018</a>; <a href="#ref-yoon2019ciris" role="doc-biblioref">Yoon et al. 2019</a>)</span> and without HIV <span class="citation" data-cites="rohatgi2017hivneg">(<a href="#ref-rohatgi2017hivneg" role="doc-biblioref">Rohatgi et al. 2017</a>)</span>. In organ transplant recipients, one earlier study measured GXM-binding antibodies before and after transplantation <span class="citation" data-cites="jalali2006gxm">(<a href="#ref-jalali2006gxm" role="doc-biblioref">Jalali et al. 2006</a>)</span>; laminarin-binding antibodies had not been studied. More detail is on the <a href="./quarto/background.html">clinical background</a> page.</p>
+<p>Cryptococcosis is a serious invasive fungal infection after solid organ transplantation. Antibodies that bind the <em>Cryptococcus neoformans</em> capsular polysaccharide glucuronoxylomannan (GXM), and antibodies that bind laminarin (Lam), an algal β-glucan used as a stand-in for fungal cell-wall β-glucan<span class="citation" data-cites="torosantucci2005lam"><sup><a href="#ref-torosantucci2005lam" role="doc-biblioref">1</a></sup></span>, have been associated with cryptococcosis in people with HIV<span class="citation" data-cites="subramaniam2005uganda hlupeni2018crag yoon2019ciris"><sup><a href="#ref-subramaniam2005uganda" role="doc-biblioref">2</a>–<a href="#ref-yoon2019ciris" role="doc-biblioref">4</a></sup></span> and without HIV<span class="citation" data-cites="rohatgi2017hivneg"><sup><a href="#ref-rohatgi2017hivneg" role="doc-biblioref">5</a></sup></span>. In organ transplant recipients, one earlier study measured GXM-binding antibodies before and after transplantation<span class="citation" data-cites="jalali2006gxm"><sup><a href="#ref-jalali2006gxm" role="doc-biblioref">6</a></sup></span>; laminarin-binding antibodies had not been studied. More detail is on the <a href="./quarto/background.html">clinical background</a> page.</p>
 </section>
 <section id="what-this-analysis-does" class="level2">
 <h2 class="anchored" data-anchor-id="what-this-analysis-does">What this analysis does</h2>
-<p>This repository contains the analysis code for a case–control study of organ transplant recipients recruited at the University of Alabama at Birmingham (UAB) between 2013 and 2018: 23 recipients with a history of posttransplant cryptococcosis and 21 without. Serum levels of cryptococcus-specific antibodies (GXM- and Lam-binding IgM and IgG) and of total IgM, IgG1 and IgG2 were compared between cases and controls. The results were published in <em>Open Forum Infectious Diseases</em> <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</p>
+<p>This repository contains the analysis code for a case–control study of organ transplant recipients recruited at the University of Alabama at Birmingham (UAB) between 2013 and 2018: 23 recipients with a history of posttransplant cryptococcosis and 21 without. Serum levels of cryptococcus-specific antibodies (GXM- and Lam-binding IgM and IgG) and of total IgM, IgG1 and IgG2 were compared between cases and controls. The results were published in <em>Open Forum Infectious Diseases</em><span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">7</a></sup></span>.</p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
@@ -462,27 +462,27 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-hlupeni2018crag" class="csl-entry" role="listitem">
-Hlupeni, Admire, Antonio Nakouzi, Tao Wang, et al. 2018. <span>“Antibody Responses in <span>HIV</span>-Infected Patients with Advanced Immunosuppression and Asymptomatic Cryptococcal Antigenemia.”</span> <em>Open Forum Infectious Diseases</em> 6 (1): ofy333. <a href="https://doi.org/10.1093/ofid/ofy333">https://doi.org/10.1093/ofid/ofy333</a>.
-</div>
-<div id="ref-jalali2006gxm" class="csl-entry" role="listitem">
-Jalali, Ziba, Lucky Ng, Nina Singh, and Liise-anne Pirofski. 2006. <span>“Antibody Response to <span class="nocase">Cryptococcus neoformans</span> Capsular Polysaccharide Glucuronoxylomannan in Patients After Solid-Organ Transplantation.”</span> <em>Clinical and Vaccine Immunology</em> 13 (7): 740–46. <a href="https://doi.org/10.1128/CVI.00139-06">https://doi.org/10.1128/CVI.00139-06</a>.
-</div>
-<div id="ref-rohatgi2017hivneg" class="csl-entry" role="listitem">
-Rohatgi, Soma, Antonio Nakouzi, Leandro J Carreño, et al. 2017. <span>“Antibody and <span>B</span> Cell Subset Perturbations in Human Immunodeficiency Virus-Uninfected Patients with Cryptococcosis.”</span> <em>Open Forum Infectious Diseases</em> 5 (1): ofx255. <a href="https://doi.org/10.1093/ofid/ofx255">https://doi.org/10.1093/ofid/ofx255</a>.
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-torosantucci2005lam" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Torosantucci A, Bromuro C, Chiani P, et al. A novel glyco-conjugate vaccine against fungal pathogens. <em>Journal of Experimental Medicine</em>. 2005;202(5):597-606. doi:<a href="https://doi.org/10.1084/jem.20050749">10.1084/jem.20050749</a></div>
 </div>
 <div id="ref-subramaniam2005uganda" class="csl-entry" role="listitem">
-Subramaniam, Krishanthi, Neil French, and Liise-anne Pirofski. 2005. <span>“<span class="nocase">Cryptococcus neoformans</span>-Reactive and Total Immunoglobulin Profiles of Human Immunodeficiency Virus-Infected and Uninfected <span>Ugandans</span>.”</span> <em>Clinical and Diagnostic Laboratory Immunology</em> 12 (10): 1168–76. <a href="https://doi.org/10.1128/CDLI.12.10.1168-1176.2005">https://doi.org/10.1128/CDLI.12.10.1168-1176.2005</a>.
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Subramaniam K, French N, Pirofski L. <span class="nocase">Cryptococcus neoformans</span>-reactive and total immunoglobulin profiles of human immunodeficiency virus-infected and uninfected <span>Ugandans</span>. <em>Clinical and Diagnostic Laboratory Immunology</em>. 2005;12(10):1168-1176. doi:<a href="https://doi.org/10.1128/CDLI.12.10.1168-1176.2005">10.1128/CDLI.12.10.1168-1176.2005</a></div>
 </div>
-<div id="ref-torosantucci2005lam" class="csl-entry" role="listitem">
-Torosantucci, Antonella, Carla Bromuro, Paola Chiani, et al. 2005. <span>“A Novel Glyco-Conjugate Vaccine Against Fungal Pathogens.”</span> <em>Journal of Experimental Medicine</em> 202 (5): 597–606. <a href="https://doi.org/10.1084/jem.20050749">https://doi.org/10.1084/jem.20050749</a>.
+<div id="ref-hlupeni2018crag" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Hlupeni A, Nakouzi A, Wang T, et al. Antibody responses in <span>HIV</span>-infected patients with advanced immunosuppression and asymptomatic cryptococcal antigenemia. <em>Open Forum Infectious Diseases</em>. 2018;6(1):ofy333. doi:<a href="https://doi.org/10.1093/ofid/ofy333">10.1093/ofid/ofy333</a></div>
 </div>
 <div id="ref-yoon2019ciris" class="csl-entry" role="listitem">
-Yoon, Hyun Ah, Antonio Nakouzi, Christina C Chang, et al. 2019. <span>“Association Between Plasma Antibody Responses and Risk for <span>Cryptococcus</span>-Associated Immune Reconstitution Inflammatory Syndrome.”</span> <em>Journal of Infectious Diseases</em> 219 (3): 420–28. <a href="https://doi.org/10.1093/infdis/jiy447">https://doi.org/10.1093/infdis/jiy447</a>.
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Yoon HA, Nakouzi A, Chang CC, et al. Association between plasma antibody responses and risk for <span>Cryptococcus</span>-associated immune reconstitution inflammatory syndrome. <em>Journal of Infectious Diseases</em>. 2019;219(3):420-428. doi:<a href="https://doi.org/10.1093/infdis/jiy447">10.1093/infdis/jiy447</a></div>
+</div>
+<div id="ref-rohatgi2017hivneg" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Rohatgi S, Nakouzi A, Carreño LJ, et al. Antibody and <span>B</span> cell subset perturbations in human immunodeficiency virus-uninfected patients with cryptococcosis. <em>Open Forum Infectious Diseases</em>. 2017;5(1):ofx255. doi:<a href="https://doi.org/10.1093/ofid/ofx255">10.1093/ofid/ofx255</a></div>
+</div>
+<div id="ref-jalali2006gxm" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Jalali Z, Ng L, Singh N, Pirofski L. Antibody response to <span class="nocase">Cryptococcus neoformans</span> capsular polysaccharide glucuronoxylomannan in patients after solid-organ transplantation. <em>Clinical and Vaccine Immunology</em>. 2006;13(7):740-746. doi:<a href="https://doi.org/10.1128/CVI.00139-06">10.1128/CVI.00139-06</a></div>
 </div>
 <div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
-Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. <span>“Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.”</span> <em>Open Forum Infectious Diseases</em> 9 (7): ofac211. <a href="https://doi.org/10.1093/ofid/ofac211">https://doi.org/10.1093/ofid/ofac211</a>.
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and non-specific antibody profiles in organ transplant recipients with and without cryptococcosis. <em>Open Forum Infectious Diseases</em>. 2022;9(7):ofac211. doi:<a href="https://doi.org/10.1093/ofid/ofac211">10.1093/ofid/ofac211</a></div>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

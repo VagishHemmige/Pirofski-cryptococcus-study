@@ -144,17 +144,6 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
   content: '💻';
   background-image: none;
 }
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
-  background-image: none;
-}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -164,6 +153,17 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 </style>
@@ -484,7 +484,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <li><strong>Immunosuppression.</strong> The free-text regimen in <code>Drugs</code> is upper-cased, then three indicators are set by searching it for character strings: calcineurin inhibitor (<code>DrugCNI</code>: <code>PRO</code>, <code>T</code> or <code>CYC</code>), mycophenolate (<code>DrugMycophenolate</code>: <code>M</code> or <code>CELL</code>) and mTOR inhibitor (<code>DrugMTOR</code>: <code>SIR</code> or <code>EVER</code>). Corticosteroid use comes directly from <code>STEROID</code>.</li>
 <li><strong>Serum cryptococcal antigen.</strong> <code>SerumCrAg</code> holds either a titer or the word “Negative”; <code>CryptococcalAg</code> stores the numeric titer, with negative results set to 0.</li>
 <li><strong>Site of infection.</strong> <code>CNSDisease</code> is true when the recorded infection site (<code>InfSite</code>) mentions CNS.</li>
-<li><strong>Exclusion.</strong> One participant recruited as a control is removed because their serum cryptococcal antigen was positive. This rule comes from the original analysis code, not the published methods. It leaves the final sample of 23 cases and 21 controls reported in the paper <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</li>
+<li><strong>Exclusion.</strong> One participant recruited as a control is removed because their serum cryptococcal antigen was positive. This rule comes from the original analysis code, not the published methods. It leaves the final sample of 23 cases and 21 controls reported in the paper<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>.</li>
 <li><strong>Outcome.</strong> <code>HasCryptococcus</code> is the case/control status as a logical value, the outcome for the logistic regression models.</li>
 <li><strong>Transplanted organ</strong> is converted to title case so that differently capitalized entries are counted together.</li>
 </ul>
@@ -559,7 +559,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="participants-with-antibody-measurements" class="level2">
 <h2 class="anchored" data-anchor-id="participants-with-antibody-measurements">Participants with antibody measurements</h2>
-<p>Antibody data were missing for 2 cases <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>. Plots and analyses that need complete antibody data, such as the faceted titer plot and the principal component analysis, use this subset; missingness is identified by a missing GXM-IgG value.</p>
+<p>Antibody data were missing for 2 cases<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>. Plots and analyses that need complete antibody data, such as the faceted titer plot and the principal component analysis, use this subset; missingness is identified by a missing GXM-IgG value.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -572,9 +572,9 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
-Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. <span>“Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.”</span> <em>Open Forum Infectious Diseases</em> 9 (7): ofac211. <a href="https://doi.org/10.1093/ofid/ofac211">https://doi.org/10.1093/ofid/ofac211</a>.
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and non-specific antibody profiles in organ transplant recipients with and without cryptococcosis. <em>Open Forum Infectious Diseases</em>. 2022;9(7):ofac211. doi:<a href="https://doi.org/10.1093/ofid/ofac211">10.1093/ofid/ofac211</a></div>
 </div>
 </div>
 

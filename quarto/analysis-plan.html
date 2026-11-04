@@ -133,17 +133,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -153,6 +142,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -460,14 +460,14 @@ gives this page GitHub-style IDs and those links work on both.
 -->
 <section id="analysis-plan-antibody-profiles-in-organ-transplant-recipients-with-and-without-cryptococcosis" class="level1">
 <h1>Analysis plan: Antibody profiles in organ transplant recipients with and without cryptococcosis</h1>
-<p>Status: retrospective record of the analysis as published <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>. This plan was written in 2026 from the published methods and the original 2022 analysis code. It was not prospectively locked, and the analysis was not registered.</p>
+<p>Status: retrospective record of the analysis as published<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>. This plan was written in 2026 from the published methods and the original 2022 analysis code. It was not prospectively locked, and the analysis was not registered.</p>
 <section id="scope" class="level2">
 <h2 class="anchored" data-anchor-id="scope">Scope</h2>
 <p>This document is the authoritative specification of the study’s scientific objectives, population, definitions and statistical methods. <code>ARCHITECTURE.md</code> documents the implementation, <code>AGENTS.md</code> the working conventions, and GitHub Issues any open questions. Neither file supersedes this plan.</p>
 </section>
 <section id="1-objective" class="level2">
 <h2 class="anchored" data-anchor-id="1-objective">1. Objective</h2>
-<p>To compare serum cryptococcus-specific antibodies (glucuronoxylomannan [GXM]- and laminarin [Lam]-binding IgM and IgG) and non-specific antibodies (total IgM, IgG1, IgG2) between organ transplant recipients with and without a history of posttransplant cryptococcosis, and to describe how well these antibodies discriminate cases from controls <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>.</p>
+<p>To compare serum cryptococcus-specific antibodies (glucuronoxylomannan [GXM]- and laminarin [Lam]-binding IgM and IgG) and non-specific antibodies (total IgM, IgG1, IgG2) between organ transplant recipients with and without a history of posttransplant cryptococcosis, and to describe how well these antibodies discriminate cases from controls<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>.</p>
 <p>All analyses are exploratory. No hypotheses were designated as primary, and there is no correction for multiple comparisons.</p>
 </section>
 <section id="2-design" class="level2">
@@ -516,11 +516,11 @@ gives this page GitHub-style IDs and those links work on both.
 <li>Log scale, model 1: sex + log Lam-IgM + log GXM-IgM.</li>
 <li>Log scale, model 2: log Lam-IgM + log GXM-IgM, to check that sex is not driving the discrimination.</li>
 </ul></li>
-<li><strong>Discrimination.</strong> ROC curves and AUCs from the predicted probabilities of three multivariable models: sex + Lam-IgM on the original scale, and log-scale models 1 and 2. For log-scale models 1 and 2, 95% confidence intervals are computed by DeLong’s method <span class="citation" data-cites="delong1988">(<a href="#ref-delong1988" role="doc-biblioref">DeLong et al. 1988</a>)</span> and by bootstrap, using pROC <span class="citation" data-cites="robin2011proc">(<a href="#ref-robin2011proc" role="doc-biblioref">Robin et al. 2011</a>)</span>. Predicted probabilities are computed on the data used to fit the model.</li>
-<li><strong>Optimal cutpoints</strong> for GXM-IgM and Lam-IgM (original and log scale), chosen to maximize the sum of sensitivity and specificity (the Youden index <span class="citation" data-cites="youden1950">(<a href="#ref-youden1950" role="doc-biblioref">Youden 1950</a>)</span>; cutpointr <span class="citation" data-cites="thiele2021cutpointr">(<a href="#ref-thiele2021cutpointr" role="doc-biblioref">Thiele and Hirschfeld 2021</a>)</span>), with sensitivity, specificity and positive and negative predictive values at the cutpoint. Cutpoints are chosen and evaluated on the same data, which tends to overstate performance <span class="citation" data-cites="ewald2006cutpoints">(<a href="#ref-ewald2006cutpoints" role="doc-biblioref">Ewald 2006</a>)</span>.</li>
+<li><strong>Discrimination.</strong> ROC curves and AUCs from the predicted probabilities of three multivariable models: sex + Lam-IgM on the original scale, and log-scale models 1 and 2. For log-scale models 1 and 2, 95% confidence intervals are computed by DeLong’s method<span class="citation" data-cites="delong1988"><sup><a href="#ref-delong1988" role="doc-biblioref">2</a></sup></span> and by bootstrap, using pROC<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">3</a></sup></span>. Predicted probabilities are computed on the data used to fit the model.</li>
+<li><strong>Optimal cutpoints</strong> for GXM-IgM and Lam-IgM (original and log scale), chosen to maximize the sum of sensitivity and specificity (the Youden index<span class="citation" data-cites="youden1950"><sup><a href="#ref-youden1950" role="doc-biblioref">4</a></sup></span>; cutpointr<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">5</a></sup></span>), with sensitivity, specificity and positive and negative predictive values at the cutpoint. Cutpoints are chosen and evaluated on the same data, which tends to overstate performance<span class="citation" data-cites="ewald2006cutpoints"><sup><a href="#ref-ewald2006cutpoints" role="doc-biblioref">6</a></sup></span>.</li>
 <li><strong>Correlation and principal component analysis.</strong> Pearson correlations between the log antibodies (all participants, cases, controls). PCA of the seven standardized log antibodies, and logistic regression of case status on the seven components.</li>
 <li><strong>Missing data:</strong> complete-case analysis; no imputation.</li>
-<li><strong>Software:</strong> R 4.3.2 <span class="citation" data-cites="rcore2023">(<a href="#ref-rcore2023" role="doc-biblioref">R Core Team 2023</a>)</span> and RStudio; tables with gtsummary <span class="citation" data-cites="sjoberg2021gtsummary">(<a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">Sjoberg et al. 2021</a>)</span>.</li>
+<li><strong>Software:</strong> R 4.3.2<span class="citation" data-cites="rcore2023"><sup><a href="#ref-rcore2023" role="doc-biblioref">7</a></sup></span> and RStudio; tables with gtsummary<span class="citation" data-cites="sjoberg2021gtsummary"><sup><a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">8</a></sup></span>.</li>
 </ol>
 </section>
 <section id="7-sensitivity-analyses" class="level2">
@@ -533,11 +533,11 @@ gives this page GitHub-style IDs and those links work on both.
 </section>
 <section id="8-disclosure-control" class="level2">
 <h2 class="anchored" data-anchor-id="8-disclosure-control">8. Disclosure control</h2>
-<p>The study data are participant-level and restricted; they are never committed to the repository. Results from this analysis were published <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>, and the investigators confirmed on 2026-10-26 that the tables and figures produced by this code are cleared for public release.</p>
+<p>The study data are participant-level and restricted; they are never committed to the repository. Results from this analysis were published<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>, and the investigators confirmed on 2026-10-26 that the tables and figures produced by this code are cleared for public release.</p>
 </section>
 <section id="9-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="9-limitations">9. Limitations</h2>
-<p>As stated in the publication <span class="citation" data-cites="yoon2022antibody">(<a href="#ref-yoon2022antibody" role="doc-biblioref">Yoon et al. 2022</a>)</span>: retrospective, single-center design; variable time between transplantation, cryptococcosis and enrollment; cases and controls not recruited concurrently; a single, non-standardized blood sample with no pre-cryptococcosis sample; no causal inference; B-cell subsets and cellular immunity not assessed; no cohort without immunosuppression; possible unmeasured confounding (cirrhosis, hematologic malignancy, chemotherapy); small sample size.</p>
+<p>As stated in the publication<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>: retrospective, single-center design; variable time between transplantation, cryptococcosis and enrollment; cases and controls not recruited concurrently; a single, non-standardized blood sample with no pre-cryptococcosis sample; no causal inference; B-cell subsets and cellular immunity not assessed; no cohort without immunosuppression; possible unmeasured confounding (cirrhosis, hematologic malignancy, chemotherapy); small sample size.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -550,30 +550,30 @@ gives this page GitHub-style IDs and those links work on both.
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and non-specific antibody profiles in organ transplant recipients with and without cryptococcosis. <em>Open Forum Infectious Diseases</em>. 2022;9(7):ofac211. doi:<a href="https://doi.org/10.1093/ofid/ofac211">10.1093/ofid/ofac211</a></div>
+</div>
 <div id="ref-delong1988" class="csl-entry" role="listitem">
-DeLong, Elizabeth R, David M DeLong, and Daniel L Clarke-Pearson. 1988. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/3203132">Comparing the Areas Under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach</a>.”</span> <em>Biometrics</em> 44 (3): 837–45.
-</div>
-<div id="ref-ewald2006cutpoints" class="csl-entry" role="listitem">
-Ewald, Ben. 2006. <span>“Post Hoc Choice of Cut Points Introduced Bias to Diagnostic Research.”</span> <em>Journal of Clinical Epidemiology</em> 59 (8): 798–801. <a href="https://doi.org/10.1016/j.jclinepi.2005.11.025">https://doi.org/10.1016/j.jclinepi.2005.11.025</a>.
-</div>
-<div id="ref-rcore2023" class="csl-entry" role="listitem">
-R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">DeLong ER, DeLong DM, Clarke-Pearson DL. <a href="https://www.ncbi.nlm.nih.gov/pubmed/3203132">Comparing the areas under two or more correlated receiver operating characteristic curves: A nonparametric approach</a>. <em>Biometrics</em>. 1988;44(3):837-845.</div>
 </div>
 <div id="ref-robin2011proc" class="csl-entry" role="listitem">
-Robin, Xavier, Natacha Turck, Alexandre Hainard, et al. 2011. <span>“<span class="nocase">pROC</span>: An Open-Source Package for <span>R</span> and <span>S+</span> to Analyze and Compare <span>ROC</span> Curves.”</span> <em>BMC Bioinformatics</em> 12: 77. <a href="https://doi.org/10.1186/1471-2105-12-77">https://doi.org/10.1186/1471-2105-12-77</a>.
-</div>
-<div id="ref-sjoberg2021gtsummary" class="csl-entry" role="listitem">
-Sjoberg, Daniel D, Karissa Whiting, Michael Curry, Jessica A Lavery, and Joseph Larmarange. 2021. <span>“Reproducible Summary Tables with the Gtsummary Package.”</span> <em>The R Journal</em> 13 (1): 570–80. <a href="https://doi.org/10.32614/RJ-2021-053">https://doi.org/10.32614/RJ-2021-053</a>.
-</div>
-<div id="ref-thiele2021cutpointr" class="csl-entry" role="listitem">
-Thiele, Christian, and Gerrit Hirschfeld. 2021. <span>“Cutpointr: Improved Estimation and Validation of Optimal Cutpoints in <span>R</span>.”</span> <em>Journal of Statistical Software</em> 98 (11): 1–27. <a href="https://doi.org/10.18637/jss.v098.i11">https://doi.org/10.18637/jss.v098.i11</a>.
-</div>
-<div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
-Yoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. <span>“Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.”</span> <em>Open Forum Infectious Diseases</em> 9 (7): ofac211. <a href="https://doi.org/10.1093/ofid/ofac211">https://doi.org/10.1093/ofid/ofac211</a>.
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Robin X, Turck N, Hainard A, et al. <span class="nocase">pROC</span>: An open-source package for <span>R</span> and <span>S+</span> to analyze and compare <span>ROC</span> curves. <em>BMC Bioinformatics</em>. 2011;12:77. doi:<a href="https://doi.org/10.1186/1471-2105-12-77">10.1186/1471-2105-12-77</a></div>
 </div>
 <div id="ref-youden1950" class="csl-entry" role="listitem">
-Youden, W J. 1950. <span>“Index for Rating Diagnostic Tests.”</span> <em>Cancer</em> 3 (1): 32–35. <a href="https://doi.org/10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3">https://doi.org/10.1002/1097-0142(1950)3:1&lt;32::aid-cncr2820030106&gt;3.0.co;2-3</a>.
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Youden WJ. Index for rating diagnostic tests. <em>Cancer</em>. 1950;3(1):32-35. doi:<a href="https://doi.org/10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3">10.1002/1097-0142(1950)3:1&lt;32::aid-cncr2820030106&gt;3.0.co;2-3</a></div>
+</div>
+<div id="ref-thiele2021cutpointr" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Thiele C, Hirschfeld G. Cutpointr: Improved estimation and validation of optimal cutpoints in <span>R</span>. <em>Journal of Statistical Software</em>. 2021;98(11):1-27. doi:<a href="https://doi.org/10.18637/jss.v098.i11">10.18637/jss.v098.i11</a></div>
+</div>
+<div id="ref-ewald2006cutpoints" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Ewald B. Post hoc choice of cut points introduced bias to diagnostic research. <em>Journal of Clinical Epidemiology</em>. 2006;59(8):798-801. doi:<a href="https://doi.org/10.1016/j.jclinepi.2005.11.025">10.1016/j.jclinepi.2005.11.025</a></div>
+</div>
+<div id="ref-rcore2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">R Core Team. <em>R: A Language and Environment for Statistical Computing</em>. R Foundation for Statistical Computing; 2023. <a href="https://www.R-project.org/">https://www.R-project.org/</a></div>
+</div>
+<div id="ref-sjoberg2021gtsummary" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Sjoberg DD, Whiting K, Curry M, Lavery JA, Larmarange J. Reproducible summary tables with the gtsummary package. <em>The R Journal</em>. 2021;13(1):570-580. doi:<a href="https://doi.org/10.32614/RJ-2021-053">10.32614/RJ-2021-053</a></div>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -114,17 +114,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
-div.callout-Results.callout {
-  border-left-color: #198754;
-}
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
-}
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
-  background-image: none;
-}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -134,6 +123,17 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
+  background-image: none;
+}
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 div.callout-Pending.callout {
@@ -597,7 +597,7 @@ edit that file, not this page. Its first heading is the page title.
 <li><strong>Decisions.</strong> Anyone, including an agent, may add options and evidence to an issue. A decider states the choice in the issue. Agents implement decisions; they never choose among options on their own, in the issue, the plan, or the code.</li>
 <li><strong>Every agent, under any autonomy:</strong> never merges a pull request; follows the restricted-data rules; and shows a person the exact text before posting or sending anything as them, unless that person’s own instructions waive this.</li>
 <li><strong>Pull requests opened by an agent</strong> are focused. Each says which plan section or issue it addresses, what was checked, and whether by running code on synthetic data or by reading only. Synthetic results are never described as results.</li>
-<li><strong>References:</strong> cite the source documentation and literature used, in <code>references.bib</code>.</li>
+<li><strong>References:</strong> cite the source documentation and literature used, in <code>references.bib</code>. The site formats citations in AMA style (numbered superscripts) from <code>american-medical-association.csl</code>; protect proper nouns in titles with braces (for example <code>{American Society of Transplantation}</code>), since the style sets titles in sentence case.</li>
 </ul>
 
 
