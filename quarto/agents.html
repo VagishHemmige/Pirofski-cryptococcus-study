@@ -114,6 +114,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
+  background-image: none;
+}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -134,17 +145,6 @@ div.callout-Results.callout-style-default > .callout-header {
 div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
   content: '📊';
-  background-image: none;
-}
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
   background-image: none;
 }
 </style>
@@ -211,8 +211,22 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
  <span class="menu-text">Clinical background</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/methodological_background.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Methodological background</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/study_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">Study design and methods</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -544,7 +558,7 @@ edit that file, not this page. Its first heading is the page title.
 <p>The site documents the code. It does not run the analysis.</p>
 <ul>
 <li><code>_quarto.yml</code>, <code>index.qmd</code>, <code>404.qmd</code> and <code>styles.css</code> sit at the root; <code>quarto/</code> has one page per definitive script, named after it. The <code>render:</code> list in <code>_quarto.yml</code> names only the site’s pages, so Quarto does not also render the root <code>.md</code> files as pages of their own. The <code>custom-callout</code> extension in <code>_extensions/</code> provides the pink <code>Rcode</code> (💻), green <code>Results</code> (📊) and yellow <code>Pending</code> (⏳) callouts. The <code>issue-comments</code> extension lets readers highlight text and leave a comment, which a relay files as a GitHub issue in this repository; it needs the relay’s GitHub App installed on the repository.</li>
-<li><strong>Sidebar.</strong> Home, Background, then one <strong>Code</strong> section (Setup and helper functions; Data processing and analysis, numbered in the order <code>main.R</code> sources the scripts; Tables and figures), Results, Project documents, and About. Each kind of page has one icon, coloured in <code>styles.css</code>: <code>book</code> (blue) for background, <code>laptop</code> (pink) for R code, <code>clipboard-data</code> (green) for results, <code>file-earmark-ruled</code> (grey) for project documents; Home has <code>house</code> and About <code>info-circle</code>. Give every new page the icon of its kind, and add it to the list on the About page.</li>
+<li><strong>Sidebar.</strong> Home, Background (Clinical and Methodological background), Study design and methods, then one <strong>Code</strong> section (Setup and helper functions; Data processing and analysis, numbered in the order <code>main.R</code> sources the scripts; Tables and figures), Results, Project documents, and About. Each kind of page has one icon, coloured in <code>styles.css</code>: <code>book</code> (blue) for background, <code>diagram-3</code> (orange) for study design and methods, <code>laptop</code> (pink) for R code, <code>clipboard-data</code> (green) for results, <code>file-earmark-ruled</code> (grey) for project documents; Home has <code>house</code> and About <code>info-circle</code>. Give every new page the icon of its kind, and add it to the list on the About page.</li>
 <li><strong>Project documents.</strong> <code>analysis-plan.md</code>, <code>ARCHITECTURE.md</code>, <code>AGENTS.md</code> and <code>REPOSITORY-BLUEPRINT.md</code> stay at the repository root and are the only copies anyone edits. Each has a thin page in <code>quarto/</code> that shows it when the site renders: the plan, AGENTS.md and blueprint pages include the file, and the Architecture page reads <code>ARCHITECTURE.md</code> as text so its mermaid diagram is drawn.</li>
 <li><strong>Provisional content.</strong> <code>quarto/_pending.lua</code> highlights in yellow every paragraph that starts with <strong>Decision pending:</strong>, and any phrase written as <code>[text]{.pending}</code>, and adds a ⏳ Pending callout at the top of the page. Mark only what an open decision could change, link its decision issue, and remove the mark when the decision is settled. Yellow is used for nothing else.</li>
 <li>Each page loads its script with <code>knitr::read_chunk("../R/&lt;script&gt;.R")</code> in a hidden chunk and shows each labelled section with <code>#| eval: false</code>, with prose explaining what the section does and why. Pages link to the script on GitHub and to the scripts it depends on.</li>

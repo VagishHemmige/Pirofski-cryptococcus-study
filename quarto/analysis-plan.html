@@ -133,6 +133,17 @@ div.csl-indent {
   }
 }</script>
 <style>
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
+  background-image: none;
+}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -153,17 +164,6 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
-  background-image: none;
-}
-div.callout-Results.callout {
-  border-left-color: #198754;
-}
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
-}
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
   background-image: none;
 }
 </style>
@@ -230,8 +230,22 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
  <span class="menu-text">Clinical background</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/methodological_background.html" class="sidebar-item-text sidebar-link"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Methodological background</span></a>
+  </div>
+</li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quarto/study_methods.html" class="sidebar-item-text sidebar-link"><i class="bi bi-diagram-3" role="img">
+</i> 
+ <span class="menu-text">Study design and methods</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
@@ -516,7 +530,7 @@ gives this page GitHub-style IDs and those links work on both.
 <li>Log scale, model 1: sex + log Lam-IgM + log GXM-IgM.</li>
 <li>Log scale, model 2: log Lam-IgM + log GXM-IgM, to check that sex is not driving the discrimination.</li>
 </ul></li>
-<li><strong>Discrimination.</strong> ROC curves and AUCs from the predicted probabilities of three multivariable models: sex + Lam-IgM on the original scale, and log-scale models 1 and 2. For log-scale models 1 and 2, 95% confidence intervals are computed by DeLong’s method<span class="citation" data-cites="delong1988"><sup><a href="#ref-delong1988" role="doc-biblioref">2</a></sup></span> and by bootstrap, using pROC<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">3</a></sup></span>. Predicted probabilities are computed on the data used to fit the model.</li>
+<li><strong>Discrimination.</strong> ROC curves and AUCs from the predicted probabilities of three multivariable models: sex + Lam-IgM on the original scale, and log-scale models 1 and 2. For log-scale models 1 and 2, 95% confidence intervals are computed by DeLong’s method<span class="citation" data-cites="delong1988"><sup><a href="#ref-delong1988" role="doc-biblioref">2</a></sup></span> and by bootstrap, using pROC<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">3</a></sup></span>. Predicted probabilities are computed on the data used to fit the model; with 23 cases and 21 controls, the sample was too small to hold out a separate validation set.</li>
 <li><strong>Optimal cutpoints</strong> for GXM-IgM and Lam-IgM (original and log scale), chosen to maximize the sum of sensitivity and specificity (the Youden index<span class="citation" data-cites="youden1950"><sup><a href="#ref-youden1950" role="doc-biblioref">4</a></sup></span>; cutpointr<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">5</a></sup></span>), with sensitivity, specificity and positive and negative predictive values at the cutpoint. Cutpoints are chosen and evaluated on the same data, which tends to overstate performance<span class="citation" data-cites="ewald2006cutpoints"><sup><a href="#ref-ewald2006cutpoints" role="doc-biblioref">6</a></sup></span>.</li>
 <li><strong>Correlation and principal component analysis.</strong> Pearson correlations between the log antibodies (all participants, cases, controls). PCA of the seven standardized log antibodies, and logistic regression of case status on the seven components.</li>
 <li><strong>Missing data:</strong> complete-case analysis; no imputation.</li>
