@@ -28,6 +28,10 @@ Contributions follow the rules in [`AGENTS.md`](https://github.com/VagishHemmige
 -   [**Tables**](tables.qmd): Table 1 and the export of every table.
 -   [**Figures**](figures.qmd): every figure and its export.
 -   [**Results**](results.qmd): the exported tables and figures.
+-   [**Analysis plan**](analysis-plan.qmd): the analysis as published, shown from `analysis-plan.md`.
+-   [**Architecture**](architecture.qmd): how the scripts fit together and how data flow between them, shown from `ARCHITECTURE.md`.
+-   [**AGENTS.md**](agents.qmd): the rules for everyone working on the repository, shown from `AGENTS.md`.
+-   [**Repository blueprint**](repository-blueprint.qmd): the intended file organization, shown from `REPOSITORY-BLUEPRINT.md`.
 
 ## References
 
