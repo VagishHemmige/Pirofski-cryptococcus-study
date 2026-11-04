@@ -6,6 +6,7 @@
     "section": "",
     "text": "This script runs a principal component analysis (PCA) of the seven log antibody levels, then asks whether the principal components predict cryptococcosis status. The correlation plots and PCA plots are drawn in Figures, and the eigenvalue table in Tables.",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "3. Principal component analysis"
     ]
@@ -17,6 +18,7 @@
     "section": "Why PCA",
     "text": "Why PCA\nThe antibody levels are correlated with one another, most strongly GXM-IgM with Lam-IgM (see the correlation plots in Figures), which makes their individual coefficients in a joint regression model unstable. PCA was used to account for this correlation (Yoon et al. 2022): it re-expresses the seven measurements as seven uncorrelated components. The first component, PC1, acts as a summary score of overall antibody level. It runs opposite to the antibodies, so a higher PC1 means lower antibody levels.",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "3. Principal component analysis"
     ]
@@ -28,6 +30,7 @@
     "section": "Fit the PCA",
     "text": "Fit the PCA\nPCA is run on the log antibody levels of participants with complete antibody data. scale = TRUE standardizes each antibody first, so that no single antibody dominates because of its units.\n\n\nClick to show/hide R Code\n#PCA analysis\n\n#Run PCA on log of titer data\nPCA&lt;-CleanData_NoMissingTiters%&gt;%\n  select(LogTiterVariables)%&gt;%\n  prcomp(scale=TRUE)",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "3. Principal component analysis"
     ]
@@ -39,6 +42,7 @@
     "section": "Component scores",
     "text": "Component scores\nEach participant’s scores on the seven components are added to the data. Figures includes a correlation plot confirming that the components are uncorrelated.\n\n\nClick to show/hide R Code\n#Add PCA results to CleanData_NoMissingTiters\ncolumns&lt;-predict(PCA)\nPCAData&lt;-cbind(CleanData_NoMissingTiters, columns)",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "3. Principal component analysis"
     ]
@@ -50,6 +54,7 @@
     "section": "Do the components predict cryptococcosis?",
     "text": "Do the components predict cryptococcosis?\nA logistic regression of cryptococcosis status on all seven components. Because all seven are included, the model as a whole fits exactly as well as one using the seven log antibodies directly; the difference is that each component’s coefficient can be read separately. The question of interest is whether the summary score, PC1, is associated with case status.\n\n\nClick to show/hide R Code\n#Are the principal components predictors of cryptococcus status?\npc_regression_table &lt;- glm(HasCryptococcus ~ PC1+PC2+PC3+PC4+PC5+PC6+PC7, family = binomial, data=PCAData) %&gt;%\n  tbl_regression(., exponentiate = TRUE)%&gt;%\n  bold_p()",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "3. Principal component analysis"
     ]
@@ -61,8 +66,42 @@
     "section": "References",
     "text": "References\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "3. Principal component analysis"
+    ]
+  },
+  {
+    "objectID": "quarto/background.html",
+    "href": "quarto/background.html",
+    "title": "Clinical background",
+    "section": "",
+    "text": "Among invasive fungal infections in organ transplant recipients, cryptococcosis ranks third in frequency (Baddley et al. 2019), and it carries substantial mortality (Yoon et al. 2022).\nTwo kinds of antibody are relevant to Cryptococcus neoformans:\nBoth have been linked to cryptococcosis, or to the risk of developing it, in people with HIV (Subramaniam et al. 2005; Hlupeni et al. 2018; Yoon et al. 2019) and without HIV (Rohatgi et al. 2017). In transplant recipients, Jalali et al. found pretransplant GXM-IgM lower, but posttransplant GXM-IgM and IgG higher, in patients who developed cryptococcosis (Jalali et al. 2006). This study measured both antibodies, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis (Yoon et al. 2022).",
+    "crumbs": [
+      "Background",
+      "Clinical background"
+    ]
+  },
+  {
+    "objectID": "quarto/background.html#study-design-in-brief",
+    "href": "quarto/background.html#study-design-in-brief",
+    "title": "Clinical background",
+    "section": "Study design in brief",
+    "text": "Study design in brief\n\nSetting: University of Alabama at Birmingham; recruitment 1 January 2013 to 31 December 2018.\nCases: organ transplant recipients with a history of posttransplant cryptococcosis, diagnosed from a positive cryptococcal antigen (CrAg) result or a positive body-fluid culture.\nControls: organ transplant recipients with no such history.\nMeasurements: serum total IgM, IgG1 and IgG2 (µg/mL, Luminex); GXM- and Lam-binding IgM and IgG (titers); serum CrAg by lateral flow assay.\nApprovals: the UAB Institutional Review Board approved the study and all participants gave written informed consent; the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its IRB.\n\nSee analysis-plan.md for the full specification.",
+    "crumbs": [
+      "Background",
+      "Clinical background"
+    ]
+  },
+  {
+    "objectID": "quarto/background.html#references",
+    "href": "quarto/background.html#references",
+    "title": "Clinical background",
+    "section": "References",
+    "text": "References\n\n\nBaddley, John W, Graeme N Forrest, and AST Infectious Diseases Community of Practice. 2019. “Cryptococcosis in Solid Organ Transplantation—Guidelines from the American Society of Transplantation Infectious Diseases Community of Practice.” Clinical Transplantation 33 (9): e13543. https://doi.org/10.1111/ctr.13543.\n\n\nHlupeni, Admire, Antonio Nakouzi, Tao Wang, et al. 2018. “Antibody Responses in HIV-Infected Patients with Advanced Immunosuppression and Asymptomatic Cryptococcal Antigenemia.” Open Forum Infectious Diseases 6 (1): ofy333. https://doi.org/10.1093/ofid/ofy333.\n\n\nJalali, Ziba, Lucky Ng, Nina Singh, and Liise-anne Pirofski. 2006. “Antibody Response to Cryptococcus neoformans Capsular Polysaccharide Glucuronoxylomannan in Patients After Solid-Organ Transplantation.” Clinical and Vaccine Immunology 13 (7): 740–46. https://doi.org/10.1128/CVI.00139-06.\n\n\nRohatgi, Soma, Antonio Nakouzi, Leandro J Carreño, et al. 2017. “Antibody and B Cell Subset Perturbations in Human Immunodeficiency Virus-Uninfected Patients with Cryptococcosis.” Open Forum Infectious Diseases 5 (1): ofx255. https://doi.org/10.1093/ofid/ofx255.\n\n\nSubramaniam, Krishanthi, Neil French, and Liise-anne Pirofski. 2005. “Cryptococcus neoformans-Reactive and Total Immunoglobulin Profiles of Human Immunodeficiency Virus-Infected and Uninfected Ugandans.” Clinical and Diagnostic Laboratory Immunology 12 (10): 1168–76. https://doi.org/10.1128/CDLI.12.10.1168-1176.2005.\n\n\nTorosantucci, Antonella, Carla Bromuro, Paola Chiani, et al. 2005. “A Novel Glyco-Conjugate Vaccine Against Fungal Pathogens.” Journal of Experimental Medicine 202 (5): 597–606. https://doi.org/10.1084/jem.20050749.\n\n\nYoon, Hyun Ah, Antonio Nakouzi, Christina C Chang, et al. 2019. “Association Between Plasma Antibody Responses and Risk for Cryptococcus-Associated Immune Reconstitution Inflammatory Syndrome.” Journal of Infectious Diseases 219 (3): 420–28. https://doi.org/10.1093/infdis/jiy447.\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.\n\n\nZaragoza, Oscar, Marcio L Rodrigues, Magdia De Jesus, Susana Frases, Ekaterina Dadachova, and Arturo Casadevall. 2009. “The Capsule of the Fungal Pathogen Cryptococcus neoformans.” Advances in Applied Microbiology 68: 133–216. https://doi.org/10.1016/S0065-2164(09)01204-0.",
+    "crumbs": [
+      "Background",
+      "Clinical background"
     ]
   },
   {
@@ -72,6 +111,7 @@
     "section": "",
     "text": "This script attaches every package the analysis uses and says where to find the study workbook.",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Setup"
     ]
@@ -83,6 +123,7 @@
     "section": "Packages",
     "text": "Packages\nThe package list is the one used for the published analysis:\n\nData import and management: readxl reads the Excel workbook; tidyverse (including stringr) handles cleaning and reshaping (Wickham et al. 2019); haven supplies as_factor(), used to turn categorical variables into factors.\nTables: gtsummary builds Table 1 and the regression tables (Sjoberg et al. 2021); bstfun adds the inline forest plots to those tables; flextable formats the PCA eigenvalue table.\nFigures: ggplot2, ggbeeswarm (quasirandom points) and ggpubr (Wilcoxon p-values on the plot); corrplot for correlation matrices.\nModeling: broom (attached, but not called directly by the scripts); pROC for ROC curves and AUC confidence intervals (Robin et al. 2011); cutpointr for optimal titer cutpoints (Thiele and Hirschfeld 2021); factoextra for PCA eigenvalues and plots.\n\nbstfun is not on CRAN; install it from GitHub with remotes::install_github(\"MSKCC-Epi-Bio/bstfun\").\n\n\nClick to show/hide R Code\n#Imports packages needed for the analysis\n\nlibrary(tidyverse)\nlibrary(gtsummary)\nlibrary(stringr)\nlibrary(readxl)\nlibrary(ggbeeswarm)\nlibrary(ggplot2)\nlibrary(ggpubr)\nlibrary(haven)\nlibrary(pROC)\nlibrary(broom)\nlibrary(corrplot)\nlibrary(factoextra)\nlibrary(flextable)\nlibrary(bstfun)\nlibrary(cutpointr)",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Setup"
     ]
@@ -94,6 +135,7 @@
     "section": "Constants",
     "text": "Constants\nThe study workbook is restricted and never committed. raw_data_path points to the authorized local copy, which by default sits in data-raw/, a folder excluded by .gitignore. Only the sheet named Data is used. The scripts write their outputs to tables/ and figures/.\n\n\nClick to show/hide R Code\n# Location of the study workbook. The workbook is restricted and is never\n# committed: data-raw/ is listed in .gitignore. Place your authorized copy there,\n# or change this path to wherever you keep it.\nraw_data_path &lt;- \"data-raw/transUABallData012219 (1).xls\"\nraw_data_sheet &lt;- \"Data\"\n\n# Output folders for exported tables and figures\ntables_dir &lt;- \"tables\"\nfigures_dir &lt;- \"figures\"",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Setup"
     ]
@@ -105,6 +147,7 @@
     "section": "Display labels",
     "text": "Display labels\nReadable names for variables and category codes, used only when tables are saved (for example RACE with codes W/B becomes “Race: White/Black”, and DrugMycophenolate TRUE/FALSE becomes “Mycophenolate: Yes/No”). The analysis itself keeps the original variable names; see relabel_table() in Functions.\n\n\nClick to show/hide R Code\n# Readable names for variables and categories in exported tables. Used only when\n# tables are saved (R/tables.R); the analysis itself uses the original names.\ndisplay_variable_labels &lt;- c(\n  Sex = \"Sex\",\n  TransplantOrgan = \"Transplanted organ\",\n  RACE = \"Race\",\n  CaseOrControl = \"Case status\",\n  STEROID = \"Corticosteroids\",\n  DrugCNI = \"Calcineurin inhibitor\",\n  DrugMycophenolate = \"Mycophenolate\",\n  DrugMTOR = \"mTOR inhibitor\",\n  CNSDisease = \"CNS cryptococcosis\",\n  AGE = \"Age (years)\",\n  GXMIgG = \"GXM-IgG (1/titer)\",\n  GXMIgM = \"GXM-IgM (1/titer)\",\n  LAMIgG = \"Lam-IgG (1/titer)\",\n  LAMIgM = \"Lam-IgM (1/titer)\",\n  IgM = \"IgM (µg/mL)\",\n  IgG1 = \"IgG1 (µg/mL)\",\n  IgG2 = \"IgG2 (µg/mL)\",\n  log_GXMIgG = \"GXM-IgG (log 1/titer)\",\n  log_GXMIgM = \"GXM-IgM (log 1/titer)\",\n  log_LAMIgG = \"Lam-IgG (log 1/titer)\",\n  log_LAMIgM = \"Lam-IgM (log 1/titer)\",\n  log_IgM = \"IgM (log µg/mL)\",\n  log_IgG1 = \"IgG1 (log µg/mL)\",\n  log_IgG2 = \"IgG2 (log µg/mL)\"\n)\n\nyes_no &lt;- c(\"FALSE\" = \"No\", \"TRUE\" = \"Yes\")\ndisplay_level_labels &lt;- list(\n  Sex = c(M = \"Male\", F = \"Female\"),\n  RACE = c(W = \"White\", B = \"Black\"),\n  DrugCNI = yes_no,\n  DrugMycophenolate = yes_no,\n  DrugMTOR = yes_no,\n  CNSDisease = yes_no\n)",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Setup"
     ]
@@ -116,6 +159,7 @@
     "section": "",
     "text": "These are the tables and figures produced by running R/main.R on the study data. They were exported to tables/ and figures/ and are shown here as saved; this page does not rerun any analysis. The investigators have confirmed that these results are cleared for public release; they were published in Open Forum Infectious Diseases (Yoon et al. 2022).",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -126,6 +170,7 @@
     "section": "Table 1",
     "text": "Table 1\n\nAll participants\n\n\n\n\n\n  \n  \n  \n    \n      Characteristic\n      Control\nN = 211\n      Case\nN = 231\n      p-value2\n    \n  \n  \n    Sex\n\n\n0.023\n        Male\n19 (90%)\n14 (61%)\n\n        Female\n2 (9.5%)\n9 (39%)\n\n    Transplanted organ\n\n\n0.8\n        Lung\n2 (9.5%)\n1 (4.3%)\n\n        Heart/Kidney\n1 (4.8%)\n0 (0%)\n\n        Kidney\n8 (38%)\n12 (52%)\n\n        Liver\n3 (14%)\n3 (13%)\n\n        Kidney/Pancreas\n3 (14%)\n1 (4.3%)\n\n        Heart\n4 (19%)\n5 (22%)\n\n        Liver/Kidney\n0 (0%)\n1 (4.3%)\n\n    Race\n\n\n0.064\n        White\n14 (67%)\n21 (91%)\n\n        Black\n7 (33%)\n2 (8.7%)\n\n    Corticosteroids\n17 (81%)\n17 (74%)\n0.7\n    Calcineurin inhibitor\n\n\n&gt;0.9\n        No\n0 (0%)\n1 (4.3%)\n\n        Yes\n21 (100%)\n22 (96%)\n\n    Mycophenolate\n\n\n0.9\n        No\n5 (24%)\n6 (26%)\n\n        Yes\n16 (76%)\n17 (74%)\n\n    mTOR inhibitor\n\n\n0.7\n        No\n18 (86%)\n21 (91%)\n\n        Yes\n3 (14%)\n2 (8.7%)\n\n    CNS cryptococcosis\n\n\n&lt;0.001\n        No\n21 (100%)\n12 (52%)\n\n        Yes\n0 (0%)\n11 (48%)\n\n    Age (years)\n56 (47, 60)\n56 (48, 66)\n0.5\n    GXM-IgG (1/titer)\n298 (155, 414)\n163 (103, 410)\n0.2\n        Unknown\n0\n2\n\n    GXM-IgM (1/titer)\n42 (15, 99)\n11 (6, 16)\n0.001\n        Unknown\n0\n2\n\n    Lam-IgG (1/titer)\n589 (393, 1,199)\n319 (157, 959)\n0.052\n        Unknown\n0\n2\n\n    Lam-IgM (1/titer)\n132 (44, 346)\n49 (36, 105)\n0.008\n        Unknown\n0\n2\n\n    IgM (µg/mL)\n777 (476, 1,122)\n608 (228, 723)\n0.10\n        Unknown\n0\n2\n\n    IgG1 (µg/mL)\n1,516 (1,238, 2,441)\n1,057 (709, 1,682)\n0.030\n        Unknown\n0\n2\n\n    IgG2 (µg/mL)\n1,097 (540, 1,644)\n724 (339, 1,028)\n0.055\n        Unknown\n0\n2\n\n    GXM-IgG (log 1/titer)\n5.70 (5.04, 6.03)\n5.10 (4.64, 6.02)\n0.2\n        Unknown\n0\n2\n\n    GXM-IgM (log 1/titer)\n3.73 (2.71, 4.60)\n2.43 (1.73, 2.76)\n0.001\n        Unknown\n0\n2\n\n    Lam-IgG (log 1/titer)\n6.38 (5.97, 7.09)\n5.76 (5.05, 6.87)\n0.052\n        Unknown\n0\n2\n\n    Lam-IgM (log 1/titer)\n4.88 (3.78, 5.85)\n3.89 (3.58, 4.66)\n0.008\n        Unknown\n0\n2\n\n    IgM (log µg/mL)\n6.66 (6.17, 7.02)\n6.41 (5.43, 6.58)\n0.10\n        Unknown\n0\n2\n\n    IgG1 (log µg/mL)\n7.32 (7.12, 7.80)\n6.96 (6.56, 7.43)\n0.030\n        Unknown\n0\n2\n\n    IgG2 (log µg/mL)\n7.00 (6.29, 7.41)\n6.58 (5.82, 6.93)\n0.055\n        Unknown\n0\n2\n\n  \n  \n    \n      1 n (%); Median (Q1, Q3)\n    \n    \n      2 Pearson’s Chi-squared test; Fisher’s exact test; Wilcoxon rank sum test; Wilcoxon rank sum exact test\n    \n  \n\n\n\n\n\n\n\n\nParticipants with antibody measurements\n\n\n\n\n\n  \n  \n  \n    \n      Characteristic\n      Control\nN = 211\n      Case\nN = 211\n      p-value2\n    \n  \n  \n    Sex\n\n\n0.030\n        Male\n19 (90%)\n13 (62%)\n\n        Female\n2 (9.5%)\n8 (38%)\n\n    Transplanted organ\n\n\n0.8\n        Lung\n2 (9.5%)\n1 (4.8%)\n\n        Heart/Kidney\n1 (4.8%)\n0 (0%)\n\n        Kidney\n8 (38%)\n10 (48%)\n\n        Liver\n3 (14%)\n3 (14%)\n\n        Kidney/Pancreas\n3 (14%)\n1 (4.8%)\n\n        Heart\n4 (19%)\n5 (24%)\n\n        Liver/Kidney\n0 (0%)\n1 (4.8%)\n\n    Race\n\n\n0.13\n        White\n14 (67%)\n19 (90%)\n\n        Black\n7 (33%)\n2 (9.5%)\n\n    Corticosteroids\n17 (81%)\n15 (71%)\n0.5\n    Calcineurin inhibitor\n\n\n&gt;0.9\n        No\n0 (0%)\n0 (0%)\n\n        Yes\n21 (100%)\n21 (100%)\n\n    Mycophenolate\n\n\n&gt;0.9\n        No\n5 (24%)\n5 (24%)\n\n        Yes\n16 (76%)\n16 (76%)\n\n    mTOR inhibitor\n\n\n&gt;0.9\n        No\n18 (86%)\n19 (90%)\n\n        Yes\n3 (14%)\n2 (9.5%)\n\n    CNS cryptococcosis\n\n\n&lt;0.001\n        No\n21 (100%)\n11 (52%)\n\n        Yes\n0 (0%)\n10 (48%)\n\n    Age (years)\n56 (47, 60)\n56 (50, 66)\n0.4\n    GXM-IgG (1/titer)\n298 (155, 414)\n163 (103, 410)\n0.2\n    GXM-IgM (1/titer)\n42 (15, 99)\n11 (6, 16)\n0.001\n    Lam-IgG (1/titer)\n589 (393, 1,199)\n319 (157, 959)\n0.052\n    Lam-IgM (1/titer)\n132 (44, 346)\n49 (36, 105)\n0.008\n    IgM (µg/mL)\n777 (476, 1,122)\n608 (228, 723)\n0.10\n    IgG1 (µg/mL)\n1,516 (1,238, 2,441)\n1,057 (709, 1,682)\n0.030\n    IgG2 (µg/mL)\n1,097 (540, 1,644)\n724 (339, 1,028)\n0.055\n    GXM-IgG (log 1/titer)\n5.70 (5.04, 6.03)\n5.10 (4.64, 6.02)\n0.2\n    GXM-IgM (log 1/titer)\n3.73 (2.71, 4.60)\n2.43 (1.73, 2.76)\n0.001\n    Lam-IgG (log 1/titer)\n6.38 (5.97, 7.09)\n5.76 (5.05, 6.87)\n0.052\n    Lam-IgM (log 1/titer)\n4.88 (3.78, 5.85)\n3.89 (3.58, 4.66)\n0.008\n    IgM (log µg/mL)\n6.66 (6.17, 7.02)\n6.41 (5.43, 6.58)\n0.10\n    IgG1 (log µg/mL)\n7.32 (7.12, 7.80)\n6.96 (6.56, 7.43)\n0.030\n    IgG2 (log µg/mL)\n7.00 (6.29, 7.41)\n6.58 (5.82, 6.93)\n0.055\n  \n  \n    \n      1 n (%); Median (Q1, Q3)\n    \n    \n      2 Pearson’s Chi-squared test; Fisher’s exact test; Wilcoxon rank sum test; Wilcoxon rank sum exact test\n    \n  \n\n\n\n\n\n\nContinuous variables were compared with the Wilcoxon rank-sum test and categorical variables with Fisher’s exact or χ² tests. Median age was 56 in both groups. Counting multi-organ transplants toward each organ, 59% of participants had received a kidney, 23% a heart, 16% a liver and 7% a lung, with no difference between groups. Cases were more often women (39% vs 9.5%, p = 0.023) and less often Black (8.7% vs 33%, p = 0.064). Immunosuppression was similar, and all but one participant received a calcineurin inhibitor. Among cases, 48% had CNS cryptococcosis, and the median time from transplant to diagnosis was 1 year. Serum CrAg was positive in 21 of 23 cases and negative in all controls (Yoon et al. 2022). Antibody data were available for 42 participants (21 per group).",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -136,6 +181,7 @@
     "section": "Antibody levels by case status",
     "text": "Antibody levels by case status\n\nMedians were lower in cases for all seven antibodies, most clearly GXM-IgM (p = 0.0013) and Lam-IgM (p = 0.0079), followed by IgG1 (p = 0.03). GXM-IgG did not differ (p = 0.22). IgG1 across the whole cohort was about 8-fold below normal adult levels (Yoon et al. 2022).",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -146,6 +192,7 @@
     "section": "Logistic regression",
     "text": "Logistic regression\n\nOriginal antibody scale\n\n\n\n\n\n  \n  \n  \n    \n      Characteristic\n      \n        Univariate Model\n      \n      \n        Multivariate Model\n      \n    \n    \n      N\n      Forest Plot\n      OR\n      95% CI\n      p-value\n      Forest Plot\n      OR\n      95% CI\n      p-value\n    \n  \n  \n    Sex\n44\n\n\n\n\n\n\n\n\n        Male\n\n\n—\n—\n\n\n—\n—\n\n        Female\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n6.11\n1.32, 44.4\n0.035\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n6.03\n1.06, 56.3\n0.066\n    Race\n44\n\n\n\n\n\n\n\n\n        White\n\n\n—\n—\n\n\n\n\n\n        Black\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.19\n0.03, 0.92\n0.057\n\n\n\n\n    Corticosteroids\n44\n\n\n\n\n\n\n\n\n        Yes\n\n\n—\n—\n\n\n\n\n\n        No\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n1.50\n0.36, 6.78\n0.6\n\n\n\n\n    Mycophenolate\n44\n\n\n\n\n\n\n\n\n        No\n\n\n—\n—\n\n\n\n\n\n        Yes\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.89\n0.22, 3.51\n0.9\n\n\n\n\n    mTOR inhibitor\n44\n\n\n\n\n\n\n\n\n        No\n\n\n—\n—\n\n\n\n\n\n        Yes\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.57\n0.07, 3.82\n0.6\n\n\n\n\n    Age (years)\n44\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n1.02\n0.97, 1.08\n0.4\n\n\n\n\n    GXM-IgG (1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n  \n\n\n1.00\n1.00, 1.00\n0.5\n\n\n\n\n    GXM-IgM (1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.99\n0.97, 1.00\n0.2\n\n\n\n\n    Lam-IgG (1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n  \n\n\n1.00\n1.00, 1.00\n0.6\n\n\n\n\n    Lam-IgM (1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.99\n0.98, 1.00\n0.011\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.99\n0.97, 1.00\n0.025\n    IgM (µg/mL)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n  \n\n\n1.00\n1.00, 1.00\n0.4\n\n\n\n\n    IgG1 (µg/mL)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n  \n\n\n1.00\n1.00, 1.00\n0.8\n\n\n\n\n    IgG2 (µg/mL)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n  \n\n\n1.00\n1.00, 1.00\n0.8\n\n\n\n\n  \n  \n    \n      Abbreviations: CI = Confidence Interval, OR = Odds Ratio\n    \n  \n\n\n\n\n\n\nOn this scale, an odds ratio describes a one-unit change in inverse titer or µg/mL, so every odds ratio is close to 1.00. Lam-IgM was significant on its own (p = 0.011) and with sex (p = 0.025). Because the antibodies span several orders of magnitude, the models were repeated on the log scale.\n\n\nLog antibody scale\n\n\n\n\n\n\n  \n  \n  \n    \n      Characteristic\n      \n        Univariate Model\n      \n      \n        Multivariate Model 1\n      \n      \n        Multivariate Model 2\n      \n    \n    \n      N\n      Forest Plot\n      OR\n      95% CI\n      p-value\n      Forest Plot\n      OR\n      95% CI\n      p-value\n      Forest Plot\n      OR\n      95% CI\n      p-value\n    \n  \n  \n    Sex\n44\n\n\n\n\n\n\n\n\n\n\n\n\n        Male\n\n\n—\n—\n\n\n—\n—\n\n\n\n\n\n        Female\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n6.11\n1.32, 44.4\n0.035\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n6.20\n1.10, 53.0\n0.056\n\n\n\n\n    Race\n44\n\n\n\n\n\n\n\n\n\n\n\n\n        White\n\n\n—\n—\n\n\n\n\n\n\n\n\n\n        Black\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.19\n0.03, 0.92\n0.057\n\n\n\n\n\n\n\n\n    Corticosteroids\n44\n\n\n\n\n\n\n\n\n\n\n\n\n        Yes\n\n\n—\n—\n\n\n\n\n\n\n\n\n\n        No\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n1.50\n0.36, 6.78\n0.6\n\n\n\n\n\n\n\n\n    Mycophenolate\n44\n\n\n\n\n\n\n\n\n\n\n\n\n        No\n\n\n—\n—\n\n\n\n\n\n\n\n\n\n        Yes\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.89\n0.22, 3.51\n0.9\n\n\n\n\n\n\n\n\n    mTOR inhibitor\n44\n\n\n\n\n\n\n\n\n\n\n\n\n        No\n\n\n—\n—\n\n\n\n\n\n\n\n\n\n        Yes\n\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.57\n0.07, 3.82\n0.6\n\n\n\n\n\n\n\n\n    Age (years)\n44\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n1.02\n0.97, 1.08\n0.4\n\n\n\n\n\n\n\n\n    GXM-IgG (log 1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.73\n0.39, 1.25\n0.3\n\n\n\n\n\n\n\n\n    GXM-IgM (log 1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.41\n0.20, 0.74\n0.007\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.63\n0.21, 1.62\n0.4\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.62\n0.23, 1.46\n0.3\n    Lam-IgG (log 1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.60\n0.30, 1.14\n0.13\n\n\n\n\n\n\n\n\n    Lam-IgM (log 1/titer)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.36\n0.15, 0.71\n0.007\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.49\n0.14, 1.55\n0.2\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.54\n0.18, 1.54\n0.2\n    IgM (log µg/mL)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.63\n0.29, 1.19\n0.2\n\n\n\n\n\n\n\n\n    IgG1 (log µg/mL)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.50\n0.21, 1.01\n0.079\n\n\n\n\n\n\n\n\n    IgG2 (log µg/mL)\n42\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.60\n0.25, 1.28\n0.2\n\n\n\n\n\n\n\n\n  \n  \n    \n      Abbreviations: CI = Confidence Interval, OR = Odds Ratio\n    \n  \n\n\n\n\n\n\n\nOdds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.\nIn univariable models, higher GXM-IgM (OR 0.41) and Lam-IgM (OR 0.36) were each associated with lower odds of being a case (both p = 0.007), and female sex with higher odds (OR 6.11). With both antibodies in one model, with sex (model 1) or without (model 2), neither was significant, because the two are strongly correlated (r = 0.77).\n\n\nSensitivity analysis: one antibody at a time\n\n\n\n\n\n  \n  \n  \n    \n      Characteristic\n      Forest Plot\n      OR\n      95% CI\n      p-value\n    \n  \n  \n    Sex\n\n\n\n\n        Male\n\n—\n—\n\n        Female\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n6.47\n1.16, 54.7\n0.049\n    Lam-IgM (log 1/titer)\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.33\n0.12, 0.71\n0.012\n  \n  \n    \n      Abbreviations: CI = Confidence Interval, OR = Odds Ratio\n    \n  \n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n    \n      Characteristic\n      Forest Plot\n      OR\n      95% CI\n      p-value\n    \n  \n  \n    Sex\n\n\n\n\n        Male\n\n—\n—\n\n        Female\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n6.28\n1.07, 57.7\n0.061\n    GXM-IgM (log 1/titer)\n\n\n  \n    \n  \n  \n  \n    \n      \n    \n  \n  \n\n  \n    \n      \n    \n  \n  \n    \n    \n    \n    \n    \n    \n  \n\n\n0.40\n0.18, 0.76\n0.011\n  \n  \n    \n      Abbreviations: CI = Confidence Interval, OR = Odds Ratio\n    \n  \n\n\n\n\n\n\nFitted separately, each with sex, Lam-IgM (OR 0.33) and GXM-IgM (OR 0.40) were both associated with lower odds of being a case (p ≈ 0.01). Each 2.7-fold higher titer corresponded to 60–67% lower odds.",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -156,6 +203,7 @@
     "section": "ROC curves",
     "text": "ROC curves\n\n\n\n\n\n\nOriginal scale: sex + Lam-IgM\n\n\n\n\n\n\n\nLog scale, model 1: sex + log Lam-IgM + log GXM-IgM\n\n\n\n\n\n\n\nLog scale, model 2: log Lam-IgM + log GXM-IgM\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelAUCDeLong 95% CIBootstrap 95% CISex + log Lam-IgM + log GXM-IgM0.8030.670 to 0.9350.662 to 0.914log Lam-IgM + log GXM-IgM0.7760.629 to 0.9220.610 to 0.909\n\n\n\n\n\n\n\n\n\n\n\nThe model with sex and both log antibodies had an AUC of 0.80 (bootstrap 95% CI 0.66–0.91). A second model without sex, fitted to check that sex was not driving discrimination, had a similar AUC of 0.78 (0.61–0.91). As in the paper, the bootstrap intervals use 2000 stratified replicates; DeLong intervals are shown for comparison (Yoon et al. 2022).",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -166,6 +214,7 @@
     "section": "Optimal cutpoints",
     "text": "Optimal cutpoints\nA test result is “positive” (suggesting cryptococcosis) when the antibody is at or below the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values.\n\n\n\n\n\n\n\n\n\n\n\n\n\nAntibodyOptimal cutpointSensitivitySpecificityPPVNPVAUCGXM-IgM25.3080.9050.6670.7310.8750.782log GXM-IgM3.2310.9050.6670.7310.8750.782Lam-IgM158.2740.9520.4760.6450.9090.737log Lam-IgM5.0640.9520.4760.6450.9090.737\n\n\n\n\n\n\n\n\n\n\n\nFor GXM-IgM, an inverse titer of 25 or below gave sensitivity 0.91 and specificity 0.67. For Lam-IgM, 158 or below gave sensitivity 0.95 and specificity 0.48. The log-scale cutpoints are the same thresholds (e^3.23 ≈ 25, e^5.06 ≈ 158), so their performance is identical.",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -176,6 +225,7 @@
     "section": "Correlation between antibodies",
     "text": "Correlation between antibodies\n\n\n\n\n\n\nAll participants\n\n\n\n\n\n\n\nCases\n\n\n\n\n\n\n\nControls\n\n\n\n\n\nPearson correlations of the log antibody levels; the plot for all participants is Supplementary Figure 2 of the paper (Yoon et al. 2022). GXM-IgM and Lam-IgM were the most strongly correlated pair (r = 0.77), more so in controls (0.88) than in cases (0.52).",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -186,6 +236,7 @@
     "section": "Principal component analysis",
     "text": "Principal component analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\nPCA Numbereigenvaluevariance.percentcumulative.variance.percentDim.13.089095144.12993044.12993Dim.21.436124920.51607064.64600Dim.31.094549415.63642080.28242Dim.40.62621088.94586889.22829Dim.50.35754635.10780494.33609Dim.60.22557263.22246597.55856Dim.70.17090092.441442100.00000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nParticipants on the first two components\n\n\n\n\n\n\n\nBiplot\n\n\n\n\n\n\n\n\nComponent scores are uncorrelated\n\n\nThis is a check, not a result. PCA constructs the components to be uncorrelated, so every correlation between two different components is exactly 0. The diagonal, each component with itself, is left blank. The plot confirms that all seven components can enter one regression model together.\n\n\n\n\n\n  \n  \n  \n    \n      Characteristic\n      OR\n      95% CI\n      p-value\n    \n  \n  \n    PC1\n2.08\n1.30, 3.88\n0.007\n    PC2\n1.03\n0.57, 1.91\n&gt;0.9\n    PC3\n1.62\n0.82, 3.42\n0.2\n    PC4\n0.97\n0.39, 2.47\n&gt;0.9\n    PC5\n0.84\n0.25, 2.75\n0.8\n    PC6\n0.41\n0.07, 1.89\n0.3\n    PC7\n6.42\n1.01, 59.5\n0.065\n  \n  \n    \n      Abbreviations: CI = Confidence Interval, OR = Odds Ratio\n    \n  \n\n\n\n\n\n\nPCA re-expresses the seven correlated antibody levels as seven uncorrelated components, keeping as much of the variation as possible in the first few. PC1 explains 44% of the variation, and PC1 and PC2 together explain 65%. Every antibody points the same way on PC1, so it measures overall antibody level, with the sign inverted. PC2 separates IgG from IgM. Cases sit mostly on the low-antibody side. In a model with all seven components (Supplementary Table 2 of the paper), each one-unit higher PC1, meaning lower overall antibody, was associated with about twice the odds of being a case (OR 2.08, 95% CI 1.30–3.88, p = 0.007). No other component was significant (Yoon et al. 2022).",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -196,6 +247,7 @@
     "section": "Context",
     "text": "Context\nAbout 75% of participants received mycophenolate, which may affect the B cells that make these antibodies. Calcineurin inhibitors suppress B-cell responses but have also shown anti-cryptococcal activity (Yoon et al. 2022).",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -206,6 +258,7 @@
     "section": "References",
     "text": "References\n\n\nEwald, Ben. 2006. “Post Hoc Choice of Cut Points Introduced Bias to Diagnostic Research.” Journal of Clinical Epidemiology 59 (8): 798–801. https://doi.org/10.1016/j.jclinepi.2005.11.025.\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.",
     "crumbs": [
+      "Results",
       "Results"
     ]
   },
@@ -244,7 +297,7 @@
     "href": "quarto/about.html#pages",
     "title": "About",
     "section": "Pages",
-    "text": "Pages\n\nClinical background: the clinical question and study design.\nSetup: packages and the location of the study data.\nFunctions: helpers that summarize and export tables.\n1. Import and clean data: reads the workbook, derives variables, applies the exclusion.\n2. Regression, ROC and cutpoints: logistic regression models, ROC curves, AUC confidence intervals and optimal titer cutpoints.\n3. Principal component analysis: PCA of the log antibody levels and regression on the components.\nTables: Table 1 and the export of every table.\nFigures: every figure and its export.\nResults: the exported tables and figures.",
+    "text": "Pages\n\nClinical background: the clinical question and study design.\nSetup: packages and the location of the study data.\nFunctions: helpers that summarize and export tables.\n1. Import and clean data: reads the workbook, derives variables, applies the exclusion.\n2. Regression, ROC and cutpoints: logistic regression models, ROC curves, AUC confidence intervals and optimal titer cutpoints.\n3. Principal component analysis: PCA of the log antibody levels and regression on the components.\nTables: Table 1 and the export of every table.\nFigures: every figure and its export.\nResults: the exported tables and figures.\nAnalysis plan: the analysis as published, shown from analysis-plan.md.\nArchitecture: how the scripts fit together and how data flow between them, shown from ARCHITECTURE.md.\nAGENTS.md: the rules for everyone working on the repository, shown from AGENTS.md.\nRepository blueprint: the intended file organization, shown from REPOSITORY-BLUEPRINT.md.",
     "crumbs": [
       "About"
     ]
@@ -260,12 +313,145 @@
     ]
   },
   {
+    "objectID": "quarto/agents.html",
+    "href": "quarto/agents.html",
+    "title": "",
+    "section": "",
+    "text": "Project documentsAGENTS.md Code",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#the-project",
+    "href": "quarto/agents.html#the-project",
+    "title": "",
+    "section": "The project",
+    "text": "The project\nA case–control study of serum antibody profiles in organ transplant recipients with and without cryptococcosis, recruited at the University of Alabama at Birmingham, 2013–2018, and published in Open Forum Infectious Diseases in 2022 (doi:10.1093/ofid/ofac211). The repository reorganizes the original 2022 R Markdown analysis into scripts and publishes the code and methods as a Quarto website.\n\nThe published analysis code is frozen. This repository reproduces the analysis exactly as published. Do not change the analysis logic: variable derivations, the exclusion, model formulas, tests, ROC and cutpoint methods. That includes code that looks wrong or outdated. Allowed changes are reorganization, documentation, the data path, assigning results to names, and exporting tables and figures. A proposed change to the analysis is raised as a GitHub issue for the deciders, never made directly.\nanalysis-plan.md is the source of truth for design. It records the analysis as published. Code implements the plan; it does not redefine it.\nDeciders. Scientific decisions are made by: Liise-anne Pirofski (principal investigator; all scientific questions), Hyunah Yoon (first author; clinical definitions and interpretation), and Vagish Hemmige (statistical analysis and this repository). Anyone may open or contribute to an issue; only a decider settles it (see “Working with agents”).\nThis is an analysis project, not an R package. Do not add DESCRIPTION, NAMESPACE, roxygen, or pkgdown infrastructure, or apply CRAN conventions.\nDefault branch: master, protected. Changes reach it only through pull requests.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#data-sources",
+    "href": "quarto/agents.html#data-sources",
+    "title": "",
+    "section": "Data sources",
+    "text": "Data sources\n\n\n\n\n\n\n\n\n\n\n\nSource\nAccessed through\nPackage documentation\nPackage maintained by\nAccess\nWhat AI agents may do\n\n\n\n\nUAB transplant cryptococcosis case–control workbook (transUABallData012219 (1).xls, sheet Data)\nNo access package: readxl::read_excel() in R/import_clean.R, path set in R/setup.R\nNot applicable\nNot applicable\nRestricted: participant-level research data under the UAB IRB-approved study and the Albert Einstein College of Medicine IRB-approved protocol\nNone: code, documentation and synthetic data only\n\n\n\nTo allow more for a source, a person changes its row through a pull request, naming the agreement and section that permit it, the approved AI service, and exactly what agents may do. Agents never propose or make this change themselves, and nothing in personal instructions can grant it.\nFor a source with no package: R/import_clean.R is the one loading script. The workbook was provided by the study team and is not downloadable; its variables are described in analysis-plan.md section 5 and on the website’s Import and clean data page. Do not infer a variable’s coding beyond what those describe; ask a decider.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#exploration-and-definitive-analysis",
+    "href": "quarto/agents.html#exploration-and-definitive-analysis",
+    "title": "",
+    "section": "Exploration and definitive analysis",
+    "text": "Exploration and definitive analysis\nThe definitive analysis is the published one. Exploration (for example, cross-validated discrimination) is welcome on branches or forks, in scripts not sourced from R/main.R, and its findings are labelled exploratory and kept clearly apart from the published results.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#r-scripts",
+    "href": "quarto/agents.html#r-scripts",
+    "title": "",
+    "section": "R scripts",
+    "text": "R scripts\n\nRunning the analysis. Run R/main.R from the project root, with the workbook at the path set in R/setup.R. It sources the other scripts in dependency order; ARCHITECTURE.md describes what each does.\nOne job per script. When you add a definitive script, source it from main.R at the right point and update ARCHITECTURE.md in the same pull request.\nHeader comment. Each script begins with what it does, which objects it needs from earlier scripts, what it produces, and which chunk of the original R Markdown file it came from.\nLibraries and paths live in R/setup.R. Other scripts do not call library() or re-source setup.R.\nHelper functions go in R/functions.R. A function takes its inputs as arguments and does not read global objects.\nNo side effects outside the project. No setwd(), absolute paths, or writes outside the project.\nNo results from restricted data in code or text unless cleared for release (see Outputs). This covers scripts, comments, commit messages, issues, pull-request text and review reports.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#chunk-labels",
+    "href": "quarto/agents.html#chunk-labels",
+    "title": "",
+    "section": "Chunk labels",
+    "text": "Chunk labels\nScripts are divided into labelled sections so Quarto pages can show the code without copying it:\n## ---- &lt;step-name&gt;\n\nEvery logical step has a label. A label covers the code from its line to the next label.\nLabels are kebab-case, describe the step, and are unique across all scripts; a duplicate silently picks up the wrong code.\nSearch the .qmd files before renaming or deleting a label.\nLabels are comments and never change what the code does.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#quarto-website",
+    "href": "quarto/agents.html#quarto-website",
+    "title": "",
+    "section": "Quarto website",
+    "text": "Quarto website\nThe site documents the code. It does not run the analysis.\n\n_quarto.yml, index.qmd, 404.qmd and styles.css sit at the root; quarto/ has one page per definitive script, named after it. The render: list in _quarto.yml names only the site’s pages, so Quarto does not also render the root .md files as pages of their own. The custom-callout extension in _extensions/ provides the pink Rcode (💻), green Results (📊) and yellow Pending (⏳) callouts.\nSidebar. Home, Background, then one Code section (Setup and helper functions; Data processing and analysis, numbered in the order main.R sources the scripts; Tables and figures), Results, Project documents, and About. Each kind of page has one icon, coloured in styles.css: book (blue) for background, laptop (pink) for R code, clipboard-data (green) for results, file-earmark-ruled (grey) for project documents; Home has house and About info-circle. Give every new page the icon of its kind, and add it to the list on the About page.\nProject documents. analysis-plan.md, ARCHITECTURE.md, AGENTS.md and REPOSITORY-BLUEPRINT.md stay at the repository root and are the only copies anyone edits. Each has a thin page in quarto/ that shows it when the site renders: the plan, AGENTS.md and blueprint pages include the file, and the Architecture page reads ARCHITECTURE.md as text so its mermaid diagram is drawn.\nProvisional content. quarto/_pending.lua highlights in yellow every paragraph that starts with Decision pending:, and any phrase written as [text]{.pending}, and adds a ⏳ Pending callout at the top of the page. Mark only what an open decision could change, link its decision issue, and remove the mark when the decision is settled. Yellow is used for nothing else.\nEach page loads its script with knitr::read_chunk(\"../R/&lt;script&gt;.R\") in a hidden chunk and shows each labelled section with #| eval: false, with prose explaining what the section does and why. Pages link to the script on GitHub and to the scripts it depends on.\nNever evaluate analysis code in the site. Only these chunks set eval: true: the hidden read_chunk() imports, the Architecture page’s chunk that reads ARCHITECTURE.md, and the Results page’s show_table(), which displays the exported files in tables/ and figures/; nothing reruns the analysis.\nThe site renders to docs/, which is not committed. .github/workflows/publish.yml renders it on every pull request as a check and, on each push to master, publishes it to the gh-pages branch, which GitHub Pages serves. When you add a script, add its page and sidebar entry in the same pull request; render locally to preview, but do not commit the output.\nProse must match the code. If a change alters what a section does, update its explanation in the same pull request.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#outputs",
+    "href": "quarto/agents.html#outputs",
+    "title": "",
+    "section": "Outputs",
+    "text": "Outputs\n\nTables and figures are exported by R/tables.R and R/figures.R to tables/ (HTML) and figures/ (PNG), and are tracked. A new export needs a decider’s clearance first, and tables of raw or free-text values, or cells that describe a single participant, are not exported unless a decider explicitly clears them.\nOnly an authorized person runs R/main.R on the real workbook and commits the resulting tables/ and figures/; the site is rebuilt from them when the change reaches master.\nPublished figures need alt text.\nREADME.Rmd is the source of README.md; edit the .Rmd and re-knit.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#restricted-data-applies-to-everyone",
+    "href": "quarto/agents.html#restricted-data-applies-to-everyone",
+    "title": "",
+    "section": "Restricted data (applies to everyone)",
+    "text": "Restricted data (applies to everyone)\n\nNever commit data, extracts, or saved objects derived from participant-level records. The workbook lives in data-raw/ (ignored by .gitignore) or outside the project. .gitignore is a safety net, not access control.\nAI agents never read restricted data. Anything an agent opens, prints, or summarizes is sent to the model provider. Agents do not open the workbook or participant-level objects, print rows, or display identifiers. Agents write code, review it, and run it on synthetic data; results on real data are produced by an authorized person. Do not connect an AI tool to a folder containing data-raw/ unless the Data sources table allows it.\nSynthetic data are built in code, labelled as synthetic, never derived from real records, and not committed to this repository.\nArchive/ holds the original 2022 materials (R Markdown file, its knitted HTML output on real data, and the EndNote library). It is ignored and stays local; agents do not open the knitted HTML.\nCredentials. Never commit keys, tokens, or .Renviron.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#coding-conventions",
+    "href": "quarto/agents.html#coding-conventions",
+    "title": "",
+    "section": "Coding conventions",
+    "text": "Coding conventions\n\nStyle: the original code’s style is preserved in the published analysis. New code (helpers, exports) follows the tidyverse style guide. Style changes to frozen analysis code are not made.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#checks-for-any-change",
+    "href": "quarto/agents.html#checks-for-any-change",
+    "title": "",
+    "section": "Checks for any change",
+    "text": "Checks for any change\nCheck the items that apply before opening a pull request.\n\nFrozen analysis: does every line of analysis code still match the original 2022 R Markdown file, apart from the allowed changes listed under “The project”?\nPlan: does the change agree with analysis-plan.md?\nReported numbers: after an authorized rerun on the real data, do the key estimates match the publication (odds ratios for GXM-IgM and Lam-IgM, the AUCs, the cutpoints)?\nStructure: is ARCHITECTURE.md current; are chunk labels unique and found by their pages; does every definitive script have a page and sidebar entry; does any site chunk run analysis code?\nExecution: does main.R run in a fresh session with relative paths?\nData: does git status show nothing from data-raw/ or Archive/?",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
+    "objectID": "quarto/agents.html#working-with-agents",
+    "href": "quarto/agents.html#working-with-agents",
+    "title": "",
+    "section": "Working with agents",
+    "text": "Working with agents\n\nAutonomy. The person directing an agent decides how much it may do, and may give it stricter rules of their own; those take precedence. By default an agent may edit code and documentation, run code and render the site on synthetic data, and commit to a branch and open a pull request.\nDecisions. Anyone, including an agent, may add options and evidence to an issue. A decider states the choice in the issue. Agents implement decisions; they never choose among options on their own, in the issue, the plan, or the code.\nEvery agent, under any autonomy: never merges a pull request; follows the restricted-data rules; and shows a person the exact text before posting or sending anything as them, unless that person’s own instructions waive this.\nPull requests opened by an agent are focused. Each says which plan section or issue it addresses, what was checked, and whether by running code on synthetic data or by reading only. Synthetic results are never described as results.\nReferences: cite the source documentation and literature used, in references.bib.",
+    "crumbs": [
+      "Project documents",
+      "AGENTS.md"
+    ]
+  },
+  {
     "objectID": "quarto/figures.html",
     "href": "quarto/figures.html",
     "title": "Figures",
     "section": "",
     "text": "This script draws every figure in the analysis and saves it to figures/ as a PNG file. The saved figures are shown on the Results page.",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Figures"
     ]
@@ -277,6 +463,7 @@
     "section": "Output folder",
     "text": "Output folder\n\n\nClick to show/hide R Code\ndir.create(figures_dir, showWarnings = FALSE)",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Figures"
     ]
@@ -288,6 +475,7 @@
     "section": "Antibody levels by case status",
     "text": "Antibody levels by case status\nThe data are reshaped to one row per participant per antibody, so that all seven antibodies can be drawn in one faceted plot. Each panel shows the distribution (grey violin), the median (horizontal bar), and each participant as a point, colored by transplanted organ and shaped by sex. A Wilcoxon p-value comparing cases with controls is printed in each panel. The y-axis is log-scaled. Participants without antibody measurements are excluded.\n\n\nClick to show/hide R Code\n#Create a long table so that all antibody titers can be placed in one or two plots\nLongTiterDataNoMissingTiters&lt;-CleanData_NoMissingTiters%&gt;%pivot_longer(cols=TiterVariables,\n                                                                       names_to = \"Antibody\",\n                                                                       values_to=\"titer\")\n\n#Create pivoted plot of titer data\nfaceted_titer_plot &lt;- LongTiterDataNoMissingTiters %&gt;% ggplot()+\n  geom_violin(mapping = aes(x=CaseOrControl, y=titer), color = NA, alpha=0.5,fill = \"grey\",\n              draw_quantiles = 1)+\n  stat_summary(mapping = aes(x=CaseOrControl, y=titer),fun = median, fun.min = median, fun.max = median,\n               geom = \"crossbar\", width = 0.9, fatten=1.5)+\n  geom_quasirandom(mapping = aes(x=CaseOrControl, y=titer, color=TransplantOrgan, shape=Sex), cex=2, alpha=0.7)+\n  stat_compare_means(mapping = aes(x=CaseOrControl, y=titer, label = paste0(\"p =\", ..p.format..))) +\n  theme_classic()+\n  scale_y_continuous(trans='log10') +\n  facet_grid(.~Antibody)+\n  labs(x = \"\", y=\"Antibody titer (µg/mL)\", color=\"Transplanted Organ\",\n       caption = \"Patients with missing titer data excluded\")\n\n# Same size as the original chunk (fig.height=5.6, fig.width=9.38)\nggsave(file.path(figures_dir, \"faceted_titer_plot.png\"), faceted_titer_plot,\n       width = 9.38, height = 5.6, dpi = 300)",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Figures"
     ]
@@ -299,6 +487,7 @@
     "section": "ROC curves",
     "text": "ROC curves\nThe ROC curves fitted in Regression, ROC and cutpoints are redrawn into files, with the AUC printed on each.\n\n\nClick to show/hide R Code\n# Redraw the ROC curves fitted in modeling.R into files\npng(file.path(figures_dir, \"roc_titer_model.png\"), width = 6, height = 6, units = \"in\", res = 300)\nplot(titer_roc, print.auc = TRUE)\ndev.off()\n\npng(file.path(figures_dir, \"roc_log_titer_model1.png\"), width = 6, height = 6, units = \"in\", res = 300)\nplot(logtiter_roc1, print.auc = TRUE)\ndev.off()\n\npng(file.path(figures_dir, \"roc_log_titer_model2.png\"), width = 6, height = 6, units = \"in\", res = 300)\nplot(logtiter_roc2, print.auc = TRUE)\ndev.off()",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Figures"
     ]
@@ -310,6 +499,7 @@
     "section": "Correlation between antibodies",
     "text": "Correlation between antibodies\nPearson correlation matrices of the log antibody levels: for all participants with antibody data, then for cases and controls separately. These correlations motivated the sensitivity analysis and the PCA.\n\n\nClick to show/hide R Code\n#We plot a correlation matrix of the antibody titer data on the logarithmic scale\npng(file.path(figures_dir, \"corrplot_log_titers_all.png\"), width = 7, height = 7, units = \"in\", res = 300)\nCleanData_NoMissingTiters %&gt;%\n  select(LogTiterVariables) %&gt;%\n  cor(use=\"complete.obs\", method = \"pearson\")%&gt;%\n  corrplot(., method=\"color\",\n  diag=FALSE,\n  addCoef.col = \"black\"  )\ndev.off()\n\n#We plot a correlation matrix of the antibody titer data on the logarithmic scale, Cases only\npng(file.path(figures_dir, \"corrplot_log_titers_cases.png\"), width = 7, height = 7, units = \"in\", res = 300)\nCleanData %&gt;%\n  filter(CaseOrControl==\"Case\") %&gt;%\n  select(LogTiterVariables ) %&gt;%\n  cor(use=\"complete.obs\", method = \"pearson\")%&gt;%\n  corrplot(., method=\"color\",\n  diag=FALSE,\n  addCoef.col = \"black\"  )\ndev.off()\n\n#We plot a correlation matrix of the antibody titer data on the logarithmic scale, Control patients only\npng(file.path(figures_dir, \"corrplot_log_titers_controls.png\"), width = 7, height = 7, units = \"in\", res = 300)\nCleanData %&gt;%\n  filter(CaseOrControl==\"Control\") %&gt;%\n  select(LogTiterVariables) %&gt;%\n  cor(use=\"complete.obs\", method = \"pearson\")%&gt;%\n  corrplot(., method=\"color\",\n  diag=FALSE,\n  addCoef.col = \"black\"  )\ndev.off()",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Figures"
     ]
@@ -321,6 +511,7 @@
     "section": "PCA plots",
     "text": "PCA plots\nEach participant is plotted on the first two principal components, colored by case status, with a 95% confidence ellipse around each group’s mean. The biplot adds an arrow for each antibody, showing how it loads on the two components.\n\n\nClick to show/hide R Code\n#Plot results\npca_individuals_plot &lt;- fviz_pca_ind(PCA,\n             col.ind=CleanData_NoMissingTiters$CaseOrControl,\n             addEllipses = TRUE,\n             ellipse.type = \"confidence\",\n             label=\"none\")\n\nggsave(file.path(figures_dir, \"pca_individuals.png\"), pca_individuals_plot,\n       width = 7, height = 6, dpi = 300)\n\n#Plot result along with variables themselves\npca_biplot &lt;- fviz_pca_biplot(PCA,\n                label =\"var\",\n                col.ind=CleanData_NoMissingTiters$CaseOrControl,\n                addEllipses = TRUE,\n                ellipse.type = \"confidence\")\n\nggsave(file.path(figures_dir, \"pca_biplot.png\"), pca_biplot,\n       width = 7, height = 6, dpi = 300)",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Figures"
     ]
@@ -332,6 +523,7 @@
     "section": "Principal components are uncorrelated",
     "text": "Principal components are uncorrelated\nA check that the component scores are uncorrelated, as PCA guarantees.\n\n\nClick to show/hide R Code\n#Confirm that PCA truly resulted in uncorrelated predictors:\npng(file.path(figures_dir, \"corrplot_principal_components.png\"), width = 7, height = 7, units = \"in\", res = 300)\ncolumns %&gt;%\n  cor(use=\"complete.obs\")%&gt;%\n  corrplot(., method=\"color\",\n           diag=FALSE,\n           addCoef.col = \"black\"  )\ndev.off()",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Figures"
     ]
@@ -393,6 +585,7 @@
     "section": "",
     "text": "This script builds the descriptive tables and exports every table in the analysis to tables/ as HTML. The exported tables are shown on the Results page.",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Tables"
     ]
@@ -404,6 +597,7 @@
     "section": "Table 1",
     "text": "Table 1\nCases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). tbl_summary() from gtsummary (Sjoberg et al. 2021) reports medians with interquartile ranges and counts with percentages. add_p() uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher’s exact or the χ² test for categorical ones, as described in the paper (Yoon et al. 2022). A second version is restricted to participants with antibody measurements.\n\n\nClick to show/hide R Code\n#Create a Table 1 which compares cases in controls with regards to categorical and continuous variables\ntable1_all &lt;- CleanData %&gt;% select(CategoricalVariables, ContinuousVariables) %&gt;%\n  tbl_summary(by=CaseOrControl) %&gt;%\n  add_p() %&gt;%\n  bold_labels() %&gt;%\n  bold_p()\n\n#Create a Table 1 which compares cases in controls with regards to categorical and continuous variables, excluding pts with missing titers\ntable1_no_missing_titers &lt;- CleanData_NoMissingTiters %&gt;% select(CategoricalVariables, ContinuousVariables) %&gt;%\n  tbl_summary(by=CaseOrControl) %&gt;%\n  add_p() %&gt;%\n  bold_labels() %&gt;%\n  bold_p()",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Tables"
     ]
@@ -415,6 +609,7 @@
     "section": "Cryptococcal antigen among cases",
     "text": "Cryptococcal antigen among cases\nCounts of serum cryptococcal antigen results among cases, once as the numeric titer and once as recorded. These are computed for internal checking only and are not exported or published, because they contain small cells.\n\n\nClick to show/hide R Code\n#Explore cryptococcal Ag titer\ncrag_titer_counts &lt;- CleanData%&gt;%\n  filter(CaseOrControl==\"Case\")%&gt;%\n  count(CryptococcalAg)\n\ncrag_result_counts &lt;- CleanData%&gt;%\n  filter(CaseOrControl==\"Case\")%&gt;%\n  count(SerumCrAg)",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Tables"
     ]
@@ -426,6 +621,7 @@
     "section": "PCA eigenvalues",
     "text": "PCA eigenvalues\nHow much of the antibody variance each principal component explains, from the PCA in Principal component analysis.\n\n\nClick to show/hide R Code\n#How much of the variance of the antibody titers can be collapsed into one or two variables?\npca_eigenvalue_table &lt;- PCA %&gt;%get_eigenvalue()%&gt;%\n  rownames_to_column(\"PCA Number\")%&gt;%\n  flextable() %&gt;%\n  autofit()",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Tables"
     ]
@@ -437,6 +633,7 @@
     "section": "AUC confidence intervals and optimal cutpoints",
     "text": "AUC confidence intervals and optimal cutpoints\nThe original analysis printed these results one at a time. Here they are collected into two summary tables using the helpers in Functions. The values are read directly from the objects created in Regression, ROC and cutpoints, not recomputed.\n\n\nClick to show/hide R Code\n# Collect the AUC confidence intervals and optimal cutpoints computed in modeling.R\nauc_ci_summary &lt;- bind_rows(\n  summarise_auc_ci(auc_ci_logtiter1_delong, auc_ci_logtiter1_bootstrap,\n                   \"Sex + log Lam-IgM + log GXM-IgM\"),\n  summarise_auc_ci(auc_ci_logtiter2_delong, auc_ci_logtiter2_bootstrap,\n                   \"log Lam-IgM + log GXM-IgM\")\n)\n\ncutpoint_summary &lt;- bind_rows(\n  summarise_cutpoint(cutpoint_gxm_igm, \"GXM-IgM\"),\n  summarise_cutpoint(cutpoint_log_gxm_igm, \"log GXM-IgM\"),\n  summarise_cutpoint(cutpoint_lam_igm, \"Lam-IgM\"),\n  summarise_cutpoint(cutpoint_log_lam_igm, \"log Lam-IgM\")\n)",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Tables"
     ]
@@ -448,6 +645,7 @@
     "section": "Export",
     "text": "Export\nEvery table is saved as a self-contained HTML file in tables/. The gtsummary tables are passed through relabel_table() first, so the saved files show readable variable names and categories (for example “Race: White/Black” instead of RACE W/B); the table objects themselves are not changed.\n\n\nClick to show/hide R Code\n# gtsummary tables are relabeled for display (relabel_table() in functions.R)\n# just before they are saved; the table objects themselves are unchanged.\ndir.create(tables_dir, showWarnings = FALSE)\n\nsave_gtsummary_html(relabel_table(table1_all, display_variable_labels, display_level_labels), file.path(tables_dir, \"table1_all.html\"))\nsave_gtsummary_html(relabel_table(table1_no_missing_titers, display_variable_labels, display_level_labels), file.path(tables_dir, \"table1_no_missing_titers.html\"))\nsave_gtsummary_html(relabel_table(regression_table_titer, display_variable_labels, display_level_labels), file.path(tables_dir, \"regression_titer.html\"))\nsave_gtsummary_html(relabel_table(regression_table_logtiter_2, display_variable_labels, display_level_labels), file.path(tables_dir, \"regression_log_titer_models1_2.html\"))\nsave_gtsummary_html(relabel_table(sensitivity_table_log_lam_igm, display_variable_labels, display_level_labels), file.path(tables_dir, \"sensitivity_log_lam_igm.html\"))\nsave_gtsummary_html(relabel_table(sensitivity_table_log_gxm_igm, display_variable_labels, display_level_labels), file.path(tables_dir, \"sensitivity_log_gxm_igm.html\"))\nsave_gtsummary_html(relabel_table(pc_regression_table, display_variable_labels, display_level_labels), file.path(tables_dir, \"regression_principal_components.html\"))\n\n# CrAg counts are computed for internal review only; not exported (not cleared for release)\nsave_flextable_html(auc_ci_summary, file.path(tables_dir, \"auc_confidence_intervals.html\"))\nsave_flextable_html(cutpoint_summary, file.path(tables_dir, \"optimal_cutpoints.html\"))\nsave_as_html(pca_eigenvalue_table, path = file.path(tables_dir, \"pca_eigenvalues.html\"))",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Tables"
     ]
@@ -459,8 +657,53 @@
     "section": "References",
     "text": "References\n\n\nSjoberg, Daniel D, Karissa Whiting, Michael Curry, Jessica A Lavery, and Joseph Larmarange. 2021. “Reproducible Summary Tables with the Gtsummary Package.” The R Journal 13 (1): 570–80. https://doi.org/10.32614/RJ-2021-053.\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.",
     "crumbs": [
+      "Code",
       "Tables and figures",
       "Tables"
+    ]
+  },
+  {
+    "objectID": "quarto/repository-blueprint.html",
+    "href": "quarto/repository-blueprint.html",
+    "title": "",
+    "section": "",
+    "text": "Project documentsRepository blueprint Code",
+    "crumbs": [
+      "Project documents",
+      "Repository blueprint"
+    ]
+  },
+  {
+    "objectID": "quarto/repository-blueprint.html#analytical-scripts",
+    "href": "quarto/repository-blueprint.html#analytical-scripts",
+    "title": "",
+    "section": "Analytical scripts",
+    "text": "Analytical scripts\n\nR/main.R sources definitive scripts in dependency order.\nTypical workflow: setup → cohort construction → processing → modeling → outputs.\nStudy-specific scripts may be grouped into subdirectories by analytical stage.\nR/tables.R and R/figures.R may generate outputs directly or orchestrate specialized scripts.",
+    "crumbs": [
+      "Project documents",
+      "Repository blueprint"
+    ]
+  },
+  {
+    "objectID": "quarto/repository-blueprint.html#documentation",
+    "href": "quarto/repository-blueprint.html#documentation",
+    "title": "",
+    "section": "Documentation",
+    "text": "Documentation\n\nDocument definitive analytical scripts with explanatory Quarto pages; exploratory scripts need not have pages.\nUse Cryptococcus-cost-analysis as an example for Quarto supporting files, chunk imports, callouts, and formatting—not scientific methods.\nQuarto source and rendered output locations may vary by project.",
+    "crumbs": [
+      "Project documents",
+      "Repository blueprint"
+    ]
+  },
+  {
+    "objectID": "quarto/repository-blueprint.html#outputs-and-version-control",
+    "href": "quarto/repository-blueprint.html#outputs-and-version-control",
+    "title": "",
+    "section": "Outputs and version control",
+    "text": "Outputs and version control\n\nTrack approved, nonrestricted outputs when useful for publication; otherwise retain them locally and exclude them from Git.\n.gitignore: Exclude restricted data, credentials, caches, temporary files, and generated outputs unless intentionally tracked (e.g., .Rproj.user/, .Rhistory, .RData, .httr-oauth, .quarto/, cache/, figures/, tables/, *.quarto_ipynb); verify exclusions cover actual output paths without hiding necessary source or reference files.",
+    "crumbs": [
+      "Project documents",
+      "Repository blueprint"
     ]
   },
   {
@@ -470,6 +713,7 @@
     "section": "",
     "text": "This script defines the helper functions that export and summarize tables. None of them changes an estimate. They are new in the repository version: the original R Markdown file printed its results inline, and scripts run with source() need to save them instead.",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Functions"
     ]
@@ -481,6 +725,7 @@
     "section": "Save a gtsummary table",
     "text": "Save a gtsummary table\nConverts any gtsummary table (Table 1, regression and merged tables) to a gt table and saves it as a self-contained HTML file. Used by Tables.\n\n\nClick to show/hide R Code\n# Save a gtsummary table (tbl_summary, tbl_regression, tbl_merge, ...) as a\n# self-contained HTML file.\nsave_gtsummary_html &lt;- function(tbl, file) {\n  tbl %&gt;%\n    gtsummary::as_gt() %&gt;%\n    gt::gtsave(filename = file)\n  invisible(file)\n}",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Functions"
     ]
@@ -492,6 +737,7 @@
     "section": "Relabel a table for display",
     "text": "Relabel a table for display\nReplaces variable names and category codes in a gtsummary table with the readable labels defined in Setup, by editing only the table’s label column. Estimates, confidence intervals, p-values, reference categories and row order are unchanged; variables or categories without a display label are left as they are. Used by Tables just before each gtsummary table is saved.\n\n\nClick to show/hide R Code\n# Replace variable names and category codes in a gtsummary table with readable\n# labels, for display only. Variables or categories not listed are left as they\n# are. Estimates, reference categories and row order are unchanged.\nrelabel_table &lt;- function(tbl, variable_labels, level_labels) {\n  gtsummary::modify_table_body(tbl, function(body) {\n    is_label_row &lt;- body$row_type == \"label\" & body$variable %in% names(variable_labels)\n    body$label[is_label_row] &lt;- unname(variable_labels[body$variable[is_label_row]])\n    for (v in names(level_labels)) {\n      map &lt;- level_labels[[v]]\n      is_level_row &lt;- body$variable == v & body$row_type == \"level\" & body$label %in% names(map)\n      body$label[is_level_row] &lt;- unname(map[body$label[is_level_row]])\n    }\n    body\n  })\n}",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Functions"
     ]
@@ -503,6 +749,7 @@
     "section": "Save a data frame as a table",
     "text": "Save a data frame as a table\nFormats a data frame with flextable and saves it as HTML. Used for the AUC confidence intervals and optimal cutpoints.\n\n\nClick to show/hide R Code\n# Save a data frame as an HTML table via flextable.\nsave_flextable_html &lt;- function(df, file) {\n  df %&gt;%\n    flextable() %&gt;%\n    autofit() %&gt;%\n    save_as_html(path = file)\n  invisible(file)\n}",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Functions"
     ]
@@ -514,6 +761,7 @@
     "section": "Summarize an optimal cutpoint",
     "text": "Summarize an optimal cutpoint\nTakes one cutpointr result from Regression, ROC and cutpoints and returns one row: the optimal cutpoint and its sensitivity, specificity, positive and negative predictive value, and AUC. Nothing is recomputed; the values are read from the cutpointr object.\n\n\nClick to show/hide R Code\n# One row per cutpointr result: the optimal cutpoint and its operating\n# characteristics, as computed by cutpointr() and add_metric() in modeling.R,\n# rounded to 3 decimal places for display.\nsummarise_cutpoint &lt;- function(cp, label) {\n  tibble(\n    Antibody = label,\n    `Optimal cutpoint` = round(cp$optimal_cutpoint, 3),\n    Sensitivity = round(cp$sensitivity, 3),\n    Specificity = round(cp$specificity, 3),\n    PPV = round(cp$ppv, 3),\n    NPV = round(cp$npv, 3),\n    AUC = round(cp$AUC, 3)\n  )\n}",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Functions"
     ]
@@ -525,6 +773,7 @@
     "section": "Summarize AUC confidence intervals",
     "text": "Summarize AUC confidence intervals\nTakes the DeLong and bootstrap results of pROC::ci.auc() for one ROC curve and returns one row with the AUC and both 95% confidence intervals. ci.auc() returns the lower limit, the AUC and the upper limit, in that order.\n\n\nClick to show/hide R Code\n# One row per ROC curve: the AUC with its DeLong and bootstrap 95% CIs, as\n# computed by ci.auc() in modeling.R. ci.auc() returns c(lower, AUC, upper).\nsummarise_auc_ci &lt;- function(delong, bootstrap, label) {\n  tibble(\n    Model = label,\n    AUC = round(delong[2], 3),\n    `DeLong 95% CI` = sprintf(\"%.3f to %.3f\", delong[1], delong[3]),\n    `Bootstrap 95% CI` = sprintf(\"%.3f to %.3f\", bootstrap[1], bootstrap[3])\n  )\n}",
     "crumbs": [
+      "Code",
       "Setup and helper functions",
       "Functions"
     ]
@@ -536,6 +785,7 @@
     "section": "",
     "text": "This script reads the study workbook and derives every variable the analysis uses. It produces CleanData (all participants) and CleanData_NoMissingTiters (participants with antibody measurements), plus the variable lists used by every later script.",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -547,6 +797,7 @@
     "section": "Import the workbook",
     "text": "Import the workbook\nThe study data are a single Excel workbook with one row per participant, on the sheet named Data. The file location comes from Setup, so the same code runs wherever the authorized copy is kept.\n\n\nClick to show/hide R Code\n#Imports data and prepares for data analysis\nRawData&lt;- read_excel(raw_data_path, sheet = raw_data_sheet)",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -558,6 +809,7 @@
     "section": "Derive analysis variables and apply the exclusion",
     "text": "Derive analysis variables and apply the exclusion\nThis step derives the variables used in Table 1 and the models:\n\nImmunosuppression. The free-text regimen in Drugs is upper-cased, then three indicators are set by searching it for character strings: calcineurin inhibitor (DrugCNI: PRO, T or CYC), mycophenolate (DrugMycophenolate: M or CELL) and mTOR inhibitor (DrugMTOR: SIR or EVER). Corticosteroid use comes directly from STEROID.\nSerum cryptococcal antigen. SerumCrAg holds either a titer or the word “Negative”; CryptococcalAg stores the numeric titer, with negative results set to 0.\nSite of infection. CNSDisease is true when the recorded infection site (InfSite) mentions CNS.\nExclusion. One participant recruited as a control is removed because their serum cryptococcal antigen was positive. This rule comes from the original analysis code, not the published methods. It leaves the final sample of 23 cases and 21 controls reported in the paper (Yoon et al. 2022).\nOutcome. HasCryptococcus is the case/control status as a logical value, the outcome for the logistic regression models.\nTransplanted organ is converted to title case so that differently capitalized entries are counted together.\n\n\n\nClick to show/hide R Code\n#Data cleaning\nCleanData&lt;-RawData %&gt;%\n  #Create drug variables for CNI, mycophenolate, etc after cleaning up capitalization issues\n  mutate(Drugs=toupper(Drugs)) %&gt;%\n  #DrugCNI variable is positive if drug regimen includes PRO (Prograf), T (tacrolimus), or CYC (cyclosporine)\n  mutate(DrugCNI=grepl('PRO',Drugs)|grepl('T',Drugs)|grepl('CYC',Drugs)) %&gt;%\n  #DrugMycophenolate variable is positive if drug regimen includes M (mycophenolate) or CELL (Cellcept)\n  mutate(DrugMycophenolate=grepl('M',Drugs)|grepl('CELL',Drugs)) %&gt;%\n  #DrugMTOR variable is positive if drug regimen includes SIR (sirolimus) or EVER (everolimus)\n  mutate(DrugMTOR=grepl('SIR',Drugs)|grepl('EVER',Drugs)) %&gt;%\n  #Clean SerumCrAg variable and store numerical titer in CryptococcalAg variable\n  mutate(CryptococcalAg=as.numeric(SerumCrAg)) %&gt;%\n  mutate(CryptococcalAg=ifelse(SerumCrAg %in% c(\"Negative\", \"negative\"), 0, CryptococcalAg))%&gt;%\n  #Create variable for CNS disease\n  mutate(CNSDisease=grepl('CNS',InfSite))%&gt;%\n  #Remove Subject 116-was control, but crypto antigen was positive\n  filter(ID!=116)\n\n#Create a binary HasCryptococcus variable for the purposes of logistic regression\nCleanData&lt;-CleanData %&gt;% mutate(HasCryptococcus= CaseOrControl==\"Case\")\n\n#We fix the capitalization issues in the TransplantOrgan variable\nCleanData$TransplantOrgan&lt;-str_to_title(CleanData$TransplantOrgan)",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -569,6 +821,7 @@
     "section": "Define variable groups",
     "text": "Define variable groups\nThe categorical variables and the seven antibody measurements are named once here, so the tables and models below select them consistently. Four are cryptococcus-specific (GXM- and Lam-binding IgG and IgM, reported as titers) and three are total immunoglobulins (IgM, IgG1, IgG2, in µg/mL).\n\n\nClick to show/hide R Code\n#We define lists of categorical and titer variables\nCategoricalVariables&lt;-c(\"Sex\", \"TransplantOrgan\", \"RACE\", \"CaseOrControl\", \"STEROID\", \"DrugCNI\",\n                        \"DrugMycophenolate\", \"DrugMTOR\", \"CNSDisease\")\nTiterVariables&lt;-c(\"GXMIgG\",\"GXMIgM\",\"LAMIgG\",\"LAMIgM\",\"IgM\",\"IgG1\",\"IgG2\" )",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -580,6 +833,7 @@
     "section": "Log-transform the antibody levels",
     "text": "Log-transform the antibody levels\nAntibody levels are strongly right-skewed, so a natural-log version of each is created (log_GXMIgM and so on). The regression models use both scales; the paper’s multivariable models and ROC curves use the log scale. The list of continuous variables (age, the seven antibodies and their logs) is defined here.\n\n\nClick to show/hide R Code\n# Create logged versions of all titer variables\nCleanData&lt;-CleanData %&gt;% mutate(across(TiterVariables, log, .names = \"log_{col}\"))\n\n#Save the names of the logged titer variables into a list\nLogTiterVariables&lt;-paste0(\"log_\",TiterVariables)\n\n#Create a list of all continuous variables\nContinuousVariables&lt;-c(\"AGE\" ,TiterVariables ,LogTiterVariables)",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -591,6 +845,7 @@
     "section": "Convert categorical variables to factors",
     "text": "Convert categorical variables to factors\n\n\nClick to show/hide R Code\n#Convert appropriate variables from strings to factor variables\nCleanData[,CategoricalVariables] &lt;- lapply(CleanData[,CategoricalVariables] , as_factor)",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -602,6 +857,7 @@
     "section": "Participants with antibody measurements",
     "text": "Participants with antibody measurements\nAntibody data were missing for 2 cases (Yoon et al. 2022). Plots and analyses that need complete antibody data, such as the faceted titer plot and the principal component analysis, use this subset; missingness is identified by a missing GXM-IgG value.\n\n\nClick to show/hide R Code\n#Create a data set where subjects with missing titer data are removed\nCleanData_NoMissingTiters&lt;-CleanData%&gt;%\n  #Filter observations with missing titer data\n  filter(!is.na(GXMIgG))",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -613,6 +869,7 @@
     "section": "References",
     "text": "References\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "1. Import and clean data"
     ]
@@ -624,6 +881,7 @@
     "section": "",
     "text": "This script fits the logistic regression models relating cryptococcosis status to antibody levels, draws ROC curves for the multivariable models, and finds optimal titer cutpoints for GXM-IgM and Lam-IgM. Its tables and fitted objects are exported by Tables and Figures.\nThe outcome throughout is HasCryptococcus (case versus control). Odds ratios are exponentiated logistic regression coefficients. All analyses were exploratory, with no correction for multiple comparisons (Yoon et al. 2022).",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -635,6 +893,7 @@
     "section": "Univariable models on the original scale",
     "text": "Univariable models on the original scale\ntbl_uvregression() fits one logistic regression per candidate predictor: sex, race, corticosteroid, mycophenolate and mTOR inhibitor use, age, and the seven antibody levels on their original scale. Transplanted organ, calcineurin inhibitor use and CNS disease are left out. For context, CNS disease is recorded only for cases, and 43 of 44 participants received a calcineurin inhibitor (Yoon et al. 2022). An inline forest plot is added to each row.\n\n\nClick to show/hide R Code\n#Univariate regression tables utilizing titer\nunivariatetitertable&lt;-CleanData %&gt;%\n  select(HasCryptococcus, CategoricalVariables, ContinuousVariables) %&gt;%\n  select(-CaseOrControl, -TransplantOrgan, -LogTiterVariables, -DrugCNI, -CNSDisease) %&gt;%\n  tbl_uvregression(method = glm, y = HasCryptococcus, method.args = list(family = binomial),\n                   exponentiate = TRUE) %&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -646,6 +905,7 @@
     "section": "Multivariable model on the original scale",
     "text": "Multivariable model on the original scale\nA model with sex and Lam-IgM, merged side by side with the univariable table.\n\n\nClick to show/hide R Code\n#Multivariate model\n\nmvtitermodel1 &lt;- glm(HasCryptococcus ~ Sex+LAMIgM, family = binomial, data=CleanData)\n\nmultivariatetitertable&lt;-tbl_regression(mvtitermodel1, exponentiate = TRUE)%&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()\n\n\n#Prints the final regression table\nregression_table_titer &lt;- tbl_merge( tbls = list(univariatetitertable, multivariatetitertable), tab_spanner = c(\"**Univariate Model**\", \"**Multivariate Model**\"))",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -657,6 +917,7 @@
     "section": "ROC curve on the original scale",
     "text": "ROC curve on the original scale\nThe model’s predicted probabilities are used to draw an ROC curve and compute its area under the curve (AUC). Predictions are made on the same data used to fit the model.\n\n\nClick to show/hide R Code\n#ROC curve\ntest_prob_titer = predict(mvtitermodel1, newdata = CleanData, type = \"response\")\ntiter_roc = pROC::roc(CleanData$HasCryptococcus ~ test_prob_titer, plot = TRUE, print.auc = TRUE)",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -668,6 +929,7 @@
     "section": "Univariable models on the log scale",
     "text": "Univariable models on the log scale\nThe same univariable analysis, with the log-transformed antibody levels in place of the original ones.\n\n\nClick to show/hide R Code\n#Repeat the same model building analysis except with log titers:\n\nunivariatelogtitertable&lt;-CleanData %&gt;%\n  select(HasCryptococcus, CategoricalVariables, ContinuousVariables) %&gt;%\n  select(-CaseOrControl, -TransplantOrgan, -TiterVariables, -DrugCNI, -CNSDisease) %&gt;%\n  tbl_uvregression(method = glm, y = HasCryptococcus, method.args = list(family = binomial),\n                   exponentiate = TRUE) %&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -679,6 +941,7 @@
     "section": "Multivariable models on the log scale",
     "text": "Multivariable models on the log scale\nFour models are fitted:\n\n\n\nModel\nPredictors\n\n\n\n\n1\nSex + log Lam-IgM + log GXM-IgM\n\n\n2\nlog Lam-IgM + log GXM-IgM (without sex)\n\n\n3\nSex + log Lam-IgM\n\n\n4\nSex + log GXM-IgM\n\n\n\nModel 1 is the paper’s main multivariable model. Model 2 checks that the higher proportion of women among cases is not driving the discrimination (Yoon et al. 2022). The univariable table is merged with models 1 and 2.\n\n\nClick to show/hide R Code\n#Multivariate modeling\n\nmvlogtitermodel1 &lt;-glm(HasCryptococcus ~ Sex+log_LAMIgM+log_GXMIgM, family = binomial, data=CleanData)\nmvlogtitermodel2&lt;-glm(HasCryptococcus ~ log_LAMIgM+log_GXMIgM,\n                      family = binomial, data=CleanData)\nmvlogtitermodel3&lt;-glm(HasCryptococcus ~ Sex+log_LAMIgM, family = binomial, data=CleanData)\nmvlogtitermodel4&lt;-glm(HasCryptococcus ~ Sex+log_GXMIgM, family = binomial, data=CleanData)\n\n\nmultivariatelogtitertable1&lt;-tbl_regression(mvlogtitermodel1, exponentiate = TRUE)%&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()\n\nmultivariatelogtitertable2&lt;-tbl_regression(mvlogtitermodel2, exponentiate = TRUE)%&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()\n\nmultivariatelogtitertable3&lt;-tbl_regression(mvlogtitermodel3, exponentiate = TRUE)%&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()\n\nmultivariatelogtitertable4&lt;-tbl_regression(mvlogtitermodel4, exponentiate = TRUE)%&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()\n\n\n#Prints the final logistic regression tables\nregression_table_logtiter_1 &lt;- tbl_merge( tbls = list(univariatelogtitertable, multivariatelogtitertable1), tab_spanner = c(\"**Univariate Model**\", \"**Multivariate Model**\"))\n\nregression_table_logtiter_2 &lt;- tbl_merge( tbls = list(univariatelogtitertable, multivariatelogtitertable1, multivariatelogtitertable2 ), tab_spanner = c(\"**Univariate Model**\", \"**Multivariate Model 1**\",\"**Multivariate Model 2**\"))",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -690,6 +953,7 @@
     "section": "ROC curves and AUC confidence intervals",
     "text": "ROC curves and AUC confidence intervals\nROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals, computed with pROC (Robin et al. 2011): DeLong’s analytic method (DeLong et al. 1988) and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.\n\n\nClick to show/hide R Code\n#ROC curve 1\ntest_prob_logtiter1 = predict(mvlogtitermodel1, newdata = CleanData, type = \"response\")\nlogtiter_roc1 = pROC::roc(CleanData$HasCryptococcus ~ test_prob_logtiter1, plot = TRUE, print.auc = TRUE)\n\n#Calculate 95% confidence intervals, both analytically and using bootstrapping\nauc_ci_logtiter1_delong &lt;- ci.auc(logtiter_roc1, method=\"delong\")\nauc_ci_logtiter1_bootstrap &lt;- ci.auc(logtiter_roc1, method=\"bootstrap\")\n\n#ROC curve 2\ntest_prob_logtiter2 = predict(mvlogtitermodel2, newdata = CleanData, type = \"response\")\nlogtiter_roc2 = pROC::roc(CleanData$HasCryptococcus ~ test_prob_logtiter2, plot = TRUE, print.auc = TRUE)\n\n#Calculate 95% confidence intervals, both analytically and using bootstrapping\nauc_ci_logtiter2_delong &lt;- ci.auc(logtiter_roc2, method=\"delong\")\nauc_ci_logtiter2_bootstrap &lt;- ci.auc(logtiter_roc2, method=\"bootstrap\")",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -701,6 +965,7 @@
     "section": "Sensitivity analysis: one antibody at a time",
     "text": "Sensitivity analysis: one antibody at a time\nGXM-IgM and Lam-IgM are strongly correlated, so with both in one model neither is individually significant. As a sensitivity analysis, each is modeled with sex alone (Yoon et al. 2022). These are the same specifications as models 3 and 4 above.\n\n\nClick to show/hide R Code\n#Given the collinearity between log_LAMIgM and log_GXMIgM, as a sensitivity analysis we explore the results of including only one of the two variables in the multivariable model, and not both:\n\nsensitivity_table_log_lam_igm &lt;- glm(HasCryptococcus ~ Sex+log_LAMIgM, family = binomial, data=CleanData) %&gt;%\n  tbl_regression(., exponentiate = TRUE)%&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()\n\n\nsensitivity_table_log_gxm_igm &lt;- glm(HasCryptococcus ~ Sex+log_GXMIgM, family = binomial, data=CleanData) %&gt;%\n  tbl_regression(., exponentiate = TRUE)%&gt;%\n  bold_p()%&gt;%\n  add_inline_forest_plot()",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -712,6 +977,7 @@
     "section": "Optimal titer cutpoints",
     "text": "Optimal titer cutpoints\ncutpointr() finds the GXM-IgM and Lam-IgM values, on both scales, that maximize the sum of sensitivity and specificity (the Youden index (Youden 1950)) (Thiele and Hirschfeld 2021), with case status as the positive class. add_metric() adds the positive and negative predictive values at that cutpoint. These cutpoints are estimated on the same data used to evaluate them, which tends to overstate their performance (Ewald 2006).\n\n\nClick to show/hide R Code\n#Optimized cutpoints using sum of sensitivity and specificity\ncutpoint_gxm_igm &lt;- cutpointr(CleanData, GXMIgM, HasCryptococcus,\n          method = maximize_metric, metric = sum_sens_spec, na.rm = TRUE, pos_class = \"TRUE\")%&gt;%\n  add_metric(list(ppv, npv))\n\ncutpoint_log_gxm_igm &lt;- cutpointr(CleanData, log_GXMIgM, HasCryptococcus,\n          method = maximize_metric, metric = sum_sens_spec, na.rm = TRUE, pos_class = \"TRUE\")%&gt;%\n  add_metric(list(ppv, npv))\n\ncutpoint_lam_igm &lt;- cutpointr(CleanData, LAMIgM, HasCryptococcus,\n          method = maximize_metric, metric = sum_sens_spec, na.rm = TRUE, pos_class = \"TRUE\")%&gt;%\n  add_metric(list(ppv, npv))\n\ncutpoint_log_lam_igm &lt;- cutpointr(CleanData, log_LAMIgM, HasCryptococcus,\n          method = maximize_metric, metric = sum_sens_spec, na.rm = TRUE, pos_class = \"TRUE\")%&gt;%\n  add_metric(list(ppv, npv))",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
@@ -723,41 +989,240 @@
     "section": "References",
     "text": "References\n\n\nDeLong, Elizabeth R, David M DeLong, and Daniel L Clarke-Pearson. 1988. “Comparing the Areas Under Two or More Correlated Receiver Operating Characteristic Curves: A Nonparametric Approach.” Biometrics 44 (3): 837–45.\n\n\nEwald, Ben. 2006. “Post Hoc Choice of Cut Points Introduced Bias to Diagnostic Research.” Journal of Clinical Epidemiology 59 (8): 798–801. https://doi.org/10.1016/j.jclinepi.2005.11.025.\n\n\nRobin, Xavier, Natacha Turck, Alexandre Hainard, et al. 2011. “pROC: An Open-Source Package for R and S+ to Analyze and Compare ROC Curves.” BMC Bioinformatics 12: 77. https://doi.org/10.1186/1471-2105-12-77.\n\n\nThiele, Christian, and Gerrit Hirschfeld. 2021. “Cutpointr: Improved Estimation and Validation of Optimal Cutpoints in R.” Journal of Statistical Software 98 (11): 1–27. https://doi.org/10.18637/jss.v098.i11.\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.\n\n\nYouden, W J. 1950. “Index for Rating Diagnostic Tests.” Cancer 3 (1): 32–35. https://doi.org/10.1002/1097-0142(1950)3:1&lt;32::aid-cncr2820030106&gt;3.0.co;2-3.",
     "crumbs": [
+      "Code",
       "Data processing and analysis",
       "2. Regression, ROC and cutpoints"
     ]
   },
   {
-    "objectID": "quarto/background.html",
-    "href": "quarto/background.html",
-    "title": "Clinical background",
+    "objectID": "quarto/analysis-plan.html",
+    "href": "quarto/analysis-plan.html",
+    "title": "",
     "section": "",
-    "text": "Among invasive fungal infections in organ transplant recipients, cryptococcosis ranks third in frequency (Baddley et al. 2019), and it carries substantial mortality (Yoon et al. 2022).\nTwo kinds of antibody are relevant to Cryptococcus neoformans:\nBoth have been linked to cryptococcosis, or to the risk of developing it, in people with HIV (Subramaniam et al. 2005; Hlupeni et al. 2018; Yoon et al. 2019) and without HIV (Rohatgi et al. 2017). In transplant recipients, Jalali et al. found pretransplant GXM-IgM lower, but posttransplant GXM-IgM and IgG higher, in patients who developed cryptococcosis (Jalali et al. 2006). This study measured both antibodies, together with total (non-specific) IgM, IgG1 and IgG2, in transplant recipients with and without a history of posttransplant cryptococcosis (Yoon et al. 2022).",
+    "text": "Project documentsAnalysis plan Code",
     "crumbs": [
-      "Background",
-      "Clinical background"
+      "Project documents",
+      "Analysis plan"
     ]
   },
   {
-    "objectID": "quarto/background.html#study-design-in-brief",
-    "href": "quarto/background.html#study-design-in-brief",
-    "title": "Clinical background",
-    "section": "Study design in brief",
-    "text": "Study design in brief\n\nSetting: University of Alabama at Birmingham; recruitment 1 January 2013 to 31 December 2018.\nCases: organ transplant recipients with a history of posttransplant cryptococcosis, diagnosed from a positive cryptococcal antigen (CrAg) result or a positive body-fluid culture.\nControls: organ transplant recipients with no such history.\nMeasurements: serum total IgM, IgG1 and IgG2 (µg/mL, Luminex); GXM- and Lam-binding IgM and IgG (titers); serum CrAg by lateral flow assay.\nApprovals: the UAB Institutional Review Board approved the study and all participants gave written informed consent; the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its IRB.\n\nSee analysis-plan.md for the full specification.",
+    "objectID": "quarto/analysis-plan.html#scope",
+    "href": "quarto/analysis-plan.html#scope",
+    "title": "",
+    "section": "Scope",
+    "text": "Scope\nThis document is the authoritative specification of the study’s scientific objectives, population, definitions and statistical methods. ARCHITECTURE.md documents the implementation, AGENTS.md the working conventions, and GitHub Issues any open questions. Neither file supersedes this plan.",
     "crumbs": [
-      "Background",
-      "Clinical background"
+      "Project documents",
+      "Analysis plan"
     ]
   },
   {
-    "objectID": "quarto/background.html#references",
-    "href": "quarto/background.html#references",
-    "title": "Clinical background",
+    "objectID": "quarto/analysis-plan.html#1-objective",
+    "href": "quarto/analysis-plan.html#1-objective",
+    "title": "",
+    "section": "1. Objective",
+    "text": "1. Objective\nTo compare serum cryptococcus-specific antibodies (glucuronoxylomannan [GXM]- and laminarin [Lam]-binding IgM and IgG) and non-specific antibodies (total IgM, IgG1, IgG2) between organ transplant recipients with and without a history of posttransplant cryptococcosis, and to describe how well these antibodies discriminate cases from controls (Yoon et al. 2022).\nAll analyses are exploratory. No hypotheses were designated as primary, and there is no correction for multiple comparisons.",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#2-design",
+    "href": "quarto/analysis-plan.html#2-design",
+    "title": "",
+    "section": "2. Design",
+    "text": "2. Design\nSingle-center case–control study. Antibodies were measured once, after transplantation (and, for cases, after the cryptococcosis diagnosis). The design supports association, not causal inference or prediction of future disease.",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#3-data-source",
+    "href": "quarto/analysis-plan.html#3-data-source",
+    "title": "",
+    "section": "3. Data source",
+    "text": "3. Data source\n\nSetting: University of Alabama at Birmingham (UAB); participants recruited 1 January 2013 to 31 December 2018.\nClinical data: abstracted from the medical record: type and year of transplant, age, sex, race and the immunosuppression regimen at enrollment; for cases, site of infection and time from diagnosis to sample collection.\nLaboratory data: serum total IgM, IgG1 and IgG2 by Luminex (µg/mL); GXM- and Lam-binding IgM and IgG reported as titers; serum cryptococcal antigen (CrAg) by lateral flow assay.\nAnalysis file: one Excel workbook, sheet Data, one row per participant. The workbook is restricted and is not part of the repository.\nApprovals: The UAB Institutional Review Board approved the study and all participants gave written informed consent; the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its IRB.",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#4-study-population",
+    "href": "quarto/analysis-plan.html#4-study-population",
+    "title": "",
+    "section": "4. Study population",
+    "text": "4. Study population\n\nCases: organ transplant recipients with a history of posttransplant cryptococcosis diagnosed by a positive CrAg test or body fluid culture.\nControls: organ transplant recipients without a history of posttransplant cryptococcosis.\nExclusion: one participant recruited as a control was excluded because the serum CrAg was positive. This exclusion is applied in the original 2022 analysis code; the publication reports the final sample only.\nAnalytic sample: 23 cases and 21 controls. Antibody data are missing for 2 cases; analyses requiring antibody data use the participants with measurements.",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#5-variables",
+    "href": "quarto/analysis-plan.html#5-variables",
+    "title": "",
+    "section": "5. Variables",
+    "text": "5. Variables\n\nOutcome (case status): case versus control, as recruited.\nDemographics: age (years), sex, race, transplanted organ.\nImmunosuppression at enrollment: corticosteroid (recorded directly), and calcineurin inhibitor, mycophenolate and mTOR inhibitor indicators derived from the free-text regimen. The regimen text is upper-cased and an indicator is set when the text contains any of these strings: calcineurin inhibitor PRO, T or CYC; mycophenolate M or CELL; mTOR inhibitor SIR or EVER.\nCNS cryptococcosis (cases): the recorded site of infection mentions CNS.\nSerum CrAg: numeric titer, with negative results coded 0.\nAntibodies: GXM-IgG, GXM-IgM, Lam-IgG, Lam-IgM (titers); IgM, IgG1, IgG2 (µg/mL). Each is analyzed on its original scale and after natural-log transformation.",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#6-statistical-analysis",
+    "href": "quarto/analysis-plan.html#6-statistical-analysis",
+    "title": "",
+    "section": "6. Statistical analysis",
+    "text": "6. Statistical analysis\n\nDescriptive comparison (Table 1). Medians with interquartile ranges, and counts with percentages, by case status. Continuous variables are compared with the Wilcoxon rank-sum test; categorical variables with Fisher’s exact or the χ² test. Reported for all participants and for those with antibody data.\nAntibody distributions. Each antibody plotted by case status on a log scale, with a Wilcoxon p-value per antibody.\nUnivariable logistic regression of case status on each of: sex, race, corticosteroid, mycophenolate and mTOR inhibitor use, age, and each antibody. Run on the original and on the log antibody scale; odds ratios with 95% confidence intervals.\nMultivariable logistic regression:\n\nOriginal scale: sex + Lam-IgM.\nLog scale, model 1: sex + log Lam-IgM + log GXM-IgM.\nLog scale, model 2: log Lam-IgM + log GXM-IgM, to check that sex is not driving the discrimination.\n\nDiscrimination. ROC curves and AUCs from the predicted probabilities of three multivariable models: sex + Lam-IgM on the original scale, and log-scale models 1 and 2. For log-scale models 1 and 2, 95% confidence intervals are computed by DeLong’s method (DeLong et al. 1988) and by bootstrap, using pROC (Robin et al. 2011). Predicted probabilities are computed on the data used to fit the model.\nOptimal cutpoints for GXM-IgM and Lam-IgM (original and log scale), chosen to maximize the sum of sensitivity and specificity (the Youden index (Youden 1950); cutpointr (Thiele and Hirschfeld 2021)), with sensitivity, specificity and positive and negative predictive values at the cutpoint. Cutpoints are chosen and evaluated on the same data, which tends to overstate performance (Ewald 2006).\nCorrelation and principal component analysis. Pearson correlations between the log antibodies (all participants, cases, controls). PCA of the seven standardized log antibodies, and logistic regression of case status on the seven components.\nMissing data: complete-case analysis; no imputation.\nSoftware: R 4.3.2 (R Core Team 2023) and RStudio; tables with gtsummary (Sjoberg et al. 2021).",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#7-sensitivity-analyses",
+    "href": "quarto/analysis-plan.html#7-sensitivity-analyses",
+    "title": "",
+    "section": "7. Sensitivity analyses",
+    "text": "7. Sensitivity analyses\n\nCollinearity of GXM-IgM and Lam-IgM: each modeled separately with sex (sex + log Lam-IgM; sex + log GXM-IgM), since with both in one model neither is individually significant.\nInfluence of sex: log-scale model 2 omits sex (section 6, item 4).\nAntibody correlation: PCA replaces the correlated antibodies with uncorrelated components (section 6, item 7).",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#8-disclosure-control",
+    "href": "quarto/analysis-plan.html#8-disclosure-control",
+    "title": "",
+    "section": "8. Disclosure control",
+    "text": "8. Disclosure control\nThe study data are participant-level and restricted; they are never committed to the repository. Results from this analysis were published (Yoon et al. 2022), and the investigators confirmed on 2026-10-26 that the tables and figures produced by this code are cleared for public release.",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#9-limitations",
+    "href": "quarto/analysis-plan.html#9-limitations",
+    "title": "",
+    "section": "9. Limitations",
+    "text": "9. Limitations\nAs stated in the publication (Yoon et al. 2022): retrospective, single-center design; variable time between transplantation, cryptococcosis and enrollment; cases and controls not recruited concurrently; a single, non-standardized blood sample with no pre-cryptococcosis sample; no causal inference; B-cell subsets and cellular immunity not assessed; no cohort without immunosuppression; possible unmeasured confounding (cirrhosis, hematologic malignancy, chemotherapy); small sample size.",
+    "crumbs": [
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/analysis-plan.html#references",
+    "href": "quarto/analysis-plan.html#references",
+    "title": "",
     "section": "References",
-    "text": "References\n\n\nBaddley, John W, Graeme N Forrest, and AST Infectious Diseases Community of Practice. 2019. “Cryptococcosis in Solid Organ Transplantation—Guidelines from the American Society of Transplantation Infectious Diseases Community of Practice.” Clinical Transplantation 33 (9): e13543. https://doi.org/10.1111/ctr.13543.\n\n\nHlupeni, Admire, Antonio Nakouzi, Tao Wang, et al. 2018. “Antibody Responses in HIV-Infected Patients with Advanced Immunosuppression and Asymptomatic Cryptococcal Antigenemia.” Open Forum Infectious Diseases 6 (1): ofy333. https://doi.org/10.1093/ofid/ofy333.\n\n\nJalali, Ziba, Lucky Ng, Nina Singh, and Liise-anne Pirofski. 2006. “Antibody Response to Cryptococcus neoformans Capsular Polysaccharide Glucuronoxylomannan in Patients After Solid-Organ Transplantation.” Clinical and Vaccine Immunology 13 (7): 740–46. https://doi.org/10.1128/CVI.00139-06.\n\n\nRohatgi, Soma, Antonio Nakouzi, Leandro J Carreño, et al. 2017. “Antibody and B Cell Subset Perturbations in Human Immunodeficiency Virus-Uninfected Patients with Cryptococcosis.” Open Forum Infectious Diseases 5 (1): ofx255. https://doi.org/10.1093/ofid/ofx255.\n\n\nSubramaniam, Krishanthi, Neil French, and Liise-anne Pirofski. 2005. “Cryptococcus neoformans-Reactive and Total Immunoglobulin Profiles of Human Immunodeficiency Virus-Infected and Uninfected Ugandans.” Clinical and Diagnostic Laboratory Immunology 12 (10): 1168–76. https://doi.org/10.1128/CDLI.12.10.1168-1176.2005.\n\n\nTorosantucci, Antonella, Carla Bromuro, Paola Chiani, et al. 2005. “A Novel Glyco-Conjugate Vaccine Against Fungal Pathogens.” Journal of Experimental Medicine 202 (5): 597–606. https://doi.org/10.1084/jem.20050749.\n\n\nYoon, Hyun Ah, Antonio Nakouzi, Christina C Chang, et al. 2019. “Association Between Plasma Antibody Responses and Risk for Cryptococcus-Associated Immune Reconstitution Inflammatory Syndrome.” Journal of Infectious Diseases 219 (3): 420–28. https://doi.org/10.1093/infdis/jiy447.\n\n\nYoon, Hyunah, Antonio Nakouzi, Peter G Pappas, Vagish S Hemmige, and Liise-anne Pirofski. 2022. “Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients with and Without Cryptococcosis.” Open Forum Infectious Diseases 9 (7): ofac211. https://doi.org/10.1093/ofid/ofac211.\n\n\nZaragoza, Oscar, Marcio L Rodrigues, Magdia De Jesus, Susana Frases, Ekaterina Dadachova, and Arturo Casadevall. 2009. “The Capsule of the Fungal Pathogen Cryptococcus neoformans.” Advances in Applied Microbiology 68: 133–216. https://doi.org/10.1016/S0065-2164(09)01204-0.",
+    "text": "References\nReferences are in references.bib.",
     "crumbs": [
-      "Background",
-      "Clinical background"
+      "Project documents",
+      "Analysis plan"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html",
+    "href": "quarto/architecture.html",
+    "title": "",
+    "section": "",
+    "text": "Project documentsArchitecture Code",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#overview",
+    "href": "quarto/architecture.html#overview",
+    "title": "",
+    "section": "Overview",
+    "text": "Overview\nThis repository reproduces a published case–control analysis of antibody profiles in organ transplant recipients with and without cryptococcosis (Yoon et al., Open Forum Infectious Diseases 2022). The original 2022 R Markdown analysis was split into R scripts, run in a fixed order by R/main.R, and documented on a Quarto website served by GitHub Pages.\nTwo boundaries shape the design:\n\nThe analysis code is frozen. Scripts reproduce the published analysis unchanged. The only additions are the workbook path, names for results the R Markdown file printed inline, and code that exports and labels tables and figures (see AGENTS.md).\nThe data never enter Git. The restricted workbook is read from data-raw/ (ignored) or another local path. Only cleared outputs in tables/ and figures/ are committed; the rendered site is published to the gh-pages branch, not committed.\n\nThe scientific specification is in analysis-plan.md; the intended layout is in REPOSITORY-BLUEPRINT.md.",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#architecture-diagram",
+    "href": "quarto/architecture.html#architecture-diagram",
+    "title": "",
+    "section": "Architecture Diagram",
+    "text": "Architecture Diagram\n\n\n\n\n\nflowchart TD\n    W[(Restricted workbook&lt;br/&gt;data-raw/, not in Git)] --&gt; IC[R/import_clean.R]\n    S[R/setup.R&lt;br/&gt;packages, paths, display labels] --&gt; IC\n    S --&gt; T\n    F[R/functions.R&lt;br/&gt;export and relabel helpers] --&gt; T\n    IC --&gt; M[R/modeling.R]\n    IC --&gt; P[R/pca.R]\n    IC --&gt; T[R/tables.R]\n    IC --&gt; G[R/figures.R]\n    M --&gt; T\n    M --&gt; G\n    P --&gt; T\n    P --&gt; G\n    T --&gt; TO[(tables/*.html)]\n    G --&gt; FO[(figures/*.png)]\n    R[R/*.R source] -. read_chunk .-&gt; Q[quarto/*.qmd pages]\n    TO -- show_table --&gt; RES[quarto/results.qmd]\n    FO --&gt; RES\n    Q --&gt; D[(gh-pages branch, rendered by GitHub Actions)]\n    RES --&gt; D\n    D --&gt; GH[GitHub Pages]\n    MAIN[R/main.R] -. sources in order .-&gt; S",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#components",
+    "href": "quarto/architecture.html#components",
+    "title": "",
+    "section": "Components",
+    "text": "Components\nScripts are listed in the order R/main.R sources them. Each script’s header comment records what it needs, what it produces, and which chunk of the original R Markdown file it came from.\n\nSetup\nPurpose: Attach every package the published analysis used, define the workbook location and output folders, and define the readable labels used in exported tables.\nLocation: R/setup.R\nKey symbols: - raw_data_path, raw_data_sheet: the workbook location. - tables_dir, figures_dir: the output folders. - display_variable_labels: a named vector mapping analysis variable names (for example AGE, log_GXMIgM) to display names with units. - display_level_labels: a list mapping category codes to display values for sex, race, the drug indicators and CNS disease. - Chunk labels load-packages, define-constants, define-display-labels.\nInteractions: Read by every later script. It is the only place to change where the workbook lives or how variables are named in exported tables. The analysis itself uses the original variable names.\n\n\nHelper functions\nPurpose: Label, save and summarize tables. None of them changes an estimate.\nLocation: R/functions.R\nKey symbols: - save_gtsummary_html(): saves a gtsummary table as HTML via gt. - relabel_table(): rewrites only the label column of a gtsummary table, replacing variable names on label rows and category codes on level rows; anything without a display label is left as it is. - save_flextable_html(): saves a data frame as an HTML flextable. - summarise_cutpoint(): one row per cutpointr result. - summarise_auc_ci(): one row per ROC curve, with DeLong and bootstrap intervals.\nInteractions: Used only by R/tables.R.\n\n\nImport and cleaning\nPurpose: Read the workbook and derive every analysis variable.\nLocation: R/import_clean.R (from the original dataimport chunk)\nKey symbols: - RawData: the workbook as read. - CleanData: all analysed participants. It holds the derived drug indicators, the numeric CrAg titer, CNS disease, HasCryptococcus and log-transformed antibodies, after one control is excluded. - CleanData_NoMissingTiters: participants with antibody measurements. - CategoricalVariables, TiterVariables, LogTiterVariables, ContinuousVariables: the variable lists the later scripts select by.\nInteractions: Receives the path from Setup. Feeds every analysis and output script.\n\n\nRegression, ROC and cutpoints\nPurpose: Fit the univariable and multivariable logistic models, the ROC curves with AUC confidence intervals, the sensitivity models, and the optimal titer cutpoints.\nLocation: R/modeling.R (from the original regressiontables chunk)\nKey symbols: - Models: mvtitermodel1, mvlogtitermodel1–mvlogtitermodel4. - gtsummary tables: regression_table_titer, regression_table_logtiter_1, regression_table_logtiter_2, sensitivity_table_log_lam_igm, sensitivity_table_log_gxm_igm. - ROC objects: titer_roc, logtiter_roc1, logtiter_roc2. - AUC intervals: auc_ci_logtiter1_*, auc_ci_logtiter2_*. - Cutpoints: cutpoint_gxm_igm, cutpoint_log_gxm_igm, cutpoint_lam_igm, cutpoint_log_lam_igm.\nInteractions: Uses CleanData and the variable lists. Its outputs go to Tables (tables and summaries) and Figures (ROC curves). regression_table_logtiter_1 is computed but not exported, because its content is contained in regression_table_logtiter_2.\n\n\nPrincipal component analysis\nPurpose: Run PCA on the seven log antibodies, then regress case status on the components.\nLocation: R/pca.R (from the original corrplot1 chunk)\nKey symbols: PCA (a prcomp object), columns (the component scores), PCAData, pc_regression_table.\nInteractions: Uses CleanData_NoMissingTiters. Feeds Tables (the eigenvalue and regression tables) and Figures (the PCA plots and the component correlation plot).\n\n\nTables\nPurpose: Build Table 1 and the descriptive summaries, then export every cleared table.\nLocation: R/tables.R (from the exploratoryanalysis and corrplot1 chunks, plus the export code)\nKey symbols: table1_all, table1_no_missing_titers, pca_eigenvalue_table, auc_ci_summary, cutpoint_summary. Chunk export-tables writes the HTML files.\nInteractions: - Each gtsummary table is passed through relabel_table() with the display labels from Setup at the moment it is saved. The table objects in memory keep the original names. - The AUC, cutpoint and eigenvalue tables are saved as flextables without relabeling; their labels are written in the code. - crag_titer_counts and crag_result_counts are computed for internal checking only and are never exported, because they contain single-patient cells.\n\n\nFigures\nPurpose: Draw and export every figure.\nLocation: R/figures.R (from the factetedplots and corrplot1 chunks, plus the export code)\nKey symbols: - faceted_titer_plot: antibody levels by case status. - pca_individuals_plot, pca_biplot. - Chunks roc-curves, correlation-plots and pca-component-correlation draw base-graphics plots into png() devices.\nInteractions: Writes figures/*.png. Figures are not affected by the display labels, which apply to tables only.\n\n\nQuarto website\nPurpose: Explain each script’s code and show the cleared results. The website never runs the analysis.\nLocation: _quarto.yml, index.qmd, quarto/*.qmd, _extensions/coatless-quarto/custom-callout/, references.bib\nHow it works: - Each script page loads its script with knitr::read_chunk(\"../R/&lt;script&gt;.R\") in a hidden chunk and shows each labelled section with eval: false. - quarto/results.qmd defines a hidden show_table() helper. For each saved file in tables/, it takes the HTML body and places it directly in the page inside a horizontally scrolling container, so tables size to their content. Figures are linked from figures/. - _quarto.yml lists tables/*.html and figures/*.png as resources, so they are copied into the rendered site. - Global execute: eval: false keeps analysis code from running during rendering. Only the read_chunk() imports and the Results page’s show_table() calls are evaluated, and those read files only.\nInteractions: Renders to docs/ locally, which is not committed. .github/workflows/publish.yml renders the site on every pull request as a check and, on each push to master, publishes it to the gh-pages branch, which GitHub Pages serves.",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#data-flow",
+    "href": "quarto/architecture.html#data-flow",
+    "title": "",
+    "section": "Data Flow",
+    "text": "Data Flow\n\nR/import_clean.R reads the workbook (sheet Data) into RawData.\nCleaning produces CleanData (23 cases, 21 controls) and the complete-antibody subset CleanData_NoMissingTiters.\nR/modeling.R fits models on CleanData; complete-case handling is left to glm. R/pca.R works on the complete-antibody subset.\nR/tables.R relabels the gtsummary tables for display and saves them, with the other tables, to tables/. R/figures.R saves the figures to figures/.\nAn authorized person reviews those outputs, previews the site with quarto render, and commits tables/ and figures/; GitHub Actions publishes the site when the change reaches master. The Results page then reads the saved tables into the page.\n\nNo intermediate objects are saved to disk. Every run starts from the workbook in a fresh R session.",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#configuration",
+    "href": "quarto/architecture.html#configuration",
+    "title": "",
+    "section": "Configuration",
+    "text": "Configuration\n\n\n\n\n\n\n\n\nSetting\nWhere\nNotes\n\n\n\n\nWorkbook path and sheet\nR/setup.R (raw_data_path, raw_data_sheet)\nDefault data-raw/…, which is ignored by Git\n\n\nOutput folders\nR/setup.R (tables_dir, figures_dir)\nBoth are tracked; contents are cleared outputs\n\n\nDisplay labels for exported tables\nR/setup.R (display_variable_labels, display_level_labels)\nPresentation only; edit here to rename a variable or category in every table\n\n\nIgnored paths\n.gitignore\ndata-raw/, Archive/, data-file extensions, Rplots.pdf, Office lock files\n\n\nSite settings\n_quarto.yml\nTheme, sidebar, bibliography, resources, global eval: false\n\n\nPackage installation\nR/setup.R, README\nbstfun is installed from GitHub; package versions are not pinned",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#code-references",
+    "href": "quarto/architecture.html#code-references",
+    "title": "",
+    "section": "Code References",
+    "text": "Code References\n\n\n\n\n\n\n\n\nComponent\nFile\nKey symbols / chunk labels\n\n\n\n\nEntry point\nR/main.R\nsources scripts in order\n\n\nSetup\nR/setup.R\nload-packages, define-constants, define-display-labels\n\n\nHelpers\nR/functions.R\nsave_gtsummary_html(), relabel_table(), save_flextable_html(), summarise_cutpoint(), summarise_auc_ci()\n\n\nImport and cleaning\nR/import_clean.R\nimport-data, clean-data, define-variable-lists, log-transform-titers, convert-factors, exclude-missing-titers\n\n\nModeling\nR/modeling.R\nunivariate-titer-models, multivariable-titer-model, roc-titer-model, univariate-log-titer-models, multivariable-log-titer-models, roc-log-titer-models, sensitivity-single-antibody-models, optimal-cutpoints\n\n\nPCA\nR/pca.R\nfit-pca, pca-scores, pca-regression\n\n\nTables\nR/tables.R\ntable-1, cryptococcal-antigen-counts, pca-eigenvalues, summarise-roc-and-cutpoints, export-tables\n\n\nFigures\nR/figures.R\nsetup-figures-dir, faceted-titer-plot, roc-curves, correlation-plots, pca-plots, pca-component-correlation\n\n\nResults page\nquarto/results.qmd\nshow_table()\n\n\nSite pages\nquarto/*.qmd\none page per script, plus background, results, about\n\n\n\nOriginal R Markdown chunk → script: library → setup.R; dataimport → import_clean.R; exploratoryanalysis → tables.R; factetedplots → figures.R; regressiontables → modeling.R; corrplot1 → pca.R, figures.R and tables.R. The citations chunk was not carried over; citations are in references.bib.",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#glossary",
+    "href": "quarto/architecture.html#glossary",
+    "title": "",
+    "section": "Glossary",
+    "text": "Glossary\n\n\n\n\n\n\n\nTerm\nDefinition\n\n\n\n\nGXM\nGlucuronoxylomannan, the main capsular polysaccharide of Cryptococcus neoformans\n\n\nLam\nLaminarin, an algal β-glucan used as a stand-in for fungal cell-wall β-glucan\n\n\nGXM-IgM, Lam-IgM, …\nAntibodies binding GXM or laminarin, reported as inverse titers\n\n\nIgM, IgG1, IgG2\nTotal (non-specific) immunoglobulins, in µg/mL\n\n\nCrAg\nCryptococcal antigen\n\n\nFrozen code\nPublished analysis code that is not changed (see AGENTS.md)\n\n\nCleared output\nA table or figure a decider has approved for public release\n\n\nDisplay label\nA readable name for a variable or category, applied only when a table is exported\n\n\nPC1\nFirst principal component, a summary score of overall antibody level with inverted sign",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
+    ]
+  },
+  {
+    "objectID": "quarto/architecture.html#revision-scope",
+    "href": "quarto/architecture.html#revision-scope",
+    "title": "",
+    "section": "Revision scope",
+    "text": "Revision scope\nGenerated with the describe-design workflow on 2026-10-27, describing branch table-presentation (based on master at a55496b, with the display-label and inline-table changes).",
+    "crumbs": [
+      "Project documents",
+      "Architecture"
     ]
   }
 ]
