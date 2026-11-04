@@ -15,7 +15,7 @@ Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and non-specific 
 
 The analysis was originally written as a single R Markdown file in 2022. This repository splits that file into scripts run in order by `R/main.R` and documents each step on this website. The analysis code is unchanged; the additions are the data path in `R/setup.R`, the names that results are assigned to, and the code that exports tables and figures. The study data are restricted and are not in the repository.
 
-Contributions follow the rules in [`AGENTS.md`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/AGENTS.md); open questions and known issues are tracked in [Issues](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/issues).
+Contributions follow the rules in [`AGENTS.md`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/AGENTS.md); open questions and known issues are tracked in [Issues](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/issues). To comment on any page, highlight the text and use the Comment button; comments are filed as GitHub issues.
 
 ## Pages
 
