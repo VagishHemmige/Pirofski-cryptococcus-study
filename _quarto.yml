@@ -127,6 +127,16 @@ filters:
   # before custom-callout, which turns the callout it adds into a styled box.
   - quarto/_pending.lua
   - custom-callout
+  - issue-comments
+
+# Readers can highlight text and comment; the relay files each comment as a
+# GitHub issue in this repository, worked out from the page's address. Same
+# relay as the other project sites.
+issue-comments:
+  endpoint: https://script.google.com/macros/s/AKfycbyE8fNBvy3vfuAnuQqdjpCTR8i2zYI-KSvGzhkGlQRYevI1I6auqq9H-mIk2yrXCaIROA/exec
+  contact: mailto:vagish.hemmige@gmail.com
+  # Readers enter a shared passcode before posting, as on the other sites
+  passcode: true
 
 format:
   html:
