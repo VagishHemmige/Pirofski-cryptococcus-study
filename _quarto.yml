@@ -34,7 +34,7 @@ website:
   page-navigation: true
 
   # Each kind of page has one icon, coloured in styles.css: book = background,
-  # laptop = R code, clipboard-data = results, file-earmark-ruled = project
+  # diagram-3 = study design and methods, laptop = R code, clipboard-data = results, file-earmark-ruled = project
   # documents.
   sidebar:
     style: docked
@@ -51,6 +51,13 @@ website:
           - href: quarto/background.qmd
             text: Clinical background
             icon: book
+          - href: quarto/methodological_background.qmd
+            text: Methodological background
+            icon: book
+
+      - href: quarto/study_methods.qmd
+        text: Study design and methods
+        icon: diagram-3
 
       - section: Code
         contents:

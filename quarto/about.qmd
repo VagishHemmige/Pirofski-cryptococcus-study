@@ -20,6 +20,8 @@ Contributions follow the rules in [`AGENTS.md`](https://github.com/VagishHemmige
 ## Pages
 
 -   [**Clinical background**](background.qmd): the clinical question and study design.
+-   [**Methodological background**](methodological_background.qmd): the general methods the analysis uses, explained without reference to this study.
+-   [**Study design and methods**](study_methods.qmd): what this study did and why, in plain language, linked to the analysis plan.
 -   [**Setup**](setup.qmd): packages and the location of the study data.
 -   [**Functions**](functions.qmd): helpers that summarize and export tables.
 -   [**1. Import and clean data**](import_clean.qmd): reads the workbook, derives variables, applies the exclusion.

@@ -20,7 +20,7 @@ Both have been linked to cryptococcosis, or to the risk of developing it, in peo
 -   **Measurements:** serum total IgM, IgG1 and IgG2 (µg/mL, Luminex); GXM- and Lam-binding IgM and IgG (titers); serum CrAg by lateral flow assay.
 -   **Approvals:** the UAB Institutional Review Board approved the study and all participants gave written informed consent; the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its IRB.
 
-See [`analysis-plan.md`](https://github.com/VagishHemmige/Pirofski-cryptococcus-study/blob/master/analysis-plan.md) for the full specification.
+[Study design and methods](study_methods.qmd) explains the design and analysis in more detail, and the [analysis plan](analysis-plan.qmd) gives the full specification.
 
 ## References
 

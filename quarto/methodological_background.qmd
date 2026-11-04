@@ -1,0 +1,69 @@
+---
+title: "Methodological background"
+format: html
+---
+
+This page explains, in general terms and without code, the methods this kind of study uses. What this study chose, and why, is on [Study design and methods](study_methods.qmd).
+
+## Case–control studies
+
+A case–control study starts from the outcome. People who have the disease (cases) and people who do not (controls) are recruited, and the two groups are compared on characteristics measured in each person. Because the number of cases and controls is set by the investigators rather than by how common the disease is, the study cannot estimate how often the disease occurs. It can estimate how strongly a characteristic is associated with having the disease, usually as an odds ratio.
+
+When the characteristic is measured once, after the disease has occurred, the comparison describes how cases and controls differ at that time. It shows association: whether the characteristic and the disease go together. It does not by itself show that the characteristic came first or that it affected the risk of disease.
+
+## Measuring antibodies
+
+Antibodies can be reported in two ways.
+
+-   **Concentration**, in micrograms per millilitre (µg/mL), measures how much of a whole class of antibody is in the serum, such as all IgM or all IgG1, whatever it binds.
+-   **Titer** measures antibody that binds one target. The serum is diluted step by step, and the titer is the highest dilution at which binding can still be detected. A titer of 1:100 means binding was still seen at a 100-fold dilution, so a larger second number means more antibody. Titers are often written as the inverse (100 rather than 1:100).
+
+Antibody levels vary widely between people and their distributions are skewed: most people have modest levels and a few have very high ones. Taking the natural logarithm of each value makes the distribution more symmetric and turns multiplicative differences (twice as much antibody) into equal steps. Results on the log scale describe the change per one-unit increase in log level, which corresponds to roughly a 2.7-fold increase in the original level.
+
+## Logistic regression and odds ratios
+
+Logistic regression relates a yes/no outcome, such as being a case rather than a control, to one or more explanatory variables. Each variable's result is reported as an odds ratio (OR): how much the odds of being a case change for each one-unit increase in that variable, or for one category compared with another.
+
+-   An OR of 1 means no association.
+-   An OR below 1 means higher values go with lower odds of being a case; above 1, with higher odds.
+-   The 95% confidence interval (CI) shows the range of values compatible with the data.
+
+A **univariable** model has one explanatory variable. A **multivariable** model has several, so each OR is adjusted for the others in the model.
+
+When two explanatory variables are strongly correlated, they carry much of the same information. Put in the same model, the data cannot tell their contributions apart, so each one's OR becomes uncertain, with a wide confidence interval, even when together they are clearly associated with the outcome. This is called collinearity. Fitting each variable separately shows its association on its own.
+
+## ROC curves and AUC
+
+A model's predicted probabilities can be used to sort people into likely cases and likely controls. A receiver operating characteristic (ROC) curve shows how well this works at every possible threshold. It plots sensitivity (the proportion of cases correctly identified) against 1 − specificity (the proportion of controls wrongly identified as cases).
+
+The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control. An AUC of 0.5 is no better than chance; 1.0 is perfect separation.
+
+A confidence interval for an AUC can be computed in two common ways. DeLong's method uses a formula based on how each case compares with each control [@delong1988]. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both [@robin2011proc].
+
+## Optimal cutpoints
+
+For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight [@youden1950]. The cutpointr package for R finds this cutpoint [@thiele2021cutpointr].
+
+At the chosen cutpoint, four measures describe performance:
+
+-   **Sensitivity:** the proportion of cases with a positive result.
+-   **Specificity:** the proportion of controls with a negative result.
+-   **Positive predictive value (PPV):** the proportion of people with a positive result who are cases.
+-   **Negative predictive value (NPV):** the proportion of people with a negative result who are controls.
+
+Sensitivity and specificity describe the test itself. PPV and NPV also depend on the proportion of cases in the group tested.
+
+## Principal component analysis
+
+Principal component analysis (PCA) replaces a set of correlated measurements with the same number of new variables, called principal components, that are uncorrelated with each other. Each component is a weighted combination of the original measurements. The first component captures as much of the variation shared across the measurements as possible, the second as much of the remaining variation, and so on. The measurements are usually standardized first, so each counts equally whatever its units.
+
+The weights (loadings) show what each component represents. When all measurements have weights of the same sign on the first component, that component works as a summary score of overall level. Because the components are uncorrelated, they can be entered together in a regression model without the collinearity described above.
+
+## Exploratory analyses
+
+An analysis is exploratory when it describes patterns in the data and generates hypotheses for later studies, rather than testing a hypothesis named in advance. Exploratory studies typically report each comparison's p-value as it is, without adjusting for the number of comparisons made, and read the results as a guide to what to study next.
+
+## References
+
+::: {#refs}
+:::
