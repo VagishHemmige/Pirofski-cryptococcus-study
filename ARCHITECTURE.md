@@ -32,9 +32,12 @@ flowchart TD
     R[R/*.R source] -. read_chunk .-> Q[quarto/*.qmd pages]
     TO -- show_table --> RES[quarto/results.qmd]
     FO --> RES
+    DOCS[Root project documents<br/>analysis-plan.md, ARCHITECTURE.md,<br/>AGENTS.md, REPOSITORY-BLUEPRINT.md] -. include or read as text .-> PD[quarto/ project-document pages]
     Q --> D[(gh-pages branch, rendered by GitHub Actions)]
     RES --> D
+    PD --> D
     D --> GH[GitHub Pages]
+    GH -. reader comments via relay .-> ISS[(GitHub Issues)]
     MAIN[R/main.R] -. sources in order .-> S
 ```
 
@@ -139,17 +142,22 @@ Scripts are listed in the order `R/main.R` sources them. Each script's header co
 
 ### Quarto website
 
-**Purpose**: Explain each script's code and show the cleared results. The website never runs the analysis.
+**Purpose**: Explain the study, its methods and each script's code, and show the cleared results. The website never runs the analysis.
 
-**Location**: `_quarto.yml`, `index.qmd`, `quarto/*.qmd`, `_extensions/coatless-quarto/custom-callout/`, `references.bib`
+**Location**: `_quarto.yml`, `index.qmd`, `404.qmd`, `styles.css`, `quarto/*.qmd`, `quarto/_pending.lua`, `_extensions/coatless-quarto/custom-callout/`, `_extensions/VagishHemmige/issue-comments/`, `references.bib`, `american-medical-association.csl`
 
 **How it works**:
+- The sidebar groups pages by kind, each with one icon coloured in `styles.css`: Background (Clinical and Methodological background), Study design and methods, Code (setup and helpers, the numbered analysis scripts, tables and figures), Results, Project documents, and About.
 - Each script page loads its script with `knitr::read_chunk("../R/<script>.R")` in a hidden chunk and shows each labelled section with `eval: false`.
+- The Background and Study design and methods pages are prose only. Study design and methods links each section to the analysis-plan section that governs it.
 - `quarto/results.qmd` defines a hidden `show_table()` helper. For each saved file in `tables/`, it takes the HTML body and places it directly in the page inside a horizontally scrolling container, so tables size to their content. Figures are linked from `figures/`.
-- `_quarto.yml` lists `tables/*.html` and `figures/*.png` as `resources`, so they are copied into the rendered site.
-- Global `execute: eval: false` keeps analysis code from running during rendering. Only the `read_chunk()` imports and the Results page's `show_table()` calls are evaluated, and those read files only.
+- The Project documents pages show the root files without copying them: `analysis-plan.qmd`, `agents.qmd` and `repository-blueprint.qmd` include the root file, and `architecture.qmd` reads `ARCHITECTURE.md` as text and marks each mermaid diagram to be drawn, since the site turns evaluation off.
+- `_quarto.yml` lists `tables/*.html` and `figures/*.png` as `resources`, so they are copied into the rendered site, and a `render:` list limits rendering to `index.qmd`, `404.qmd` and `quarto/**`.
+- Filters run in order: `quarto/_pending.lua` (yellow marks and a Pending callout for provisional content; none at present), `custom-callout` (the pink Rcode, green Results and yellow Pending callouts), and `issue-comments` (a Comment button that sends highlighted text to a relay, which files it as a GitHub issue in this repository).
+- Citations use `references.bib` with the AMA style in `american-medical-association.csl`.
+- Global `execute: eval: false` keeps analysis code from running during rendering. Only the `read_chunk()` imports, the Architecture page's reader of `ARCHITECTURE.md`, and the Results page's `show_table()` calls are evaluated, and those read files only.
 
-**Interactions**: Renders to `docs/` locally, which is not committed. `.github/workflows/publish.yml` renders the site on every pull request as a check and, on each push to `master`, publishes it to the `gh-pages` branch, which GitHub Pages serves.
+**Interactions**: Renders to `docs/` locally, which is ignored by Git. `.github/workflows/publish.yml` renders the site on every pull request as a check and, on each push to `master`, publishes it to the `gh-pages` branch, which GitHub Pages serves.
 
 ## Data Flow
 
@@ -169,7 +177,10 @@ No intermediate objects are saved to disk. Every run starts from the workbook in
 | Output folders | `R/setup.R` (`tables_dir`, `figures_dir`) | Both are tracked; contents are cleared outputs |
 | Display labels for exported tables | `R/setup.R` (`display_variable_labels`, `display_level_labels`) | Presentation only; edit here to rename a variable or category in every table |
 | Ignored paths | `.gitignore` | `data-raw/`, `Archive/`, data-file extensions, `Rplots.pdf`, Office lock files |
-| Site settings | `_quarto.yml` | Theme, sidebar, bibliography, `resources`, global `eval: false` |
+| Site settings | `_quarto.yml` | Theme and `styles.css`, sidebar and icons, `render:` list, `resources`, filters, global `eval: false` |
+| Citation style | `_quarto.yml` (`csl`), `american-medical-association.csl` | AMA; titles are set in sentence case, so proper nouns in `references.bib` titles are braced |
+| Reader comments | `_quarto.yml` (`issue-comments:` block) | Relay endpoint, contact and passcode; requires the relay's GitHub App on this repository |
+| Site publishing | `.github/workflows/publish.yml` | Quarto version pinned; renders on pull requests, publishes to `gh-pages` on push to `master` |
 | Package installation | `R/setup.R`, README | `bstfun` is installed from GitHub; package versions are not pinned |
 
 ## Code References
@@ -185,7 +196,9 @@ No intermediate objects are saved to disk. Every run starts from the workbook in
 | Tables | `R/tables.R` | `table-1`, `cryptococcal-antigen-counts`, `pca-eigenvalues`, `summarise-roc-and-cutpoints`, `export-tables` |
 | Figures | `R/figures.R` | `setup-figures-dir`, `faceted-titer-plot`, `roc-curves`, `correlation-plots`, `pca-plots`, `pca-component-correlation` |
 | Results page | `quarto/results.qmd` | `show_table()` |
-| Site pages | `quarto/*.qmd` | one page per script, plus `background`, `results`, `about` |
+| Site pages | `quarto/*.qmd` | one page per script, plus `background`, `methodological_background`, `study_methods`, `results`, `about` and the four project-document pages |
+| Architecture page | `quarto/architecture.qmd` | reads `ARCHITECTURE.md`, converts mermaid fences |
+| Provisional-content marks | `quarto/_pending.lua` | **Decision pending:** paragraphs, `[text]{.pending}` |
 
 Original R Markdown chunk → script: `library` → `setup.R`; `dataimport` → `import_clean.R`; `exploratoryanalysis` → `tables.R`; `factetedplots` → `figures.R`; `regressiontables` → `modeling.R`; `corrplot1` → `pca.R`, `figures.R` and `tables.R`. The `citations` chunk was not carried over; citations are in `references.bib`.
 
@@ -205,4 +218,4 @@ Original R Markdown chunk → script: `library` → `setup.R`; `dataimport` → 
 
 ## Revision scope
 
-Generated with the describe-design workflow on 2026-10-27, describing branch `table-presentation` (based on `master` at `a55496b`, with the display-label and inline-table changes).
+Generated with the describe-design workflow on 2026-11-04, describing `master` at `e7ba780` (after pull requests #9–#13). No uncommitted changes were included. The R scripts are unchanged since the previous revision (2026-10-27, `table-presentation` based on `a55496b`); this revision updates the website component, diagram, configuration and code references.
