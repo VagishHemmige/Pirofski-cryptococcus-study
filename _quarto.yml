@@ -18,7 +18,12 @@ author:
     affiliations:
       - MAHV
 
+# Citations: [@key] from references.bib, in AMA style (numbered superscripts,
+# reference list at the end of each page). The CSL file is the official
+# citation-style-language style, kept in the repository so renders don't
+# depend on a download.
 bibliography: references.bib
+csl: american-medical-association.csl
 
 website:
   title: "Antibody profiles in transplant cryptococcosis"
