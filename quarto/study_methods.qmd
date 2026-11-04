@@ -1,0 +1,96 @@
+---
+title: "Study design and methods"
+format: html
+---
+
+This page explains, in plain language and without code, what this study did and why. The general background it relies on is on [Methodological background](methodological_background.qmd). The formal specification is the [analysis plan](analysis-plan.qmd); each section below ends with a **Specified in:** note linking the part of the plan that governs it. The analysis is published and its code is unchanged [@yoon2022antibody], so there are no open decisions on this page.
+
+## The question and the design
+
+The study asked whether serum antibodies differ between organ transplant recipients who have had cryptococcosis and those who have not. It looked at two kinds of antibody: antibodies that bind parts of *Cryptococcus neoformans* (glucuronoxylomannan, GXM, and laminarin, Lam), and total, non-specific IgM, IgG1 and IgG2 (see [Clinical background](background.qmd)). It also asked how well the cryptococcus-binding antibodies distinguish cases from controls.
+
+It is a single-center case–control study. Each participant gave one blood sample, after transplantation and, for cases, after the cryptococcosis diagnosis. The results therefore describe how cases and controls differed at the time of sampling: associations between antibody levels and cryptococcosis, not causes or predictions of future disease. All analyses were exploratory, with no correction for multiple comparisons [@yoon2022antibody].
+
+**Specified in:** [§1 Objective](analysis-plan.qmd#1-objective) and [§2 Design](analysis-plan.qmd#2-design).
+
+## Who was included
+
+Organ transplant recipients were recruited at the University of Alabama at Birmingham (UAB) from 1 January 2013 to 31 December 2018.
+
+-   **Cases** had a history of cryptococcosis after transplantation, diagnosed by a positive cryptococcal antigen (CrAg) test or body-fluid culture.
+-   **Controls** had no such history.
+
+One participant recruited as a control had a positive serum CrAg and was excluded; this exclusion is applied in the original analysis code. The analysis includes 23 cases and 21 controls. Antibody measurements are missing for 2 cases, so analyses that use antibody levels include the 42 participants with measurements.
+
+The UAB Institutional Review Board approved the study, all participants gave written informed consent, and the samples were analyzed at Albert Einstein College of Medicine under a protocol approved by its Institutional Review Board [@yoon2022antibody].
+
+**Specified in:** [§3 Data source](analysis-plan.qmd#3-data-source) and [§4 Study population](analysis-plan.qmd#4-study-population).
+
+## What was measured
+
+-   **Clinical information**, from the medical record: age, sex, race, transplanted organ, and the immunosuppression regimen at enrollment; for cases, the site of infection, including whether it involved the central nervous system (CNS).
+-   **Immunosuppressive drugs.** Corticosteroid use was recorded directly. Use of a calcineurin inhibitor, mycophenolate and an mTOR (mammalian target of rapamycin) inhibitor was derived from the regimen, recorded as free text, by looking for short strings in it, such as `CYC`, `CELL` or `SIR`; the full list is in the plan.
+-   **Cryptococcus-binding antibodies:** GXM-IgM, GXM-IgG, Lam-IgM and Lam-IgG, reported as titers.
+-   **Non-specific antibodies:** total IgM, IgG1 and IgG2, measured on a Luminex platform in µg/mL.
+-   **Serum CrAg**, by lateral flow assay.
+
+Each antibody is analyzed both on its original scale and after taking the natural logarithm, because antibody levels are skewed (see [Measuring antibodies](methodological_background.qmd#measuring-antibodies)).
+
+**Specified in:** [§3 Data source](analysis-plan.qmd#3-data-source) and [§5 Variables](analysis-plan.qmd#5-variables).
+
+## Comparing cases and controls
+
+Table 1 describes cases and controls side by side: medians with interquartile ranges for continuous measurements, and counts with percentages for categories. Continuous measurements are compared with the Wilcoxon rank-sum test, which compares the two groups without assuming a particular distribution; categories are compared with Fisher's exact or the χ² test. The table is shown for all participants and for those with antibody measurements. A figure plots each antibody by case status on a log scale, with the Wilcoxon p-value for each.
+
+**Specified in:** [§6 Statistical analysis](analysis-plan.qmd#6-statistical-analysis), items 1 and 2.
+
+## Regression models
+
+Logistic regression relates case status to each characteristic (see [Logistic regression and odds ratios](methodological_background.qmd#logistic-regression-and-odds-ratios)).
+
+-   **Univariable models** take one variable at a time: sex, race, corticosteroid, mycophenolate and mTOR inhibitor use, age, and each of the seven antibodies, on the original and on the log scale. Calcineurin inhibitor use is not modeled because 43 of the 44 participants received one [@yoon2022antibody].
+-   **Multivariable models** combine sex with GXM-IgM and Lam-IgM: sex with Lam-IgM on the original scale, and on the log scale sex with both antibodies (model 1) and both antibodies without sex (model 2). Model 2 checks whether the difference in sex between cases and controls drives the results.
+-   **Each antibody with sex.** GXM-IgM and Lam-IgM are strongly correlated, so in a model with both, neither is individually significant. Each is therefore also fitted on its own with sex.
+
+**Specified in:** [§6 Statistical analysis](analysis-plan.qmd#6-statistical-analysis), items 3 and 4, and [§7 Sensitivity analyses](analysis-plan.qmd#7-sensitivity-analyses).
+
+## How well the antibodies distinguish cases from controls
+
+**ROC curves and AUC.** For the three multivariable models, the predicted probabilities give a receiver operating characteristic (ROC) curve and its area under the curve (AUC) (see [ROC curves and AUC](methodological_background.qmd#roc-curves-and-auc)). For log-scale models 1 and 2, 95% confidence intervals for the AUC are computed both by DeLong's method and by the bootstrap [@delong1988; @robin2011proc].
+
+**Optimal cutpoints.** For GXM-IgM and Lam-IgM, on the original and the log scale, the cutpoint is the one that maximizes the sum of sensitivity and specificity (the Youden index), with sensitivity, specificity, positive and negative predictive values reported at that cutpoint [@youden1950; @thiele2021cutpointr]. A cutpoint on the log scale is the same threshold as on the original scale, so it gives the same results.
+
+The AUCs and cutpoints were estimated on all participants with antibody measurements. With 23 cases and 21 controls, the sample was too small to set aside a separate group for validation.
+
+**Specified in:** [§6 Statistical analysis](analysis-plan.qmd#6-statistical-analysis), items 5 and 6.
+
+## Correlation and principal component analysis
+
+Pearson correlations between the log antibody levels are shown for all participants, for cases and for controls. Principal component analysis (PCA) then replaces the seven standardized log antibody levels with seven uncorrelated components, and a logistic regression relates case status to all seven components together (see [Principal component analysis](methodological_background.qmd#principal-component-analysis)). This lets the antibodies be considered together despite their correlation.
+
+**Specified in:** [§6 Statistical analysis](analysis-plan.qmd#6-statistical-analysis), item 7, and [§7 Sensitivity analyses](analysis-plan.qmd#7-sensitivity-analyses).
+
+## Missing data and software
+
+Analyses use the participants with the measurements each one needs (complete-case analysis); missing values are not imputed. The analysis was run in R 4.3.2 with RStudio [@rcore2023], with tables made by gtsummary [@sjoberg2021gtsummary].
+
+**Specified in:** [§6 Statistical analysis](analysis-plan.qmd#6-statistical-analysis), items 8 and 9.
+
+## Limitations stated by the authors
+
+The published paper lists these limitations [@yoon2022antibody]:
+
+-   The study was retrospective and at a single center.
+-   The time between transplantation, cryptococcosis and enrollment varied; cases and controls were not recruited at the same time; and blood was drawn once, at a time that was not standardized.
+-   There was no sample from before cryptococcosis, so the study cannot show whether antibody levels caused, or resulted from, the infection.
+-   B-cell subsets and cellular immunity were not examined.
+-   There was no comparison group not receiving immunosuppressants.
+-   Possible confounders such as cirrhosis, hematologic malignancy and active chemotherapy were not controlled for.
+-   Cases included proportionally more women than controls, likely by chance given the small sample; the ROC analysis without sex was not materially different.
+
+**Specified in:** [§9 Limitations](analysis-plan.qmd#9-limitations).
+
+## References
+
+::: {#refs}
+:::
