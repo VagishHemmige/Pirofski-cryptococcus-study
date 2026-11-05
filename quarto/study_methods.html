@@ -133,17 +133,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
-}
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
-}
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
-  background-image: none;
-}
 div.callout-Pending.callout {
   border-left-color: #f0c400;
 }
@@ -153,6 +142,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
+}
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
+}
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -510,7 +510,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <h2 class="anchored" data-anchor-id="how-well-the-antibodies-distinguish-cases-from-controls">How well the antibodies distinguish cases from controls</h2>
 <p><strong>ROC curves and AUC.</strong> For the three multivariable models, the predicted probabilities give a receiver operating characteristic (ROC) curve and its area under the curve (AUC) (see <a href="../quarto/methodological_background.html#roc-curves-and-auc">ROC curves and AUC</a>). For log-scale models 1 and 2, 95% confidence intervals for the AUC are computed both by DeLong’s method and by the bootstrap<span class="citation" data-cites="delong1988 robin2011proc"><sup><a href="#ref-delong1988" role="doc-biblioref">2</a>,<a href="#ref-robin2011proc" role="doc-biblioref">3</a></sup></span>.</p>
 <p><strong>Optimal cutpoints.</strong> For GXM-IgM and Lam-IgM, on the original and the log scale, the cutpoint is the one that maximizes the sum of sensitivity and specificity (the Youden index), with sensitivity, specificity, positive and negative predictive values reported at that cutpoint<span class="citation" data-cites="youden1950 thiele2021cutpointr"><sup><a href="#ref-youden1950" role="doc-biblioref">4</a>,<a href="#ref-thiele2021cutpointr" role="doc-biblioref">5</a></sup></span>. A cutpoint on the log scale is the same threshold as on the original scale, so it gives the same results.</p>
-<p>The AUCs and cutpoints were estimated on all participants with antibody measurements. With 23 cases and 21 controls, the sample was too small to set aside a separate group for validation.</p>
+<p>The AUCs and cutpoints were estimated on all participants with antibody measurements, so they describe apparent (in-sample) performance. With 23 cases and 21 controls, the sample was too small to set aside a separate group for validation. The predictive values reflect the sample’s proportion of cases (see <a href="../quarto/methodological_background.html#optimal-cutpoints">Optimal cutpoints</a>).</p>
 <p><strong>Specified in:</strong> <a href="../quarto/analysis-plan.html#6-statistical-analysis">§6 Statistical analysis</a>, items 5 and 6.</p>
 </section>
 <section id="correlation-and-principal-component-analysis" class="level2">
@@ -1094,7 +1094,7 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**Optimal cutpoints.** For GXM-IgM and Lam-IgM, on the original and the log scale, the cutpoint is the one that maximizes the sum of sensitivity and specificity (the Youden index), with sensitivity, specificity, positive and negative predictive values reported at that cutpoint <span class="co">[</span><span class="ot">@youden1950; @thiele2021cutpointr</span><span class="co">]</span>. A cutpoint on the log scale is the same threshold as on the original scale, so it gives the same results.</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>The AUCs and cutpoints were estimated on all participants with antibody measurements. With 23 cases and 21 controls, the sample was too small to set aside a separate group for validation.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>The AUCs and cutpoints were estimated on all participants with antibody measurements, so they describe apparent (in-sample) performance. With 23 cases and 21 controls, the sample was too small to set aside a separate group for validation. The predictive values reflect the sample's proportion of cases (see <span class="co">[</span><span class="ot">Optimal cutpoints</span><span class="co">](methodological_background.qmd#optimal-cutpoints)</span>).</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>**Specified in:** <span class="co">[</span><span class="ot">§6 Statistical analysis</span><span class="co">](analysis-plan.qmd#6-statistical-analysis)</span>, items 5 and 6.</span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>

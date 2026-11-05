@@ -133,17 +133,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Results.callout {
-  border-left-color: #198754;
-}
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
-}
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
-  background-image: none;
-}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -164,6 +153,17 @@ div.callout-Pending.callout-style-default > .callout-header {
 div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
   content: '⏳';
+  background-image: none;
+}
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 </style>
@@ -491,13 +491,7 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
 <li><strong>Discrimination:</strong> the area under the ROC curve was 0.80 for the model with sex and both antibodies, and 0.78 for the two antibodies without sex, comparable to the model including sex<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>.</li>
 <li><strong>Interpretation:</strong> the authors concluded that, together with previous studies, the findings “suggest the hypothesis that GXM/Lam-IgM may be beneficial in resistance to OTR-associated cryptococcosis”. They suggested these antibodies may have diagnostic or prognostic value and called for a larger prospective study<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>.</li>
 </ul>
-<p><strong>Read with caution.</strong></p>
-<ul>
-<li>Blood was sampled once, at a non-standardized time <em>after</em> cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.</li>
-<li>Cases and controls were not recruited concurrently and were not matched.</li>
-<li>AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic<span class="citation" data-cites="ewald2006cutpoints"><sup><a href="#ref-ewald2006cutpoints" role="doc-biblioref">2</a></sup></span>.</li>
-<li>All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.</li>
-</ul>
+<p><strong>Context.</strong> These are results of an exploratory case–control study in which each participant gave one blood sample, after transplantation and, for cases, after diagnosis; they describe associations at that time. The published paper’s discussion and the <a href="../quarto/study_methods.html#limitations-stated-by-the-authors">limitations stated by the authors</a> give the full context<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>.</p>
 </div>
 </div>
 <section id="table-1" class="level2">
@@ -5865,7 +5859,7 @@ N = 21</span><span class="gt_footnote_marks" style="white-space:nowrap;font-styl
 </div>
 </div>
 </div>
-<p>The model with sex and both log antibodies had an AUC of 0.80 (bootstrap 95% CI 0.66–0.91). A second model without sex, fitted to check that sex was not driving discrimination, had a similar AUC of 0.78 (0.61–0.91). As in the paper, the bootstrap intervals use 2000 stratified replicates; DeLong intervals are shown for comparison<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>.</p>
+<p>The model with sex and both log antibodies had an AUC of 0.80 (bootstrap 95% CI 0.66–0.91). A second model without sex, fitted to check that sex was not driving discrimination, had a similar AUC of 0.78 (0.61–0.91). As in the paper, the bootstrap intervals use 2000 stratified replicates; DeLong intervals are shown for comparison<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">1</a></sup></span>. The models were fitted and evaluated on the same participants, so these AUCs describe apparent (in-sample) discrimination.</p>
 </section>
 <section id="optimal-cutpoints" class="level2">
 <h2 class="anchored" data-anchor-id="optimal-cutpoints">Optimal cutpoints</h2>
@@ -5895,7 +5889,7 @@ N = 21</span><span class="gt_footnote_marks" style="white-space:nowrap;font-styl
 </div>
 </div>
 </div>
-<p>For GXM-IgM, an inverse titer of 25 or below gave sensitivity 0.91 and specificity 0.67. For Lam-IgM, 158 or below gave sensitivity 0.95 and specificity 0.48. The log-scale cutpoints are the same thresholds (e^3.23 ≈ 25, e^5.06 ≈ 158), so their performance is identical.</p>
+<p>For GXM-IgM, an inverse titer of 25 or below gave sensitivity 0.91 and specificity 0.67. For Lam-IgM, 158 or below gave sensitivity 0.95 and specificity 0.48. The log-scale cutpoints are the same thresholds (e^3.23 ≈ 25, e^5.06 ≈ 158), so their performance is identical. The cutpoints were chosen and evaluated in this sample, and the predictive values reflect its makeup: half of the participants with antibody data were cases.</p>
 </section>
 <section id="correlation-between-antibodies" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-between-antibodies">Correlation between antibodies</h2>
@@ -6498,9 +6492,6 @@ N = 21</span><span class="gt_footnote_marks" style="white-space:nowrap;font-styl
 <div id="ref-yoon2022antibody" class="csl-entry" role="listitem">
 <div class="csl-left-margin">1. </div><div class="csl-right-inline">Yoon H, Nakouzi A, Pappas PG, Hemmige VS, Pirofski L. Specific and non-specific antibody profiles in organ transplant recipients with and without cryptococcosis. <em>Open Forum Infectious Diseases</em>. 2022;9(7):ofac211. doi:<a href="https://doi.org/10.1093/ofid/ofac211">10.1093/ofid/ofac211</a></div>
 </div>
-<div id="ref-ewald2006cutpoints" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">Ewald B. Post hoc choice of cut points introduced bias to diagnostic research. <em>Journal of Clinical Epidemiology</em>. 2006;59(8):798-801. doi:<a href="https://doi.org/10.1016/j.jclinepi.2005.11.025">10.1016/j.jclinepi.2005.11.025</a></div>
-</div>
 </div>
 
 
@@ -7009,158 +7000,153 @@ N = 21</span><span class="gt_footnote_marks" style="white-space:nowrap;font-styl
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Discrimination:** the area under the ROC curve was 0.80 for the model with sex and both antibodies, and 0.78 for the two antibodies without sex, comparable to the model including sex <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interpretation:** the authors concluded that, together with previous studies, the findings "suggest the hypothesis that GXM/Lam-IgM may be beneficial in resistance to OTR-associated cryptococcosis". They suggested these antibodies may have diagnostic or prognostic value and called for a larger prospective study <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**Read with caution.**</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Blood was sampled once, at a non-standardized time *after* cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cases and controls were not recruited concurrently and were not matched.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic <span class="co">[</span><span class="ot">@ewald2006cutpoints</span><span class="co">]</span>.</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table 1</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### All participants</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"table1_all.html"</span>)</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Participants with antibody measurements</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"table1_no_missing_titers.html"</span>)</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Continuous variables were compared with the Wilcoxon rank-sum test and categorical variables with Fisher's exact or χ² tests. Median age was 56 in both groups. Counting multi-organ transplants toward each organ, 59% of participants had received a kidney, 23% a heart, 16% a liver and 7% a lung, with no difference between groups. Cases were more often women (39% vs 9.5%, p = 0.023) and less often Black (8.7% vs 33%, p = 0.064). Immunosuppression was similar, and all but one participant received a calcineurin inhibitor. Among cases, 48% had CNS cryptococcosis, and the median time from transplant to diagnosis was 1 year. Serum CrAg was positive in 21 of 23 cases and negative in all controls <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. Antibody data were available for 42 participants (21 per group).</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Antibody levels by case status</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/faceted_titer_plot.png)</span>{fig-alt="Seven panels comparing cases with controls for each antibody on a log scale. Medians were lower in cases for every antibody. Wilcoxon p-values: GXM-IgM 0.0013, Lam-IgM 0.0079, IgG1 0.03, Lam-IgG 0.052, IgG2 0.055, IgM 0.097, GXM-IgG 0.22. Points are individual participants, colored by transplanted organ and shaped by sex."}</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>Medians were lower in cases for all seven antibodies, most clearly GXM-IgM (p = 0.0013) and Lam-IgM (p = 0.0079), followed by IgG1 (p = 0.03). GXM-IgG did not differ (p = 0.22). IgG1 across the whole cohort was about 8-fold below normal adult levels <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic regression</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Original antibody scale</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"regression_titer.html"</span>)</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>On this scale, an odds ratio describes a one-unit change in inverse titer or µg/mL, so every odds ratio is close to 1.00. Lam-IgM was significant on its own (p = 0.011) and with sex (p = 0.025). Because the antibodies span several orders of magnitude, the models were repeated on the log scale.</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">### Log antibody scale</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"regression_log_titer_models1_2.html"</span>)</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Odds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>In univariable models, higher GXM-IgM (OR 0.41) and Lam-IgM (OR 0.36) were each associated with lower odds of being a case (both p = 0.007), and female sex with higher odds (OR 6.11). With both antibodies in one model, with sex (model 1) or without (model 2), neither was significant, because the two are strongly correlated (r = 0.77).</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sensitivity analysis: one antibody at a time</span></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"sensitivity_log_lam_igm.html"</span>)</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"sensitivity_log_gxm_igm.html"</span>)</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>Fitted separately, each with sex, Lam-IgM (OR 0.33) and GXM-IgM (OR 0.40) were both associated with lower odds of being a case (p ≈ 0.01). Each 2.7-fold higher titer corresponded to 60–67% lower odds.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**Context.** These are results of an exploratory case–control study in which each participant gave one blood sample, after transplantation and, for cases, after diagnosis; they describe associations at that time. The published paper's discussion and the <span class="co">[</span><span class="ot">limitations stated by the authors</span><span class="co">](study_methods.qmd#limitations-stated-by-the-authors)</span> give the full context <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table 1</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### All participants</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"table1_all.html"</span>)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Participants with antibody measurements</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"table1_no_missing_titers.html"</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Continuous variables were compared with the Wilcoxon rank-sum test and categorical variables with Fisher's exact or χ² tests. Median age was 56 in both groups. Counting multi-organ transplants toward each organ, 59% of participants had received a kidney, 23% a heart, 16% a liver and 7% a lung, with no difference between groups. Cases were more often women (39% vs 9.5%, p = 0.023) and less often Black (8.7% vs 33%, p = 0.064). Immunosuppression was similar, and all but one participant received a calcineurin inhibitor. Among cases, 48% had CNS cryptococcosis, and the median time from transplant to diagnosis was 1 year. Serum CrAg was positive in 21 of 23 cases and negative in all controls <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. Antibody data were available for 42 participants (21 per group).</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Antibody levels by case status</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="al">![](../figures/faceted_titer_plot.png)</span>{fig-alt="Seven panels comparing cases with controls for each antibody on a log scale. Medians were lower in cases for every antibody. Wilcoxon p-values: GXM-IgM 0.0013, Lam-IgM 0.0079, IgG1 0.03, Lam-IgG 0.052, IgG2 0.055, IgM 0.097, GXM-IgG 0.22. Points are individual participants, colored by transplanted organ and shaped by sex."}</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Medians were lower in cases for all seven antibodies, most clearly GXM-IgM (p = 0.0013) and Lam-IgM (p = 0.0079), followed by IgG1 (p = 0.03). GXM-IgG did not differ (p = 0.22). IgG1 across the whole cohort was about 8-fold below normal adult levels <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Logistic regression</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### Original antibody scale</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"regression_titer.html"</span>)</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>On this scale, an odds ratio describes a one-unit change in inverse titer or µg/mL, so every odds ratio is close to 1.00. Lam-IgM was significant on its own (p = 0.011) and with sex (p = 0.025). Because the antibodies span several orders of magnitude, the models were repeated on the log scale.</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Log antibody scale</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>::: {.column-page-right}</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"regression_log_titer_models1_2.html"</span>)</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>Odds ratios for log-transformed antibodies are per one natural-log unit, about a 2.7-fold difference in titer or concentration. The univariable models use all 44 participants for non-antibody variables and the 42 with antibody data for antibodies; the multivariable models use the 42 with antibody data.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>In univariable models, higher GXM-IgM (OR 0.41) and Lam-IgM (OR 0.36) were each associated with lower odds of being a case (both p = 0.007), and female sex with higher odds (OR 6.11). With both antibodies in one model, with sex (model 1) or without (model 2), neither was significant, because the two are strongly correlated (r = 0.77).</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sensitivity analysis: one antibody at a time</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"sensitivity_log_lam_igm.html"</span>)</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"sensitivity_log_gxm_igm.html"</span>)</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>Fitted separately, each with sex, Lam-IgM (OR 0.33) and GXM-IgM (OR 0.40) were both associated with lower odds of being a case (p ≈ 0.01). Each 2.7-fold higher titer corresponded to 60–67% lower odds.</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC curves</span></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="al">![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png)</span>{fig-alt="ROC curve for the model with sex and Lam-IgM on the original scale; area under the curve 0.766."}</span>
 <span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## ROC curves</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png)</span>{fig-alt="ROC curve for model 1 (sex, log Lam-IgM and log GXM-IgM); area under the curve 0.803."}</span>
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="al">![Original scale: sex + Lam-IgM](../figures/roc_titer_model.png)</span>{fig-alt="ROC curve for the model with sex and Lam-IgM on the original scale; area under the curve 0.766."}</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png)</span>{fig-alt="ROC curve for model 2 (log Lam-IgM and log GXM-IgM, without sex); area under the curve 0.776."}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 1: sex + log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model1.png)</span>{fig-alt="ROC curve for model 1 (sex, log Lam-IgM and log GXM-IgM); area under the curve 0.803."}</span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="al">![Log scale, model 2: log Lam-IgM + log GXM-IgM](../figures/roc_log_titer_model2.png)</span>{fig-alt="ROC curve for model 2 (log Lam-IgM and log GXM-IgM, without sex); area under the curve 0.776."}</span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"auc_confidence_intervals.html"</span>)</span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>The model with sex and both log antibodies had an AUC of 0.80 (bootstrap 95% CI 0.66–0.91). A second model without sex, fitted to check that sex was not driving discrimination, had a similar AUC of 0.78 (0.61–0.91). As in the paper, the bootstrap intervals use 2000 stratified replicates; DeLong intervals are shown for comparison <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optimal cutpoints</span></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>A test result is "positive" (suggesting cryptococcosis) when the antibody is **at or below** the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values.</span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"optimal_cutpoints.html"</span>)</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>For GXM-IgM, an inverse titer of 25 or below gave sensitivity 0.91 and specificity 0.67. For Lam-IgM, 158 or below gave sensitivity 0.95 and specificity 0.48. The log-scale cutpoints are the same thresholds (e^3.23 ≈ 25, e^5.06 ≈ 158), so their performance is identical.</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"auc_confidence_intervals.html"</span>)</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>The model with sex and both log antibodies had an AUC of 0.80 (bootstrap 95% CI 0.66–0.91). A second model without sex, fitted to check that sex was not driving discrimination, had a similar AUC of 0.78 (0.61–0.91). As in the paper, the bootstrap intervals use 2000 stratified replicates; DeLong intervals are shown for comparison <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. The models were fitted and evaluated on the same participants, so these AUCs describe apparent (in-sample) discrimination.</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optimal cutpoints</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>A test result is "positive" (suggesting cryptococcosis) when the antibody is **at or below** the cutpoint. Cutpoints are given as inverse titers on the original scale (for example, 25 corresponds to a titer of 1:25) or as natural-log values.</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"optimal_cutpoints.html"</span>)</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>For GXM-IgM, an inverse titer of 25 or below gave sensitivity 0.91 and specificity 0.67. For Lam-IgM, 158 or below gave sensitivity 0.95 and specificity 0.48. The log-scale cutpoints are the same thresholds (e^3.23 ≈ 25, e^5.06 ≈ 158), so their performance is identical. The cutpoints were chosen and evaluated in this sample, and the predictive values reflect its makeup: half of the participants with antibody data were cases.</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlation between antibodies</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="al">![All participants](../figures/corrplot_log_titers_all.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels, all participants with antibody data. Strongest correlations: GXM-IgM with Lam-IgM 0.77, Lam-IgM with IgM 0.65, IgM with IgG1 0.62, GXM-IgM with IgM 0.55."}</span>
 <span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Correlation between antibodies</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="al">![Cases](../figures/corrplot_log_titers_cases.png)</span>{fig-alt="Correlation matrix for cases. Strongest: IgM with IgG1 0.62, Lam-IgG with IgG2 0.60, GXM-IgG with Lam-IgG 0.59, Lam-IgM with IgM 0.59; GXM-IgM with Lam-IgM 0.52."}</span>
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="3"}</span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="al">![All participants](../figures/corrplot_log_titers_all.png)</span>{fig-alt="Correlation matrix of the seven log antibody levels, all participants with antibody data. Strongest correlations: GXM-IgM with Lam-IgM 0.77, Lam-IgM with IgM 0.65, IgM with IgG1 0.62, GXM-IgM with IgM 0.55."}</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="al">![Controls](../figures/corrplot_log_titers_controls.png)</span>{fig-alt="Correlation matrix for controls. Strongest: GXM-IgM with Lam-IgM 0.88, GXM-IgM with IgM 0.82, Lam-IgM with IgM 0.72."}</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="al">![Cases](../figures/corrplot_log_titers_cases.png)</span>{fig-alt="Correlation matrix for cases. Strongest: IgM with IgG1 0.62, Lam-IgG with IgG2 0.60, GXM-IgG with Lam-IgG 0.59, Lam-IgM with IgM 0.59; GXM-IgM with Lam-IgM 0.52."}</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>Pearson correlations of the log antibody levels; the plot for all participants is Supplementary Figure 2 of the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. GXM-IgM and Lam-IgM were the most strongly correlated pair (r = 0.77), more so in controls (0.88) than in cases (0.52).</span>
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="al">![Controls](../figures/corrplot_log_titers_controls.png)</span>{fig-alt="Correlation matrix for controls. Strongest: GXM-IgM with Lam-IgM 0.88, GXM-IgM with IgM 0.82, Lam-IgM with IgM 0.72."}</span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>Pearson correlations of the log antibody levels; the plot for all participants is Supplementary Figure 2 of the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. GXM-IgM and Lam-IgM were the most strongly correlated pair (r = 0.77), more so in controls (0.88) than in cases (0.52).</span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principal component analysis</span></span>
-<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"pca_eigenvalues.html"</span>)</span>
-<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="2"}</span>
-<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="al">![Participants on the first two components](../figures/pca_individuals.png)</span>{fig-alt="Participants plotted on the first two principal components (44.1% and 20.5% of variance). Cases lie mostly to the right and controls to the left, with overlapping confidence ellipses around the group means."}</span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="fu">## Principal component analysis</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"pca_eigenvalues.html"</span>)</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>::: {layout-ncol="2"}</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="al">![Participants on the first two components](../figures/pca_individuals.png)</span>{fig-alt="Participants plotted on the first two principal components (44.1% and 20.5% of variance). Cases lie mostly to the right and controls to the left, with overlapping confidence ellipses around the group means."}</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="al">![Biplot](../figures/pca_biplot.png)</span>{fig-alt="Same plot with an arrow for each log antibody. All arrows point left, so the right side (where cases sit) corresponds to lower antibody levels. IgM, Lam-IgM and GXM-IgM point up-left; IgG2, Lam-IgG and GXM-IgG point down-left."}</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="al">![Component scores are uncorrelated](../figures/corrplot_principal_components.png)</span>{width="50%" fig-alt="Correlation matrix of the seven principal component scores; all correlations between different components are 0."}</span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="al">![Biplot](../figures/pca_biplot.png)</span>{fig-alt="Same plot with an arrow for each log antibody. All arrows point left, so the right side (where cases sit) corresponds to lower antibody levels. IgM, Lam-IgM and GXM-IgM point up-left; IgG2, Lam-IgG and GXM-IgG point down-left."}</span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="al">![Component scores are uncorrelated](../figures/corrplot_principal_components.png)</span>{width="50%" fig-alt="Correlation matrix of the seven principal component scores; all correlations between different components are 0."}</span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>This is a check, not a result. PCA constructs the components to be uncorrelated, so every correlation between two different components is exactly 0. The diagonal, each component with itself, is left blank. The plot confirms that all seven components can enter one regression model together.</span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"regression_principal_components.html"</span>)</span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>PCA re-expresses the seven correlated antibody levels as seven uncorrelated components, keeping as much of the variation as possible in the first few. PC1 explains 44% of the variation, and PC1 and PC2 together explain 65%. Every antibody points the same way on PC1, so it measures overall antibody level, with the sign inverted. PC2 separates IgG from IgM. Cases sit mostly on the low-antibody side. In a model with all seven components (Supplementary Table 2 of the paper), each one-unit higher PC1, meaning lower overall antibody, was associated with about twice the odds of being a case (OR 2.08, 95% CI 1.30–3.88, p = 0.007). No other component was significant <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="fu">## Context</span></span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>About 75% of participants received mycophenolate, which may affect the B cells that make these antibodies. Calcineurin inhibitors suppress B-cell responses but have also shown anti-cryptococcal activity <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
-<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>This is a check, not a result. PCA constructs the components to be uncorrelated, so every correlation between two different components is exactly 0. The diagonal, each component with itself, is left blank. The plot confirms that all seven components can enter one regression model together.</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a><span class="fu">show_table</span>(<span class="st">"regression_principal_components.html"</span>)</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>PCA re-expresses the seven correlated antibody levels as seven uncorrelated components, keeping as much of the variation as possible in the first few. PC1 explains 44% of the variation, and PC1 and PC2 together explain 65%. Every antibody points the same way on PC1, so it measures overall antibody level, with the sign inverted. PC2 separates IgG from IgM. Cases sit mostly on the low-antibody side. In a model with all seven components (Supplementary Table 2 of the paper), each one-unit higher PC1, meaning lower overall antibody, was associated with about twice the odds of being a case (OR 2.08, 95% CI 1.30–3.88, p = 0.007). No other component was significant <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="fu">## Context</span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>About 75% of participants received mycophenolate, which may affect the B cells that make these antibodies. Calcineurin inhibitors suppress B-cell responses but have also shown anti-cryptococcal activity <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>.</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
