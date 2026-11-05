@@ -35,12 +35,7 @@ show_table <- function(file) {
 - **Discrimination:** the area under the ROC curve was 0.80 for the model with sex and both antibodies, and 0.78 for the two antibodies without sex, comparable to the model including sex [@yoon2022antibody].
 - **Interpretation:** the authors concluded that, together with previous studies, the findings "suggest the hypothesis that GXM/Lam-IgM may be beneficial in resistance to OTR-associated cryptococcosis". They suggested these antibodies may have diagnostic or prognostic value and called for a larger prospective study [@yoon2022antibody].
 
-**Read with caution.**
-
-- Blood was sampled once, at a non-standardized time *after* cryptococcosis was diagnosed (median 32 days, IQR 6–168), and there was no sample from before infection. The study cannot show cause and effect: lower antibody levels could be a consequence of infection or its treatment rather than a pre-existing risk factor, and the results do not show that these antibodies predict future disease.
-- Cases and controls were not recruited concurrently and were not matched.
-- AUCs and cutpoints were estimated and evaluated on the same 42 participants with antibody data, so they are optimistic [@ewald2006cutpoints].
-- All analyses were exploratory, with no correction for multiple comparisons. The bootstrap confidence intervals involve random resampling and can differ slightly between runs.
+**Context.** These are results of an exploratory case–control study in which each participant gave one blood sample, after transplantation and, for cases, after diagnosis; they describe associations at that time. The published paper's discussion and the [limitations stated by the authors](study_methods.qmd#limitations-stated-by-the-authors) give the full context [@yoon2022antibody].
 :::
 
 ## Table 1
@@ -127,7 +122,7 @@ Fitted separately, each with sex, Lam-IgM (OR 0.33) and GXM-IgM (OR 0.40) were b
 show_table("auc_confidence_intervals.html")
 ```
 
-The model with sex and both log antibodies had an AUC of 0.80 (bootstrap 95% CI 0.66–0.91). A second model without sex, fitted to check that sex was not driving discrimination, had a similar AUC of 0.78 (0.61–0.91). As in the paper, the bootstrap intervals use 2000 stratified replicates; DeLong intervals are shown for comparison [@yoon2022antibody].
+The model with sex and both log antibodies had an AUC of 0.80 (bootstrap 95% CI 0.66–0.91). A second model without sex, fitted to check that sex was not driving discrimination, had a similar AUC of 0.78 (0.61–0.91). As in the paper, the bootstrap intervals use 2000 stratified replicates; DeLong intervals are shown for comparison [@yoon2022antibody]. The models were fitted and evaluated on the same participants, so these AUCs describe apparent (in-sample) discrimination.
 
 ## Optimal cutpoints
 
@@ -139,7 +134,7 @@ A test result is "positive" (suggesting cryptococcosis) when the antibody is **a
 show_table("optimal_cutpoints.html")
 ```
 
-For GXM-IgM, an inverse titer of 25 or below gave sensitivity 0.91 and specificity 0.67. For Lam-IgM, 158 or below gave sensitivity 0.95 and specificity 0.48. The log-scale cutpoints are the same thresholds (e^3.23 ≈ 25, e^5.06 ≈ 158), so their performance is identical.
+For GXM-IgM, an inverse titer of 25 or below gave sensitivity 0.91 and specificity 0.67. For Lam-IgM, 158 or below gave sensitivity 0.95 and specificity 0.48. The log-scale cutpoints are the same thresholds (e^3.23 ≈ 25, e^5.06 ≈ 158), so their performance is identical. The cutpoints were chosen and evaluated in this sample, and the predictive values reflect its makeup: half of the participants with antibody data were cases.
 
 ## Correlation between antibodies
 

@@ -47,7 +47,7 @@ A model with sex and Lam-IgM, merged side by side with the univariable table.
 
 ## ROC curve on the original scale
 
-The model's predicted probabilities are used to draw an ROC curve and compute its area under the curve (AUC). Predictions are made on the same data used to fit the model.
+The model's predicted probabilities are used to draw an ROC curve and compute its area under the curve (AUC). Predictions are made on the same data used to fit the model, so the AUC describes apparent (in-sample) discrimination.
 
 ```{r}
 #| label: roc-titer-model

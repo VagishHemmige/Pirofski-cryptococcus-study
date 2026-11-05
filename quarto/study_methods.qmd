@@ -60,7 +60,7 @@ Logistic regression relates case status to each characteristic (see [Logistic re
 
 **Optimal cutpoints.** For GXM-IgM and Lam-IgM, on the original and the log scale, the cutpoint is the one that maximizes the sum of sensitivity and specificity (the Youden index), with sensitivity, specificity, positive and negative predictive values reported at that cutpoint [@youden1950; @thiele2021cutpointr]. A cutpoint on the log scale is the same threshold as on the original scale, so it gives the same results.
 
-The AUCs and cutpoints were estimated on all participants with antibody measurements. With 23 cases and 21 controls, the sample was too small to set aside a separate group for validation.
+The AUCs and cutpoints were estimated on all participants with antibody measurements, so they describe apparent (in-sample) performance. With 23 cases and 21 controls, the sample was too small to set aside a separate group for validation. The predictive values reflect the sample's proportion of cases (see [Optimal cutpoints](methodological_background.qmd#optimal-cutpoints)).
 
 **Specified in:** [§6 Statistical analysis](analysis-plan.qmd#6-statistical-analysis), items 5 and 6.
 

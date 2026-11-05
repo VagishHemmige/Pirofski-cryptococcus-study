@@ -36,7 +36,7 @@ When two explanatory variables are strongly correlated, they carry much of the s
 
 A model's predicted probabilities can be used to sort people into likely cases and likely controls. A receiver operating characteristic (ROC) curve shows how well this works at every possible threshold. It plots sensitivity (the proportion of cases correctly identified) against 1 − specificity (the proportion of controls wrongly identified as cases).
 
-The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control [@hanley1982auc]. An AUC of 0.5 is no better than chance; 1.0 is perfect separation.
+The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control [@hanley1982auc]. An AUC of 0.5 is no better than chance; 1.0 is perfect separation. An AUC computed on the same data used to fit the model describes apparent, or in-sample, discrimination; performance in new patients is assessed in separate validation data.
 
 A confidence interval for an AUC can be computed in two common ways. DeLong's method uses a formula based on how each case compares with each control [@delong1988]. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both [@robin2011proc].
 
@@ -51,13 +51,13 @@ At the chosen cutpoint, four measures describe performance:
 -   **Positive predictive value (PPV):** the proportion of people with a positive result who are cases.
 -   **Negative predictive value (NPV):** the proportion of people with a negative result who are controls.
 
-Sensitivity and specificity describe the test itself. PPV and NPV also depend on the proportion of cases in the group tested [@trevethan2017predictive].
+Sensitivity and specificity describe the test itself. PPV and NPV also depend on the proportion of cases in the group tested [@trevethan2017predictive]. In a case–control study that proportion is set by the design [@setia2016casecontrol], so predictive values from the sample apply to a population with the same proportion of cases. A cutpoint chosen and evaluated in the same data describes that sample [@ewald2006cutpoints].
 
 ## Principal component analysis
 
 Principal component analysis (PCA) replaces a set of correlated measurements with the same number of new variables, called principal components, that are uncorrelated with each other. Each component is a weighted combination of the original measurements. The first component captures as much of the total variation in the measurements as possible, the second as much of the remaining variation, and so on [@jolliffe2016pca]. The measurements can be standardized first, so each counts equally whatever its units.
 
-The weights (loadings) show what each component represents; how this study's first component is read is explained on [Principal component analysis](pca.qmd). Because the components are uncorrelated, they can be entered together in a regression model without the collinearity described above [@vatcheva2016multicollinearity].
+The weights (loadings) show what each component represents; how this study's first component is read is explained on [Principal component analysis](pca.qmd). Because the components are uncorrelated, they can be entered together in a regression model without the collinearity described above [@vatcheva2016multicollinearity]. Being uncorrelated is a mathematical property of how the components are built; it does not mean that the biological processes behind them are independent.
 
 ## Exploratory analyses
 
