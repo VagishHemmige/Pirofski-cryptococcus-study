@@ -40,7 +40,7 @@ PCA is run on the log antibody levels of participants with complete antibody dat
 
 ## Component scores
 
-Each participant's scores on the seven components are added to the data. [Figures](figures.qmd) includes a correlation plot confirming that the components are uncorrelated.
+Each participant's scores on the seven components are added to the data. [Figures](figures.qmd) includes a correlation plot confirming that the components are uncorrelated. This is a property of the calculation; it does not imply that the underlying antibody responses are biologically independent.
 
 ```{r}
 #| label: pca-scores
