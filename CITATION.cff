@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite the published article."
+title: "Antibody profiles in organ transplant recipients with and without cryptococcosis: analysis code"
+type: software
+authors:
+  - family-names: Hemmige
+    given-names: Vagish
+    orcid: "https://orcid.org/0009-0006-6346-1826"
+license: MIT
+repository-code: "https://github.com/VagishHemmige/Pirofski-cryptococcus-study"
+url: "https://vagishhemmige.github.io/Pirofski-cryptococcus-study/"
+preferred-citation:
+  type: article
+  title: "Specific and Non-Specific Antibody Profiles in Organ Transplant Recipients With and Without Cryptococcosis"
+  authors:
+    - family-names: "Yoon"
+      given-names: "Hyunah"
+    - family-names: "Nakouzi"
+      given-names: "Antonio"
+    - family-names: "Pappas"
+      given-names: "Peter G."
+    - family-names: "Hemmige"
+      given-names: "Vagish S."
+      orcid: "https://orcid.org/0009-0006-6346-1826"
+    - family-names: "Pirofski"
+      given-names: "Liise-anne"
+  journal: "Open Forum Infectious Diseases"
+  year: 2022
+  volume: 9
+  issue: "7"
+  start: "ofac211"
+  doi: "10.1093/ofid/ofac211"
