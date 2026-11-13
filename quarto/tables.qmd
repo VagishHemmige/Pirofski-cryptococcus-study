@@ -30,7 +30,7 @@ knitr::read_chunk("../R/tables.R")
 
 ## Table 1
 
-Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). `tbl_summary()` from gtsummary [@sjoberg2021gtsummary] reports medians with interquartile ranges and counts with percentages. `add_p()` uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper [@yoon2022antibody]. A second version is restricted to participants with antibody measurements.
+Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). `tbl_summary()` from [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) [@sjoberg2021gtsummary] reports medians with interquartile ranges and counts with percentages. `add_p()` uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper [@yoon2022antibody]. A second version is restricted to participants with antibody measurements.
 
 ```{r}
 #| label: table-1
@@ -66,7 +66,7 @@ The original analysis printed these results one at a time. Here they are collect
 
 ## Export
 
-Every table is saved as a self-contained HTML file in `tables/`. The gtsummary tables are passed through `relabel_table()` first, so the saved files show readable variable names and categories (for example "Race: White/Black" instead of `RACE` `W`/`B`); the table objects themselves are not changed.
+Every table is saved as a self-contained HTML file in `tables/`. The {gtsummary} tables are passed through `relabel_table()` first, so the saved files show readable variable names and categories (for example "Race: White/Black" instead of `RACE` `W`/`B`); the table objects themselves are not changed.
 
 ```{r}
 #| label: export-tables

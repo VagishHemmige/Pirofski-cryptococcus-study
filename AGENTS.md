@@ -20,7 +20,7 @@ A case–control study of serum antibody profiles in organ transplant recipients
 - **The published analysis code is frozen.** This repository reproduces the analysis exactly as published. Do not change the analysis logic: variable derivations, the exclusion, model formulas, tests, ROC and cutpoint methods. That includes code that looks wrong or outdated. Allowed changes are reorganization, documentation, the data path, assigning results to names, and exporting tables and figures. A proposed change to the analysis is raised as a GitHub issue for the deciders, never made directly.
 - **`analysis-plan.md` is the source of truth for design.** It records the analysis as published. Code implements the plan; it does not redefine it.
 - **Deciders.** Scientific decisions are made by: Liise-anne Pirofski (principal investigator; all scientific questions), Hyunah Yoon (first author; clinical definitions and interpretation), and Vagish Hemmige (statistical analysis and this repository). Anyone may open or contribute to an issue; only a decider settles it (see "Working with agents").
-- **This is an analysis project, not an R package.** Do not add DESCRIPTION, NAMESPACE, roxygen, or pkgdown infrastructure, or apply CRAN conventions.
+- **This is an analysis project, not an R package.** Do not add DESCRIPTION, NAMESPACE, roxygen, or [{pkgdown}](https://pkgdown.r-lib.org/) infrastructure, or apply CRAN conventions.
 - **Default branch:** `master`, protected. Changes reach it only through pull requests.
 
 ## Data sources

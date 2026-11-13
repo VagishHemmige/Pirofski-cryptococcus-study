@@ -72,7 +72,7 @@ Pearson correlations between the log antibody levels are shown for all participa
 
 ## Missing data and software
 
-Analyses use the participants with the measurements each one needs (complete-case analysis); missing values are not imputed. The analysis was run in R 4.3.2 with RStudio [@rcore2023], with tables made by gtsummary [@sjoberg2021gtsummary].
+Analyses use the participants with the measurements each one needs (complete-case analysis); missing values are not imputed. The analysis was run in R 4.3.2 with RStudio [@rcore2023], with tables made by [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) [@sjoberg2021gtsummary].
 
 **Specified in:** [§6 Statistical analysis](analysis-plan.qmd#6-statistical-analysis), items 8 and 9.
 
