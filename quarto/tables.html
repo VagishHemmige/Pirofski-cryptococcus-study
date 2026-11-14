@@ -102,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.js"></script>
 <link href="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -133,17 +133,6 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
-}
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
-}
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
-  background-image: none;
-}
 div.callout-Results.callout {
   border-left-color: #198754;
 }
@@ -164,6 +153,17 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
+  background-image: none;
+}
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
+}
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
+}
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 </style>
@@ -485,7 +485,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </div>
 <section id="table-1" class="level2">
 <h2 class="anchored" data-anchor-id="table-1">Table 1</h2>
-<p>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <code>tbl_summary()</code> from gtsummary<span class="citation" data-cites="sjoberg2021gtsummary"><sup><a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">1</a></sup></span> reports medians with interquartile ranges and counts with percentages. <code>add_p()</code> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher’s exact or the χ² test for categorical ones, as described in the paper<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">2</a></sup></span>. A second version is restricted to participants with antibody measurements.</p>
+<p>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <code>tbl_summary()</code> from <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a><span class="citation" data-cites="sjoberg2021gtsummary"><sup><a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">1</a></sup></span> reports medians with interquartile ranges and counts with percentages. <code>add_p()</code> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher’s exact or the χ² test for categorical ones, as described in the paper<span class="citation" data-cites="yoon2022antibody"><sup><a href="#ref-yoon2022antibody" role="doc-biblioref">2</a></sup></span>. A second version is restricted to participants with antibody measurements.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -561,7 +561,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 </section>
 <section id="export" class="level2">
 <h2 class="anchored" data-anchor-id="export">Export</h2>
-<p>Every table is saved as a self-contained HTML file in <code>tables/</code>. The gtsummary tables are passed through <code>relabel_table()</code> first, so the saved files show readable variable names and categories (for example “Race: White/Black” instead of <code>RACE</code> <code>W</code>/<code>B</code>); the table objects themselves are not changed.</p>
+<p>Every table is saved as a self-contained HTML file in <code>tables/</code>. The {gtsummary} tables are passed through <code>relabel_table()</code> first, so the saved files show readable variable names and categories (for example “Race: White/Black” instead of <code>RACE</code> <code>W</code>/<code>B</code>); the table objects themselves are not changed.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1096,7 +1096,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Table 1</span></span>
 <span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <span class="in">`tbl_summary()`</span> from gtsummary <span class="co">[</span><span class="ot">@sjoberg2021gtsummary</span><span class="co">]</span> reports medians with interquartile ranges and counts with percentages. <span class="in">`add_p()`</span> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. A second version is restricted to participants with antibody measurements.</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>Cases and controls are compared on the categorical variables (sex, transplanted organ, race, immunosuppression, CNS disease) and the continuous ones (age and the antibody levels, raw and log). <span class="in">`tbl_summary()`</span> from <span class="co">[</span><span class="ot">{gtsummary}</span><span class="co">](https://www.danieldsjoberg.com/gtsummary/)</span> <span class="co">[</span><span class="ot">@sjoberg2021gtsummary</span><span class="co">]</span> reports medians with interquartile ranges and counts with percentages. <span class="in">`add_p()`</span> uses its defaults: the Wilcoxon rank-sum test for continuous variables, and Fisher's exact or the χ² test for categorical ones, as described in the paper <span class="co">[</span><span class="ot">@yoon2022antibody</span><span class="co">]</span>. A second version is restricted to participants with antibody measurements.</span>
 <span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: table-1</span></span>
@@ -1132,7 +1132,7 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## Export</span></span>
 <span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>Every table is saved as a self-contained HTML file in <span class="in">`tables/`</span>. The gtsummary tables are passed through <span class="in">`relabel_table()`</span> first, so the saved files show readable variable names and categories (for example "Race: White/Black" instead of <span class="in">`RACE`</span> <span class="in">`W`</span>/<span class="in">`B`</span>); the table objects themselves are not changed.</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>Every table is saved as a self-contained HTML file in <span class="in">`tables/`</span>. The {gtsummary} tables are passed through <span class="in">`relabel_table()`</span> first, so the saved files show readable variable names and categories (for example "Race: White/Black" instead of <span class="in">`RACE`</span> <span class="in">`W`</span>/<span class="in">`B`</span>); the table objects themselves are not changed.</span>
 <span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: export-tables</span></span>

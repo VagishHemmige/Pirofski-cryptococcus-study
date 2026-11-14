@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.js"></script>
 <link href="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -117,15 +117,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <style>
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
+div.callout-Pending.callout {
+  border-left-color: #f0c400;
 }
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
+div.callout-Pending.callout-style-default > .callout-header {
+  background-color: rgba(240, 196, 0, 0.13);
 }
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
+div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
+  content: '⏳';
   background-image: none;
 }
 div.callout-Results.callout {
@@ -139,15 +139,15 @@ div.callout-Results.callout-style-default .callout-icon::before, div.callout-Res
   content: '📊';
   background-image: none;
 }
-div.callout-Pending.callout {
-  border-left-color: #f0c400;
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
 }
-div.callout-Pending.callout-style-default > .callout-header {
-  background-color: rgba(240, 196, 0, 0.13);
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
 }
-div.callout-Pending .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pending.callout-titled .callout-icon::before {
-  content: '⏳';
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 </style>
@@ -530,7 +530,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h3 class="anchored" data-anchor-id="helper-functions">Helper functions</h3>
 <p><strong>Purpose</strong>: Label, save and summarize tables. None of them changes an estimate.</p>
 <p><strong>Location</strong>: <code>R/functions.R</code></p>
-<p><strong>Key symbols</strong>: - <code>save_gtsummary_html()</code>: saves a gtsummary table as HTML via gt. - <code>relabel_table()</code>: rewrites only the label column of a gtsummary table, replacing variable names on label rows and category codes on level rows; anything without a display label is left as it is. - <code>save_flextable_html()</code>: saves a data frame as an HTML flextable. - <code>summarise_cutpoint()</code>: one row per cutpointr result. - <code>summarise_auc_ci()</code>: one row per ROC curve, with DeLong and bootstrap intervals.</p>
+<p><strong>Key symbols</strong>: - <code>save_gtsummary_html()</code>: saves a <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a> table as HTML via gt. - <code>relabel_table()</code>: rewrites only the label column of a {gtsummary} table, replacing variable names on label rows and category codes on level rows; anything without a display label is left as it is. - <code>save_flextable_html()</code>: saves a data frame as an HTML <a href="https://davidgohel.github.io/flextable/">{flextable}</a>. - <code>summarise_cutpoint()</code>: one row per <a href="https://CRAN.R-project.org/package=cutpointr">{cutpointr}</a> result. - <code>summarise_auc_ci()</code>: one row per ROC curve, with DeLong and bootstrap intervals.</p>
 <p><strong>Interactions</strong>: Used only by <code>R/tables.R</code>.</p>
 </section>
 <section id="import-and-cleaning" class="level3">
@@ -544,7 +544,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <h3 class="anchored" data-anchor-id="regression-roc-and-cutpoints">Regression, ROC and cutpoints</h3>
 <p><strong>Purpose</strong>: Fit the univariable and multivariable logistic models, the ROC curves with AUC confidence intervals, the sensitivity models, and the optimal titer cutpoints.</p>
 <p><strong>Location</strong>: <code>R/modeling.R</code> (from the original <code>regressiontables</code> chunk)</p>
-<p><strong>Key symbols</strong>: - Models: <code>mvtitermodel1</code>, <code>mvlogtitermodel1</code>–<code>mvlogtitermodel4</code>. - gtsummary tables: <code>regression_table_titer</code>, <code>regression_table_logtiter_1</code>, <code>regression_table_logtiter_2</code>, <code>sensitivity_table_log_lam_igm</code>, <code>sensitivity_table_log_gxm_igm</code>. - ROC objects: <code>titer_roc</code>, <code>logtiter_roc1</code>, <code>logtiter_roc2</code>. - AUC intervals: <code>auc_ci_logtiter1_*</code>, <code>auc_ci_logtiter2_*</code>. - Cutpoints: <code>cutpoint_gxm_igm</code>, <code>cutpoint_log_gxm_igm</code>, <code>cutpoint_lam_igm</code>, <code>cutpoint_log_lam_igm</code>.</p>
+<p><strong>Key symbols</strong>: - Models: <code>mvtitermodel1</code>, <code>mvlogtitermodel1</code>–<code>mvlogtitermodel4</code>. - {gtsummary} tables: <code>regression_table_titer</code>, <code>regression_table_logtiter_1</code>, <code>regression_table_logtiter_2</code>, <code>sensitivity_table_log_lam_igm</code>, <code>sensitivity_table_log_gxm_igm</code>. - ROC objects: <code>titer_roc</code>, <code>logtiter_roc1</code>, <code>logtiter_roc2</code>. - AUC intervals: <code>auc_ci_logtiter1_*</code>, <code>auc_ci_logtiter2_*</code>. - Cutpoints: <code>cutpoint_gxm_igm</code>, <code>cutpoint_log_gxm_igm</code>, <code>cutpoint_lam_igm</code>, <code>cutpoint_log_lam_igm</code>.</p>
 <p><strong>Interactions</strong>: Uses <code>CleanData</code> and the variable lists. Its outputs go to Tables (tables and summaries) and Figures (ROC curves). <code>regression_table_logtiter_1</code> is computed but not exported, because its content is contained in <code>regression_table_logtiter_2</code>.</p>
 </section>
 <section id="principal-component-analysis" class="level3">
@@ -559,7 +559,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <p><strong>Purpose</strong>: Build Table 1 and the descriptive summaries, then export every cleared table.</p>
 <p><strong>Location</strong>: <code>R/tables.R</code> (from the <code>exploratoryanalysis</code> and <code>corrplot1</code> chunks, plus the export code)</p>
 <p><strong>Key symbols</strong>: <code>table1_all</code>, <code>table1_no_missing_titers</code>, <code>pca_eigenvalue_table</code>, <code>auc_ci_summary</code>, <code>cutpoint_summary</code>. Chunk <code>export-tables</code> writes the HTML files.</p>
-<p><strong>Interactions</strong>: - Each gtsummary table is passed through <code>relabel_table()</code> with the display labels from Setup at the moment it is saved. The table objects in memory keep the original names. - The AUC, cutpoint and eigenvalue tables are saved as flextables without relabeling; their labels are written in the code. - <code>crag_titer_counts</code> and <code>crag_result_counts</code> are computed for internal checking only and are never exported, because they contain single-patient cells.</p>
+<p><strong>Interactions</strong>: - Each {gtsummary} table is passed through <code>relabel_table()</code> with the display labels from Setup at the moment it is saved. The table objects in memory keep the original names. - The AUC, cutpoint and eigenvalue tables are saved as flextables without relabeling; their labels are written in the code. - <code>crag_titer_counts</code> and <code>crag_result_counts</code> are computed for internal checking only and are never exported, because they contain single-patient cells.</p>
 </section>
 <section id="figures" class="level3">
 <h3 class="anchored" data-anchor-id="figures">Figures</h3>
@@ -582,7 +582,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <li><code>R/import_clean.R</code> reads the workbook (sheet <code>Data</code>) into <code>RawData</code>.</li>
 <li>Cleaning produces <code>CleanData</code> (23 cases, 21 controls) and the complete-antibody subset <code>CleanData_NoMissingTiters</code>.</li>
 <li><code>R/modeling.R</code> fits models on <code>CleanData</code>; complete-case handling is left to <code>glm</code>. <code>R/pca.R</code> works on the complete-antibody subset.</li>
-<li><code>R/tables.R</code> relabels the gtsummary tables for display and saves them, with the other tables, to <code>tables/</code>. <code>R/figures.R</code> saves the figures to <code>figures/</code>.</li>
+<li><code>R/tables.R</code> relabels the {gtsummary} tables for display and saves them, with the other tables, to <code>tables/</code>. <code>R/figures.R</code> saves the figures to <code>figures/</code>.</li>
 <li>An authorized person reviews those outputs, previews the site with <code>quarto render</code>, and commits <code>tables/</code> and <code>figures/</code>; GitHub Actions publishes the site when the change reaches <code>master</code>. The Results page then reads the saved tables into the page.</li>
 </ol>
 <p>No intermediate objects are saved to disk. Every run starts from the workbook in a fresh R session.</p>
@@ -590,11 +590,6 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <section id="configuration" class="level2">
 <h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Setting</th>
@@ -646,7 +641,7 @@ It reads only ARCHITECTURE.md, never data, and runs no analysis code.
 <tr class="odd">
 <td>Package installation</td>
 <td><code>R/setup.R</code>, README</td>
-<td><code>bstfun</code> is installed from GitHub; package versions are not pinned</td>
+<td><a href="https://github.com/MSKCC-Epi-Bio/bstfun">{bstfun}</a> is installed from GitHub; package versions are not pinned</td>
 </tr>
 </tbody>
 </table>

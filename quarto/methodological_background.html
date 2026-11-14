@@ -102,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.js"></script>
 <link href="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -133,15 +133,15 @@ div.csl-indent {
   }
 }</script>
 <style>
-div.callout-Results.callout {
-  border-left-color: #198754;
+div.callout-Rcode.callout {
+  border-left-color: #d63384;
 }
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
+div.callout-Rcode.callout-style-default > .callout-header {
+  background-color: rgba(214, 51, 132, 0.13);
 }
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
+div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
+  content: '💻';
   background-image: none;
 }
 div.callout-Pending.callout {
@@ -155,15 +155,15 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   content: '⏳';
   background-image: none;
 }
-div.callout-Rcode.callout {
-  border-left-color: #d63384;
+div.callout-Results.callout {
+  border-left-color: #198754;
 }
-div.callout-Rcode.callout-style-default > .callout-header {
-  background-color: rgba(214, 51, 132, 0.13);
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
 }
-div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
-  content: '💻';
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 </style>
@@ -489,11 +489,11 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <h2 class="anchored" data-anchor-id="roc-curves-and-auc">ROC curves and AUC</h2>
 <p>A model’s predicted probabilities can be used to sort people into likely cases and likely controls. A receiver operating characteristic (ROC) curve shows how well this works at every possible threshold. It plots sensitivity (the proportion of cases correctly identified) against 1 − specificity (the proportion of controls wrongly identified as cases).</p>
 <p>The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control<span class="citation" data-cites="hanley1982auc"><sup><a href="#ref-hanley1982auc" role="doc-biblioref">7</a></sup></span>. An AUC of 0.5 is no better than chance; 1.0 is perfect separation. An AUC computed on the same data used to fit the model describes apparent, or in-sample, discrimination; performance in new patients is assessed in separate validation data.</p>
-<p>A confidence interval for an AUC can be computed in two common ways. DeLong’s method uses a formula based on how each case compares with each control<span class="citation" data-cites="delong1988"><sup><a href="#ref-delong1988" role="doc-biblioref">8</a></sup></span>. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">9</a></sup></span>.</p>
+<p>A confidence interval for an AUC can be computed in two common ways. DeLong’s method uses a formula based on how each case compares with each control<span class="citation" data-cites="delong1988"><sup><a href="#ref-delong1988" role="doc-biblioref">8</a></sup></span>. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The <a href="https://CRAN.R-project.org/package=pROC">{pROC}</a> package for R provides both<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">9</a></sup></span>.</p>
 </section>
 <section id="optimal-cutpoints" class="level2">
 <h2 class="anchored" data-anchor-id="optimal-cutpoints">Optimal cutpoints</h2>
-<p>For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight<span class="citation" data-cites="youden1950"><sup><a href="#ref-youden1950" role="doc-biblioref">10</a></sup></span>. The cutpointr package for R finds this cutpoint<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">11</a></sup></span>.</p>
+<p>For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight<span class="citation" data-cites="youden1950"><sup><a href="#ref-youden1950" role="doc-biblioref">10</a></sup></span>. The <a href="https://CRAN.R-project.org/package=cutpointr">{cutpointr}</a> package for R finds this cutpoint<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">11</a></sup></span>.</p>
 <p>At the chosen cutpoint, four measures describe performance:</p>
 <ul>
 <li><strong>Sensitivity:</strong> the proportion of cases with a positive result.</li>
@@ -1074,11 +1074,11 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control <span class="co">[</span><span class="ot">@hanley1982auc</span><span class="co">]</span>. An AUC of 0.5 is no better than chance; 1.0 is perfect separation. An AUC computed on the same data used to fit the model describes apparent, or in-sample, discrimination; performance in new patients is assessed in separate validation data.</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>A confidence interval for an AUC can be computed in two common ways. DeLong's method uses a formula based on how each case compares with each control <span class="co">[</span><span class="ot">@delong1988</span><span class="co">]</span>. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both <span class="co">[</span><span class="ot">@robin2011proc</span><span class="co">]</span>.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>A confidence interval for an AUC can be computed in two common ways. DeLong's method uses a formula based on how each case compares with each control <span class="co">[</span><span class="ot">@delong1988</span><span class="co">]</span>. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The <span class="co">[</span><span class="ot">{pROC}</span><span class="co">](https://CRAN.R-project.org/package=pROC)</span> package for R provides both <span class="co">[</span><span class="ot">@robin2011proc</span><span class="co">]</span>.</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Optimal cutpoints</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight <span class="co">[</span><span class="ot">@youden1950</span><span class="co">]</span>. The cutpointr package for R finds this cutpoint <span class="co">[</span><span class="ot">@thiele2021cutpointr</span><span class="co">]</span>.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight <span class="co">[</span><span class="ot">@youden1950</span><span class="co">]</span>. The <span class="co">[</span><span class="ot">{cutpointr}</span><span class="co">](https://CRAN.R-project.org/package=cutpointr)</span> package for R finds this cutpoint <span class="co">[</span><span class="ot">@thiele2021cutpointr</span><span class="co">]</span>.</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>At the chosen cutpoint, four measures describe performance:</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>

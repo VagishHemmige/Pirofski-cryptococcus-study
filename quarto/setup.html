@@ -102,7 +102,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-66ae90e4418e9d0ac3caa4b8c3bef75c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9c6fd4a99ff4209dd1149a1765198857.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.js"></script>
 <link href="../site_libs/quarto-contrib/issue-comments-0.3.0/issue-comments.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -144,17 +144,6 @@ div.callout-Pending.callout-style-default .callout-icon::before, div.callout-Pen
   content: '⏳';
   background-image: none;
 }
-div.callout-Results.callout {
-  border-left-color: #198754;
-}
-div.callout-Results.callout-style-default > .callout-header {
-  background-color: rgba(25, 135, 84, 0.13);
-}
-div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
-  content: '📊';
-  background-image: none;
-}
 div.callout-Rcode.callout {
   border-left-color: #d63384;
 }
@@ -164,6 +153,17 @@ div.callout-Rcode.callout-style-default > .callout-header {
 div.callout-Rcode .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode.callout-titled .callout-icon::before {
   content: '💻';
+  background-image: none;
+}
+div.callout-Results.callout {
+  border-left-color: #198754;
+}
+div.callout-Results.callout-style-default > .callout-header {
+  background-color: rgba(25, 135, 84, 0.13);
+}
+div.callout-Results .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-Results.callout-style-default .callout-icon::before, div.callout-Results.callout-titled .callout-icon::before {
+  content: '📊';
   background-image: none;
 }
 </style>
@@ -476,12 +476,12 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p>The package list is the one used for the published analysis:</p>
 <ul>
-<li><strong>Data import and management:</strong> <code>readxl</code> reads the Excel workbook; <code>tidyverse</code> (including <code>stringr</code>) handles cleaning and reshaping<span class="citation" data-cites="wickham2019tidyverse"><sup><a href="#ref-wickham2019tidyverse" role="doc-biblioref">1</a></sup></span>; <code>haven</code> supplies <code>as_factor()</code>, used to turn categorical variables into factors.</li>
-<li><strong>Tables:</strong> <code>gtsummary</code> builds Table 1 and the regression tables<span class="citation" data-cites="sjoberg2021gtsummary"><sup><a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">2</a></sup></span>; <code>bstfun</code> adds the inline forest plots to those tables; <code>flextable</code> formats the PCA eigenvalue table.</li>
-<li><strong>Figures:</strong> <code>ggplot2</code>, <code>ggbeeswarm</code> (quasirandom points) and <code>ggpubr</code> (Wilcoxon p-values on the plot); <code>corrplot</code> for correlation matrices.</li>
-<li><strong>Modeling:</strong> <code>broom</code> (attached, but not called directly by the scripts); <code>pROC</code> for ROC curves and AUC confidence intervals<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">3</a></sup></span>; <code>cutpointr</code> for optimal titer cutpoints<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">4</a></sup></span>; <code>factoextra</code> for PCA eigenvalues and plots.</li>
+<li><strong>Data import and management:</strong> <a href="https://readxl.tidyverse.org/">{readxl}</a> reads the Excel workbook; <a href="https://www.tidyverse.org/">{tidyverse}</a> (including <a href="https://stringr.tidyverse.org/">{stringr}</a>) handles cleaning and reshaping<span class="citation" data-cites="wickham2019tidyverse"><sup><a href="#ref-wickham2019tidyverse" role="doc-biblioref">1</a></sup></span>; <a href="https://haven.tidyverse.org/">{haven}</a> supplies <code>as_factor()</code>, used to turn categorical variables into factors.</li>
+<li><strong>Tables:</strong> <a href="https://www.danieldsjoberg.com/gtsummary/">{gtsummary}</a> builds Table 1 and the regression tables<span class="citation" data-cites="sjoberg2021gtsummary"><sup><a href="#ref-sjoberg2021gtsummary" role="doc-biblioref">2</a></sup></span>; <a href="https://github.com/MSKCC-Epi-Bio/bstfun">{bstfun}</a> adds the inline forest plots to those tables; <a href="https://davidgohel.github.io/flextable/">{flextable}</a> formats the PCA eigenvalue table.</li>
+<li><strong>Figures:</strong> <a href="https://ggplot2.tidyverse.org/">{ggplot2}</a>, <a href="https://CRAN.R-project.org/package=ggbeeswarm">{ggbeeswarm}</a> (quasirandom points) and <a href="https://CRAN.R-project.org/package=ggpubr">{ggpubr}</a> (Wilcoxon p-values on the plot); <a href="https://CRAN.R-project.org/package=corrplot">{corrplot}</a> for correlation matrices.</li>
+<li><strong>Modeling:</strong> <a href="https://broom.tidymodels.org/">{broom}</a> (attached, but not called directly by the scripts); <a href="https://CRAN.R-project.org/package=pROC">{pROC}</a> for ROC curves and AUC confidence intervals<span class="citation" data-cites="robin2011proc"><sup><a href="#ref-robin2011proc" role="doc-biblioref">3</a></sup></span>; <a href="https://CRAN.R-project.org/package=cutpointr">{cutpointr}</a> for optimal titer cutpoints<span class="citation" data-cites="thiele2021cutpointr"><sup><a href="#ref-thiele2021cutpointr" role="doc-biblioref">4</a></sup></span>; <a href="https://CRAN.R-project.org/package=factoextra">{factoextra}</a> for PCA eigenvalues and plots.</li>
 </ul>
-<p><code>bstfun</code> is not on CRAN; install it from GitHub with <code>remotes::install_github("MSKCC-Epi-Bio/bstfun")</code>.</p>
+<p>{bstfun} is not on CRAN; install it from GitHub with <code>remotes::install_github("MSKCC-Epi-Bio/bstfun")</code>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Click to show/hide R Code</summary>
@@ -1079,12 +1079,12 @@ div.callout-Rcode.callout-style-default .callout-icon::before, div.callout-Rcode
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>The package list is the one used for the published analysis:</span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Data import and management:** <span class="in">`readxl`</span> reads the Excel workbook; <span class="in">`tidyverse`</span> (including <span class="in">`stringr`</span>) handles cleaning and reshaping <span class="co">[</span><span class="ot">@wickham2019tidyverse</span><span class="co">]</span>; <span class="in">`haven`</span> supplies <span class="in">`as_factor()`</span>, used to turn categorical variables into factors.</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Tables:** <span class="in">`gtsummary`</span> builds Table 1 and the regression tables <span class="co">[</span><span class="ot">@sjoberg2021gtsummary</span><span class="co">]</span>; <span class="in">`bstfun`</span> adds the inline forest plots to those tables; <span class="in">`flextable`</span> formats the PCA eigenvalue table.</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Figures:** <span class="in">`ggplot2`</span>, <span class="in">`ggbeeswarm`</span> (quasirandom points) and <span class="in">`ggpubr`</span> (Wilcoxon p-values on the plot); <span class="in">`corrplot`</span> for correlation matrices.</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Modeling:** <span class="in">`broom`</span> (attached, but not called directly by the scripts); <span class="in">`pROC`</span> for ROC curves and AUC confidence intervals <span class="co">[</span><span class="ot">@robin2011proc</span><span class="co">]</span>; <span class="in">`cutpointr`</span> for optimal titer cutpoints <span class="co">[</span><span class="ot">@thiele2021cutpointr</span><span class="co">]</span>; <span class="in">`factoextra`</span> for PCA eigenvalues and plots.</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Data import and management:** <span class="co">[</span><span class="ot">{readxl}</span><span class="co">](https://readxl.tidyverse.org/)</span> reads the Excel workbook; <span class="co">[</span><span class="ot">{tidyverse}</span><span class="co">](https://www.tidyverse.org/)</span> (including <span class="co">[</span><span class="ot">{stringr}</span><span class="co">](https://stringr.tidyverse.org/)</span>) handles cleaning and reshaping <span class="co">[</span><span class="ot">@wickham2019tidyverse</span><span class="co">]</span>; <span class="co">[</span><span class="ot">{haven}</span><span class="co">](https://haven.tidyverse.org/)</span> supplies <span class="in">`as_factor()`</span>, used to turn categorical variables into factors.</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Tables:** <span class="co">[</span><span class="ot">{gtsummary}</span><span class="co">](https://www.danieldsjoberg.com/gtsummary/)</span> builds Table 1 and the regression tables <span class="co">[</span><span class="ot">@sjoberg2021gtsummary</span><span class="co">]</span>; <span class="co">[</span><span class="ot">{bstfun}</span><span class="co">](https://github.com/MSKCC-Epi-Bio/bstfun)</span> adds the inline forest plots to those tables; <span class="co">[</span><span class="ot">{flextable}</span><span class="co">](https://davidgohel.github.io/flextable/)</span> formats the PCA eigenvalue table.</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Figures:** <span class="co">[</span><span class="ot">{ggplot2}</span><span class="co">](https://ggplot2.tidyverse.org/)</span>, <span class="co">[</span><span class="ot">{ggbeeswarm}</span><span class="co">](https://CRAN.R-project.org/package=ggbeeswarm)</span> (quasirandom points) and <span class="co">[</span><span class="ot">{ggpubr}</span><span class="co">](https://CRAN.R-project.org/package=ggpubr)</span> (Wilcoxon p-values on the plot); <span class="co">[</span><span class="ot">{corrplot}</span><span class="co">](https://CRAN.R-project.org/package=corrplot)</span> for correlation matrices.</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Modeling:** <span class="co">[</span><span class="ot">{broom}</span><span class="co">](https://broom.tidymodels.org/)</span> (attached, but not called directly by the scripts); <span class="co">[</span><span class="ot">{pROC}</span><span class="co">](https://CRAN.R-project.org/package=pROC)</span> for ROC curves and AUC confidence intervals <span class="co">[</span><span class="ot">@robin2011proc</span><span class="co">]</span>; <span class="co">[</span><span class="ot">{cutpointr}</span><span class="co">](https://CRAN.R-project.org/package=cutpointr)</span> for optimal titer cutpoints <span class="co">[</span><span class="ot">@thiele2021cutpointr</span><span class="co">]</span>; <span class="co">[</span><span class="ot">{factoextra}</span><span class="co">](https://CRAN.R-project.org/package=factoextra)</span> for PCA eigenvalues and plots.</span>
 <span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="in">`bstfun`</span> is not on CRAN; install it from GitHub with <span class="in">`remotes::install_github("MSKCC-Epi-Bio/bstfun")`</span>.</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>{bstfun} is not on CRAN; install it from GitHub with <span class="in">`remotes::install_github("MSKCC-Epi-Bio/bstfun")`</span>.</span>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: load-packages</span></span>
