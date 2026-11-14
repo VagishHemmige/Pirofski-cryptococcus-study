@@ -83,7 +83,7 @@ Model 1 is the paper's main multivariable model. Model 2 checks that the higher 
 
 ## ROC curves and AUC confidence intervals
 
-ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals, computed with pROC [@robin2011proc]: DeLong's analytic method [@delong1988] and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.
+ROC curves for models 1 and 2, as reported in the paper. Each AUC gets two 95% confidence intervals, computed with [{pROC}](https://CRAN.R-project.org/package=pROC) [@robin2011proc]: DeLong's analytic method [@delong1988] and a bootstrap. The bootstrap resamples at random, so its limits can differ slightly between runs.
 
 ```{r}
 #| label: roc-log-titer-models

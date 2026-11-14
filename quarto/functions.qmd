@@ -26,7 +26,7 @@ knitr::read_chunk("../R/functions.R")
 
 ## Save a gtsummary table
 
-Converts any `gtsummary` table (Table 1, regression and merged tables) to a `gt` table and saves it as a self-contained HTML file. Used by [Tables](tables.qmd).
+Converts any [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) table (Table 1, regression and merged tables) to a [{gt}](https://gt.rstudio.com/) table and saves it as a self-contained HTML file. Used by [Tables](tables.qmd).
 
 ```{r}
 #| label: save-gtsummary-html
@@ -35,7 +35,7 @@ Converts any `gtsummary` table (Table 1, regression and merged tables) to a `gt`
 
 ## Relabel a table for display
 
-Replaces variable names and category codes in a gtsummary table with the readable labels defined in [Setup](setup.qmd), by editing only the table's label column. Estimates, confidence intervals, p-values, reference categories and row order are unchanged; variables or categories without a display label are left as they are. Used by [Tables](tables.qmd) just before each gtsummary table is saved.
+Replaces variable names and category codes in a {gtsummary} table with the readable labels defined in [Setup](setup.qmd), by editing only the table's label column. Estimates, confidence intervals, p-values, reference categories and row order are unchanged; variables or categories without a display label are left as they are. Used by [Tables](tables.qmd) just before each {gtsummary} table is saved.
 
 ```{r}
 #| label: relabel-table
@@ -44,7 +44,7 @@ Replaces variable names and category codes in a gtsummary table with the readabl
 
 ## Save a data frame as a table
 
-Formats a data frame with `flextable` and saves it as HTML. Used for the AUC confidence intervals and optimal cutpoints.
+Formats a data frame with [{flextable}](https://davidgohel.github.io/flextable/) and saves it as HTML. Used for the AUC confidence intervals and optimal cutpoints.
 
 ```{r}
 #| label: save-flextable-html
@@ -53,7 +53,7 @@ Formats a data frame with `flextable` and saves it as HTML. Used for the AUC con
 
 ## Summarize an optimal cutpoint
 
-Takes one `cutpointr` result from [Regression, ROC and cutpoints](modeling.qmd) and returns one row: the optimal cutpoint and its sensitivity, specificity, positive and negative predictive value, and AUC. Nothing is recomputed; the values are read from the `cutpointr` object.
+Takes one [{cutpointr}](https://CRAN.R-project.org/package=cutpointr) result from [Regression, ROC and cutpoints](modeling.qmd) and returns one row: the optimal cutpoint and its sensitivity, specificity, positive and negative predictive value, and AUC. Nothing is recomputed; the values are read from the {cutpointr} object.
 
 ```{r}
 #| label: summarise-cutpoint

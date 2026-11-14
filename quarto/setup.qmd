@@ -24,12 +24,12 @@ knitr::read_chunk("../R/setup.R")
 
 The package list is the one used for the published analysis:
 
--   **Data import and management:** `readxl` reads the Excel workbook; `tidyverse` (including `stringr`) handles cleaning and reshaping [@wickham2019tidyverse]; `haven` supplies `as_factor()`, used to turn categorical variables into factors.
--   **Tables:** `gtsummary` builds Table 1 and the regression tables [@sjoberg2021gtsummary]; `bstfun` adds the inline forest plots to those tables; `flextable` formats the PCA eigenvalue table.
--   **Figures:** `ggplot2`, `ggbeeswarm` (quasirandom points) and `ggpubr` (Wilcoxon p-values on the plot); `corrplot` for correlation matrices.
--   **Modeling:** `broom` (attached, but not called directly by the scripts); `pROC` for ROC curves and AUC confidence intervals [@robin2011proc]; `cutpointr` for optimal titer cutpoints [@thiele2021cutpointr]; `factoextra` for PCA eigenvalues and plots.
+-   **Data import and management:** [{readxl}](https://readxl.tidyverse.org/) reads the Excel workbook; [{tidyverse}](https://www.tidyverse.org/) (including [{stringr}](https://stringr.tidyverse.org/)) handles cleaning and reshaping [@wickham2019tidyverse]; [{haven}](https://haven.tidyverse.org/) supplies `as_factor()`, used to turn categorical variables into factors.
+-   **Tables:** [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) builds Table 1 and the regression tables [@sjoberg2021gtsummary]; [{bstfun}](https://github.com/MSKCC-Epi-Bio/bstfun) adds the inline forest plots to those tables; [{flextable}](https://davidgohel.github.io/flextable/) formats the PCA eigenvalue table.
+-   **Figures:** [{ggplot2}](https://ggplot2.tidyverse.org/), [{ggbeeswarm}](https://CRAN.R-project.org/package=ggbeeswarm) (quasirandom points) and [{ggpubr}](https://CRAN.R-project.org/package=ggpubr) (Wilcoxon p-values on the plot); [{corrplot}](https://CRAN.R-project.org/package=corrplot) for correlation matrices.
+-   **Modeling:** [{broom}](https://broom.tidymodels.org/) (attached, but not called directly by the scripts); [{pROC}](https://CRAN.R-project.org/package=pROC) for ROC curves and AUC confidence intervals [@robin2011proc]; [{cutpointr}](https://CRAN.R-project.org/package=cutpointr) for optimal titer cutpoints [@thiele2021cutpointr]; [{factoextra}](https://CRAN.R-project.org/package=factoextra) for PCA eigenvalues and plots.
 
-`bstfun` is not on CRAN; install it from GitHub with `remotes::install_github("MSKCC-Epi-Bio/bstfun")`.
+{bstfun} is not on CRAN; install it from GitHub with `remotes::install_github("MSKCC-Epi-Bio/bstfun")`.
 
 ```{r}
 #| label: load-packages

@@ -38,11 +38,11 @@ A model's predicted probabilities can be used to sort people into likely cases a
 
 The area under the ROC curve (AUC) summarizes discrimination in one number: the probability that a randomly chosen case has a higher predicted probability than a randomly chosen control [@hanley1982auc]. An AUC of 0.5 is no better than chance; 1.0 is perfect separation. An AUC computed on the same data used to fit the model describes apparent, or in-sample, discrimination; performance in new patients is assessed in separate validation data.
 
-A confidence interval for an AUC can be computed in two common ways. DeLong's method uses a formula based on how each case compares with each control [@delong1988]. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The pROC package for R provides both [@robin2011proc].
+A confidence interval for an AUC can be computed in two common ways. DeLong's method uses a formula based on how each case compares with each control [@delong1988]. The bootstrap resamples the participants many times, recomputes the AUC in each resample, and takes the middle 95% of the results. The [{pROC}](https://CRAN.R-project.org/package=pROC) package for R provides both [@robin2011proc].
 
 ## Optimal cutpoints
 
-For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight [@youden1950]. The cutpointr package for R finds this cutpoint [@thiele2021cutpointr].
+For a single measurement such as an antibody titer, a cutpoint turns the continuous value into a positive or negative result. Each possible cutpoint gives a different balance of sensitivity and specificity. A common choice is the cutpoint that maximizes the Youden index, sensitivity + specificity − 1, which gives sensitivity and specificity equal weight [@youden1950]. The [{cutpointr}](https://CRAN.R-project.org/package=cutpointr) package for R finds this cutpoint [@thiele2021cutpointr].
 
 At the chosen cutpoint, four measures describe performance:
 

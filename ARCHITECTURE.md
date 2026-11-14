@@ -67,10 +67,10 @@ Scripts are listed in the order `R/main.R` sources them. Each script's header co
 **Location**: `R/functions.R`
 
 **Key symbols**:
-- `save_gtsummary_html()`: saves a gtsummary table as HTML via gt.
-- `relabel_table()`: rewrites only the label column of a gtsummary table, replacing variable names on label rows and category codes on level rows; anything without a display label is left as it is.
-- `save_flextable_html()`: saves a data frame as an HTML flextable.
-- `summarise_cutpoint()`: one row per cutpointr result.
+- `save_gtsummary_html()`: saves a [{gtsummary}](https://www.danieldsjoberg.com/gtsummary/) table as HTML via gt.
+- `relabel_table()`: rewrites only the label column of a {gtsummary} table, replacing variable names on label rows and category codes on level rows; anything without a display label is left as it is.
+- `save_flextable_html()`: saves a data frame as an HTML [{flextable}](https://davidgohel.github.io/flextable/).
+- `summarise_cutpoint()`: one row per [{cutpointr}](https://CRAN.R-project.org/package=cutpointr) result.
 - `summarise_auc_ci()`: one row per ROC curve, with DeLong and bootstrap intervals.
 
 **Interactions**: Used only by `R/tables.R`.
@@ -97,7 +97,7 @@ Scripts are listed in the order `R/main.R` sources them. Each script's header co
 
 **Key symbols**:
 - Models: `mvtitermodel1`, `mvlogtitermodel1`–`mvlogtitermodel4`.
-- gtsummary tables: `regression_table_titer`, `regression_table_logtiter_1`, `regression_table_logtiter_2`, `sensitivity_table_log_lam_igm`, `sensitivity_table_log_gxm_igm`.
+- {gtsummary} tables: `regression_table_titer`, `regression_table_logtiter_1`, `regression_table_logtiter_2`, `sensitivity_table_log_lam_igm`, `sensitivity_table_log_gxm_igm`.
 - ROC objects: `titer_roc`, `logtiter_roc1`, `logtiter_roc2`.
 - AUC intervals: `auc_ci_logtiter1_*`, `auc_ci_logtiter2_*`.
 - Cutpoints: `cutpoint_gxm_igm`, `cutpoint_log_gxm_igm`, `cutpoint_lam_igm`, `cutpoint_log_lam_igm`.
@@ -123,7 +123,7 @@ Scripts are listed in the order `R/main.R` sources them. Each script's header co
 **Key symbols**: `table1_all`, `table1_no_missing_titers`, `pca_eigenvalue_table`, `auc_ci_summary`, `cutpoint_summary`. Chunk `export-tables` writes the HTML files.
 
 **Interactions**:
-- Each gtsummary table is passed through `relabel_table()` with the display labels from Setup at the moment it is saved. The table objects in memory keep the original names.
+- Each {gtsummary} table is passed through `relabel_table()` with the display labels from Setup at the moment it is saved. The table objects in memory keep the original names.
 - The AUC, cutpoint and eigenvalue tables are saved as flextables without relabeling; their labels are written in the code.
 - `crag_titer_counts` and `crag_result_counts` are computed for internal checking only and are never exported, because they contain single-patient cells.
 
@@ -164,7 +164,7 @@ Scripts are listed in the order `R/main.R` sources them. Each script's header co
 1. `R/import_clean.R` reads the workbook (sheet `Data`) into `RawData`.
 2. Cleaning produces `CleanData` (23 cases, 21 controls) and the complete-antibody subset `CleanData_NoMissingTiters`.
 3. `R/modeling.R` fits models on `CleanData`; complete-case handling is left to `glm`. `R/pca.R` works on the complete-antibody subset.
-4. `R/tables.R` relabels the gtsummary tables for display and saves them, with the other tables, to `tables/`. `R/figures.R` saves the figures to `figures/`.
+4. `R/tables.R` relabels the {gtsummary} tables for display and saves them, with the other tables, to `tables/`. `R/figures.R` saves the figures to `figures/`.
 5. An authorized person reviews those outputs, previews the site with `quarto render`, and commits `tables/` and `figures/`; GitHub Actions publishes the site when the change reaches `master`. The Results page then reads the saved tables into the page.
 
 No intermediate objects are saved to disk. Every run starts from the workbook in a fresh R session.
@@ -181,7 +181,7 @@ No intermediate objects are saved to disk. Every run starts from the workbook in
 | Citation style | `_quarto.yml` (`csl`), `american-medical-association.csl` | AMA; titles are set in sentence case, so proper nouns in `references.bib` titles are braced |
 | Reader comments | `_quarto.yml` (`issue-comments:` block) | Relay endpoint, contact and passcode; requires the relay's GitHub App on this repository |
 | Site publishing | `.github/workflows/publish.yml` | Quarto version pinned; renders on pull requests, publishes to `gh-pages` on push to `master` |
-| Package installation | `R/setup.R`, README | `bstfun` is installed from GitHub; package versions are not pinned |
+| Package installation | `R/setup.R`, README | [{bstfun}](https://github.com/MSKCC-Epi-Bio/bstfun) is installed from GitHub; package versions are not pinned |
 
 ## Code References
 

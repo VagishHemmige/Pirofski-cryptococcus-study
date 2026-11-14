@@ -44,7 +44,7 @@ access:
 
 1.  Put the study workbook in `data-raw/` (ignored by Git), or change
     `raw_data_path` in `R/setup.R`.
-2.  Install the packages attached in `R/setup.R`. `bstfun` is installed
+2.  Install the packages attached in `R/setup.R`. [{bstfun}](https://github.com/MSKCC-Epi-Bio/bstfun) is installed
     from GitHub: `remotes::install_github("MSKCC-Epi-Bio/bstfun")`.
 3.  Run `R/main.R` from the project root in a fresh R session. Tables
     are written to `tables/` and figures to `figures/`.
